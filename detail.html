@@ -93,6 +93,148 @@
       --filter-pill-bg: #FFFFFF;
     }
 
+    /* ========================================================================= */
+    /* HOCHKONTRAST & ACCESSIBILITY REGELN FÜR DEN HELLEN MODUS (THEME-LIGHT)    */
+    /* ========================================================================= */
+    body.theme-light {
+      color: #0F172A;
+    }
+
+    /* 1. Primärtexte: text-white & text-slate-200 werden zu tiefem, satten Slate-900 */
+    body.theme-light .text-white {
+      color: #0F172A !important;
+    }
+    body.theme-light .text-slate-100,
+    body.theme-light .text-slate-200,
+    body.theme-light .text-gray-100,
+    body.theme-light .text-gray-200 {
+      color: #0F172A !important;
+    }
+
+    /* 2. Fließtexte & Beschreibungen: text-gray-300 / text-slate-300 zu kontraststarkem Slate-700 (> 8.5:1) */
+    body.theme-light .text-gray-300,
+    body.theme-light .text-slate-300 {
+      color: #334155 !important;
+    }
+
+    /* 3. Muted-Labels, Nebentexte & Durchstreichpreise: text-gray-400 / text-slate-400 zu Slate-600 (> 5.5:1) */
+    body.theme-light .text-gray-400,
+    body.theme-light .text-slate-400,
+    body.theme-light .text-gray-500,
+    body.theme-light .text-slate-500 {
+      color: #475569 !important;
+    }
+
+    /* 4. Graue Inset-Flächen, Boxen & Wells (bg-black/10 bis bg-black/40) zu edlem Slate-50/100 */
+    body.theme-light .bg-black\/5,
+    body.theme-light .bg-black\/10,
+    body.theme-light .bg-black\/20,
+    body.theme-light .bg-black\/25,
+    body.theme-light .bg-black\/30,
+    body.theme-light .bg-black\/40 {
+      background-color: #F8FAFC !important;
+      border: 1px solid #E2E8F0 !important;
+    }
+
+    /* 5. Transparente weiße Badges & Pills (bg-white/5, bg-white/10) zu sauberen Pills */
+    body.theme-light .bg-white\/5,
+    body.theme-light .bg-white\/10,
+    body.theme-light .bg-white\/15,
+    body.theme-light .bg-white\/20 {
+      background-color: #FFFFFF !important;
+      border: 1px solid #CBD5E1 !important;
+    }
+
+    /* 6. Weiße Rahmenlinien werden zu dezenten Slate-200 Kanten */
+    body.theme-light .border-white\/5,
+    body.theme-light .border-white\/10,
+    body.theme-light .border-white\/15,
+    body.theme-light .border-white\/20 {
+      border-color: #E2E8F0 !important;
+    }
+
+    /* 7. Hover-Effekte auf hellen Zeilen und Buttons */
+    body.theme-light .hover\:bg-white\/5:hover,
+    body.theme-light .hover\:bg-white\/10:hover,
+    body.theme-light .hover\:bg-white\/20:hover,
+    body.theme-light .hover\:bg-black\/5:hover,
+    body.theme-light .hover\:bg-black\/10:hover {
+      background-color: #F1F5F9 !important;
+    }
+
+    /* 8. AUSNAHMEN: Text auf Brand-Orange & dunklen Bild-Overlays MUSS weiß bleiben */
+    body.theme-light .bg-brand-orange,
+    body.theme-light .bg-brand-orange *,
+    body.theme-light .bg-brand-orangeHover,
+    body.theme-light .bg-brand-orangeHover *,
+    body.theme-light [class*="bg-brand-orange"],
+    body.theme-light [class*="bg-brand-orange"] *,
+    body.theme-light .bg-emerald-600,
+    body.theme-light .bg-emerald-600 *,
+    body.theme-light .bg-gray-700,
+    body.theme-light .bg-gray-700 *,
+    body.theme-light [class*="bg-gray-950"],
+    body.theme-light [class*="bg-gray-950"] *,
+    body.theme-light [class*="bg-black/70"],
+    body.theme-light [class*="bg-black/70"] *,
+    body.theme-light [class*="bg-black/80"],
+    body.theme-light [class*="bg-black/80"] *,
+    body.theme-light .from-stone-900,
+    body.theme-light .from-stone-900 * {
+      color: #FFFFFF !important;
+    }
+
+    /* 9. Live-Lieferzeit Badge (#delTime) im hellen Modus */
+    body.theme-light #delTime {
+      background-color: #FFFFFF !important;
+      border: 1px solid #CBD5E1 !important;
+      color: #0F172A !important;
+    }
+
+    /* 10. Formulare & Inputs in Modals & Seiten */
+    body.theme-light input:not(#ammount),
+    body.theme-light select,
+    body.theme-light textarea {
+      background-color: #FFFFFF !important;
+      color: #0F172A !important;
+      border: 1px solid #CBD5E1 !important;
+    }
+    body.theme-light input#ammount {
+      background-color: transparent !important;
+      border: none !important;
+      color: #0F172A !important;
+    }
+    body.theme-light input::placeholder {
+      color: #94A3B8 !important;
+    }
+
+    /* 11. Checkboxen im hellen Modus */
+    body.theme-light input[type="checkbox"] {
+      background-color: #FFFFFF !important;
+      border: 1px solid #CBD5E1 !important;
+    }
+
+    /* 12. Floating Theme Switcher Leiste bleibt dunkel und exzellent bedienbar */
+    body.theme-light .fixed.bottom-6.left-6 .bg-gray-900\/90 {
+      background-color: rgba(15, 23, 42, 0.92) !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    }
+    body.theme-light #btnDarkTheme {
+      color: #CBD5E1 !important;
+    }
+    body.theme-light #btnDarkTheme:hover {
+      color: #FFFFFF !important;
+    }
+    body.theme-light #btnLightTheme {
+      background-color: #FF6600 !important;
+      color: #FFFFFF !important;
+    }
+
+    /* 13. Tabs Hover */
+    body.theme-light .detail-tab-btn:hover {
+      color: #0F172A !important;
+    }
+
     /* Mobile Overflow Guard: Verhindert jedes seitliche Wackeln auf Smartphones ohne position: sticky zu stören */
     html, body {
       overflow-x: clip;
