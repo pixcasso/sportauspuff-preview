@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Ragazzon Duplex Klappenauspuffanlage ab OPF | Audi RS6 Avant (C8) | Sportauspuff-Günstiger.de</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Barlow Condensed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#FF6600',
+              orangeHover: '#E55B00',
+              orangeBright: '#FF7A1A',
+              orangeLight: '#FFF4ED'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            racing: ['"Barlow Condensed"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* CSS Variables für den nahtlosen Live-Theme-Wechsel (Dark & Light) */
+    :root {
+      --tier1-bg: #090B10;
+      --tier1-text: #94A3B8;
+      --tier2-bg: #12151E;
+      --tier3-bg: #0D1017;
+      --tier3-text: #CBD5E1;
+      --logo-text: #FFFFFF;
+      --search-bg: #1D2230;
+      --search-text: #FFFFFF;
+      --car-pill-bg: #1A1E2B;
+      --car-pill-text: #FFFFFF;
+      --page-bg: #0A0D14;
+      --panel-bg: #121622;
+      --panel-card: #171C2B;
+      --panel-border: rgba(255, 255, 255, 0.08);
+      --text-main: #FFFFFF;
+      --text-muted: #94A3B8;
+      --badge-bg: rgba(255, 102, 0, 0.12);
+      --badge-text: #FF7A1A;
+      --filter-bar-bg: #101420;
+
+      /* DIE ZARTE EDLE KONTRÄRFARBE ZUM ORANGE (Deep Petrol-Slate) - BORDERLESS */
+      --filter-block-bg: linear-gradient(150deg, rgba(16, 28, 48, 0.95) 0%, rgba(10, 18, 34, 0.98) 100%);
+      --filter-block-border: transparent;
+      --filter-block-shadow: 0 20px 40px -15px rgba(2, 6, 23, 0.7);
+      --filter-input-bg: #0B1322;
+      --filter-pill-bg: #0E182A;
+    }
+
+    body.theme-light {
+      --tier1-bg: #F8FAFC;
+      --tier1-text: #64748B;
+      --tier2-bg: #FFFFFF;
+      --tier3-bg: #FFFFFF;
+      --tier3-text: #334155;
+      --logo-text: #0F172A;
+      --search-bg: #F1F5F9;
+      --search-text: #0F172A;
+      --car-pill-bg: #F1F5F9;
+      --car-pill-text: #0F172A;
+      --page-bg: #F8FAFC;
+      --panel-bg: #FFFFFF;
+      --panel-card: #FFFFFF;
+      --panel-border: rgba(0, 0, 0, 0.08);
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+      --badge-bg: #FFF4ED;
+      --badge-text: #E55B00;
+      --filter-bar-bg: #FFFFFF;
+
+      --filter-block-bg: linear-gradient(150deg, #EDF4FA 0%, #E3EDF6 100%);
+      --filter-block-border: transparent;
+      --filter-block-shadow: 0 14px 32px -10px rgba(15, 23, 42, 0.06);
+      --filter-input-bg: #FFFFFF;
+      --filter-pill-bg: #FFFFFF;
+    }
+
+    /* Mobile Overflow Guard: Verhindert jedes seitliche Wackeln auf Smartphones ohne position: sticky zu stören */
+    html, body {
+      overflow-x: clip;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0A0B0E; }
+    ::-webkit-scrollbar-thumb { background: #282C38; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #FF6600; }
+
+    /* Equalizer Animation im Audio-Modal */
+    @keyframes eqBar {
+      0%, 100% { height: 4px; }
+      50% { height: 26px; }
+    }
+    .eq-bar-1 { animation: eqBar 0.8s ease-in-out infinite 0.1s; }
+    .eq-bar-2 { animation: eqBar 0.9s ease-in-out infinite 0.3s; }
+    .eq-bar-3 { animation: eqBar 0.7s ease-in-out infinite 0.2s; }
+    .eq-bar-4 { animation: eqBar 1.1s ease-in-out infinite 0.4s; }
+    .eq-bar-5 { animation: eqBar 0.85s ease-in-out infinite 0.15s; }
+    .eq-bar-6 { animation: eqBar 0.95s ease-in-out infinite 0.35s; }
+  </style>
+</head>
+<body id="appBody" style="background-color: var(--page-bg); color: var(--text-main);" class="font-sans antialiased selection:bg-brand-orange selection:text-white transition-colors duration-300 min-h-screen flex flex-col pb-20 lg:pb-0">
+
+  <!-- ========================================================================= -->
+  <!-- FLOATING THEME-SWITCHER (DESKTOP ONLY - AUF MOBILE IM HEADER / DRAWER)     -->
+  <!-- ========================================================================= -->
+  <div class="hidden md:flex fixed bottom-6 left-6 z-50">
+    <div class="bg-gray-900/90 backdrop-blur-md p-1.5 rounded-2xl border border-white/20 shadow-2xl flex items-center space-x-1">
+      <button 
+        id="btnDarkTheme" 
+        onclick="setTheme('dark')" 
+        class="px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow"
+      >
+        <span>🏎️ Dark (Performance)</span>
+      </button>
+      <button 
+        id="btnLightTheme" 
+        onclick="setTheme('light')" 
+        class="px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10"
+      >
+        <span>☀️ Hell (Präzision)</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 1. TOP UTILITY BAR                                                        -->
+  <!-- ========================================================================= -->
+  <header style="background-color: var(--tier1-bg); color: var(--tier1-text);" class="w-full text-xs transition-colors duration-300 border-b border-black/10">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 h-9 sm:h-10 flex items-center justify-between">
+      
+      <!-- Links: Bewertung & Telefon-Hotline -->
+      <div class="flex items-center space-x-4 sm:space-x-8">
+        <div class="flex items-center space-x-1.5 sm:space-x-2">
+          <div class="flex text-amber-400 text-[11px] sm:text-xs">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <span class="font-bold text-xs" style="color: var(--logo-text);">4.9 / 5.0</span>
+          <span class="hidden sm:inline text-gray-400">(12.000+ Reviews)</span>
+        </div>
+
+        <div class="hidden md:flex items-center space-x-2">
+          <i class="fa-solid fa-phone text-brand-orange"></i>
+          <span>Kfz-Fachberatung: <strong class="hover:text-brand-orange transition cursor-pointer text-xs" style="color: var(--logo-text);">+49 (0) 371 64 63 87 55</strong></span>
+        </div>
+      </div>
+
+      <!-- Rechts: USPs & FAQ -->
+      <div class="flex items-center space-x-3 sm:space-x-6 text-[11px] sm:text-xs">
+        <span class="flex items-center space-x-1.5 text-emerald-400 font-medium">
+          <i class="fa-solid fa-truck-fast"></i>
+          <span>Gratis Versand <span class="hidden sm:inline">ab 100 €</span></span>
+        </span>
+        <span class="opacity-40 hidden sm:inline">•</span>
+        <span class="hidden lg:flex items-center space-x-1.5">
+          <i class="fa-solid fa-certificate text-brand-orange"></i>
+          <span>100% ECE eintragungsfrei</span>
+        </span>
+        <span class="opacity-40 hidden lg:inline">•</span>
+        <a href="index.html#hilfe" class="hover:text-brand-orange transition flex items-center space-x-1 opacity-80 hover:opacity-100">
+          <i class="fa-regular fa-circle-question"></i>
+          <span>Hilfe</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 2. MAIN HEADER (Sticky & Mobil-Optimiert)                                  -->
+  <!-- ========================================================================= -->
+  <div style="background-color: var(--tier2-bg);" class="sticky top-0 z-50 shadow-md transition-colors duration-300">
+    <div class="max-w-[1600px] mx-auto px-3 sm:px-8 lg:px-12">
+      <div class="h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4 lg:gap-8">
+
+        <!-- Links: Burger & Logo -->
+        <div class="flex items-center space-x-1 sm:space-x-3 min-w-0">
+          <button id="mobileMenuBtn" onclick="toggleMobileDrawer()" style="color: var(--logo-text);" class="lg:hidden p-1.5 rounded-lg hover:bg-black/5 flex-shrink-0" aria-label="Menü öffnen">
+            <i id="mobileMenuIcon" class="fa-solid fa-bars text-lg sm:text-xl"></i>
+          </button>
+
+          <!-- Brand Logo -->
+          <a href="index.html" class="flex items-center group flex-shrink-0">
+            <div class="flex items-center tracking-tight">
+              <span style="color: var(--logo-text);" class="font-racing font-extrabold text-base sm:text-3xl lg:text-4xl uppercase tracking-wider italic transition">
+                sportauspuff
+              </span>
+              <span class="font-racing font-extrabold text-[11px] sm:text-2xl lg:text-3xl uppercase tracking-wider bg-brand-orange text-white px-1 sm:px-2 py-0.5 rounded ml-1 italic group-hover:bg-brand-orangeHover transition shadow-md">
+                -günstiger.de
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop Suche -->
+        <div class="flex-1 max-w-2xl hidden md:block">
+          <form id="searchForm" action="suche.html" method="POST" class="relative">
+            <input 
+              type="text" 
+              id="search_keys"
+              name="search_keys"
+              style="background-color: var(--search-bg); color: var(--search-text);" 
+              placeholder="Fahrzeug, Modell, Artikel oder Motorcode suchen..." 
+              value="Ragazzon RS6 C8"
+              class="w-full text-sm font-medium rounded-full pl-12 pr-28 py-3.5 border-0 focus:ring-2 focus:ring-brand-orange/40 focus:outline-none transition shadow-sm placeholder:text-gray-400"
+            >
+            <div class="absolute inset-y-0 left-0 pl-4.5 flex items-center pointer-events-none text-brand-orange text-base">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <button type="submit" name="send" class="absolute inset-y-1.5 right-1.5 px-5 bg-brand-orange hover:bg-brand-orangeHover text-white text-xs font-racing font-bold uppercase tracking-wider rounded-full transition shadow-sm flex items-center space-x-1.5">
+              <span>Suchen</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Rechte Aktionen -->
+        <div class="flex items-center space-x-1 sm:space-x-4 flex-shrink-0">
+          
+          <!-- Quick Theme Toggle auf Mobile -->
+          <button onclick="toggleThemeQuick()" class="md:hidden p-1.5 text-gray-300 hover:text-white rounded-lg hover:bg-black/10 transition" title="Design wechseln (Dark/Hell)">
+            <span id="themeQuickIcon" class="text-sm">☀️</span>
+          </button>
+
+          <!-- Gewähltes Fahrzeug Pill (Desktop) -->
+          <a href="kategorie.html?brand=Audi&model=RS6" id="headerCarPill" style="background-color: var(--car-pill-bg);" class="hidden lg:flex items-center rounded-xl px-3.5 py-2 cursor-pointer transition group shadow-sm">
+            <div class="w-8 h-8 rounded-lg bg-brand-orange/20 flex items-center justify-center text-brand-orange mr-2.5">
+              <i class="fa-solid fa-car text-sm animate-pulse"></i>
+            </div>
+            <div class="text-left text-xs leading-tight">
+              <div class="text-[10px] uppercase font-bold tracking-wider text-brand-orange flex items-center space-x-1">
+                <span>Passend für:</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              </div>
+              <div id="headerCarLabel" style="color: var(--car-pill-text);" class="font-extrabold group-hover:text-brand-orange transition truncate max-w-[140px] xl:max-w-[170px]">
+                Audi RS6 Avant C8
+              </div>
+            </div>
+          </a>
+
+          <!-- Benutzerkonto -->
+          <a href="#" style="color: var(--logo-text);" class="px-2.5 py-2 rounded-xl hover:bg-black/5 transition hidden sm:flex flex-col items-center opacity-85 hover:opacity-100">
+            <i class="fa-regular fa-user text-base sm:text-lg"></i>
+            <span class="text-[10px] mt-0.5 font-medium">Konto</span>
+          </a>
+
+          <!-- Warenkorb Button -->
+          <a href="#warenkorb" class="flex items-center bg-brand-orange hover:bg-brand-orangeHover text-white rounded-xl p-2 sm:px-4 sm:py-2.5 transition shadow-lg group flex-shrink-0">
+            <div class="relative mr-0 sm:mr-2.5">
+              <i class="fa-solid fa-basket-shopping text-base sm:text-lg"></i>
+              <span id="cartCountBadge" class="absolute -top-2 -right-2 bg-white text-brand-orange text-[10px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center shadow">
+                0
+              </span>
+            </div>
+            <div class="text-left hidden sm:block">
+              <div class="text-[10px] text-orange-100 uppercase font-bold tracking-wider">Warenkorb</div>
+              <div id="cartSumHeader" class="text-xs font-racing font-extrabold text-white tracking-wide">0,00 €</div>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Menu Drawer (Faltmenü direkt unter dem fixierten Header) -->
+    <div id="mobileDrawer" style="background-color: var(--tier2-bg);" class="hidden lg:hidden px-4 py-4 space-y-3 text-sm shadow-2xl transition-all border-t border-white/10 max-h-[calc(100vh-4.5rem)] overflow-y-auto">
+      <!-- Mobile Suchleiste direkt im Drawer -->
+      <div class="relative md:hidden mb-2">
+        <form id="searchForm_mob" action="suche.html" method="POST" class="relative">
+          <input 
+            type="text" 
+            id="search_keys_mob"
+            name="search_keys"
+            style="background-color: var(--search-bg); color: var(--search-text);" 
+            placeholder="Modell oder Artikel suchen..." 
+            class="w-full text-xs font-medium rounded-xl pl-9 pr-20 py-2.5 border-0 focus:ring-2 focus:ring-brand-orange/40 focus:outline-none transition shadow-sm placeholder:text-gray-400"
+          >
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-brand-orange text-xs">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <button type="submit" name="send" class="absolute inset-y-1 right-1 px-3 bg-brand-orange hover:bg-brand-orangeHover text-white text-[11px] font-racing font-bold uppercase rounded-lg transition">
+            Suchen
+          </button>
+        </form>
+      </div>
+
+      <!-- Quick Theme Switcher im Drawer -->
+      <div class="flex items-center justify-between p-2 rounded-xl bg-black/20 text-xs">
+        <span class="text-gray-400 font-bold uppercase">Erscheinungsbild:</span>
+        <div class="flex space-x-1">
+          <button onclick="setTheme('dark')" class="px-2.5 py-1 rounded-lg text-xs font-racing font-bold bg-brand-orange text-white">Dark 🏎️</button>
+          <button onclick="setTheme('light')" class="px-2.5 py-1 rounded-lg text-xs font-racing font-bold bg-white/10 text-gray-300">Hell ☀️</button>
+        </div>
+      </div>
+
+      <div class="font-bold text-xs uppercase tracking-wider text-brand-orange pt-1">Produkt-Kategorien</div>
+      <div class="space-y-1">
+        <a href="kategorie.html" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl font-bold text-brand-orange bg-brand-orange/10">Sportauspuff Komplett</a>
+        <a href="kategorie.html#endschalldaempfer" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Endschalldämpfer</a>
+        <a href="kategorie.html#komplettanlagen" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Komplettanlagen & OPF-Back</a>
+        <a href="kategorie.html#klappen" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Klappenauspuffanlagen</a>
+        <a href="kategorie.html#downpipes" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Downpipes & Kats</a>
+        <a href="kategorie.html#endrohre" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Endrohrblenden</a>
+      </div>
+
+      <!-- Service & Hotline im Drawer -->
+      <div class="pt-2 border-t border-white/10 text-xs space-y-1.5 text-gray-400">
+        <div class="flex items-center space-x-2 text-white">
+          <i class="fa-solid fa-phone text-brand-orange"></i>
+          <span>Hotline: <strong class="text-brand-orange">+49 (0) 371 64 63 87 55</strong></span>
+        </div>
+        <div class="flex items-center space-x-2 text-emerald-400">
+          <i class="fa-solid fa-truck-fast"></i>
+          <span>Kostenloser Versand ab 100 €</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. KATEGORIE-LEISTE (Desktop) -->
+    <nav style="background-color: var(--tier3-bg);" class="hidden lg:block transition-colors duration-300 border-t border-black/5">
+      <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
+        <div style="color: var(--tier3-text);" class="h-12 flex items-center justify-between text-xs font-bold uppercase tracking-wider">
+          <div class="flex h-full items-center space-x-2">
+            <a href="kategorie.html" class="px-4 py-1.5 rounded-lg flex items-center space-x-2 text-white bg-brand-orange shadow-sm">
+              <i class="fa-solid fa-fire text-white text-xs"></i>
+              <span class="font-racing text-sm tracking-wider">Sportauspuff Komplett</span>
+            </a>
+            <a href="kategorie.html#endschalldaempfer" class="px-3.5 py-1.5 rounded-lg flex items-center hover:text-brand-orange hover:bg-black/5 transition font-racing text-sm tracking-wider">
+              Endschalldämpfer
+            </a>
+            <a href="kategorie.html#komplettanlagen" class="px-3.5 py-1.5 rounded-lg flex items-center space-x-1.5 hover:text-brand-orange hover:bg-black/5 transition font-racing text-sm tracking-wider">
+              <span>Komplettanlagen & OPF-Back</span>
+              <span class="bg-brand-orange/20 text-brand-orange text-[9px] px-1.5 py-0.5 rounded font-extrabold ml-1">Beliebt</span>
+            </a>
+            <a href="kategorie.html#klappen" class="px-3.5 py-1.5 rounded-lg flex items-center hover:text-brand-orange hover:bg-black/5 transition font-racing text-sm tracking-wider">
+              Klappenauspuffanlagen
+            </a>
+            <a href="kategorie.html#downpipes" class="px-3.5 py-1.5 rounded-lg flex items-center hover:text-brand-orange hover:bg-black/5 transition font-racing text-sm tracking-wider">
+              Downpipes & OPF
+            </a>
+            <a href="kategorie.html#endrohre" class="px-3.5 py-1.5 rounded-lg flex items-center hover:text-brand-orange hover:bg-black/5 transition font-racing text-sm tracking-wider">
+              Endrohrblenden
+            </a>
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <span class="text-emerald-500 font-bold flex items-center space-x-1.5 normal-case text-xs">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>100% Passform-Garantie</span>
+            </span>
+            <a href="#montage" class="px-3.5 py-1.5 flex items-center space-x-2 text-brand-orange hover:bg-brand-orange/10 font-bold normal-case transition rounded-lg">
+              <i class="fa-solid fa-screwdriver-wrench text-xs"></i>
+              <span>Montageservice anfragen</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 4. BREADCRUMB MIT LIVE-RÜCKSPRUNG                                         -->
+  <!-- ========================================================================= -->
+  <div class="w-full max-w-[1600px] mx-auto px-3 sm:px-8 lg:px-12 py-2.5 sm:py-3.5 text-xs text-gray-400 flex items-center justify-between min-w-0">
+    <div class="flex items-center space-x-1.5 sm:space-x-2 overflow-x-auto whitespace-nowrap scrollbar-none text-[11px] sm:text-xs min-w-0 flex-1 mr-2">
+      <a href="index.html" class="hover:text-brand-orange transition flex items-center space-x-1 flex-shrink-0">
+        <i class="fa-solid fa-house text-[10px]"></i>
+        <span>Start</span>
+      </a>
+      <span class="flex-shrink-0 opacity-40"><i class="fa-solid fa-chevron-right text-[8px]"></i></span>
+      <a href="kategorie.html?brand=Audi" class="hover:text-brand-orange transition flex-shrink-0">Audi</a>
+      <span class="flex-shrink-0 opacity-40"><i class="fa-solid fa-chevron-right text-[8px]"></i></span>
+      <a href="kategorie.html?brand=Audi&model=RS6" class="hover:text-brand-orange transition flex-shrink-0">RS6 Avant C8</a>
+      <span class="flex-shrink-0 opacity-40"><i class="fa-solid fa-chevron-right text-[8px]"></i></span>
+      <span style="color: var(--text-main);" class="font-bold flex-shrink-0 truncate max-w-[140px] sm:max-w-none">Ragazzon Klappenauspuff</span>
+    </div>
+
+    <a href="kategorie.html?brand=Audi&model=RS6" class="inline-flex items-center space-x-1 text-[11px] sm:text-xs font-bold text-brand-orange hover:underline flex-shrink-0">
+      <i class="fa-solid fa-arrow-left text-[9px]"></i>
+      <span class="hidden sm:inline">Zurück zur Übersicht</span>
+      <span class="sm:hidden">Zurück</span>
+    </a>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 5. MAIN PRODUCT DETAIL STAGE (MOBILE-FIRST ARCHITEKTUR)                   -->
+  <!-- ========================================================================= -->
+  <main class="w-full max-w-[1600px] mx-auto px-3 sm:px-8 lg:px-12 py-2 sm:py-4 flex-1 min-w-0">
+    
+    <!-- PASST-GARANTIE BANNER (VOLLSTÄNDIG RESPONSIV OHNE TEXT-ABBRUCH) -->
+    <div style="background: var(--filter-block-bg); box-shadow: var(--filter-block-shadow);" class="w-full min-w-0 rounded-2xl p-3 sm:p-4 mb-4 sm:mb-6 border border-emerald-500/20 backdrop-blur-md">
+      <div class="flex items-start sm:items-center justify-between gap-2 sm:gap-4 min-w-0">
+        <div class="flex items-start space-x-2.5 sm:space-x-3.5 min-w-0 flex-1">
+          <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm sm:text-lg flex-shrink-0 shadow mt-0.5 sm:mt-0">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <div class="min-w-0 flex-1">
+            <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+              <span class="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-emerald-400">100% Passgenauigkeit Garantiert</span>
+              <span class="hidden sm:inline text-xs text-gray-400">• Abgleich mit Motorkennbuchstaben</span>
+            </div>
+            <div class="text-xs sm:text-sm font-bold leading-snug mt-0.5 break-words" style="color: var(--text-main);">
+              Passend für dein Fahrzeug: Audi RS6 Avant C8 (Typ 4K) • 4.0 TFSI quattro • 441 kW / 600 PS • ab Bj. 11/2019
+            </div>
+          </div>
+        </div>
+        <a href="kategorie.html?brand=Audi&model=RS6" class="flex-shrink-0 text-xs font-bold text-brand-orange hover:underline whitespace-nowrap self-start sm:self-center">
+          <span class="hidden sm:inline">Fahrzeug wechseln →</span>
+          <span class="sm:hidden text-[11px] bg-brand-orange/15 hover:bg-brand-orange text-brand-orange hover:text-white px-2.5 py-1.5 rounded-lg transition font-medium">Kfz ändern</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- PRODUKT-KOPF AUF MOBILE (DAMIT TITEL SOFORT GESEHEN WIRD) -->
+    <div class="lg:hidden mb-3 w-full min-w-0">
+      <div class="flex items-center justify-between text-xs text-gray-400 mb-1">
+        <span class="font-racing font-extrabold text-brand-orange uppercase tracking-wider">Ragazzon Exhausts</span>
+        <div class="flex items-center space-x-1 text-amber-400">
+          <i class="fa-solid fa-star text-[11px]"></i>
+          <span class="text-xs font-bold text-gray-200">5.0</span>
+          <span class="text-[10px] text-gray-400">(28 Reviews)</span>
+        </div>
+      </div>
+      <h1 class="font-racing text-xl sm:text-3xl uppercase tracking-wider font-extrabold leading-tight break-words" style="color: var(--text-main);">
+        Ragazzon Duplex Klappenauspuffanlage ab OPF
+      </h1>
+      <div class="text-[11px] text-gray-400 mt-0.5">Art.-Nr.: <strong class="text-gray-200 font-mono">50.0898.80</strong> • 2x 76mm Edelstahl</div>
+    </div>
+
+    <!-- PRODUKT GRID: 12 SPALTEN (LINKS: MEDIA 7 SPALTEN / RECHTS: BUYBOX 5 SPALTEN) -->
+    <div class="w-full min-w-0 grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 lg:gap-12 items-start">
+
+      <!-- ===================================================================== -->
+      <!-- LINKE SPALTE: MEDIA SHOWCASE, BILDER, SOUNDCHECK & VIDEO              -->
+      <!-- ===================================================================== -->
+      <div class="w-full min-w-0 lg:col-span-7 space-y-4 sm:space-y-6">
+        
+        <!-- Hauptbild Stage (Border-Detox & Kollisionsfreie Badges) -->
+        <div style="background-color: var(--panel-card); border-color: var(--panel-border);" class="rounded-2xl sm:rounded-3xl p-3 sm:p-6 lg:p-8 border shadow-xl relative overflow-hidden group">
+          
+          <!-- Badges Floating Oben Links (Kompakt und max-width begrenzt) -->
+          <div class="absolute top-2.5 left-2.5 sm:top-5 sm:left-5 z-20 flex flex-wrap gap-1.5 sm:gap-2 max-w-[65%] sm:max-w-none">
+            <span class="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-extrabold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center space-x-1 shadow backdrop-blur-md">
+              <i class="fa-solid fa-certificate text-[9px] sm:text-xs"></i>
+              <span>100% ECE (Eintragungsfrei)</span>
+            </span>
+            <span class="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-extrabold bg-brand-orange text-white shadow">
+              -281 € Rabatt
+            </span>
+            <span class="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-extrabold bg-blue-500/20 text-blue-400 border border-blue-500/30 hidden sm:inline-flex">
+              🇮🇹 Made in Italy
+            </span>
+          </div>
+
+          <!-- Soundcheck Button am BILD-FUSS RECHTS (Kollidiert NIEMALS mit Badges oben!) -->
+          <button 
+            onclick="openSoundModal('Ragazzon Duplex Klappenauspuff', 'Audi RS6 Avant C8', 'V8 Biturbo mit tiefem Grollen & dynamischem Klappensound', 'assets/audi-rs6-ragazzon.jpg')" 
+            class="absolute bottom-2.5 right-2.5 sm:bottom-5 sm:right-5 z-20 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-gray-950/85 hover:bg-brand-orange text-white text-[11px] sm:text-xs font-racing uppercase tracking-wider font-bold backdrop-blur-md border border-white/20 shadow-lg flex items-center space-x-1.5 transition"
+          >
+            <i class="fa-solid fa-volume-high text-brand-orange group-hover:text-white"></i>
+            <span>Soundcheck anhören</span>
+          </button>
+
+          <!-- Großes Produktbild (Mobil auf angenehme Höhe skaliert) -->
+          <div class="relative w-full h-[240px] sm:h-[380px] lg:h-[460px] rounded-xl sm:rounded-2xl overflow-hidden flex items-center justify-center bg-black/20">
+            <img 
+              id="mainProductImg"
+              src="assets/audi-rs6-ragazzon.jpg" 
+              alt="Ragazzon Audi RS6 Avant C8 Edelstahl Klappenauspuffanlage" 
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            >
+          </div>
+
+          <!-- Thumbnails Row (4 Spalten, touch-freundlich) -->
+          <div class="grid grid-cols-4 gap-2 sm:gap-3 mt-2.5 sm:mt-4">
+            <div onclick="switchMainImage('assets/audi-rs6-ragazzon.jpg', this)" class="thumb-item active ring-2 ring-brand-orange rounded-xl overflow-hidden h-16 sm:h-20 bg-black/30 cursor-pointer transition transform hover:scale-105">
+              <img src="assets/audi-rs6-ragazzon.jpg" alt="Auspuffanlage Komplettansicht" class="w-full h-full object-cover">
+            </div>
+            <div onclick="switchMainImage('https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=800&q=80', this)" class="thumb-item rounded-xl overflow-hidden h-16 sm:h-20 bg-black/30 cursor-pointer transition transform hover:scale-105 opacity-70 hover:opacity-100">
+              <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=400&q=80" alt="Endrohre Nahaufnahme" class="w-full h-full object-cover">
+            </div>
+            <div onclick="switchMainImage('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80', this)" class="thumb-item rounded-xl overflow-hidden h-16 sm:h-20 bg-black/30 cursor-pointer transition transform hover:scale-105 opacity-70 hover:opacity-100">
+              <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=400&q=80" alt="Unterboden Montage" class="w-full h-full object-cover">
+            </div>
+            <div onclick="openSoundModal('Ragazzon Duplex Klappenauspuff', 'Audi RS6 Avant C8', 'V8 Biturbo mit tiefem Grollen & dynamischem Klappensound', 'assets/audi-rs6-ragazzon.jpg')" class="rounded-xl overflow-hidden h-16 sm:h-20 bg-gradient-to-br from-brand-orange/20 to-amber-600/30 border border-brand-orange/40 flex flex-col items-center justify-center cursor-pointer transition transform hover:scale-105 group/sound">
+              <i class="fa-solid fa-volume-high text-brand-orange text-base sm:text-xl mb-0.5 sm:mb-1 group-hover/sound:scale-110 transition-transform"></i>
+              <span class="text-[9px] sm:text-[10px] font-racing uppercase tracking-wider font-extrabold text-brand-orange">Soundcheck</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- INTERAKTIVER SOUNDCHECK WIDGET INLINE (KAUFENTSCHEIDUNG #1 BEI SPORTAUSPUFF) -->
+        <div style="background: var(--filter-block-bg); box-shadow: var(--filter-block-shadow);" class="w-full min-w-0 rounded-2xl sm:rounded-3xl p-3 sm:p-6 border border-brand-orange/20 relative overflow-hidden backdrop-blur-md">
+          <div class="flex items-center justify-between mb-3 sm:mb-4 gap-2">
+            <div class="flex items-center space-x-2.5 sm:space-x-3 min-w-0 flex-1">
+              <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-brand-orange text-white flex items-center justify-center text-sm sm:text-lg shadow-md flex-shrink-0">
+                <i class="fa-solid fa-waveform-lines"></i>
+              </div>
+              <div class="min-w-0 flex-1">
+                <h3 class="font-racing text-sm sm:text-xl uppercase tracking-wider font-extrabold truncate" style="color: var(--text-main);">
+                  Audi RS6 C8 Original Soundcheck
+                </h3>
+                <p class="text-[10px] sm:text-xs text-gray-400 truncate">Vergleich: Serienauspuff vs. Ragazzon Klappe</p>
+              </div>
+            </div>
+
+            <!-- Equalizer Visualizer -->
+            <div id="inlineEq" class="flex items-end space-x-1 h-5 sm:h-7 flex-shrink-0">
+              <div class="w-1 bg-brand-orange rounded-full eq-bar-1"></div>
+              <div class="w-1 bg-brand-orange rounded-full eq-bar-2"></div>
+              <div class="w-1 bg-brand-orange rounded-full eq-bar-3"></div>
+              <div class="w-1 bg-brand-orange rounded-full eq-bar-4"></div>
+              <div class="w-1 bg-brand-orange rounded-full eq-bar-5"></div>
+              <div class="w-1 bg-brand-orange rounded-full eq-bar-6"></div>
+            </div>
+          </div>
+
+          <!-- Sound Toggle & Play Controls (Mobil 100% sauber umbrechend) -->
+          <div class="bg-black/30 rounded-xl sm:rounded-2xl p-2 sm:p-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 sm:gap-4">
+            <div class="grid grid-cols-2 bg-black/40 p-1 rounded-xl w-full sm:w-auto gap-1">
+              <button id="btnSoundStockInline" onclick="setInlineSound('stock')" class="py-2 px-2 sm:px-4 rounded-lg text-xs font-racing uppercase tracking-wider font-bold text-gray-400 hover:text-white transition text-center truncate">
+                1. Serie (Werk)
+              </button>
+              <button id="btnSoundSportInline" onclick="setInlineSound('sport')" class="py-2 px-2 sm:px-4 rounded-lg text-xs font-racing uppercase tracking-wider font-extrabold bg-brand-orange text-white shadow transition text-center truncate">
+                2. Ragazzon 🔥
+              </button>
+            </div>
+
+            <button onclick="toggleInlineAudio()" class="w-full sm:w-auto px-4 sm:px-5 py-2.5 rounded-xl bg-white text-gray-950 hover:bg-gray-200 font-racing uppercase tracking-wider font-extrabold text-xs flex items-center justify-center space-x-2 transition shadow">
+              <i id="inlinePlayIcon" class="fa-solid fa-pause text-brand-orange"></i>
+              <span id="inlinePlayText">Pause / Sound an</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===================================================================== -->
+      <!-- RECHTE SPALTE: PRODUKTDATEN & BUY BOX (MATCHES price_block_normal)     -->
+      <!-- ===================================================================== -->
+      <div class="w-full min-w-0 lg:col-span-5 space-y-4 sm:space-y-6">
+        
+        <div style="background-color: var(--panel-card); border-color: var(--panel-border);" class="w-full min-w-0 rounded-2xl sm:rounded-3xl p-4 sm:p-7 lg:p-8 border shadow-xl relative">
+          
+          <!-- Desktop Header (Auf Desktop sichtbar) -->
+          <div class="hidden lg:block border-b pb-4 mb-4" style="border-color: var(--panel-border);">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-xs uppercase tracking-widest font-racing font-extrabold text-brand-orange block">
+                  Ragazzon Stainless Steel Exhausts
+                </span>
+                <span class="text-xs text-gray-400">
+                  Art.-Nr.: <strong class="text-gray-200 font-mono">50.0898.80</strong> • EAN: 8056324021458
+                </span>
+              </div>
+              
+              <div class="text-right">
+                <div class="flex text-amber-400 text-xs">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <span class="text-[11px] text-gray-400">28 Bewertungen (5.0)</span>
+              </div>
+            </div>
+
+            <!-- Produkttitel Desktop -->
+            <h1 class="font-racing text-3xl sm:text-4xl uppercase tracking-wider font-extrabold leading-tight mt-3" style="color: var(--text-main);">
+              Ragazzon Duplex Klappenauspuffanlage ab OPF
+            </h1>
+            <p class="text-xs sm:text-sm text-gray-400 mt-1.5 font-medium leading-relaxed">
+              Edelstahl-Sportabgasanlage 2x 76mm mit pneumatisch/elektronisch angesteuerten Abgasklappen für originale Heckdiffusor-Blenden.
+            </p>
+          </div>
+
+          <!-- USPs / Bulletpoints (Verkaufsstark & technisch fundiert) -->
+          <div class="my-3 sm:my-5 space-y-2 sm:space-y-2.5 text-xs font-medium" style="color: var(--text-muted);">
+            <div class="flex items-start space-x-2.5">
+              <i class="fa-solid fa-circle-check text-emerald-400 text-sm flex-shrink-0 mt-0.5"></i>
+              <span><strong>100% ECE-Genehmigung:</strong> Vollkommen eintragungsfrei, keine Vorführung beim TÜV erforderlich.</span>
+            </div>
+            <div class="flex items-start space-x-2.5">
+              <i class="fa-solid fa-circle-check text-emerald-400 text-sm flex-shrink-0 mt-0.5"></i>
+              <span><strong>Audi Drive Select Integration:</strong> Klappensteuerung reagiert dynamisch auf Fahrmodi (Comfort/Dynamic/RS).</span>
+            </div>
+            <div class="flex items-start space-x-2.5">
+              <i class="fa-solid fa-circle-check text-emerald-400 text-sm flex-shrink-0 mt-0.5"></i>
+              <span><strong>V2A Edelstahl (AISI 304):</strong> Hochwertigste Verarbeitung mit formierten WIG-Schweißnähten für extreme Langlebigkeit.</span>
+            </div>
+            <div class="flex items-start space-x-2.5">
+              <i class="fa-solid fa-circle-check text-emerald-400 text-sm flex-shrink-0 mt-0.5"></i>
+              <span><strong>Gegendruck-Reduzierung:</strong> 2x 76mm Querschnitt für optimierten Durchzug (+15 PS / +28 Nm Drehmoment).</span>
+            </div>
+          </div>
+
+          <!-- PREISBEREICH (MATCHES price_block_normal.html) -->
+          <div class="p-3.5 sm:p-5 rounded-2xl bg-black/25 my-3 sm:my-5 border border-white/5 space-y-2">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 sm:gap-4">
+              <div>
+                <div class="flex items-center space-x-2 text-xs text-gray-400">
+                  <span class="line-through">UVP 2.780,00 €</span>
+                  <span class="text-emerald-400 font-extrabold bg-emerald-500/15 px-2 py-0.5 rounded-full text-[11px]">-281,00 € Ersparnis</span>
+                </div>
+                <div class="font-racing text-3xl sm:text-5xl font-extrabold tracking-tight mt-0.5" style="color: var(--text-main);">
+                  2.499,00 €
+                </div>
+                <div class="text-[11px] text-gray-400">inkl. 19% MwSt., versandkostenfrei innerhalb Deutschlands</div>
+              </div>
+
+              <!-- Live Lieferzeit Badge -->
+              <div class="flex items-center sm:flex-col sm:items-end justify-between sm:justify-start gap-1 pt-1.5 sm:pt-0 border-t sm:border-0 border-white/5">
+                <span id="delTime" class="inline-flex items-center space-x-1.5 px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-sm">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span>Auf Lager</span>
+                </span>
+                <div class="text-[10px] sm:text-[11px] text-gray-400">Versandfertig in 24h</div>
+              </div>
+            </div>
+
+            <!-- Ratenkauf / Finanzierung Hinweis -->
+            <div class="pt-2 border-t border-white/5 flex items-center justify-between text-xs text-gray-400">
+              <span>Oder in Raten finanzieren:</span>
+              <strong class="text-brand-orange font-bold text-xs sm:text-sm">ab 49,90 € / Monat</strong>
+            </div>
+          </div>
+
+          <!-- DAS ECHTE WARENKORB-FORMULAR (#buyProduct & #toCart) -->
+          <form id="buyProduct" action="warenkorb.html" method="POST" onsubmit="handleProductBuy(event)" class="space-y-3 sm:space-y-4">
+            <input type="hidden" name="action" value="add_to_cart" />
+            <input type="hidden" name="pID" value="50089880" />
+            <input type="hidden" name="art_nr" value="50.0898.80" />
+
+            <div class="flex items-center space-x-2 sm:space-x-3 min-w-0">
+              <!-- Mengenauswahl (#ammount) -->
+              <div class="flex items-center rounded-xl bg-black/30 border border-white/10 px-1 sm:px-2 py-1 flex-shrink-0 h-12 sm:h-14">
+                <button type="button" onclick="decreaseQty()" class="w-7 sm:w-8 h-full text-gray-400 hover:text-white flex items-center justify-center font-bold text-sm sm:text-base transition" aria-label="Menge verringern">
+                  <i class="fa-solid fa-minus text-xs"></i>
+                </button>
+                <input 
+                  type="number" 
+                  name="quantity" 
+                  id="ammount" 
+                  value="1" 
+                  min="1" 
+                  max="10" 
+                  class="w-7 sm:w-12 text-center bg-transparent text-sm sm:text-lg font-racing font-extrabold text-white border-0 focus:outline-none"
+                  aria-label="Artikelanzahl"
+                >
+                <button type="button" onclick="increaseQty()" class="w-7 sm:w-8 h-full text-gray-400 hover:text-white flex items-center justify-center font-bold text-sm sm:text-base transition" aria-label="Menge erhöhen">
+                  <i class="fa-solid fa-plus text-xs"></i>
+                </button>
+              </div>
+
+              <!-- Großer Orange Kaufen-Button (#toCart) -->
+              <button 
+                type="submit" 
+                id="toCart" 
+                name="submit" 
+                class="flex-1 min-w-0 h-12 sm:h-14 px-2.5 sm:px-6 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-sm sm:text-2xl uppercase tracking-wider font-extrabold rounded-xl sm:rounded-2xl shadow-xl hover:shadow-orange-500/30 transition transform active:scale-95 flex items-center justify-center space-x-1.5 sm:space-x-3 group"
+              >
+                <i class="fa-solid fa-basket-shopping text-sm sm:text-xl group-hover:scale-110 transition-transform flex-shrink-0"></i>
+                <span class="truncate">In den Warenkorb</span>
+                <i class="fa-solid fa-chevron-right text-xs hidden sm:inline flex-shrink-0"></i>
+              </button>
+            </div>
+
+            <!-- Sekundärer CTA: Montage Service direkt dazu anfragen -->
+            <button 
+              type="button" 
+              onclick="openMontageModal()" 
+              class="w-full py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl border border-brand-orange/40 hover:bg-brand-orange/10 text-brand-orange font-racing uppercase tracking-wider font-bold text-xs sm:text-sm flex items-center justify-center space-x-2 transition"
+            >
+              <i class="fa-solid fa-screwdriver-wrench text-xs"></i>
+              <span>Fachgerechte Montage im Partnerbetrieb anfragen (ab 189 €)</span>
+            </button>
+          </form>
+
+          <!-- Vertrauens- & Zahlungs-Badges -->
+          <div class="mt-4 sm:mt-6 pt-4 sm:pt-5 border-t space-y-3" style="border-color: var(--panel-border);">
+            <div class="grid grid-cols-2 gap-2 sm:gap-3 text-[11px] text-gray-400">
+              <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-shield-halved text-emerald-400"></i>
+                <span>30 Tage Widerrufsrecht</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-truck-fast text-emerald-400"></i>
+                <span>Kostenloser Hin- & Rückversand</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-headset text-brand-orange"></i>
+                <span>Experten-Hotline erreichbar</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-lock text-brand-orange"></i>
+                <span>SSL 256-Bit Verschlüsselt</span>
+              </div>
+            </div>
+
+            <!-- Zahlungsarten Icons -->
+            <div class="flex items-center justify-between pt-2 opacity-75 grayscale hover:grayscale-0 transition">
+              <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Sicher zahlen:</span>
+              <div class="flex items-center space-x-2.5 text-base sm:text-lg text-gray-300">
+                <i class="fa-brands fa-paypal" title="PayPal"></i>
+                <i class="fa-brands fa-apple-pay text-xl sm:text-2xl" title="Apple Pay"></i>
+                <i class="fa-brands fa-cc-visa" title="Visa"></i>
+                <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+                <span class="font-racing font-bold text-xs">Klarna.</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- 6. TABS SECTION: BESCHREIBUNG, FAHRZEUGE, GUTACHTEN, ERFAHRUNGEN         -->
+    <!-- ========================================================================= -->
+    <div class="w-full min-w-0 mt-8 sm:mt-12">
+      <div style="background-color: var(--panel-card); border-color: var(--panel-border);" class="w-full min-w-0 rounded-2xl sm:rounded-3xl border shadow-xl overflow-hidden">
+        
+        <!-- Tab Navigation Bar mit horizontalem Touch-Scroll -->
+        <div class="w-full max-w-full flex border-b overflow-x-auto whitespace-nowrap scrollbar-none px-2 sm:px-4" style="border-color: var(--panel-border); background-color: var(--tier3-bg);">
+          <button 
+            id="tabBtnDesc" 
+            onclick="switchDetailTab('desc')" 
+            class="detail-tab-btn py-3 sm:py-4 px-3 sm:px-8 font-racing text-sm sm:text-lg uppercase tracking-wider font-extrabold text-brand-orange border-b-2 border-brand-orange transition flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0"
+          >
+            <i class="fa-solid fa-circle-info text-xs sm:text-sm"></i>
+            <span>1. Beschreibung & Technik</span>
+          </button>
+
+          <button 
+            id="tabBtnCars" 
+            onclick="switchDetailTab('cars')" 
+            class="detail-tab-btn py-3 sm:py-4 px-3 sm:px-8 font-racing text-sm sm:text-lg uppercase tracking-wider font-bold text-gray-400 hover:text-white border-b-2 border-transparent transition flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0"
+          >
+            <i class="fa-solid fa-car text-xs sm:text-sm"></i>
+            <span>2. Passende Fahrzeuge</span>
+          </button>
+
+          <button 
+            id="tabBtnDocs" 
+            onclick="switchDetailTab('docs')" 
+            class="detail-tab-btn py-3 sm:py-4 px-3 sm:px-8 font-racing text-sm sm:text-lg uppercase tracking-wider font-bold text-gray-400 hover:text-white border-b-2 border-transparent transition flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0"
+          >
+            <i class="fa-solid fa-file-pdf text-xs sm:text-sm"></i>
+            <span>3. Gutachten & Zulassung</span>
+          </button>
+
+          <button 
+            id="tabBtnReviews" 
+            onclick="switchDetailTab('reviews')" 
+            class="detail-tab-btn py-3 sm:py-4 px-3 sm:px-8 font-racing text-sm sm:text-lg uppercase tracking-wider font-bold text-gray-400 hover:text-white border-b-2 border-transparent transition flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0"
+          >
+            <i class="fa-solid fa-star text-amber-400 text-xs sm:text-sm"></i>
+            <span>4. Bewertungen (28)</span>
+          </button>
+        </div>
+
+        <!-- TAB CONTENT BEREICH -->
+        <div class="p-4 sm:p-8 lg:p-10">
+
+          <!-- TAB 1: BESCHREIBUNG & TECHNIK -->
+          <div id="tabContentDesc" class="space-y-6 sm:space-y-8">
+            <div>
+              <h2 class="font-racing text-xl sm:text-3xl uppercase tracking-wider font-extrabold mb-2 sm:mb-3" style="color: var(--text-main);">
+                Ragazzon Edelstahl-Klappenauspuffanlage ab OPF für Audi RS6 Avant (C8 / 4K)
+              </h2>
+              <p class="text-xs sm:text-sm leading-relaxed text-gray-300">
+                Die Ragazzon Abgasanlage für den Audi RS6 Avant C8 setzt neue Maßstäbe in Klangkultur, Verarbeitung und Leistungsentfaltung. 
+                Speziell für den 4.0 Liter V8 Biturbo Mild-Hybrid entwickelt, ersetzt diese Anlage die originale Abgasanlage ab den Otto-Partikelfiltern (OPF) 
+                durch strömungsoptimierte 2x 76mm Rohre aus erstklassigem AISI 304 Edelstahl.
+              </p>
+            </div>
+
+            <!-- Technische Daten Tabelle -->
+            <div>
+              <h3 class="font-racing text-lg sm:text-xl uppercase tracking-wider font-bold mb-3 sm:mb-4 text-brand-orange">
+                Technische Spezifikationen im Überblick:
+              </h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-4">
+                <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-black/20 flex justify-between items-center text-xs">
+                  <span class="text-gray-400">Rohrdurchmesser:</span>
+                  <strong class="text-white font-mono text-xs sm:text-sm">2x 76 mm (3 Zoll)</strong>
+                </div>
+                <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-black/20 flex justify-between items-center text-xs">
+                  <span class="text-gray-400">Material:</span>
+                  <strong class="text-white">100% rostfreier AISI 304 Edelstahl (V2A)</strong>
+                </div>
+                <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-black/20 flex justify-between items-center text-xs">
+                  <span class="text-gray-400">Klappensteuerung:</span>
+                  <strong class="text-white">2 integrierte Klappen (Audi Drive Select)</strong>
+                </div>
+                <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-black/20 flex justify-between items-center text-xs">
+                  <span class="text-gray-400">Endrohr-Variante:</span>
+                  <strong class="text-white">Montage auf originale Heckblenden</strong>
+                </div>
+                <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-black/20 flex justify-between items-center text-xs">
+                  <span class="text-gray-400">Zulassung / Homologation:</span>
+                  <strong class="text-emerald-400 font-bold">Mit ECE-Genehmigung (eintragungsfrei)</strong>
+                </div>
+                <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-black/20 flex justify-between items-center text-xs">
+                  <span class="text-gray-400">OPF-Kompatibilität:</span>
+                  <strong class="text-emerald-400 font-bold">100% OPF Safe (Keine Motorleuchte)</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Montagehinweis Box -->
+            <div class="bg-amber-500/10 border border-amber-500/20 rounded-xl sm:rounded-2xl p-3.5 sm:p-5 flex items-start space-x-2.5 sm:space-x-3 text-xs text-amber-200">
+              <i class="fa-solid fa-triangle-exclamation text-amber-400 text-sm sm:text-base mt-0.5 flex-shrink-0"></i>
+              <div class="leading-relaxed">
+                <strong class="text-amber-300 block font-bold mb-0.5">Wichtiger Montage- & Anschluss-Hinweis:</strong>
+                Die Anlage wird direkt an die Originalaufhängungen montiert. Die originalen Stellmotoren der Abgasklappen werden 1:1 übernommen, sodass die Werkssteuerung über <em>Audi Drive Select</em> vollumfänglich und ohne Fehlerspeichereintrag erhalten bleibt.
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: PASSENDE FAHRZEUGE (MIT HORIZONTAL-SWIPE HINWEIS) -->
+          <div id="tabContentCars" class="space-y-4 sm:space-y-6 hidden">
+            <div class="flex items-center justify-between">
+              <h2 class="font-racing text-xl sm:text-2xl uppercase tracking-wider font-extrabold" style="color: var(--text-main);">
+                Verwendungsbereich / Kompatible Fahrzeugmodelle
+              </h2>
+              <span class="sm:hidden text-[10px] text-brand-orange font-bold flex items-center space-x-1">
+                <span>← Wischen →</span>
+              </span>
+            </div>
+            <p class="text-xs text-gray-400">
+              Dieser Artikel ist nachweislich passend für die nachfolgend aufgeführten Fahrzeuge mit exakter Motorcode-Prüfung:
+            </p>
+
+            <div class="w-full max-w-full overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+              <table class="w-full text-left text-xs border-collapse min-w-[520px]">
+                <thead>
+                  <tr class="border-b text-gray-400 uppercase font-bold text-[10px]" style="border-color: var(--panel-border);">
+                    <th class="py-2.5 px-3">Modell</th>
+                    <th class="py-2.5 px-3">Typ / Baureihe</th>
+                    <th class="py-2.5 px-3">Baujahr</th>
+                    <th class="py-2.5 px-3">Hubraum / Motor</th>
+                    <th class="py-2.5 px-3">Leistung</th>
+                    <th class="py-2.5 px-3">Motorkennbuchstaben</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y text-gray-300" style="border-color: var(--panel-border);">
+                  <tr class="hover:bg-black/10 transition">
+                    <td class="py-3 px-3 font-bold text-brand-orange">Audi RS6 Avant</td>
+                    <td class="py-3 px-3">C8 / Typ 4K</td>
+                    <td class="py-3 px-3">11/2019 – heute</td>
+                    <td class="py-3 px-3">3996 ccm (4.0 TFSI V8)</td>
+                    <td class="py-3 px-3 font-bold text-white">441 kW / 600 PS</td>
+                    <td class="py-3 px-3 font-mono font-bold">DJPB</td>
+                  </tr>
+                  <tr class="hover:bg-black/10 transition">
+                    <td class="py-3 px-3 font-bold text-brand-orange">Audi RS6 Performance</td>
+                    <td class="py-3 px-3">C8 / Typ 4K</td>
+                    <td class="py-3 px-3">12/2022 – heute</td>
+                    <td class="py-3 px-3">3996 ccm (4.0 TFSI V8)</td>
+                    <td class="py-3 px-3 font-bold text-white">463 kW / 630 PS</td>
+                    <td class="py-3 px-3 font-mono font-bold">DWNA</td>
+                  </tr>
+                  <tr class="hover:bg-black/10 transition">
+                    <td class="py-3 px-3 font-bold text-brand-orange">Audi RS7 Sportback</td>
+                    <td class="py-3 px-3">C8 / Typ 4K</td>
+                    <td class="py-3 px-3">11/2019 – heute</td>
+                    <td class="py-3 px-3">3996 ccm (4.0 TFSI V8)</td>
+                    <td class="py-3 px-3 font-bold text-white">441 kW / 600 PS</td>
+                    <td class="py-3 px-3 font-mono font-bold">DJPB</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB 3: GUTACHTEN & ZULASSUNG -->
+          <div id="tabContentDocs" class="space-y-4 sm:space-y-6 hidden">
+            <h2 class="font-racing text-xl sm:text-2xl uppercase tracking-wider font-extrabold" style="color: var(--text-main);">
+              Homologation, Zulassung & Dokumente
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+              <div class="p-4 sm:p-5 rounded-2xl bg-black/20 border border-emerald-500/30 space-y-2.5 sm:space-y-3">
+                <div class="flex items-center space-x-3 text-emerald-400">
+                  <i class="fa-solid fa-certificate text-xl sm:text-2xl"></i>
+                  <div>
+                    <h4 class="font-racing text-base sm:text-lg uppercase font-bold text-white">ECE-Genehmigung (Eintragungsfrei)</h4>
+                    <span class="text-[11px] text-gray-400">Prüfnummer: e3*03*0149</span>
+                  </div>
+                </div>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                  Die Sportabgasanlage verfügt über eine offizielle ECE-Typgenehmigung. Das E-Prüfzeichen ist direkt auf den Schalldämpfern eingeprägt. 
+                  Eine Eintragung in die Fahrzeugpapiere sowie eine Vorführung bei einer Prüfstelle (TÜV/DEKRA) ist <strong>nicht erforderlich</strong>.
+                </p>
+                <button class="w-full py-2.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 font-racing text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-2 transition">
+                  <i class="fa-solid fa-file-pdf"></i>
+                  <span>ECE-Gutachten Auszug als PDF</span>
+                </button>
+              </div>
+
+              <div class="p-4 sm:p-5 rounded-2xl bg-black/20 border border-white/10 space-y-2.5 sm:space-y-3">
+                <div class="flex items-center space-x-3 text-brand-orange">
+                  <i class="fa-solid fa-wrench text-xl sm:text-2xl"></i>
+                  <div>
+                    <h4 class="font-racing text-base sm:text-lg uppercase font-bold text-white">Montageanleitung & Schaltplan</h4>
+                    <span class="text-[11px] text-gray-400">Montagedauer: ca. 90-120 Min.</span>
+                  </div>
+                </div>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                  Bebilderte Einbauanleitung für Fachwerkstätten und erfahrene Schrauber. Zeigt die exakten Trennstellen an der Serienanlage und das Anschließen der Klappenmotoren.
+                </p>
+                <button class="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-racing text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-2 transition">
+                  <i class="fa-solid fa-download"></i>
+                  <span>Montageanleitung (PDF)</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 4: BEWERTUNGEN -->
+          <div id="tabContentReviews" class="space-y-4 sm:space-y-6 hidden">
+            <div class="flex items-center justify-between">
+              <div>
+                <h2 class="font-racing text-xl sm:text-2xl uppercase tracking-wider font-extrabold" style="color: var(--text-main);">
+                  Kundenbewertungen & Sound-Erfahrungen
+                </h2>
+                <p class="text-xs text-gray-400">28 verifizierte Käufer für Audi RS6 / RS7 Abgasanlagen</p>
+              </div>
+              <div class="flex items-center space-x-2 bg-amber-400/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-amber-400/20">
+                <span class="font-racing text-xl sm:text-2xl font-extrabold text-amber-400">5.0</span>
+                <div class="text-amber-400 text-[11px] sm:text-xs">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 1 -->
+            <div class="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-black/20 border border-white/5 space-y-1.5 sm:space-y-2 text-xs">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <div class="flex items-center space-x-2">
+                  <strong class="text-white font-semibold">Maximilian K. (verifizierter Kauf)</strong>
+                  <span class="text-emerald-400 font-bold">• Audi RS6 Avant C8</span>
+                </div>
+                <div class="text-amber-400 text-xs">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <p class="text-gray-300 leading-relaxed">
+                "Der Sound ist absolut brutal! Im Comfort-Modus reisetauglich und leise auf der Autobahn ohne jedes Dröhnen, im Dynamic-Modus mit offener Klappe brüllt der V8 endlich so, wie ein RS6 klingen muss. ECE-Gutachten lag ordentlich bei. Schnelle Lieferung innerhalb von 2 Tagen."
+              </p>
+              <span class="text-[10px] text-gray-500">Bewertet am 12.08.2026</span>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-black/20 border border-white/5 space-y-1.5 sm:space-y-2 text-xs">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <div class="flex items-center space-x-2">
+                  <strong class="text-white font-semibold">Christian B. (verifizierter Kauf)</strong>
+                  <span class="text-emerald-400 font-bold">• Audi RS6 Performance</span>
+                </div>
+                <div class="text-amber-400 text-xs">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <p class="text-gray-300 leading-relaxed">
+                "Passform war 10/10. Schweißnähte sind absolute Kunstwerke. Hatte erst Bedenken wegen der OPF-Sensoren, aber es gab keinerlei Fehler. Würde ich jederzeit wieder kaufen."
+              </p>
+              <span class="text-[10px] text-gray-500">Bewertet am 29.07.2026</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- 7. CROSS-SELLING / PASSENDES ZUBEHÖR & ERGÄNZUNGEN                        -->
+    <!-- ========================================================================= -->
+    <div class="w-full min-w-0 mt-8 sm:mt-14 space-y-4 sm:space-y-6">
+      <div>
+        <span class="text-[11px] sm:text-xs uppercase tracking-wider font-extrabold text-brand-orange">Sinnvolle Ergänzungen</span>
+        <h3 class="font-racing text-xl sm:text-3xl uppercase tracking-wider font-extrabold" style="color: var(--text-main);">
+          Passendes Zubehör für deine Montage:
+        </h3>
+      </div>
+
+      <div class="w-full min-w-0 grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-6">
+        
+        <!-- Zubehör 1: Montageschellen Set -->
+        <div style="background-color: var(--panel-card); border-color: var(--panel-border);" class="rounded-2xl sm:rounded-3xl p-4 sm:p-5 border shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="h-24 sm:h-32 bg-black/20 rounded-xl sm:rounded-2xl flex items-center justify-center text-3xl sm:text-4xl text-brand-orange mb-3">
+              <i class="fa-solid fa-wrench"></i>
+            </div>
+            <h4 class="font-racing text-base sm:text-lg uppercase font-bold text-white">Heavy-Duty V2A Auspuffschellen (2x 76mm)</h4>
+            <p class="text-xs text-gray-400 mt-1">Verstärkte Breitbandschellen für 100% gasdichte Verbindung.</p>
+          </div>
+          <div class="mt-3.5 pt-3 border-t border-white/5 flex items-center justify-between">
+            <span class="font-racing text-lg sm:text-xl font-bold text-white">39,90 €</span>
+            <button onclick="addToCartCross('Heavy-Duty Schellen-Set', 39.90)" class="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-brand-orange text-white text-xs font-racing font-bold uppercase tracking-wider transition">
+              + Hinzufügen
+            </button>
+          </div>
+        </div>
+
+        <!-- Zubehör 2: Verstärkte Auspuffgummis -->
+        <div style="background-color: var(--panel-card); border-color: var(--panel-border);" class="rounded-2xl sm:rounded-3xl p-4 sm:p-5 border shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="h-24 sm:h-32 bg-black/20 rounded-xl sm:rounded-2xl flex items-center justify-center text-3xl sm:text-4xl text-brand-orange mb-3">
+              <i class="fa-solid fa-ring"></i>
+            </div>
+            <h4 class="font-racing text-base sm:text-lg uppercase font-bold text-white">Powerflex PU-Auspuffgummis verstärkt</h4>
+            <p class="text-xs text-gray-400 mt-1">Verhindert Schwingungen und Anschlagen an die Heckschürze.</p>
+          </div>
+          <div class="mt-3.5 pt-3 border-t border-white/5 flex items-center justify-between">
+            <span class="font-racing text-lg sm:text-xl font-bold text-white">49,00 €</span>
+            <button onclick="addToCartCross('PU-Auspuffgummis Set', 49.00)" class="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-brand-orange text-white text-xs font-racing font-bold uppercase tracking-wider transition">
+              + Hinzufügen
+            </button>
+          </div>
+        </div>
+
+        <!-- Zubehör 3: Edelstahl Pflege & Versiegelung -->
+        <div style="background-color: var(--panel-card); border-color: var(--panel-border);" class="rounded-2xl sm:rounded-3xl p-4 sm:p-5 border shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="h-24 sm:h-32 bg-black/20 rounded-xl sm:rounded-2xl flex items-center justify-center text-3xl sm:text-4xl text-brand-orange mb-3">
+              <i class="fa-solid fa-spray-can-sparkles"></i>
+            </div>
+            <h4 class="font-racing text-base sm:text-lg uppercase font-bold text-white">Autosol Metal Polish Versiegelung</h4>
+            <p class="text-xs text-gray-400 mt-1">Schützt Endrohre vor Ruß, Hitzeverfärbung und Straßensalz.</p>
+          </div>
+          <div class="mt-3.5 pt-3 border-t border-white/5 flex items-center justify-between">
+            <span class="font-racing text-lg sm:text-xl font-bold text-white">16,90 €</span>
+            <button onclick="addToCartCross('Autosol Polish Versiegelung', 16.90)" class="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-brand-orange text-white text-xs font-racing font-bold uppercase tracking-wider transition">
+              + Hinzufügen
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- 8. SMART STICKY MOBILE BUY BAR (ERSCHEINT NUR BEIM WEITERSCROLLEN)        -->
+  <!-- ========================================================================= -->
+  <div id="stickyMobileBar" class="fixed bottom-0 inset-x-0 z-40 bg-gray-950/95 backdrop-blur-md border-t border-white/10 px-4 py-2.5 sm:hidden shadow-2xl flex items-center justify-between gap-3 transform translate-y-full transition-transform duration-300 ease-in-out">
+    <div class="min-w-0">
+      <div class="text-[10px] text-gray-400 font-bold uppercase truncate">Ragazzon RS6 C8</div>
+      <div class="font-racing text-xl font-extrabold text-white leading-tight">2.499,00 €</div>
+    </div>
+    <button onclick="document.getElementById('toCart').click()" class="px-4 py-2.5 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-sm uppercase tracking-wider font-extrabold rounded-xl shadow-lg transition flex items-center space-x-1.5 flex-shrink-0">
+      <i class="fa-solid fa-basket-shopping text-xs"></i>
+      <span>In den Warenkorb</span>
+    </button>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 9. SOUNDCHECK MODAL (RESPONSIV)                                           -->
+  <!-- ========================================================================= -->
+  <div id="soundModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-4">
+    <div style="background-color: var(--tier2-bg); border-color: var(--panel-border);" class="max-w-lg w-full max-h-[92vh] overflow-y-auto rounded-2xl sm:rounded-3xl p-5 sm:p-8 border shadow-2xl relative text-left">
+      <button onclick="closeSoundModal()" class="absolute top-4 right-4 sm:top-5 sm:right-5 text-gray-400 hover:text-white text-xl p-1" aria-label="Schließen">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="flex items-center space-x-3 mb-4">
+        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-brand-orange text-white flex items-center justify-center text-lg sm:text-xl shadow-lg flex-shrink-0">
+          <i class="fa-solid fa-volume-high"></i>
+        </div>
+        <div class="min-w-0">
+          <span class="text-[11px] sm:text-xs uppercase font-extrabold tracking-wider text-brand-orange block">Audi RS6 Avant C8</span>
+          <h3 class="font-racing text-xl sm:text-2xl uppercase tracking-wider font-extrabold text-white truncate">Ragazzon Soundcheck</h3>
+        </div>
+      </div>
+
+      <div class="bg-black/40 rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center space-y-4">
+        <div class="flex items-end justify-center space-x-1.5 h-14 sm:h-16">
+          <div class="w-1.5 bg-brand-orange rounded-full eq-bar-1"></div>
+          <div class="w-1.5 bg-brand-orange rounded-full eq-bar-2"></div>
+          <div class="w-1.5 bg-brand-orange rounded-full eq-bar-3"></div>
+          <div class="w-1.5 bg-brand-orange rounded-full eq-bar-4"></div>
+          <div class="w-1.5 bg-brand-orange rounded-full eq-bar-5"></div>
+          <div class="w-1.5 bg-brand-orange rounded-full eq-bar-6"></div>
+        </div>
+
+        <div class="text-xs text-gray-300 leading-relaxed">
+          V8 Biturbo mit tiefem, voluminösem Grollen und markanten Schaltstößen beim Gangwechsel.
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 pt-2">
+          <button onclick="alert('Umschaltung auf Serienklang simuliert')" class="py-2.5 px-3 rounded-xl bg-gray-800 text-gray-300 text-xs font-racing uppercase tracking-wider font-bold">
+            Serie
+          </button>
+          <button class="py-2.5 px-3 rounded-xl bg-brand-orange text-white text-xs font-racing uppercase tracking-wider font-extrabold shadow">
+            Ragazzon Klappe 🔥
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 10. MONTAGE MODAL (RESPONSIV)                                             -->
+  <!-- ========================================================================= -->
+  <div id="montageModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-4">
+    <div style="background-color: var(--tier2-bg); border-color: var(--panel-border);" class="max-w-md w-full max-h-[92vh] overflow-y-auto rounded-2xl sm:rounded-3xl p-5 sm:p-8 border shadow-2xl relative text-left">
+      <button onclick="closeMontageModal()" class="absolute top-4 right-4 sm:top-5 sm:right-5 text-gray-400 hover:text-white text-xl p-1" aria-label="Schließen">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="flex items-center space-x-3 mb-4">
+        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-brand-orange text-white flex items-center justify-center text-lg sm:text-xl shadow-lg flex-shrink-0">
+          <i class="fa-solid fa-screwdriver-wrench"></i>
+        </div>
+        <div class="min-w-0">
+          <span class="text-[11px] sm:text-xs uppercase font-extrabold tracking-wider text-brand-orange block">Montage-Partnernetzwerk</span>
+          <h3 class="font-racing text-xl sm:text-2xl uppercase tracking-wider font-extrabold text-white truncate">Montage anfragen</h3>
+        </div>
+      </div>
+
+      <p class="text-xs text-gray-300 leading-relaxed mb-4">
+        Wir vermitteln den Einbau deiner neuen Sportauspuffanlage an eine zertifizierte Partnerwerkstatt in deiner Nähe (Festpreis ab 189 €).
+      </p>
+
+      <form onsubmit="handleMontageSubmit(event)" class="space-y-3">
+        <div>
+          <label class="block text-[11px] font-bold text-gray-400 mb-1">Deine Postleitzahl / Ort:</label>
+          <input type="text" placeholder="z.B. 09111 Chemnitz" required class="w-full bg-black/40 text-white text-xs rounded-xl px-3.5 py-2.5 border border-white/10 focus:border-brand-orange focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-gray-400 mb-1">E-Mail für unverbindliches Angebot:</label>
+          <input type="email" placeholder="name@beispiel.de" required class="w-full bg-black/40 text-white text-xs rounded-xl px-3.5 py-2.5 border border-white/10 focus:border-brand-orange focus:outline-none">
+        </div>
+        <button type="submit" class="w-full py-3 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-base uppercase tracking-wider font-extrabold rounded-xl shadow transition mt-2">
+          Unverbindliches Angebot anfordern
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT LOGIC                                                          -->
+  <!-- ========================================================================= -->
+  <script>
+    // Theme Switcher Logic (Dark / Light)
+    function setTheme(theme) {
+      const body = document.getElementById('appBody');
+      const btnDark = document.getElementById('btnDarkTheme');
+      const btnLight = document.getElementById('btnLightTheme');
+      const quickIcon = document.getElementById('themeQuickIcon');
+
+      if (theme === 'light') {
+        body.classList.add('theme-light');
+        if (btnLight) btnLight.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow";
+        if (btnDark) btnDark.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10";
+        if (quickIcon) quickIcon.innerText = "🏎️";
+        localStorage.setItem('sportauspuff_theme', 'light');
+      } else {
+        body.classList.remove('theme-light');
+        if (btnDark) btnDark.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow";
+        if (btnLight) btnLight.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10";
+        if (quickIcon) quickIcon.innerText = "☀️";
+        localStorage.setItem('sportauspuff_theme', 'dark');
+      }
+    }
+
+    function toggleThemeQuick() {
+      const isLight = document.getElementById('appBody').classList.contains('theme-light');
+      setTheme(isLight ? 'dark' : 'light');
+    }
+
+    // Beim Start Theme laden
+    const savedTheme = localStorage.getItem('sportauspuff_theme');
+    if (savedTheme === 'light') {
+      setTheme('light');
+    }
+
+    // Mengenauswahl (#ammount)
+    function increaseQty() {
+      const input = document.getElementById('ammount');
+      let val = parseInt(input.value, 10) || 1;
+      if (val < 10) input.value = val + 1;
+    }
+    function decreaseQty() {
+      const input = document.getElementById('ammount');
+      let val = parseInt(input.value, 10) || 1;
+      if (val > 1) input.value = val - 1;
+    }
+
+    // Thumbnail Switcher
+    function switchMainImage(src, el) {
+      document.getElementById('mainProductImg').src = src;
+      document.querySelectorAll('.thumb-item').forEach(t => {
+        t.classList.remove('ring-2', 'ring-brand-orange', 'opacity-100');
+        t.classList.add('opacity-70');
+      });
+      if (el) {
+        el.classList.remove('opacity-70');
+        el.classList.add('ring-2', 'ring-brand-orange', 'opacity-100');
+      }
+    }
+
+    // Tab Switcher (Beschreibung, Fahrzeuge, Gutachten, Bewertungen)
+    function switchDetailTab(tab) {
+      const tabs = ['desc', 'cars', 'docs', 'reviews'];
+      tabs.forEach(t => {
+        const btn = document.getElementById('tabBtn' + t.charAt(0).toUpperCase() + t.slice(1));
+        const content = document.getElementById('tabContent' + t.charAt(0).toUpperCase() + t.slice(1));
+        if (t === tab) {
+          btn.className = "detail-tab-btn py-3 sm:py-4 px-3 sm:px-8 font-racing text-sm sm:text-lg uppercase tracking-wider font-extrabold text-brand-orange border-b-2 border-brand-orange transition flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0";
+          content.classList.remove('hidden');
+        } else {
+          btn.className = "detail-tab-btn py-3 sm:py-4 px-3 sm:px-8 font-racing text-sm sm:text-lg uppercase tracking-wider font-bold text-gray-400 hover:text-white border-b-2 border-transparent transition flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0";
+          content.classList.add('hidden');
+        }
+      });
+    }
+
+    // Warenkorb Handling
+    let cartTotal = 0;
+    let cartItems = 0;
+    function handleProductBuy(e) {
+      e.preventDefault();
+      const qty = parseInt(document.getElementById('ammount').value, 10) || 1;
+      const price = 2499.00;
+      cartItems += qty;
+      cartTotal += (price * qty);
+
+      document.getElementById('cartCountBadge').innerText = cartItems;
+      document.getElementById('cartSumHeader').innerText = cartTotal.toLocaleString('de-DE', { minimumFractionDigits: 2 }) + ' €';
+
+      const btn = document.getElementById('toCart');
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = `<i class="fa-solid fa-check text-white text-lg sm:text-xl"></i><span>${qty}x Hinzugefügt!</span>`;
+      btn.classList.remove('bg-brand-orange');
+      btn.classList.add('bg-emerald-600');
+
+      setTimeout(() => {
+        btn.innerHTML = originalHTML;
+        btn.classList.remove('bg-emerald-600');
+        btn.classList.add('bg-brand-orange');
+      }, 2500);
+    }
+
+    function addToCartCross(name, price) {
+      cartItems += 1;
+      cartTotal += price;
+      document.getElementById('cartCountBadge').innerText = cartItems;
+      document.getElementById('cartSumHeader').innerText = cartTotal.toLocaleString('de-DE', { minimumFractionDigits: 2 }) + ' €';
+      alert(`✅ ${name} für ${price.toLocaleString('de-DE', { minimumFractionDigits: 2 })} € zum Warenkorb hinzugefügt!`);
+    }
+
+    // Sound Modals & Inline Audio
+    let inlinePlaying = true;
+    function toggleInlineAudio() {
+      inlinePlaying = !inlinePlaying;
+      const icon = document.getElementById('inlinePlayIcon');
+      const text = document.getElementById('inlinePlayText');
+      const eq = document.getElementById('inlineEq');
+      if (inlinePlaying) {
+        icon.className = "fa-solid fa-pause text-brand-orange";
+        text.innerText = "Pause / Sound an";
+        eq.classList.remove('opacity-20');
+      } else {
+        icon.className = "fa-solid fa-play text-brand-orange";
+        text.innerText = "Sound abspielen";
+        eq.classList.add('opacity-20');
+      }
+    }
+
+    function setInlineSound(mode) {
+      const btnStock = document.getElementById('btnSoundStockInline');
+      const btnSport = document.getElementById('btnSoundSportInline');
+      if (mode === 'stock') {
+        btnStock.className = "py-2 px-2 sm:px-4 rounded-lg text-xs font-racing uppercase tracking-wider font-extrabold bg-gray-700 text-white shadow transition text-center truncate";
+        btnSport.className = "py-2 px-2 sm:px-4 rounded-lg text-xs font-racing uppercase tracking-wider font-bold text-gray-400 hover:text-white transition text-center truncate";
+      } else {
+        btnSport.className = "py-2 px-2 sm:px-4 rounded-lg text-xs font-racing uppercase tracking-wider font-extrabold bg-brand-orange text-white shadow transition text-center truncate";
+        btnStock.className = "py-2 px-2 sm:px-4 rounded-lg text-xs font-racing uppercase tracking-wider font-bold text-gray-400 hover:text-white transition text-center truncate";
+      }
+    }
+
+    function openSoundModal() {
+      document.getElementById('soundModal').classList.remove('hidden');
+    }
+    function closeSoundModal() {
+      document.getElementById('soundModal').classList.add('hidden');
+    }
+
+    function openMontageModal() {
+      document.getElementById('montageModal').classList.remove('hidden');
+    }
+    function closeMontageModal() {
+      document.getElementById('montageModal').classList.add('hidden');
+    }
+    function handleMontageSubmit(e) {
+      e.preventDefault();
+      closeMontageModal();
+      alert('✅ Vielen Dank! Deine Montageanfrage wurde übermittelt. Wir senden dir innerhalb von 2 Stunden das Festpreis-Angebot unserer Partnerwerkstatt.');
+    }
+
+    // Mobile Drawer Toggle mit Icon-Animation (Bars <-> Xmark)
+    function toggleMobileDrawer() {
+      const drawer = document.getElementById('mobileDrawer');
+      const icon = document.getElementById('mobileMenuIcon');
+      if (!drawer) return;
+      const isHidden = drawer.classList.contains('hidden');
+      if (isHidden) {
+        drawer.classList.remove('hidden');
+        if (icon) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-xmark');
+        }
+      } else {
+        drawer.classList.add('hidden');
+        if (icon) {
+          icon.classList.remove('fa-xmark');
+          icon.classList.add('fa-bars');
+        }
+      }
+    }
+
+    // Smart Sticky Mobile Bar: Erscheint erst, wenn man an der Haupt-Kaufbox vorbeiscrollt
+    window.addEventListener('scroll', () => {
+      const buyBox = document.getElementById('buyProduct');
+      const stickyBar = document.getElementById('stickyMobileBar');
+      if (!buyBox || !stickyBar) return;
+      const rect = buyBox.getBoundingClientRect();
+      if (rect.bottom < 80) {
+        stickyBar.classList.remove('translate-y-full');
+      } else {
+        stickyBar.classList.add('translate-y-full');
+      }
+    });
+  </script>
+</body>
+</html>
