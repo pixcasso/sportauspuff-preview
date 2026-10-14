@@ -136,14 +136,16 @@
         onclick="setTheme('dark')" 
         class="px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow"
       >
-        <span>🏎️ Dark (Performance)</span>
+        <i class="fa-solid fa-moon text-xs"></i>
+        <span>Dark (Performance)</span>
       </button>
       <button 
         id="btnLightTheme" 
         onclick="setTheme('light')" 
         class="px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10"
       >
-        <span>☀️ Hell (Präzision)</span>
+        <i class="fa-solid fa-sun text-xs"></i>
+        <span>Hell (Präzision)</span>
       </button>
     </div>
   </div>
@@ -178,12 +180,12 @@
       <!-- Rechts: USPs & FAQ -->
       <div class="flex items-center space-x-6">
         <span class="hidden sm:flex items-center space-x-2">
-          <i class="fa-solid fa-truck-fast text-emerald-500"></i>
+          <i class="fa-solid fa-truck-fast text-slate-400"></i>
           <span>Kostenloser Versand ab 100 €</span>
         </span>
         <span class="opacity-40 hidden sm:inline">•</span>
         <span class="hidden lg:flex items-center space-x-2">
-          <i class="fa-solid fa-certificate text-brand-orange"></i>
+          <i class="fa-solid fa-certificate text-slate-400"></i>
           <span>100% ECE / ABE eintragungsfrei</span>
         </span>
         <span class="opacity-40 hidden lg:inline">•</span>
@@ -247,7 +249,7 @@
           
           <!-- Quick Theme Toggle auf Mobile -->
           <button onclick="toggleThemeQuick()" class="md:hidden p-1.5 text-gray-300 hover:text-white rounded-lg hover:bg-black/10 transition" title="Design wechseln (Dark/Hell)">
-            <span id="themeQuickIcon" class="text-sm">☀️</span>
+            <i id="themeQuickIcon" class="fa-solid fa-sun text-sm"></i>
           </button>
 
           <!-- Gewähltes Fahrzeug Pill (Nur auf Desktop sichtbar; mobil direkt im Hauptbereich darunter!) -->
@@ -316,8 +318,14 @@
       <div class="flex items-center justify-between p-2 rounded-xl bg-black/20 text-xs">
         <span class="text-gray-400 font-bold uppercase">Erscheinungsbild:</span>
         <div class="flex space-x-1">
-          <button onclick="setTheme('dark')" class="px-2.5 py-1 rounded-lg text-xs font-racing font-bold bg-brand-orange text-white">Dark 🏎️</button>
-          <button onclick="setTheme('light')" class="px-2.5 py-1 rounded-lg text-xs font-racing font-bold bg-white/10 text-gray-300">Hell ☀️</button>
+          <button onclick="setTheme('dark')" class="px-2.5 py-1 rounded-lg text-xs font-racing font-bold bg-brand-orange text-white flex items-center space-x-1">
+            <i class="fa-solid fa-moon text-[10px]"></i>
+            <span>Dark</span>
+          </button>
+          <button onclick="setTheme('light')" class="px-2.5 py-1 rounded-lg text-xs font-racing font-bold bg-white/10 text-gray-300 flex items-center space-x-1">
+            <i class="fa-solid fa-sun text-[10px]"></i>
+            <span>Hell</span>
+          </button>
         </div>
       </div>
 
@@ -337,7 +345,7 @@
           <i class="fa-solid fa-phone text-brand-orange"></i>
           <span>Hotline: <strong class="text-brand-orange">+49 (0) 371 64 63 87 55</strong></span>
         </div>
-        <div class="flex items-center space-x-2 text-emerald-400">
+        <div class="flex items-center space-x-2 text-slate-400">
           <i class="fa-solid fa-truck-fast"></i>
           <span>Kostenloser Versand ab 100 €</span>
         </div>
@@ -374,8 +382,8 @@
 
           <!-- Montage-Beratung -->
           <div class="flex items-center space-x-4">
-            <span class="text-emerald-500 font-bold flex items-center space-x-1.5 normal-case text-xs">
-              <i class="fa-solid fa-shield-halved"></i>
+            <span class="text-slate-300 font-bold flex items-center space-x-1.5 normal-case text-xs">
+              <i class="fa-solid fa-shield-halved text-brand-orange"></i>
               <span>100% Passform-Garantie</span>
             </span>
             <a href="#montage" class="px-3.5 py-1.5 flex items-center space-x-2 text-brand-orange hover:bg-brand-orange/10 font-bold normal-case transition rounded-lg">
@@ -417,13 +425,13 @@
       <!-- Obere Zeile: Fahrzeug-Status & Headline (Clean ohne Border-Linie) -->
       <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-5">
         <div class="flex items-start sm:items-center space-x-3.5 sm:space-x-4 min-w-0">
-          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-brand-orange to-amber-600 flex items-center justify-center text-white text-xl sm:text-2xl shadow-lg flex-shrink-0">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-orange text-xl sm:text-2xl shadow-sm flex-shrink-0">
             <i class="fa-solid fa-car-side"></i>
           </div>
           <div class="min-w-0 flex-1">
             <div class="flex items-center space-x-2">
-              <span class="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wide bg-emerald-500/15 text-emerald-400">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-wide bg-white/5 border border-white/10 text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                 <span>Fahrzeug aktiv</span>
               </span>
               <span class="text-xs text-gray-400 hidden sm:inline">• 24 kompatible Auspuffanlagen</span>
@@ -563,8 +571,8 @@
         <span id="productCountLabel" class="text-sm font-bold" style="color: var(--text-main);">
           24 Sportauspuffe gefunden
         </span>
-        <span class="text-xs px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center space-x-1 font-semibold">
-          <i class="fa-solid fa-check text-[10px]"></i>
+        <span class="text-xs px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 flex items-center space-x-1.5 font-medium">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
           <span>Audi RS6 C8</span>
         </span>
         <span id="activeFilterPillEce" class="text-xs px-2.5 py-1 rounded-lg bg-brand-orange/15 text-brand-orange border border-brand-orange/30 flex items-center space-x-1 font-semibold cursor-pointer hover:line-through" onclick="toggleEceFilter(false)">
@@ -586,11 +594,11 @@
           <span class="text-gray-400 hidden md:inline">Sortieren nach:</span>
           <div class="relative">
             <select id="sortSelect" onchange="applySorting()" style="background-color: var(--panel-card); color: var(--text-main); border-color: var(--panel-border);" class="text-xs font-bold rounded-xl px-3.5 py-2 border focus:border-brand-orange focus:outline-none appearance-none cursor-pointer pr-8 shadow-sm">
-              <option value="popularity">🔥 Beliebteste (Bestseller)</option>
-              <option value="price_asc">💶 Preis: aufsteigend</option>
-              <option value="price_desc">💶 Preis: absteigend</option>
-              <option value="discount">🏷️ Höchste Ersparnis (UVP)</option>
-              <option value="sound">🔊 Lautstärke / Soundlevel</option>
+              <option value="popularity">Beliebteste (Bestseller)</option>
+              <option value="price_asc">Preis: aufsteigend</option>
+              <option value="price_desc">Preis: absteigend</option>
+              <option value="discount">Höchste Ersparnis (UVP)</option>
+              <option value="sound">Lautstärke / Soundlevel</option>
             </select>
             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-400">
               <i class="fa-solid fa-chevron-down text-[10px]"></i>
@@ -648,21 +656,21 @@
                 <input type="checkbox" id="chkEce" checked onchange="filterProducts()" class="w-4 h-4 rounded text-brand-orange focus:ring-brand-orange border-0 bg-black/30 shadow-inner">
                 <span class="group-hover:text-brand-orange transition" style="color: var(--text-main);">ECE-Genehmigung (eintragungsfrei)</span>
               </div>
-              <span class="text-[11px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 font-bold">18</span>
+              <span class="text-[11px] px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-400 font-bold">18</span>
             </label>
             <label class="flex items-center justify-between cursor-pointer group">
               <div class="flex items-center space-x-2.5">
                 <input type="checkbox" id="chkTeilegutachten" onchange="filterProducts()" class="w-4 h-4 rounded text-brand-orange focus:ring-brand-orange border-0 bg-black/30 shadow-inner">
                 <span class="group-hover:text-brand-orange transition" style="color: var(--text-main);">Teilegutachten (§19.3)</span>
               </div>
-              <span class="text-[11px] px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-400 font-bold">4</span>
+              <span class="text-[11px] px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-400 font-bold">4</span>
             </label>
             <label class="flex items-center justify-between cursor-pointer group">
               <div class="flex items-center space-x-2.5">
                 <input type="checkbox" id="chkRacing" onchange="filterProducts()" class="w-4 h-4 rounded text-brand-orange focus:ring-brand-orange border-0 bg-black/30 shadow-inner">
                 <span class="group-hover:text-brand-orange transition" style="color: var(--text-main);">Motorsport / Ohne Zulassung</span>
               </div>
-              <span class="text-[11px] px-2 py-0.5 rounded-full bg-rose-500/15 text-rose-400 font-bold">2</span>
+              <span class="text-[11px] px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-400 font-bold">2</span>
             </label>
           </div>
         </div>
@@ -827,10 +835,10 @@
               <div class="flex items-center justify-between mb-4">
                 <div class="flex flex-wrap gap-1.5">
                   <span class="px-2.5 py-1 rounded-full text-[10px] font-racing uppercase tracking-wider font-extrabold bg-brand-orange text-white shadow">
-                    🔥 Bestseller für RS6
+                    Bestseller
                   </span>
-                  <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center space-x-1">
-                    <i class="fa-solid fa-check text-[9px]"></i>
+                  <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/5 border border-white/10 text-slate-300 flex items-center space-x-1.5">
+                    <i class="fa-solid fa-check text-[9px] text-brand-orange"></i>
                     <span>100% ECE (Eintragungsfrei)</span>
                   </span>
                 </div>
@@ -865,19 +873,19 @@
               <!-- Produkt-Spezifikationen -->
               <div class="grid grid-cols-2 gap-2 my-4 text-[11px] font-medium" style="color: var(--text-muted);">
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-sliders text-brand-orange"></i>
+                  <i class="fa-solid fa-sliders text-slate-400"></i>
                   <span>Klappen: Audi Drive Select</span>
                 </div>
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-shield-halved text-emerald-400"></i>
+                  <i class="fa-solid fa-shield-halved text-slate-400"></i>
                   <span>Zulassung: ECE eintragungsfrei</span>
                 </div>
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-wrench text-brand-orange"></i>
+                  <i class="fa-solid fa-wrench text-slate-400"></i>
                   <span>Rohrdurchmesser: 2x 76mm</span>
                 </div>
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-layer-group text-brand-orange"></i>
+                  <i class="fa-solid fa-layer-group text-slate-400"></i>
                   <span>Material: V2A Edelstahl 304</span>
                 </div>
               </div>
@@ -890,7 +898,7 @@
                 <div>
                   <div class="flex items-center space-x-2 text-xs text-gray-400">
                     <span class="line-through">UVP 2.780,00 €</span>
-                    <span class="text-emerald-400 font-bold">-281,00 €</span>
+                    <span class="text-brand-orange font-bold text-xs">-281,00 €</span>
                   </div>
                   <div class="font-racing text-3xl font-extrabold tracking-wide" style="color: var(--text-main);">
                     2.499,00 €
@@ -899,8 +907,8 @@
                 </div>
 
                 <div class="text-right">
-                  <span class="inline-flex items-center space-x-1 text-emerald-400 font-bold text-xs">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  <span class="inline-flex items-center space-x-1.5 text-slate-300 font-medium text-xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                     <span>Auf Lager</span>
                   </span>
                   <div class="text-[10px] text-gray-400">Versandfertig in 24h</div>
@@ -924,11 +932,12 @@
             <div>
               <div class="flex items-center justify-between mb-4">
                 <div class="flex flex-wrap gap-1.5">
-                  <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-blue-500/15 text-blue-400 border border-blue-500/30">
-                    🇩🇪 Made in Germany
+                  <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/5 border border-white/10 text-slate-300 flex items-center space-x-1.5">
+                    <i class="fa-solid fa-industry text-[9px] text-slate-400"></i>
+                    <span>Made in Germany</span>
                   </span>
-                  <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center space-x-1">
-                    <i class="fa-solid fa-check text-[9px]"></i>
+                  <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/5 border border-white/10 text-slate-300 flex items-center space-x-1.5">
+                    <i class="fa-solid fa-check text-[9px] text-brand-orange"></i>
                     <span>Mit EG-Gutachten</span>
                   </span>
                 </div>
@@ -962,19 +971,19 @@
 
               <div class="grid grid-cols-2 gap-2 my-4 text-[11px] font-medium" style="color: var(--text-muted);">
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-sliders text-brand-orange"></i>
+                  <i class="fa-solid fa-sliders text-slate-400"></i>
                   <span>Ohne Klappe (Dauer-Sport)</span>
                 </div>
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-shield-halved text-emerald-400"></i>
+                  <i class="fa-solid fa-shield-halved text-slate-400"></i>
                   <span>ECE-Betriebserlaubnis</span>
                 </div>
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-wrench text-brand-orange"></i>
+                  <i class="fa-solid fa-wrench text-slate-400"></i>
                   <span>Rohrdurchmesser: 70mm</span>
                 </div>
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-calendar-check text-emerald-400"></i>
+                  <i class="fa-solid fa-calendar-check text-slate-400"></i>
                   <span>3 Jahre Garantie</span>
                 </div>
               </div>
@@ -986,7 +995,7 @@
                 <div>
                   <div class="flex items-center space-x-2 text-xs text-gray-400">
                     <span class="line-through">UVP 1.425,00 €</span>
-                    <span class="text-emerald-400 font-bold">-136,00 €</span>
+                    <span class="text-brand-orange font-bold text-xs">-136,00 €</span>
                   </div>
                   <div class="font-racing text-3xl font-extrabold tracking-wide" style="color: var(--text-main);">
                     1.289,00 €
@@ -995,8 +1004,8 @@
                 </div>
 
                 <div class="text-right">
-                  <span class="inline-flex items-center space-x-1 text-emerald-400 font-bold text-xs">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  <span class="inline-flex items-center space-x-1.5 text-slate-300 font-medium text-xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                     <span>Auf Lager</span>
                   </span>
                   <div class="text-[10px] text-gray-400">Lieferzeit 2-3 Werktage</div>
@@ -1020,11 +1029,13 @@
             <div>
               <div class="flex items-center justify-between mb-4">
                 <div class="flex flex-wrap gap-1.5">
-                  <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-purple-500/15 text-purple-400 border border-purple-500/30">
-                    ⚡ High-Flow OPF-Back
+                  <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/5 border border-white/10 text-slate-300 flex items-center space-x-1.5">
+                    <i class="fa-solid fa-wind text-[9px] text-slate-400"></i>
+                    <span>High-Flow OPF-Back</span>
                   </span>
-                  <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
-                    ✓ ECE eintragungsfrei
+                  <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/5 border border-white/10 text-slate-300 flex items-center space-x-1.5">
+                    <i class="fa-solid fa-check text-[9px] text-brand-orange"></i>
+                    <span>ECE eintragungsfrei</span>
                   </span>
                 </div>
                 <span class="font-racing text-xs uppercase tracking-wider font-extrabold text-gray-400">Bastuck</span>
@@ -1056,19 +1067,19 @@
 
               <div class="grid grid-cols-2 gap-2 my-4 text-[11px] font-medium" style="color: var(--text-muted);">
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-sliders text-brand-orange"></i>
+                  <i class="fa-solid fa-sliders text-slate-400"></i>
                   <span>Mit Klappensteuerung</span>
                 </div>
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-shield-halved text-emerald-400"></i>
+                  <i class="fa-solid fa-shield-halved text-slate-400"></i>
                   <span>100% ECE-Homologiert</span>
                 </div>
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-bolt text-amber-400"></i>
+                  <i class="fa-solid fa-bolt text-slate-400"></i>
                   <span>Leistung: +12 PS / +25 Nm</span>
                 </div>
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-weight-hanging text-brand-orange"></i>
+                  <i class="fa-solid fa-weight-hanging text-slate-400"></i>
                   <span>Gewicht: -6.5 kg vs. Serie</span>
                 </div>
               </div>
@@ -1080,7 +1091,7 @@
                 <div>
                   <div class="flex items-center space-x-2 text-xs text-gray-400">
                     <span class="line-through">UVP 2.450,00 €</span>
-                    <span class="text-emerald-400 font-bold">-260,00 €</span>
+                    <span class="text-brand-orange font-bold text-xs">-260,00 €</span>
                   </div>
                   <div class="font-racing text-3xl font-extrabold tracking-wide" style="color: var(--text-main);">
                     2.190,00 €
@@ -1089,8 +1100,8 @@
                 </div>
 
                 <div class="text-right">
-                  <span class="inline-flex items-center space-x-1 text-emerald-400 font-bold text-xs">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  <span class="inline-flex items-center space-x-1.5 text-slate-300 font-medium text-xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                     <span>Auf Lager</span>
                   </span>
                   <div class="text-[10px] text-gray-400">Lieferzeit 1-2 Werktage</div>
@@ -1114,11 +1125,13 @@
             <div>
               <div class="flex items-center justify-between mb-4">
                 <div class="flex flex-wrap gap-1.5">
-                  <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-red-500/15 text-red-400 border border-red-500/30">
-                    🏁 Rennsport-Technologie
+                  <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/5 border border-white/10 text-slate-300 flex items-center space-x-1.5">
+                    <i class="fa-solid fa-gauge-high text-[9px] text-slate-400"></i>
+                    <span>Rennsport-Technologie</span>
                   </span>
-                  <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
-                    ECE konform
+                  <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/5 border border-white/10 text-slate-300 flex items-center space-x-1.5">
+                    <i class="fa-solid fa-check text-[9px] text-brand-orange"></i>
+                    <span>ECE konform</span>
                   </span>
                 </div>
                 <span class="font-racing text-xs uppercase tracking-wider font-extrabold text-gray-400">REMUS</span>
@@ -1150,19 +1163,19 @@
 
               <div class="grid grid-cols-2 gap-2 my-4 text-[11px] font-medium" style="color: var(--text-muted);">
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-sliders text-brand-orange"></i>
+                  <i class="fa-solid fa-sliders text-slate-400"></i>
                   <span>2 integrierte Klappen</span>
                 </div>
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-shield-halved text-emerald-400"></i>
+                  <i class="fa-solid fa-shield-halved text-slate-400"></i>
                   <span>ECE-Genehmigung</span>
                 </div>
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-wrench text-brand-orange"></i>
+                  <i class="fa-solid fa-wrench text-slate-400"></i>
                   <span>Plug & Play Montage</span>
                 </div>
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-trophy text-amber-400"></i>
+                  <i class="fa-solid fa-trophy text-slate-400"></i>
                   <span>Premium Sound-Tuning</span>
                 </div>
               </div>
@@ -1174,7 +1187,7 @@
                 <div>
                   <div class="flex items-center space-x-2 text-xs text-gray-400">
                     <span class="line-through">UVP 2.990,00 €</span>
-                    <span class="text-emerald-400 font-bold">-240,00 €</span>
+                    <span class="text-brand-orange font-bold text-xs">-240,00 €</span>
                   </div>
                   <div class="font-racing text-3xl font-extrabold tracking-wide" style="color: var(--text-main);">
                     2.750,00 €
@@ -1183,8 +1196,8 @@
                 </div>
 
                 <div class="text-right">
-                  <span class="inline-flex items-center space-x-1 text-emerald-400 font-bold text-xs">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  <span class="inline-flex items-center space-x-1.5 text-slate-300 font-medium text-xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                     <span>Auf Lager</span>
                   </span>
                   <div class="text-[10px] text-gray-400">Lieferzeit 2-4 Werktage</div>
@@ -1208,11 +1221,13 @@
             <div>
               <div class="flex items-center justify-between mb-4">
                 <div class="flex flex-wrap gap-1.5">
-                  <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-indigo-500/15 text-indigo-400 border border-indigo-500/30">
-                    🇬🇧 Milltek UK
+                  <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/5 border border-white/10 text-slate-300 flex items-center space-x-1.5">
+                    <i class="fa-solid fa-shield text-[9px] text-slate-400"></i>
+                    <span>Milltek Sport UK</span>
                   </span>
-                  <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
-                    ✓ ECE-Gutachten
+                  <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/5 border border-white/10 text-slate-300 flex items-center space-x-1.5">
+                    <i class="fa-solid fa-check text-[9px] text-brand-orange"></i>
+                    <span>ECE-Gutachten</span>
                   </span>
                 </div>
                 <span class="font-racing text-xs uppercase tracking-wider font-extrabold text-gray-400">Milltek Sport</span>
@@ -1244,19 +1259,19 @@
 
               <div class="grid grid-cols-2 gap-2 my-4 text-[11px] font-medium" style="color: var(--text-muted);">
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-sliders text-brand-orange"></i>
+                  <i class="fa-solid fa-sliders text-slate-400"></i>
                   <span>Klappenansteuerung OE</span>
                 </div>
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-shield-halved text-emerald-400"></i>
+                  <i class="fa-solid fa-shield-halved text-slate-400"></i>
                   <span>TÜV / ECE konform</span>
                 </div>
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                  <i class="fa-solid fa-circle-check text-slate-400"></i>
                   <span>Keine OPF-Fehler (OPF Safe)</span>
                 </div>
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-fire text-brand-orange"></i>
+                  <i class="fa-solid fa-fire text-slate-400"></i>
                   <span>80mm Querschnitt</span>
                 </div>
               </div>
@@ -1268,7 +1283,7 @@
                 <div>
                   <div class="flex items-center space-x-2 text-xs text-gray-400">
                     <span class="line-through">UVP 2.890,00 €</span>
-                    <span class="text-emerald-400 font-bold">-240,00 €</span>
+                    <span class="text-brand-orange font-bold text-xs">-240,00 €</span>
                   </div>
                   <div class="font-racing text-3xl font-extrabold tracking-wide" style="color: var(--text-main);">
                     2.650,00 €
@@ -1277,8 +1292,8 @@
                 </div>
 
                 <div class="text-right">
-                  <span class="inline-flex items-center space-x-1 text-emerald-400 font-bold text-xs">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  <span class="inline-flex items-center space-x-1.5 text-slate-300 font-medium text-xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                     <span>Auf Lager</span>
                   </span>
                   <div class="text-[10px] text-gray-400">Lieferzeit 2-3 Werktage</div>
@@ -1302,19 +1317,20 @@
             <div>
               <div class="flex items-center justify-between mb-4">
                 <div class="flex flex-wrap gap-1.5">
-                  <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-rose-500/15 text-rose-400 border border-rose-500/30">
-                    ⚠️ Motorsport / Export Only
+                  <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/5 border border-white/10 text-slate-300 flex items-center space-x-1.5">
+                    <i class="fa-solid fa-triangle-exclamation text-[9px] text-amber-400"></i>
+                    <span>Motorsport / Export</span>
                   </span>
                 </div>
                 <span class="font-racing text-xs uppercase tracking-wider font-extrabold text-gray-400">Ragazzon</span>
               </div>
 
               <div class="relative rounded-2xl bg-black/20 p-4 mb-5 overflow-hidden group-hover:scale-[1.01] transition-transform">
-                <div class="w-full h-52 bg-gradient-to-tr from-stone-900 via-rose-950/40 to-stone-900 rounded-xl flex items-center justify-center relative overflow-hidden border border-white/5">
+                <div class="w-full h-52 bg-gradient-to-tr from-stone-900 via-stone-800 to-stone-900 rounded-xl flex items-center justify-center relative overflow-hidden border border-white/5">
                   <div class="text-center p-4">
-                    <i class="fa-solid fa-triangle-exclamation text-5xl text-rose-500/40 mb-2"></i>
+                    <i class="fa-solid fa-triangle-exclamation text-5xl text-slate-500/40 mb-2"></i>
                     <div class="font-racing text-xl font-bold uppercase tracking-wider text-gray-300">Vorschalldämpfer Ersatzrohre</div>
-                    <div class="text-xs text-rose-400 font-semibold">Maximaler Sound ohne Dämmung</div>
+                    <div class="text-xs text-slate-400 font-medium">Maximaler Sound ohne Dämmung</div>
                   </div>
                 </div>
               </div>
@@ -1328,19 +1344,19 @@
 
               <div class="grid grid-cols-2 gap-2 my-4 text-[11px] font-medium" style="color: var(--text-muted);">
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-volume-high text-rose-400"></i>
-                  <span>Lautstärke: Extrem laut</span>
+                  <i class="fa-solid fa-volume-high text-slate-400"></i>
+                  <span>Lautstärke: Maximal</span>
                 </div>
-                <div class="flex items-center space-x-1.5 text-rose-400">
-                  <i class="fa-solid fa-ban"></i>
+                <div class="flex items-center space-x-1.5 text-slate-400">
+                  <i class="fa-solid fa-ban text-slate-400"></i>
                   <span>Keine StVZO-Zulassung</span>
                 </div>
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-weight-hanging text-brand-orange"></i>
+                  <i class="fa-solid fa-weight-hanging text-slate-400"></i>
                   <span>Gewicht: nur 3.8 kg</span>
                 </div>
                 <div class="flex items-center space-x-1.5">
-                  <i class="fa-solid fa-screwdriver-wrench text-brand-orange"></i>
+                  <i class="fa-solid fa-screwdriver-wrench text-slate-400"></i>
                   <span>100% Passgenau an Serie</span>
                 </div>
               </div>
@@ -1352,7 +1368,7 @@
                 <div>
                   <div class="flex items-center space-x-2 text-xs text-gray-400">
                     <span class="line-through">UVP 720,00 €</span>
-                    <span class="text-emerald-400 font-bold">-71,00 €</span>
+                    <span class="text-brand-orange font-bold text-xs">-71,00 €</span>
                   </div>
                   <div class="font-racing text-3xl font-extrabold tracking-wide" style="color: var(--text-main);">
                     649,00 €
@@ -1361,8 +1377,8 @@
                 </div>
 
                 <div class="text-right">
-                  <span class="inline-flex items-center space-x-1 text-emerald-400 font-bold text-xs">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  <span class="inline-flex items-center space-x-1.5 text-slate-300 font-medium text-xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                     <span>Auf Lager</span>
                   </span>
                   <div class="text-[10px] text-gray-400">Lieferzeit 1-2 Werktage</div>
@@ -1591,13 +1607,13 @@
         body.classList.add('theme-light');
         if (btnLight) btnLight.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow";
         if (btnDark) btnDark.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10";
-        if (quickIcon) quickIcon.innerText = "🏎️";
+        if (quickIcon) quickIcon.className = "fa-solid fa-moon text-sm";
         localStorage.setItem('sportauspuff_theme', 'light');
       } else {
         body.classList.remove('theme-light');
         if (btnDark) btnDark.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow";
         if (btnLight) btnLight.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10";
-        if (quickIcon) quickIcon.innerText = "☀️";
+        if (quickIcon) quickIcon.className = "fa-solid fa-sun text-sm";
         localStorage.setItem('sportauspuff_theme', 'dark');
       }
     }
@@ -1852,11 +1868,11 @@
     function addToCart(itemName, price) {
       cartCount++;
       document.getElementById('cartCountBadge').innerText = cartCount;
-      alert(`🛒 ${itemName} für ${price.toLocaleString('de-DE')} € in den Warenkorb gelegt!`);
+      alert(`${itemName} für ${price.toLocaleString('de-DE')} € in den Warenkorb gelegt.`);
     }
 
     function viewDetails(name) {
-      alert(`ℹ️ Produktdetailseite für "${name}" wird im nächsten Entwicklungsschritt als Detailansicht-Template geöffnet.`);
+      alert(`Produktdetailseite für "${name}" wird im nächsten Entwicklungsschritt als Detailansicht-Template geöffnet.`);
     }
 
     // HSN/TSN Modal
@@ -1871,7 +1887,7 @@
       const tsn = document.getElementById('modalInputTsn').value;
       closeHsnModal();
       updateActiveCarDisplay(`Audi RS6 Avant (C8) nach HSN: ${hsn} / TSN: ${tsn}`, `Erkannt: Audi RS6 4.0 TFSI 441 kW (600 PS) • Baujahr ab 2019`, `Audi RS6 (${hsn}/${tsn})`);
-      alert(`✅ Fahrzeugschein erfolgreich verifiziert!\nHSN: ${hsn} / TSN: ${tsn} -> 24 kompatible Sportauspuffe für Audi RS6 Avant geladen.`);
+      alert(`Fahrzeugschein erfolgreich verifiziert!\nHSN: ${hsn} / TSN: ${tsn} -> 24 kompatible Sportauspuffe für Audi RS6 Avant geladen.`);
     }
 
     // Mobile Drawer Toggle mit Icon-Animation (Bars <-> Xmark)

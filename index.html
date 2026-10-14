@@ -143,14 +143,16 @@
         onclick="setTheme('dark')" 
         class="px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow"
       >
-        <span>🏎️ Dark (Performance)</span>
+        <i class="fa-solid fa-moon text-xs"></i>
+        <span>Dark (Performance)</span>
       </button>
       <button 
         id="btnLightTheme" 
         onclick="setTheme('light')" 
         class="px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10"
       >
-        <span>☀️ Hell (Präzision)</span>
+        <i class="fa-solid fa-sun text-xs"></i>
+        <span>Hell (Präzision)</span>
       </button>
     </div>
   </div>
@@ -185,12 +187,12 @@
       <!-- Rechts: USPs & FAQ -->
       <div class="flex items-center space-x-6">
         <span class="hidden sm:flex items-center space-x-2">
-          <i class="fa-solid fa-truck-fast text-emerald-500"></i>
+          <i class="fa-solid fa-truck-fast text-slate-400"></i>
           <span>Kostenloser Versand ab 100 €</span>
         </span>
         <span class="opacity-40 hidden sm:inline">•</span>
         <span class="hidden lg:flex items-center space-x-2">
-          <i class="fa-solid fa-certificate text-brand-orange"></i>
+          <i class="fa-solid fa-certificate text-slate-400"></i>
           <span>100% ECE / ABE eintragungsfrei</span>
         </span>
         <span class="opacity-40 hidden lg:inline">•</span>
@@ -253,7 +255,7 @@
           
           <!-- Quick Theme Toggle auf Mobile -->
           <button onclick="toggleThemeQuick()" class="md:hidden p-1.5 text-gray-300 hover:text-white rounded-lg hover:bg-black/10 transition" title="Design wechseln (Dark/Hell)">
-            <span id="themeQuickIcon" class="text-sm">☀️</span>
+            <i id="themeQuickIcon" class="fa-solid fa-sun text-sm"></i>
           </button>
 
           <!-- Gewähltes Fahrzeug Pill (Clean, ohne Border-Rahmen) -->
@@ -319,8 +321,14 @@
       <div class="flex items-center justify-between p-2 rounded-xl bg-black/20 text-xs">
         <span class="text-gray-400 font-bold uppercase">Erscheinungsbild:</span>
         <div class="flex space-x-1">
-          <button onclick="setTheme('dark')" class="px-2.5 py-1 rounded-lg text-xs font-racing font-bold bg-brand-orange text-white">Dark 🏎️</button>
-          <button onclick="setTheme('light')" class="px-2.5 py-1 rounded-lg text-xs font-racing font-bold bg-white/10 text-gray-300">Hell ☀️</button>
+          <button onclick="setTheme('dark')" class="px-2.5 py-1 rounded-lg text-xs font-racing font-bold bg-brand-orange text-white flex items-center space-x-1">
+            <i class="fa-solid fa-moon text-[10px]"></i>
+            <span>Dark</span>
+          </button>
+          <button onclick="setTheme('light')" class="px-2.5 py-1 rounded-lg text-xs font-racing font-bold bg-white/10 text-gray-300 flex items-center space-x-1">
+            <i class="fa-solid fa-sun text-[10px]"></i>
+            <span>Hell</span>
+          </button>
         </div>
       </div>
 
@@ -340,8 +348,8 @@
           <i class="fa-solid fa-phone text-brand-orange"></i>
           <span>Hotline: <strong class="text-brand-orange">+49 (0) 371 64 63 87 55</strong></span>
         </div>
-        <div class="flex items-center space-x-2 text-emerald-400">
-          <i class="fa-solid fa-truck-fast"></i>
+        <div class="flex items-center space-x-2 text-slate-300">
+          <i class="fa-solid fa-truck-fast text-slate-400"></i>
           <span>Kostenloser Versand ab 100 €</span>
         </div>
       </div>
@@ -782,10 +790,10 @@
 
       </div>
 
-      <!-- 4 USPs -->
+      <!-- 4 USPs (Flat, Clean, Monochrom) -->
       <div class="mt-12 pt-10 border-t border-gray-100 grid grid-cols-2 md:grid-cols-4 gap-8 text-center max-w-5xl mx-auto">
         <div class="flex flex-col items-center">
-          <div class="w-12 h-12 rounded-2xl bg-brand-orange/10 text-brand-orange flex items-center justify-center text-xl mb-2.5">
+          <div class="w-10 h-10 rounded-xl bg-gray-100 text-gray-700 flex items-center justify-center text-base mb-2.5">
             <i class="fa-solid fa-truck-fast"></i>
           </div>
           <span class="font-bold text-sm text-gray-900">Kostenloser Versand</span>
@@ -793,7 +801,7 @@
         </div>
 
         <div class="flex flex-col items-center">
-          <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-2.5">
+          <div class="w-10 h-10 rounded-xl bg-gray-100 text-gray-700 flex items-center justify-center text-base mb-2.5">
             <i class="fa-solid fa-certificate"></i>
           </div>
           <span class="font-bold text-sm text-gray-900">ECE / ABE Gutachten</span>
@@ -801,7 +809,7 @@
         </div>
 
         <div class="flex flex-col items-center">
-          <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-2.5">
+          <div class="w-10 h-10 rounded-xl bg-gray-100 text-gray-700 flex items-center justify-center text-base mb-2.5">
             <i class="fa-solid fa-wrench"></i>
           </div>
           <span class="font-bold text-sm text-gray-900">Montageservice</span>
@@ -809,7 +817,7 @@
         </div>
 
         <div class="flex flex-col items-center">
-          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-2.5">
+          <div class="w-10 h-10 rounded-xl bg-gray-100 text-gray-700 flex items-center justify-center text-base mb-2.5">
             <i class="fa-solid fa-shield-halved"></i>
           </div>
           <span class="font-bold text-sm text-gray-900">Über 20 Jahre Erfahrung</span>
@@ -925,8 +933,8 @@
           <div>
             <div class="flex items-center justify-between text-[11px] mb-2">
               <span class="bg-gray-200 text-gray-800 font-bold px-2 py-0.5 rounded">FOX Exhaust</span>
-              <span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded flex items-center space-x-1">
-                <i class="fa-solid fa-check text-[10px]"></i>
+              <span class="bg-gray-100 text-gray-700 font-medium px-2 py-0.5 rounded border border-gray-200 flex items-center space-x-1">
+                <i class="fa-solid fa-check text-[10px] text-gray-500"></i>
                 <span>ECE eintragungsfrei</span>
               </span>
             </div>
@@ -944,7 +952,10 @@
                 <span class="text-xs text-gray-400 line-through">949,00 €</span>
                 <div class="text-xl font-bold text-gray-900">849,00 €</div>
               </div>
-              <span class="text-xs text-emerald-600 font-bold">Sofort lieferbar</span>
+              <span class="text-xs text-gray-600 font-medium flex items-center space-x-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <span>Sofort lieferbar</span>
+              </span>
             </div>
             <button class="w-full py-2.5 bg-brand-orange hover:bg-brand-orangeHover text-white font-bold text-xs rounded-xl transition shadow">
               In den Warenkorb
@@ -957,8 +968,8 @@
           <div>
             <div class="flex items-center justify-between text-[11px] mb-2">
               <span class="bg-gray-200 text-gray-800 font-bold px-2 py-0.5 rounded">Bastuck</span>
-              <span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded flex items-center space-x-1">
-                <i class="fa-solid fa-check text-[10px]"></i>
+              <span class="bg-gray-100 text-gray-700 font-medium px-2 py-0.5 rounded border border-gray-200 flex items-center space-x-1">
+                <i class="fa-solid fa-check text-[10px] text-gray-500"></i>
                 <span>ECE eintragungsfrei</span>
               </span>
             </div>
@@ -976,7 +987,10 @@
                 <span class="text-xs text-gray-400 line-through">1.890,00 €</span>
                 <div class="text-xl font-bold text-gray-900">1.699,00 €</div>
               </div>
-              <span class="text-xs text-emerald-600 font-bold">2–3 Werktage</span>
+              <span class="text-xs text-gray-600 font-medium flex items-center space-x-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <span>2–3 Werktage</span>
+              </span>
             </div>
             <button class="w-full py-2.5 bg-brand-orange hover:bg-brand-orangeHover text-white font-bold text-xs rounded-xl transition shadow">
               In den Warenkorb
@@ -989,8 +1003,8 @@
           <div>
             <div class="flex items-center justify-between text-[11px] mb-2">
               <span class="bg-gray-200 text-gray-800 font-bold px-2 py-0.5 rounded">REMUS</span>
-              <span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded flex items-center space-x-1">
-                <i class="fa-solid fa-check text-[10px]"></i>
+              <span class="bg-gray-100 text-gray-700 font-medium px-2 py-0.5 rounded border border-gray-200 flex items-center space-x-1">
+                <i class="fa-solid fa-check text-[10px] text-gray-500"></i>
                 <span>ECE eintragungsfrei</span>
               </span>
             </div>
@@ -1008,7 +1022,10 @@
                 <span class="text-xs text-gray-400 line-through">2.140,00 €</span>
                 <div class="text-xl font-bold text-gray-900">1.940,00 €</div>
               </div>
-              <span class="text-xs text-emerald-600 font-bold">Sofort lieferbar</span>
+              <span class="text-xs text-gray-600 font-medium flex items-center space-x-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <span>Sofort lieferbar</span>
+              </span>
             </div>
             <button class="w-full py-2.5 bg-brand-orange hover:bg-brand-orangeHover text-white font-bold text-xs rounded-xl transition shadow">
               In den Warenkorb
@@ -1021,8 +1038,8 @@
           <div>
             <div class="flex items-center justify-between text-[11px] mb-2">
               <span class="bg-gray-200 text-gray-800 font-bold px-2 py-0.5 rounded">Ragazzon</span>
-              <span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded flex items-center space-x-1">
-                <i class="fa-solid fa-check text-[10px]"></i>
+              <span class="bg-gray-100 text-gray-700 font-medium px-2 py-0.5 rounded border border-gray-200 flex items-center space-x-1">
+                <i class="fa-solid fa-check text-[10px] text-gray-500"></i>
                 <span>ECE eintragungsfrei</span>
               </span>
             </div>
@@ -1040,7 +1057,10 @@
                 <span class="text-xs text-gray-400 line-through">1.250,00 €</span>
                 <div class="text-xl font-bold text-gray-900">1.125,00 €</div>
               </div>
-              <span class="text-xs text-emerald-600 font-bold">Sofort lieferbar</span>
+              <span class="text-xs text-gray-600 font-medium flex items-center space-x-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <span>Sofort lieferbar</span>
+              </span>
             </div>
             <button class="w-full py-2.5 bg-brand-orange hover:bg-brand-orangeHover text-white font-bold text-xs rounded-xl transition shadow">
               In den Warenkorb
@@ -1113,8 +1133,9 @@
       </div>
 
       <div class="pt-2 text-center">
-        <a href="tel:+4937164638755" class="text-xs text-brand-orange font-bold hover:underline">
-          📞 Oder direkt anrufen: +49 (0) 371 64 63 87 55
+        <a href="tel:+4937164638755" class="text-xs text-brand-orange font-bold hover:underline inline-flex items-center space-x-1.5">
+          <i class="fa-solid fa-phone text-xs"></i>
+          <span>Oder direkt anrufen: +49 (0) 371 64 63 87 55</span>
         </a>
       </div>
     </div>
@@ -1187,16 +1208,23 @@
       const body = document.getElementById('appBody');
       const btnDark = document.getElementById('btnDarkTheme');
       const btnLight = document.getElementById('btnLightTheme');
+      const quickIcon = document.getElementById('themeQuickIcon');
 
       if (theme === 'light') {
         body.classList.add('theme-light');
-        btnLight.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow";
-        btnDark.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10";
+        if (btnLight) btnLight.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow";
+        if (btnDark) btnDark.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10";
+        if (quickIcon) {
+          quickIcon.className = "fa-solid fa-moon text-sm";
+        }
         localStorage.setItem('sportauspuff_theme', 'light');
       } else {
         body.classList.remove('theme-light');
-        btnDark.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow";
-        btnLight.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10";
+        if (btnDark) btnDark.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow";
+        if (btnLight) btnLight.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10";
+        if (quickIcon) {
+          quickIcon.className = "fa-solid fa-sun text-sm";
+        }
         localStorage.setItem('sportauspuff_theme', 'dark');
       }
     }
