@@ -177,16 +177,22 @@
       background-color: #F1F5F9 !important;
     }
 
-    /* 8. AUSNAHMEN: Text auf Brand-Orange & Hero-Bereich */
+    /* 8. AUSNAHMEN: Text auf solidem Brand-Orange & Akzentbuttons MUSS weiß sein */
     body.theme-light .bg-brand-orange,
     body.theme-light .bg-brand-orange *,
     body.theme-light .bg-brand-orangeHover,
     body.theme-light .bg-brand-orangeHover *,
-    body.theme-light [class*="bg-brand-orange"],
-    body.theme-light [class*="bg-brand-orange"] *,
+    body.theme-light .hover\:bg-brand-orange:hover,
+    body.theme-light .hover\:bg-brand-orange:hover *,
     body.theme-light .bg-emerald-600,
     body.theme-light .bg-emerald-600 * {
       color: #FFFFFF !important;
+    }
+
+    /* WICHTIG: Aufgetönte Hover-/Badge-Elemente dürfen NIEMALS weißen Text erzwingen */
+    body.theme-light .hover\:bg-brand-orange\/10:hover,
+    body.theme-light .hover\:bg-brand-orangeLight:hover {
+      background-color: rgba(255, 102, 0, 0.12) !important;
     }
 
     /* 9. Floating Theme Switcher Leiste */

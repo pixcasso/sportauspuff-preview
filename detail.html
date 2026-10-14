@@ -162,26 +162,32 @@
       background-color: #F1F5F9 !important;
     }
 
-    /* 8. AUSNAHMEN: Text auf Brand-Orange & dunklen Bild-Overlays MUSS weiß bleiben */
+    /* 8. AUSNAHMEN: Text auf durchgehendem Brand-Orange & dunklen Bild-Overlays MUSS weiß bleiben */
     body.theme-light .bg-brand-orange,
     body.theme-light .bg-brand-orange *,
     body.theme-light .bg-brand-orangeHover,
     body.theme-light .bg-brand-orangeHover *,
-    body.theme-light [class*="bg-brand-orange"],
-    body.theme-light [class*="bg-brand-orange"] *,
+    body.theme-light .hover\:bg-brand-orange:hover,
+    body.theme-light .hover\:bg-brand-orange:hover *,
     body.theme-light .bg-emerald-600,
     body.theme-light .bg-emerald-600 *,
     body.theme-light .bg-gray-700,
     body.theme-light .bg-gray-700 *,
-    body.theme-light [class*="bg-gray-950"],
-    body.theme-light [class*="bg-gray-950"] *,
-    body.theme-light [class*="bg-black/70"],
-    body.theme-light [class*="bg-black/70"] *,
-    body.theme-light [class*="bg-black/80"],
-    body.theme-light [class*="bg-black/80"] *,
+    body.theme-light .bg-gray-950,
+    body.theme-light .bg-gray-950 *,
+    body.theme-light .bg-black\/70,
+    body.theme-light .bg-black\/70 *,
+    body.theme-light .bg-black\/80,
+    body.theme-light .bg-black\/80 *,
     body.theme-light .from-stone-900,
     body.theme-light .from-stone-900 * {
       color: #FFFFFF !important;
+    }
+
+    /* WICHTIG: Aufgetönte Hover-/Badge-Elemente dürfen NIEMALS weißen Text erzwingen */
+    body.theme-light .hover\:bg-brand-orange\/10:hover,
+    body.theme-light .hover\:bg-brand-orangeLight:hover {
+      background-color: rgba(255, 102, 0, 0.12) !important;
     }
 
     /* 9. Live-Lieferzeit Badge (#delTime) im hellen Modus */
