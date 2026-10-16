@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Audi RS6 Avant (C8) Sportauspuff & Abgasanlagen | Sportauspuff-Günstiger.de</title>
+  <title>Audi RS6 Avant (C8) Sportauspuff & Abgasanlagen | Dein-Sportauspuff.de</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts: Inter & Barlow Condensed -->
@@ -20,10 +20,17 @@
         extend: {
           colors: {
             brand: {
-              orange: '#FF6600',
-              orangeHover: '#E55B00',
-              orangeBright: '#FF7A1A',
-              orangeLight: '#FFF4ED'
+              blue: '#378DCC',
+              blueHover: '#2875AB',
+              blueBright: '#5CAAE3',
+              blueLight: '#EBF4FB',
+              accent: '#F59E0B',
+              accentHover: '#D97706',
+              // Backward-compatibility aliases so all existing classes render in Dein-Sportauspuff blue #378DCC
+              orange: '#378DCC',
+              orangeHover: '#2875AB',
+              orangeBright: '#5CAAE3',
+              orangeLight: '#EBF4FB'
             }
           },
           fontFamily: {
@@ -53,8 +60,8 @@
       --panel-border: rgba(255, 255, 255, 0.08);
       --text-main: #FFFFFF;
       --text-muted: #94A3B8;
-      --badge-bg: rgba(255, 102, 0, 0.12);
-      --badge-text: #FF7A1A;
+      --badge-bg: rgba(55, 141, 204, 0.12);
+      --badge-text: #378DCC;
       --filter-bar-bg: #101420;
 
       /* DIE ZARTE EDLE KONTRÄRFARBE ZUM ORANGE (Deep Petrol-Slate / Cool Racing Navy) - BORDERLESS */
@@ -84,8 +91,8 @@
       --panel-border: rgba(0, 0, 0, 0.08);
       --text-main: #0F172A;
       --text-muted: #64748B;
-      --badge-bg: #FFF4ED;
-      --badge-text: #E55B00;
+      --badge-bg: #EBF4FB;
+      --badge-text: #2875AB;
       --filter-bar-bg: #FFFFFF;
 
       /* DIE ZARTE EDLE KONTRÄRFARBE IM HELLEN MODUS (Zarter Arctic Ice / Mist Slate) - BORDERLESS */
@@ -223,7 +230,7 @@
       color: #FFFFFF !important;
     }
     body.theme-light #btnLightTheme {
-      background-color: #FF6600 !important;
+      background-color: #378DCC !important;
       color: #FFFFFF !important;
     }
 
@@ -289,7 +296,7 @@
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #0A0B0E; }
     ::-webkit-scrollbar-thumb { background: #282C38; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #FF6600; }
+    ::-webkit-scrollbar-thumb:hover { background: #378DCC; }
 
     /* Equalizer Animation im Audio-Modal */
     @keyframes eqBar {
@@ -390,16 +397,9 @@
           <i id="mobileMenuIcon" class="fa-solid fa-bars text-lg sm:text-xl"></i>
         </button>
 
-        <!-- Brand Logo (führt zurück zu index.html) -->
-        <a href="index.html" class="flex items-center group flex-shrink-0 min-w-0">
-          <div class="flex items-center tracking-tight">
-            <span style="color: var(--logo-text);" class="font-racing font-extrabold text-base sm:text-3xl lg:text-4xl uppercase tracking-wider italic transition">
-              sportauspuff
-            </span>
-            <span class="font-racing font-extrabold text-[11px] sm:text-2xl lg:text-3xl uppercase tracking-wider bg-brand-orange text-white px-1 sm:px-2 py-0.5 rounded ml-1 italic group-hover:bg-brand-orangeHover transition shadow-md flex-shrink-0">
-              -günstiger.de
-            </span>
-          </div>
+        <!-- Brand Logo Dein-Sportauspuff.de (Offizielles SVG) -->
+        <a href="index.html" class="flex items-center group flex-shrink-0 py-1" title="Dein-Sportauspuff.de - Mehr Sound & Power">
+          <img src="assets/dein-sportauspuff.svg" alt="Dein-Sportauspuff.de" class="h-6 sm:h-7 lg:h-8 max-w-[190px] sm:max-w-[280px] lg:max-w-none w-auto object-contain transition-transform group-hover:scale-105">
         </a>
 
         <!-- Die Kontrast-Suche (Desktop) -->
@@ -432,15 +432,16 @@
             <i id="themeQuickIcon" class="fa-solid fa-sun text-sm"></i>
           </button>
 
-          <!-- Gewähltes Fahrzeug Pill (Nur auf Desktop sichtbar; mobil direkt im Hauptbereich darunter!) -->
-          <div id="headerCarPill" style="background-color: var(--car-pill-bg);" class="hidden lg:flex items-center rounded-xl px-3.5 py-2 cursor-pointer transition group shadow-sm">
-            <div class="w-8 h-8 rounded-lg bg-brand-orange/20 flex items-center justify-center text-brand-orange mr-2.5">
-              <i class="fa-solid fa-car text-sm animate-pulse"></i>
+          <!-- AutoDoc-Style Virtuelle Kfz-Garage Pill (Desktop) -->
+          <div id="headerCarPill" style="background-color: var(--car-pill-bg);" class="hidden lg:flex items-center rounded-xl px-3.5 py-2 cursor-pointer transition group shadow-sm border border-brand-orange/20 hover:border-brand-orange/50">
+            <div class="w-8 h-8 rounded-lg bg-brand-orange/15 flex items-center justify-center text-brand-orange mr-2.5 relative">
+              <i class="fa-solid fa-warehouse text-sm"></i>
+              <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-gray-900"></span>
             </div>
             <div class="text-left text-xs leading-tight">
-              <div class="text-[10px] uppercase font-bold tracking-wider text-brand-orange flex items-center space-x-1">
-                <span>Passend für:</span>
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              <div class="text-[10px] uppercase font-bold tracking-wider text-emerald-400 flex items-center space-x-1">
+                <span>Garage (1 aktiv)</span>
+                <i class="fa-solid fa-circle-check text-[9px]"></i>
               </div>
               <div id="headerCarLabel" style="color: var(--car-pill-text);" class="font-extrabold group-hover:text-brand-orange transition truncate max-w-[130px] lg:max-w-[170px]">
                 Audi RS6 Avant C8
@@ -785,12 +786,12 @@
             <i class="fa-solid fa-car-side"></i>
           </div>
           <div class="min-w-0 flex-1">
-            <div class="flex items-center space-x-2">
-              <span class="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-wide bg-white/5 border border-white/10 text-slate-300">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-wide bg-emerald-500/15 border border-emerald-500/30 text-emerald-400">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                <span>Fahrzeug aktiv</span>
+                <span>AutoDoc-Passform-Garantie: 100% Passend</span>
               </span>
-              <span class="text-xs text-gray-400 hidden sm:inline">• 24 kompatible Auspuffanlagen</span>
+              <span class="text-xs text-gray-400 hidden sm:inline">• 24 kompatible Auspuffanlagen geprüft</span>
             </div>
             <h1 id="activeCarHeading" class="font-racing text-xl sm:text-3xl lg:text-4xl uppercase tracking-wider font-extrabold italic mt-1 leading-tight break-words" style="color: var(--text-main);">
               Sportauspuff für Audi RS6 Avant (C8 / 4K)
@@ -1899,9 +1900,8 @@
     <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
-          <a href="index.html" class="flex items-center mb-4">
-            <span style="color: var(--logo-text);" class="font-racing font-extrabold text-2xl uppercase tracking-wider italic">sportauspuff</span>
-            <span class="font-racing font-extrabold text-xl uppercase tracking-wider bg-brand-orange text-white px-2 py-0.5 rounded ml-1 italic">-günstiger.de</span>
+          <a href="index.html" class="flex items-center mb-4" title="Dein-Sportauspuff.de">
+            <img src="assets/dein-sportauspuff.svg" alt="Dein-Sportauspuff.de" class="h-6 sm:h-7 w-auto object-contain">
           </a>
           <p class="text-gray-400 leading-relaxed mb-4">
             Dein Fachhändler für hochwertige Markenauspuffanlagen aus Edelstahl. Schneller Versand, beste Beratung und garantierte Passform.
@@ -1937,7 +1937,7 @@
         </div>
       </div>
       <div class="pt-8 mt-8 border-t flex flex-col sm:flex-row items-center justify-between text-gray-500 text-xs" style="border-color: var(--panel-border);">
-        <div>© 2026 Sportauspuff-Günstiger.de — Alle Rechte vorbehalten.</div>
+        <div>© 2026 Dein-Sportauspuff.de — Alle Rechte vorbehalten.</div>
         <div class="flex space-x-6 mt-3 sm:mt-0">
           <a href="#" class="hover:text-gray-300">Impressum</a>
           <a href="#" class="hover:text-gray-300">Datenschutz</a>

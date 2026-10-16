@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Ragazzon Duplex Klappenauspuffanlage ab OPF | Audi RS6 Avant (C8) | Sportauspuff-Günstiger.de</title>
+  <title>Ragazzon Duplex Klappenauspuffanlage ab OPF | Audi RS6 Avant (C8) | Dein-Sportauspuff.de</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts: Inter & Barlow Condensed -->
@@ -20,10 +20,17 @@
         extend: {
           colors: {
             brand: {
-              orange: '#FF6600',
-              orangeHover: '#E55B00',
-              orangeBright: '#FF7A1A',
-              orangeLight: '#FFF4ED'
+              blue: '#378DCC',
+              blueHover: '#2875AB',
+              blueBright: '#5CAAE3',
+              blueLight: '#EBF4FB',
+              accent: '#F59E0B',
+              accentHover: '#D97706',
+              // Backward-compatibility aliases so all existing classes render in Dein-Sportauspuff blue #378DCC
+              orange: '#378DCC',
+              orangeHover: '#2875AB',
+              orangeBright: '#5CAAE3',
+              orangeLight: '#EBF4FB'
             }
           },
           fontFamily: {
@@ -53,8 +60,8 @@
       --panel-border: rgba(255, 255, 255, 0.08);
       --text-main: #FFFFFF;
       --text-muted: #94A3B8;
-      --badge-bg: rgba(255, 102, 0, 0.12);
-      --badge-text: #FF7A1A;
+      --badge-bg: rgba(55, 141, 204, 0.12);
+      --badge-text: #378DCC;
       --filter-bar-bg: #101420;
 
       /* DIE ZARTE EDLE KONTRÄRFARBE ZUM ORANGE (Deep Petrol-Slate) - BORDERLESS */
@@ -82,8 +89,8 @@
       --panel-border: rgba(0, 0, 0, 0.08);
       --text-main: #0F172A;
       --text-muted: #64748B;
-      --badge-bg: #FFF4ED;
-      --badge-text: #E55B00;
+      --badge-bg: #EBF4FB;
+      --badge-text: #2875AB;
       --filter-bar-bg: #FFFFFF;
 
       --filter-block-bg: linear-gradient(150deg, #EDF4FA 0%, #E3EDF6 100%);
@@ -230,7 +237,7 @@
       color: #FFFFFF !important;
     }
     body.theme-light #btnLightTheme {
-      background-color: #FF6600 !important;
+      background-color: #378DCC !important;
       color: #FFFFFF !important;
     }
 
@@ -301,7 +308,7 @@
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #0A0B0E; }
     ::-webkit-scrollbar-thumb { background: #282C38; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #FF6600; }
+    ::-webkit-scrollbar-thumb:hover { background: #378DCC; }
 
     /* Equalizer Animation im Audio-Modal */
     @keyframes eqBar {
@@ -402,16 +409,9 @@
             <i id="mobileMenuIcon" class="fa-solid fa-bars text-lg sm:text-xl"></i>
           </button>
 
-          <!-- Brand Logo -->
-          <a href="index.html" class="flex items-center group flex-shrink-0">
-            <div class="flex items-center tracking-tight">
-              <span style="color: var(--logo-text);" class="font-racing font-extrabold text-base sm:text-3xl lg:text-4xl uppercase tracking-wider italic transition">
-                sportauspuff
-              </span>
-              <span class="font-racing font-extrabold text-[11px] sm:text-2xl lg:text-3xl uppercase tracking-wider bg-brand-orange text-white px-1 sm:px-2 py-0.5 rounded ml-1 italic group-hover:bg-brand-orangeHover transition shadow-md">
-                -günstiger.de
-              </span>
-            </div>
+          <!-- Brand Logo Dein-Sportauspuff.de (Offizielles SVG) -->
+          <a href="index.html" class="flex items-center group flex-shrink-0 py-1" title="Dein-Sportauspuff.de - Mehr Sound & Power">
+            <img src="assets/dein-sportauspuff.svg" alt="Dein-Sportauspuff.de" class="h-6 sm:h-7 lg:h-8 max-w-[190px] sm:max-w-[280px] lg:max-w-none w-auto object-contain transition-transform group-hover:scale-105">
           </a>
         </div>
 
@@ -445,15 +445,16 @@
             <i id="themeQuickIcon" class="fa-solid fa-sun text-sm"></i>
           </button>
 
-          <!-- Gewähltes Fahrzeug Pill (Desktop) -->
-          <a href="kategorie.html?brand=Audi&model=RS6" id="headerCarPill" style="background-color: var(--car-pill-bg);" class="hidden lg:flex items-center rounded-xl px-3.5 py-2 cursor-pointer transition group shadow-sm">
-            <div class="w-8 h-8 rounded-lg bg-brand-orange/20 flex items-center justify-center text-brand-orange mr-2.5">
-              <i class="fa-solid fa-car text-sm animate-pulse"></i>
+          <!-- AutoDoc-Style Virtuelle Kfz-Garage Pill (Desktop) -->
+          <a href="kategorie.html?brand=Audi&model=RS6" id="headerCarPill" style="background-color: var(--car-pill-bg);" class="hidden lg:flex items-center rounded-xl px-3.5 py-2 cursor-pointer transition group shadow-sm border border-brand-orange/20 hover:border-brand-orange/50">
+            <div class="w-8 h-8 rounded-lg bg-brand-orange/15 flex items-center justify-center text-brand-orange mr-2.5 relative">
+              <i class="fa-solid fa-warehouse text-sm"></i>
+              <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-gray-900"></span>
             </div>
             <div class="text-left text-xs leading-tight">
-              <div class="text-[10px] uppercase font-bold tracking-wider text-brand-orange flex items-center space-x-1">
-                <span>Passend für:</span>
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              <div class="text-[10px] uppercase font-bold tracking-wider text-emerald-400 flex items-center space-x-1">
+                <span>Garage (1 aktiv)</span>
+                <i class="fa-solid fa-circle-check text-[9px]"></i>
               </div>
               <div id="headerCarLabel" style="color: var(--car-pill-text);" class="font-extrabold group-hover:text-brand-orange transition truncate max-w-[140px] xl:max-w-[170px]">
                 Audi RS6 Avant C8
@@ -801,11 +802,11 @@
           </div>
           <div class="min-w-0 flex-1">
             <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
-              <span class="inline-flex items-center space-x-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-200">
+              <span class="inline-flex items-center space-x-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-emerald-400">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                <span>100% Passgenauigkeit Garantiert</span>
+                <span>AutoDoc-Passform-Garantie: 100% Passend</span>
               </span>
-              <span class="hidden sm:inline text-xs text-gray-400">• Abgleich mit Motorkennbuchstaben</span>
+              <span class="hidden sm:inline text-xs text-gray-400">• Vorab-Prüfung nach HSN/TSN & Motorkennbuchstaben</span>
             </div>
             <div class="text-xs sm:text-sm font-bold leading-snug mt-0.5 break-words" style="color: var(--text-main);">
               Passend für dein Fahrzeug: Audi RS6 Avant C8 (Typ 4K) • 4.0 TFSI quattro • 441 kW / 600 PS • ab Bj. 11/2019
@@ -1033,6 +1034,22 @@
             <div class="pt-2 border-t border-white/5 flex items-center justify-between text-xs text-gray-400">
               <span>Oder in Raten finanzieren:</span>
               <strong class="text-brand-orange font-bold text-xs sm:text-sm">ab 49,90 € / Monat</strong>
+            </div>
+          </div>
+
+          <!-- AutoDoc-Standard: 100% Passform-Garantie & Kfz-Experten-Check -->
+          <div class="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/25 flex items-start space-x-3 text-xs my-3">
+            <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+              <i class="fa-solid fa-shield-check text-base"></i>
+            </div>
+            <div class="text-left flex-1 min-w-0">
+              <div class="font-bold text-emerald-400 flex items-center justify-between">
+                <span>100% Passform-Garantie & Experten-Check</span>
+                <span class="text-[9px] bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded font-extrabold uppercase">AutoDoc-Standard</span>
+              </div>
+              <p class="text-slate-300 text-[11px] mt-0.5 leading-snug">
+                Unsere Kfz-Meister überprüfen jede Bestellung vor dem Versand anhand Ihrer Schlüsselnummer (HSN / TSN). Passt die Anlage nicht, erstatten wir 100% der Kosten.
+              </p>
             </div>
           </div>
 
@@ -1557,6 +1574,61 @@
       </form>
     </div>
   </div>
+
+  <!-- ========================================================================= -->
+  <!-- 11. FOOTER                                                                -->
+  <!-- ========================================================================= -->
+  <footer style="background-color: var(--tier1-bg); border-color: var(--panel-border);" class="border-t py-12 mt-12 text-xs transition-colors duration-300">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <a href="index.html" class="flex items-center mb-4" title="Dein-Sportauspuff.de">
+            <img src="assets/dein-sportauspuff.svg" alt="Dein-Sportauspuff.de" class="h-6 sm:h-7 w-auto object-contain">
+          </a>
+          <p class="text-gray-400 leading-relaxed mb-4">
+            Dein Fachhändler für hochwertige Markenauspuffanlagen aus Edelstahl. Schneller Versand, beste Beratung und garantierte Passform.
+          </p>
+          <div class="text-white font-bold">Hotline: +49 (0) 371 64 63 87 55</div>
+        </div>
+        <div>
+          <h4 class="font-racing text-base uppercase tracking-wider font-bold mb-3" style="color: var(--text-main);">Kategorien</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="kategorie.html" class="hover:text-brand-orange">Sportauspuff Komplett</a></li>
+            <li><a href="kategorie.html#endschalldaempfer" class="hover:text-brand-orange">Endschalldämpfer</a></li>
+            <li><a href="kategorie.html#klappen" class="hover:text-brand-orange">Klappenauspuffanlagen</a></li>
+            <li><a href="kategorie.html#downpipes" class="hover:text-brand-orange">Downpipes & Kats</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-racing text-base uppercase tracking-wider font-bold mb-3" style="color: var(--text-main);">Beliebte Marken</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="kategorie.html?brand=Ragazzon" class="hover:text-brand-orange">Ragazzon Exhaust</a></li>
+            <li><a href="kategorie.html?brand=FOX" class="hover:text-brand-orange">FOX Sportauspuff</a></li>
+            <li><a href="kategorie.html?brand=Bastuck" class="hover:text-brand-orange">Bastuck Edelstahl</a></li>
+            <li><a href="kategorie.html?brand=REMUS" class="hover:text-brand-orange">REMUS Sport Exhaust</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-racing text-base uppercase tracking-wider font-bold mb-3" style="color: var(--text-main);">Sicherheit & Service</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#" class="hover:text-brand-orange">100% Passformgarantie</a></li>
+            <li><a href="#" class="hover:text-brand-orange">ECE / ABE Gutachtenservice</a></li>
+            <li><a href="#" class="hover:text-brand-orange">Bundesweiter Montageservice</a></li>
+            <li><a href="#" class="hover:text-brand-orange">30 Tage Rückgaberecht</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 mt-8 border-t flex flex-col sm:flex-row items-center justify-between text-gray-500 text-xs" style="border-color: var(--panel-border);">
+        <div>© 2026 Dein-Sportauspuff.de — Alle Rechte vorbehalten.</div>
+        <div class="flex space-x-6 mt-3 sm:mt-0">
+          <a href="#" class="hover:text-gray-300">Impressum</a>
+          <a href="#" class="hover:text-gray-300">Datenschutz</a>
+          <a href="#" class="hover:text-gray-300">AGB</a>
+          <a href="index.html" class="hover:text-brand-orange">Zurück zur Startseite</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <!-- ========================================================================= -->
   <!-- JAVASCRIPT LOGIC                                                          -->

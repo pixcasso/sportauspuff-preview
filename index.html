@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sportauspuff-Günstiger.de | Dein Sound. Deine Performance. Bester Preis.</title>
+  <title>Dein-Sportauspuff.de | Mehr Sound & Power | Bester Preis für Sportauspuffanlagen</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts: Inter & Barlow Condensed -->
@@ -20,10 +20,17 @@
         extend: {
           colors: {
             brand: {
-              orange: '#FF6600',
-              orangeHover: '#E55B00',
-              orangeBright: '#FF7A1A',
-              orangeLight: '#FFF4ED'
+              blue: '#378DCC',
+              blueHover: '#2875AB',
+              blueBright: '#5CAAE3',
+              blueLight: '#EBF4FB',
+              accent: '#F59E0B',
+              accentHover: '#D97706',
+              // Backward-compatibility aliases so all existing classes render in Dein-Sportauspuff blue #378DCC
+              orange: '#378DCC',
+              orangeHover: '#2875AB',
+              orangeBright: '#5CAAE3',
+              orangeLight: '#EBF4FB'
             }
           },
           fontFamily: {
@@ -57,12 +64,12 @@
       --title-main: #FFFFFF;
       --title-sub: #E2E8F0;
       --title-shadow: 0 4px 25px rgba(0, 0, 0, 0.95);
-      --title-glow: 0 0 40px rgba(255, 102, 0, 0.55);
+      --title-glow: 0 0 40px rgba(55, 141, 204, 0.55);
       --hero-bullets: #E2E8F0;
       
       --card-bg: #FFFFFF;
       --card-border: transparent;
-      --card-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.75), 0 0 40px rgba(255, 102, 0, 0.15);
+      --card-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.75), 0 0 40px rgba(55, 141, 204, 0.18);
       
       --search-bg: #1D2230;
       --search-text: #FFFFFF;
@@ -94,12 +101,12 @@
       --title-main: #FFFFFF;
       --title-sub: #E2E8F0;
       --title-shadow: 0 4px 25px rgba(0, 0, 0, 0.85);
-      --title-glow: 0 0 35px rgba(255, 102, 0, 0.50);
+      --title-glow: 0 0 35px rgba(55, 141, 204, 0.50);
       --hero-bullets: #E2E8F0;
 
       --card-bg: #FFFFFF;
       --card-border: transparent;
-      --card-shadow: 0 25px 55px -12px rgba(0, 0, 0, 0.60), 0 0 35px rgba(255, 102, 0, 0.15);
+      --card-shadow: 0 25px 55px -12px rgba(0, 0, 0, 0.60), 0 0 35px rgba(55, 141, 204, 0.15);
 
       --search-bg: #F1F5F9;
       --search-text: #0F172A;
@@ -117,7 +124,7 @@
     }
 
     /* 1. Primärtexte außerhalb des Hero-Bereichs */
-    body.theme-light .text-white:not(.hero-polygon *):not(.bg-brand-orange):not(.bg-brand-orangeHover):not(.bg-emerald-600) {
+    body.theme-light .text-white:not(.hero-polygon *):not(.bg-brand-orange):not(.bg-brand-orangeHover):not(.bg-brand-blue):not(.bg-brand-blueHover):not(.bg-emerald-600) {
       color: #0F172A !important;
     }
     body.theme-light .text-slate-100:not(.hero-polygon *),
@@ -177,13 +184,19 @@
       background-color: #F1F5F9 !important;
     }
 
-    /* 8. AUSNAHMEN: Text auf solidem Brand-Orange & Akzentbuttons MUSS weiß sein */
+    /* 8. AUSNAHMEN: Text auf solidem Brand-Blue / Akzentbuttons MUSS weiß sein */
     body.theme-light .bg-brand-orange,
     body.theme-light .bg-brand-orange *,
     body.theme-light .bg-brand-orangeHover,
     body.theme-light .bg-brand-orangeHover *,
+    body.theme-light .bg-brand-blue,
+    body.theme-light .bg-brand-blue *,
+    body.theme-light .bg-brand-blueHover,
+    body.theme-light .bg-brand-blueHover *,
     body.theme-light .hover\:bg-brand-orange:hover,
     body.theme-light .hover\:bg-brand-orange:hover *,
+    body.theme-light .hover\:bg-brand-blue:hover,
+    body.theme-light .hover\:bg-brand-blue:hover *,
     body.theme-light .bg-emerald-600,
     body.theme-light .bg-emerald-600 * {
       color: #FFFFFF !important;
@@ -191,8 +204,10 @@
 
     /* WICHTIG: Aufgetönte Hover-/Badge-Elemente dürfen NIEMALS weißen Text erzwingen */
     body.theme-light .hover\:bg-brand-orange\/10:hover,
-    body.theme-light .hover\:bg-brand-orangeLight:hover {
-      background-color: rgba(255, 102, 0, 0.12) !important;
+    body.theme-light .hover\:bg-brand-orangeLight:hover,
+    body.theme-light .hover\:bg-brand-blue\/10:hover,
+    body.theme-light .hover\:bg-brand-blueLight:hover {
+      background-color: rgba(55, 141, 204, 0.12) !important;
     }
 
     /* 9. Floating Theme Switcher Leiste */
@@ -207,7 +222,7 @@
       color: #FFFFFF !important;
     }
     body.theme-light #btnLightTheme {
-      background-color: #FF6600 !important;
+      background-color: #378DCC !important;
       color: #FFFFFF !important;
     }
 
@@ -266,7 +281,7 @@
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #0A0B0E; }
     ::-webkit-scrollbar-thumb { background: #282C38; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #FF6600; }
+    ::-webkit-scrollbar-thumb:hover { background: #378DCC; }
     
     .hero-polygon {
       clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
@@ -370,16 +385,9 @@
           <i id="mobileMenuIcon" class="fa-solid fa-bars text-lg sm:text-xl"></i>
         </button>
 
-        <!-- Brand Logo (Passt sich automatisch Dark/Light an) -->
-        <a href="index.html" class="flex items-center group flex-shrink-0">
-          <div class="flex items-center tracking-tight">
-            <span style="color: var(--logo-text);" class="font-racing font-extrabold text-base sm:text-3xl lg:text-4xl uppercase tracking-wider italic transition">
-              sportauspuff
-            </span>
-            <span class="font-racing font-extrabold text-[11px] sm:text-2xl lg:text-3xl uppercase tracking-wider bg-brand-orange text-white px-1 sm:px-2 py-0.5 rounded ml-1 italic group-hover:bg-brand-orangeHover transition shadow-md">
-              -günstiger.de
-            </span>
-          </div>
+        <!-- Brand Logo Dein-Sportauspuff.de (Offizielles SVG) -->
+        <a href="index.html" class="flex items-center group flex-shrink-0 py-1" title="Dein-Sportauspuff.de - Mehr Sound & Power">
+          <img src="assets/dein-sportauspuff.svg" alt="Dein-Sportauspuff.de" class="h-6 sm:h-7 lg:h-8 max-w-[190px] sm:max-w-[280px] lg:max-w-none w-auto object-contain transition-transform group-hover:scale-105">
         </a>
 
         <!-- Die Kontrast-Suche (Clean, Borderless Pill-Design) -->
@@ -411,15 +419,19 @@
             <i id="themeQuickIcon" class="fa-solid fa-sun text-sm"></i>
           </button>
 
-          <!-- Gewähltes Fahrzeug Pill (Clean, ohne Border-Rahmen) -->
-          <div id="activeCarPill" style="background-color: var(--car-pill-bg);" class="hidden sm:flex items-center rounded-xl px-3.5 py-2 cursor-pointer transition group">
-            <div class="w-8 h-8 rounded-lg bg-brand-orange/15 flex items-center justify-center text-brand-orange mr-2.5 shadow-inner">
-              <i class="fa-solid fa-car text-sm"></i>
+          <!-- AutoDoc-Style Virtuelle Kfz-Garage Pill -->
+          <div id="activeCarPill" style="background-color: var(--car-pill-bg);" class="hidden sm:flex items-center rounded-xl px-3.5 py-2 cursor-pointer transition group border border-brand-orange/20 hover:border-brand-orange/50 shadow-sm" onclick="location.href='kategorie.html?brand=Audi&model=RS6'">
+            <div class="w-8 h-8 rounded-lg bg-brand-orange/15 flex items-center justify-center text-brand-orange mr-2.5 shadow-inner relative">
+              <i class="fa-solid fa-warehouse text-sm"></i>
+              <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-gray-900"></span>
             </div>
             <div class="text-left text-xs leading-tight">
-              <div class="opacity-60 text-[10px] uppercase font-bold tracking-wider" style="color: var(--logo-text);">Aktives Kfz:</div>
+              <div class="text-[10px] uppercase font-bold tracking-wider text-emerald-400 flex items-center space-x-1">
+                <span>Garage (1 aktiv)</span>
+                <i class="fa-solid fa-circle-check text-[9px]"></i>
+              </div>
               <div id="activeCarLabel" style="color: var(--car-pill-text);" class="font-bold group-hover:text-brand-orange transition truncate max-w-[130px] lg:max-w-[160px]">
-                Kein Kfz aktiv
+                Audi RS6 Avant C8
               </div>
             </div>
           </div>
@@ -772,43 +784,43 @@
             <span>Über 25.000 Sportauspuffanlagen ab Lager lieferbar</span>
           </div>
 
-          <!-- Titel: Strahlend & Dynamisch -->
+          <!-- Titel: Strahlend & Dynamisch im neuen Dein-Sportauspuff Blau -->
           <h1 class="font-racing text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold uppercase italic tracking-tight leading-[0.90] transition-colors duration-300">
             <span style="color: var(--title-main); text-shadow: var(--title-shadow);" class="block">
               DEIN SOUND.
             </span>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FFA24D] via-[#FF7A00] to-amber-400 block" style="text-shadow: var(--title-glow);">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#93CEF8] via-[#378DCC] to-[#1D74B0] block" style="text-shadow: var(--title-glow);">
               DEINE PERFORMANCE.
             </span>
             <span style="color: var(--title-main); text-shadow: var(--title-shadow);" class="block">
-              GARANTIERT GÜNSTIGER.
+              DEIN SPORTAUSPUFF.
             </span>
           </h1>
 
           <p style="color: var(--hero-bullets);" class="text-base sm:text-lg leading-relaxed max-w-xl font-medium transition-colors duration-300">
             Finde in Sekunden die exakt passende Sportabgasanlage für dein Auto. 
-            Mit <strong>100% Passform-Garantie</strong>, sofortiger ECE-Gutachtenprüfung und bundesweitem Montageservice.
+            Mit <strong>100% Passform-Garantie</strong> nach AutoDoc-Vorbild, sofortiger ECE-Gutachtenprüfung und bundesweitem Montageservice.
           </p>
 
-          <!-- Trust-Bullets -->
+          <!-- AutoDoc-Style Trust-Bullets -->
           <div class="pt-2 space-y-3 text-sm font-medium" style="color: var(--hero-bullets);">
             <div class="flex items-center space-x-3">
-              <div class="w-6 h-6 rounded-full bg-brand-orange/20 border border-brand-orange flex items-center justify-center text-brand-orange text-xs flex-shrink-0">
-                <i class="fa-solid fa-check"></i>
+              <div class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500 flex items-center justify-center text-emerald-400 text-xs flex-shrink-0">
+                <i class="fa-solid fa-shield-check"></i>
               </div>
-              <span><strong>100% Passgenauigkeit:</strong> Direkter Abgleich mit Motor- & Modellcodes</span>
+              <span><strong>100% Passgenau-Garantie:</strong> Vorab-Prüfung jeder Bestellung durch Kfz-Meister nach HSN/TSN</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <div class="w-6 h-6 rounded-full bg-brand-orange/20 border border-brand-orange flex items-center justify-center text-brand-orange text-xs flex-shrink-0">
+                <i class="fa-solid fa-certificate"></i>
+              </div>
+              <span><strong>TÜV / ECE eintragungsfrei:</strong> 100% legal mit EG-Betriebserlaubnis auf öffentlichen Straßen</span>
             </div>
             <div class="flex items-center space-x-3">
               <div class="w-6 h-6 rounded-full bg-brand-orange/20 border border-brand-orange flex items-center justify-center text-brand-orange text-xs flex-shrink-0">
                 <i class="fa-solid fa-check"></i>
               </div>
-              <span><strong>TÜV / ECE eintragungsfrei:</strong> Kein Stress bei der Hauptuntersuchung</span>
-            </div>
-            <div class="flex items-center space-x-3">
-              <div class="w-6 h-6 rounded-full bg-brand-orange/20 border border-brand-orange flex items-center justify-center text-brand-orange text-xs flex-shrink-0">
-                <i class="fa-solid fa-check"></i>
-              </div>
-              <span><strong>Top-Marken ab Lager:</strong> Ragazzon, FOX, Bastuck, REMUS, Eisenmann & mehr</span>
+              <span><strong>Top-Marken ab Lager:</strong> Ragazzon, FOX, Bastuck, REMUS, Milltek, Eisenmann & Akrapovič</span>
             </div>
           </div>
 
@@ -1479,7 +1491,7 @@
         </div>
       </div>
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-gray-500 text-xs">
-        <div>© 2026 Sportauspuff-Günstiger.de — Alle Rechte vorbehalten.</div>
+        <div>© 2026 Dein-Sportauspuff.de — Alle Rechte vorbehalten.</div>
         <div class="flex space-x-6 mt-3 sm:mt-0">
           <a href="#" class="hover:text-gray-300">Impressum</a>
           <a href="#" class="hover:text-gray-300">Datenschutz</a>
