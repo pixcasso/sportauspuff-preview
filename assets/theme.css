@@ -318,6 +318,50 @@ body.theme-light .detail-tab-btn:hover {
   color: #0F172A !important;
 }
 
+/* 14. Dashboard Sub-Navigation Tabs (.dash-tab-btn) */
+.dash-tab-btn {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.04);
+  color: #94A3B8;
+}
+
+.dash-tab-btn:hover {
+  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.dash-tab-btn:hover * {
+  color: #FFFFFF;
+}
+
+.dash-tab-btn.bg-brand-orange,
+body.theme-light .dash-tab-btn.bg-brand-orange {
+  background-color: #378DCC !important;
+  border-color: transparent !important;
+  color: #FFFFFF !important;
+}
+
+.dash-tab-btn.bg-brand-orange:hover,
+body.theme-light .dash-tab-btn.bg-brand-orange:hover {
+  background-color: #2875AB !important;
+  color: #FFFFFF !important;
+}
+
+body.theme-light .dash-tab-btn:not(.bg-brand-orange) {
+  background-color: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #475569 !important;
+}
+
+body.theme-light .dash-tab-btn:not(.bg-brand-orange):hover {
+  color: #0F172A !important;
+  background-color: #F1F5F9 !important;
+}
+
+body.theme-light .dash-tab-btn:not(.bg-brand-orange):hover * {
+  color: #0F172A !important;
+}
+
 /* ========================================================================= */
 /* 4. GAPLESS DROPDOWN & MEGA-MENU LOGIC                                     */
 /* ========================================================================= */

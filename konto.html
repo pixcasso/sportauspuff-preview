@@ -816,11 +816,11 @@
       </div>
 
       <!-- Dashboard Sub-Navigation Tabs -->
-      <div class="flex items-center space-x-2 sm:space-x-4 mt-8 pt-6 border-t border-white/10 overflow-x-auto no-scrollbar" style="border-color: var(--panel-border);">
+      <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mt-8 pt-6 border-t border-white/10" style="border-color: var(--panel-border);">
         <button
           id="dashTabGarageBtn"
           onclick="switchDashTab('garage')"
-          class="dash-tab-btn py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-extrabold transition flex items-center space-x-2 flex-shrink-0 bg-brand-orange text-white shadow"
+          class="dash-tab-btn w-full sm:w-auto py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-extrabold transition flex items-center justify-start sm:justify-center space-x-2.5 bg-brand-orange text-white shadow"
         >
           <i class="fa-solid fa-warehouse text-xs"></i>
           <span>Meine Garage (1 Fahrzeug)</span>
@@ -829,7 +829,7 @@
         <button
           id="dashTabOrdersBtn"
           onclick="switchDashTab('orders')"
-          class="dash-tab-btn py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-bold transition flex items-center space-x-2 flex-shrink-0 text-gray-400 hover:text-white"
+          class="dash-tab-btn w-full sm:w-auto py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-bold transition flex items-center justify-start sm:justify-center space-x-2.5 text-gray-400 hover:text-white"
         >
           <i class="fa-solid fa-box-archive text-xs"></i>
           <span>Bestellungen (2)</span>
@@ -838,7 +838,7 @@
         <button
           id="dashTabAddressesBtn"
           onclick="switchDashTab('addresses')"
-          class="dash-tab-btn py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-bold transition flex items-center space-x-2 flex-shrink-0 text-gray-400 hover:text-white"
+          class="dash-tab-btn w-full sm:w-auto py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-bold transition flex items-center justify-start sm:justify-center space-x-2.5 text-gray-400 hover:text-white"
         >
           <i class="fa-solid fa-address-book text-xs"></i>
           <span>Adressbuch</span>
@@ -847,7 +847,7 @@
         <button
           id="dashTabAccountBtn"
           onclick="switchDashTab('account')"
-          class="dash-tab-btn py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-bold transition flex items-center space-x-2 flex-shrink-0 text-gray-400 hover:text-white"
+          class="dash-tab-btn w-full sm:w-auto py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-bold transition flex items-center justify-start sm:justify-center space-x-2.5 text-gray-400 hover:text-white"
         >
           <i class="fa-solid fa-user-gear text-xs"></i>
           <span>Kontodaten & Passwort</span>
@@ -1612,10 +1612,10 @@
         const btn = document.getElementById('dashTab' + t.charAt(0).toUpperCase() + t.slice(1) + 'Btn');
         if (t === tab) {
           if (sec) sec.classList.remove('hidden');
-          if (btn) btn.className = "dash-tab-btn py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-extrabold transition flex items-center space-x-2 flex-shrink-0 bg-brand-orange text-white shadow";
+          if (btn) btn.className = "dash-tab-btn w-full sm:w-auto py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-extrabold transition flex items-center justify-start sm:justify-center space-x-2.5 bg-brand-orange text-white shadow";
         } else {
           if (sec) sec.classList.add('hidden');
-          if (btn) btn.className = "dash-tab-btn py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-bold transition flex items-center space-x-2 flex-shrink-0 text-gray-400 hover:text-white";
+          if (btn) btn.className = "dash-tab-btn w-full sm:w-auto py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-bold transition flex items-center justify-start sm:justify-center space-x-2.5 text-gray-400 hover:text-white";
         }
       });
     }
