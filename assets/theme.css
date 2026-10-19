@@ -1,0 +1,409 @@
+/**
+ * Dein-Sportauspuff.de - Central Design Tokens & Theme Stylesheet
+ * Single Source of Truth for Dark (Performance) & Light (Präzision) Modes
+ */
+
+/* ========================================================================= */
+/* 1. DESIGN TOKENS & CSS VARIABLES (:ROOT = DARK PERFORMANCE MODE)          */
+/* ========================================================================= */
+:root {
+  /* Brand Farben */
+  --brand-blue: #378DCC;
+  --brand-blue-hover: #2875AB;
+  --brand-blue-bright: #5CAAE3;
+  --brand-blue-light: #EBF4FB;
+  --brand-accent: #F59E0B;
+  --brand-accent-hover: #D97706;
+
+  /* Tier-Hintergründe & Header-Ebenen */
+  --tier1-bg: #090B10;
+  --tier1-text: #94A3B8;
+  --tier1-border: transparent;
+
+  --tier2-bg: #12151E;
+  --tier2-border: transparent;
+  --logo-text: #FFFFFF;
+
+  --tier3-bg: #0D1017;
+  --tier3-border-top: transparent;
+  --tier3-text: #CBD5E1;
+
+  /* Hero-Bereich (Performance Dark) */
+  --hero-bg: #090B10;
+  --hero-overlay-from: #090B10;
+  --hero-overlay-via: rgba(9, 11, 16, 0.85);
+  --hero-img-opacity: 0.75;
+
+  --title-main: #FFFFFF;
+  --title-sub: #E2E8F0;
+  --title-shadow: 0 4px 25px rgba(0, 0, 0, 0.95);
+  --title-glow: 0 0 40px rgba(55, 141, 204, 0.55);
+  --hero-bullets: #E2E8F0;
+
+  /* Card- & Surface-Tokens */
+  --card-bg: #FFFFFF;
+  --card-border: transparent;
+  --card-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.75), 0 0 40px rgba(55, 141, 204, 0.18);
+
+  --page-bg: #0A0D14;
+  --panel-bg: #121622;
+  --panel-card: #171C2B;
+  --panel-border: rgba(255, 255, 255, 0.08);
+
+  --text-main: #FFFFFF;
+  --text-muted: #94A3B8;
+
+  --badge-bg: rgba(55, 141, 204, 0.12);
+  --badge-text: #378DCC;
+
+  /* Status-Badges (Dark) */
+  --badge-success-bg: rgba(16, 185, 129, 0.15);
+  --badge-success-text: #10B981;
+  --badge-warning-bg: rgba(245, 158, 11, 0.15);
+  --badge-warning-text: #F59E0B;
+  --badge-info-bg: rgba(55, 141, 204, 0.15);
+  --badge-info-text: #378DCC;
+  --badge-danger-bg: rgba(239, 68, 68, 0.15);
+  --badge-danger-text: #EF4444;
+
+  /* Filter- & Search-Tokens (Deep Petrol-Slate) */
+  --filter-bar-bg: #101420;
+  --filter-block-bg: linear-gradient(150deg, rgba(16, 28, 48, 0.95) 0%, rgba(10, 18, 34, 0.98) 100%);
+  --filter-block-border: transparent;
+  --filter-block-shadow: 0 20px 40px -15px rgba(2, 6, 23, 0.7);
+  --filter-input-bg: #0B1322;
+  --filter-input-border: transparent;
+  --filter-pill-bg: #0E182A;
+  --filter-pill-border: transparent;
+
+  --search-bg: #1D2230;
+  --search-text: #FFFFFF;
+  --search-border: transparent;
+
+  --car-pill-bg: #1A1E2B;
+  --car-pill-text: #FFFFFF;
+
+  /* Radien */
+  --radius-card: 1rem;
+  --radius-btn: 0.75rem;
+  --radius-input: 0.75rem;
+  --radius-pill: 9999px;
+}
+
+/* ========================================================================= */
+/* 2. DESIGN TOKENS (BODY.THEME-LIGHT = HIGH-CONTRAST LIGHT MODE)           */
+/* ========================================================================= */
+body.theme-light {
+  /* Tier-Hintergründe & Header-Ebenen */
+  --tier1-bg: #F8FAFC;
+  --tier1-text: #64748B;
+  --tier1-border: transparent;
+
+  --tier2-bg: #FFFFFF;
+  --tier2-border: transparent;
+  --logo-text: #0F172A;
+
+  --tier3-bg: #FFFFFF;
+  --tier3-border-top: transparent;
+  --tier3-text: #334155;
+
+  /* Hero-Bereich (Deep Slate/Asphalt im Light Mode) */
+  --hero-bg: #0F172A;
+  --hero-overlay-from: #0F172A;
+  --hero-overlay-via: rgba(15, 23, 42, 0.85);
+  --hero-img-opacity: 0.75;
+
+  --title-main: #FFFFFF;
+  --title-sub: #E2E8F0;
+  --title-shadow: 0 4px 25px rgba(0, 0, 0, 0.85);
+  --title-glow: 0 0 35px rgba(55, 141, 204, 0.50);
+  --hero-bullets: #E2E8F0;
+
+  /* Card- & Surface-Tokens */
+  --card-bg: #FFFFFF;
+  --card-border: transparent;
+  --card-shadow: 0 25px 55px -12px rgba(0, 0, 0, 0.60), 0 0 35px rgba(55, 141, 204, 0.15);
+
+  --page-bg: #F8FAFC;
+  --panel-bg: #FFFFFF;
+  --panel-card: #FFFFFF;
+  --panel-border: rgba(0, 0, 0, 0.08);
+
+  --text-main: #0F172A;
+  --text-muted: #64748B;
+
+  --badge-bg: #EBF4FB;
+  --badge-text: #2875AB;
+
+  /* Status-Badges (Light) */
+  --badge-success-bg: #ECFDF5;
+  --badge-success-text: #047857;
+  --badge-warning-bg: #FFFBEB;
+  --badge-warning-text: #B45309;
+  --badge-info-bg: #EBF4FB;
+  --badge-info-text: #1D4ED8;
+  --badge-danger-bg: #FEF2F2;
+  --badge-danger-text: #B91C1C;
+
+  /* Filter- & Search-Tokens (Zarter Arctic Ice / Mist Slate) */
+  --filter-bar-bg: #FFFFFF;
+  --filter-block-bg: linear-gradient(150deg, #EDF4FA 0%, #E3EDF6 100%);
+  --filter-block-border: transparent;
+  --filter-block-shadow: 0 14px 32px -10px rgba(15, 23, 42, 0.06);
+  --filter-input-bg: #FFFFFF;
+  --filter-input-border: transparent;
+  --filter-pill-bg: #FFFFFF;
+  --filter-pill-border: transparent;
+
+  --search-bg: #F1F5F9;
+  --search-text: #0F172A;
+  --search-border: transparent;
+
+  --car-pill-bg: #F1F5F9;
+  --car-pill-text: #0F172A;
+
+  color: #0F172A;
+}
+
+/* ========================================================================= */
+/* 3. HOCHKONTRAST & ACCESSIBILITY REGELN FÜR DEN HELLEN MODUS               */
+/* ========================================================================= */
+
+/* 1. Primärtexte außerhalb des Hero-Bereichs */
+body.theme-light .text-white:not(.hero-polygon *):not(.bg-brand-orange):not(.bg-brand-orangeHover):not(.bg-brand-blue):not(.bg-brand-blueHover):not(.bg-emerald-600):not(.bg-emerald-500):not(.bg-red-600):not(.bg-gray-900):not(.bg-gray-950):not(.floating-theme-switch *) {
+  color: #0F172A !important;
+}
+body.theme-light .text-slate-100:not(.hero-polygon *),
+body.theme-light .text-slate-200:not(.hero-polygon *),
+body.theme-light .text-gray-100:not(.hero-polygon *),
+body.theme-light .text-gray-200:not(.hero-polygon *) {
+  color: #0F172A !important;
+}
+
+/* 2. Fließtexte & Beschreibungen */
+body.theme-light .text-gray-300:not(.hero-polygon *),
+body.theme-light .text-slate-300:not(.hero-polygon *) {
+  color: #334155 !important;
+}
+
+/* 3. Muted-Labels, Nebentexte & Durchstreichpreise */
+body.theme-light .text-gray-400:not(.hero-polygon *),
+body.theme-light .text-slate-400:not(.hero-polygon *),
+body.theme-light .text-gray-500:not(.hero-polygon *),
+body.theme-light .text-slate-500:not(.hero-polygon *) {
+  color: #475569 !important;
+}
+
+/* 4. Graue Inset-Flächen, Boxen & Wells */
+body.theme-light .bg-black\/5:not(.hero-polygon *),
+body.theme-light .bg-black\/10:not(.hero-polygon *),
+body.theme-light .bg-black\/20:not(.hero-polygon *),
+body.theme-light .bg-black\/25:not(.hero-polygon *),
+body.theme-light .bg-black\/30:not(.hero-polygon *),
+body.theme-light .bg-black\/40:not(.hero-polygon *) {
+  background-color: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
+/* 5. Transparente weiße Badges & Pills */
+body.theme-light .bg-white\/5:not(.hero-polygon *),
+body.theme-light .bg-white\/10:not(.hero-polygon *),
+body.theme-light .bg-white\/15:not(.hero-polygon *),
+body.theme-light .bg-white\/20:not(.hero-polygon *) {
+  background-color: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+}
+
+/* 6. Weiße Rahmenlinien */
+body.theme-light .border-white\/5:not(.hero-polygon *),
+body.theme-light .border-white\/10:not(.hero-polygon *),
+body.theme-light .border-white\/15:not(.hero-polygon *),
+body.theme-light .border-white\/20:not(.hero-polygon *) {
+  border-color: #E2E8F0 !important;
+}
+
+/* 7. Hover-Effekte */
+body.theme-light .hover\:bg-white\/5:not(.hero-polygon *):hover,
+body.theme-light .hover\:bg-white\/10:not(.hero-polygon *):hover,
+body.theme-light .hover\:bg-white\/20:not(.hero-polygon *):hover,
+body.theme-light .hover\:bg-black\/5:not(.hero-polygon *):hover,
+body.theme-light .hover\:bg-black\/10:not(.hero-polygon *):hover {
+  background-color: #F1F5F9 !important;
+}
+
+/* 8. AUSNAHMEN: Text auf solidem Brand-Blue / Akzentbuttons MUSS weiß sein */
+body.theme-light .bg-brand-orange,
+body.theme-light .bg-brand-orange *,
+body.theme-light .bg-brand-orangeHover,
+body.theme-light .bg-brand-orangeHover *,
+body.theme-light .bg-brand-blue,
+body.theme-light .bg-brand-blue *,
+body.theme-light .bg-brand-blueHover,
+body.theme-light .bg-brand-blueHover *,
+body.theme-light .hover\:bg-brand-orange:hover,
+body.theme-light .hover\:bg-brand-orange:hover *,
+body.theme-light .hover\:bg-brand-blue:hover,
+body.theme-light .hover\:bg-brand-blue:hover *,
+body.theme-light .bg-emerald-600,
+body.theme-light .bg-emerald-600 *,
+body.theme-light .bg-emerald-500,
+body.theme-light .bg-emerald-500 *,
+body.theme-light span.bg-gray-950,
+body.theme-light span.bg-gray-950 *,
+body.theme-light span.bg-black\/70,
+body.theme-light span.bg-black\/70 * {
+  color: #FFFFFF !important;
+}
+
+body.theme-light .bg-gray-900\/80 {
+  background-color: #E2E8F0 !important;
+}
+
+/* Aufgetönte Hover-/Badge-Elemente dürfen NIEMALS weißen Text erzwingen */
+body.theme-light .hover\:bg-brand-orange\/10:hover,
+body.theme-light .hover\:bg-brand-orangeLight:hover,
+body.theme-light .hover\:bg-brand-blue\/10:hover,
+body.theme-light .hover\:bg-brand-blueLight:hover {
+  background-color: rgba(55, 141, 204, 0.12) !important;
+}
+
+/* 9. Live-Lieferzeit Badge (#delTime) im hellen Modus */
+body.theme-light #delTime {
+  background-color: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+/* 10. Formulare & Inputs in Modals & Seiten */
+body.theme-light input:not(#ammount),
+body.theme-light select,
+body.theme-light textarea {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #CBD5E1 !important;
+}
+body.theme-light input#ammount {
+  background-color: transparent !important;
+  border: none !important;
+  color: #0F172A !important;
+}
+body.theme-light input::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* 11. Checkboxen im hellen Modus */
+body.theme-light input[type="checkbox"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+}
+
+/* 12. Floating Theme Switcher Leiste bleibt dunkel und exzellent bedienbar */
+body.theme-light .fixed.bottom-6.left-6 .bg-gray-900\/90 {
+  background-color: rgba(15, 23, 42, 0.92) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+body.theme-light #btnDarkTheme {
+  color: #CBD5E1 !important;
+}
+body.theme-light #btnDarkTheme:hover {
+  color: #FFFFFF !important;
+}
+body.theme-light #btnLightTheme {
+  background-color: #378DCC !important;
+  color: #FFFFFF !important;
+}
+
+/* 13. Tabs Hover */
+body.theme-light .detail-tab-btn:hover {
+  color: #0F172A !important;
+}
+
+/* ========================================================================= */
+/* 4. GAPLESS DROPDOWN & MEGA-MENU LOGIC                                     */
+/* ========================================================================= */
+.dropdown-group {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding-top: 6px; /* Nahtlose Hover-Brücke */
+  z-index: 60;
+  display: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.15s ease-out, transform 0.15s ease-out;
+  pointer-events: none;
+}
+
+/* Unsichtbare Hitbox-Brücke gegen Maus-Abreißen */
+.dropdown-panel::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background: transparent;
+}
+
+/* Öffnen per Hover, Fokus oder Click (.is-open) */
+.dropdown-group:hover > .dropdown-panel,
+.dropdown-group:focus-within > .dropdown-panel,
+.dropdown-panel:hover,
+.dropdown-panel.is-open {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+}
+
+.dropdown-group:hover .dropdown-chevron,
+.dropdown-group.is-open .dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+/* ========================================================================= */
+/* 5. UTILITIES: SCROLLBAR, HERO-POLYGON, EQUALIZER ANIMATION & GUARDS       */
+/* ========================================================================= */
+
+/* Mobile Overflow Guard */
+html, body {
+  overflow-x: clip;
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #0A0B0E; }
+::-webkit-scrollbar-thumb { background: #282C38; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #378DCC; }
+
+/* Hero Polygon Utility */
+.hero-polygon {
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+}
+@media (max-width: 768px) {
+  .hero-polygon {
+    clip-path: polygon(0 0, 100% 0, 100% 98%, 0 100%);
+  }
+}
+
+/* Equalizer Animation (Audio Soundcheck Modals) */
+@keyframes eqBar {
+  0%, 100% { height: 6px; }
+  50% { height: 28px; }
+}
+.eq-bar-1 { animation: eqBar 0.8s ease-in-out infinite 0.1s; }
+.eq-bar-2 { animation: eqBar 0.9s ease-in-out infinite 0.3s; }
+.eq-bar-3 { animation: eqBar 0.7s ease-in-out infinite 0.2s; }
+.eq-bar-4 { animation: eqBar 1.1s ease-in-out infinite 0.4s; }
+.eq-bar-5 { animation: eqBar 0.85s ease-in-out infinite 0.15s; }
+.eq-bar-6 { animation: eqBar 0.95s ease-in-out infinite 0.35s; }

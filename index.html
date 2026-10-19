@@ -13,291 +13,10 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              blue: '#378DCC',
-              blueHover: '#2875AB',
-              blueBright: '#5CAAE3',
-              blueLight: '#EBF4FB',
-              accent: '#F59E0B',
-              accentHover: '#D97706',
-              // Backward-compatibility aliases so all existing classes render in Dein-Sportauspuff blue #378DCC
-              orange: '#378DCC',
-              orangeHover: '#2875AB',
-              orangeBright: '#5CAAE3',
-              orangeLight: '#EBF4FB'
-            }
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            racing: ['"Barlow Condensed"', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    /* CSS Variables für den nahtlosen Live-Theme-Wechsel */
-    :root {
-      --tier1-bg: #090B10;
-      --tier1-text: #94A3B8;
-      --tier1-border: transparent;
-
-      --tier2-bg: #12151E;
-      --tier2-border: transparent;
-      --logo-text: #FFFFFF;
-
-      --tier3-bg: #0D1017;
-      --tier3-border-top: transparent;
-      --tier3-text: #CBD5E1;
-
-      --hero-bg: #090B10;
-      --hero-overlay-from: #090B10;
-      --hero-overlay-via: rgba(9, 11, 16, 0.85);
-      --hero-img-opacity: 0.75;
-      
-      --title-main: #FFFFFF;
-      --title-sub: #E2E8F0;
-      --title-shadow: 0 4px 25px rgba(0, 0, 0, 0.95);
-      --title-glow: 0 0 40px rgba(55, 141, 204, 0.55);
-      --hero-bullets: #E2E8F0;
-      
-      --card-bg: #FFFFFF;
-      --card-border: transparent;
-      --card-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.75), 0 0 40px rgba(55, 141, 204, 0.18);
-      
-      --search-bg: #1D2230;
-      --search-text: #FFFFFF;
-      --search-border: transparent;
-      
-      --car-pill-bg: #1A1E2B;
-      --car-pill-text: #FFFFFF;
-    }
-
-    body.theme-light {
-      --tier1-bg: #F8FAFC;
-      --tier1-text: #64748B;
-      --tier1-border: transparent;
-
-      --tier2-bg: #FFFFFF;
-      --tier2-border: transparent;
-      --logo-text: #0F172A;
-
-      --tier3-bg: #FFFFFF;
-      --tier3-border-top: transparent;
-      --tier3-text: #334155;
-
-      /* Komplementärer Hero-Bereich (Deep Slate/Asphalt), damit das Auto & der Eingabebereich nicht verblassen */
-      --hero-bg: #0F172A;
-      --hero-overlay-from: #0F172A;
-      --hero-overlay-via: rgba(15, 23, 42, 0.85);
-      --hero-img-opacity: 0.75;
-
-      --title-main: #FFFFFF;
-      --title-sub: #E2E8F0;
-      --title-shadow: 0 4px 25px rgba(0, 0, 0, 0.85);
-      --title-glow: 0 0 35px rgba(55, 141, 204, 0.50);
-      --hero-bullets: #E2E8F0;
-
-      --card-bg: #FFFFFF;
-      --card-border: transparent;
-      --card-shadow: 0 25px 55px -12px rgba(0, 0, 0, 0.60), 0 0 35px rgba(55, 141, 204, 0.15);
-
-      --search-bg: #F1F5F9;
-      --search-text: #0F172A;
-      --search-border: transparent;
-
-      --car-pill-bg: #F1F5F9;
-      --car-pill-text: #0F172A;
-    }
-
-    /* ========================================================================= */
-    /* HOCHKONTRAST & ACCESSIBILITY REGELN FÜR DEN HELLEN MODUS (THEME-LIGHT)    */
-    /* ========================================================================= */
-    body.theme-light {
-      color: #0F172A;
-    }
-
-    /* 1. Primärtexte außerhalb des Hero-Bereichs */
-    body.theme-light .text-white:not(.hero-polygon *):not(.bg-brand-orange):not(.bg-brand-orangeHover):not(.bg-brand-blue):not(.bg-brand-blueHover):not(.bg-emerald-600) {
-      color: #0F172A !important;
-    }
-    body.theme-light .text-slate-100:not(.hero-polygon *),
-    body.theme-light .text-slate-200:not(.hero-polygon *),
-    body.theme-light .text-gray-100:not(.hero-polygon *),
-    body.theme-light .text-gray-200:not(.hero-polygon *) {
-      color: #0F172A !important;
-    }
-
-    /* 2. Fließtexte & Beschreibungen */
-    body.theme-light .text-gray-300:not(.hero-polygon *),
-    body.theme-light .text-slate-300:not(.hero-polygon *) {
-      color: #334155 !important;
-    }
-
-    /* 3. Muted-Labels & Nebentexte */
-    body.theme-light .text-gray-400:not(.hero-polygon *),
-    body.theme-light .text-slate-400:not(.hero-polygon *),
-    body.theme-light .text-gray-500:not(.hero-polygon *),
-    body.theme-light .text-slate-500:not(.hero-polygon *) {
-      color: #475569 !important;
-    }
-
-    /* 4. Graue Inset-Flächen & Wells */
-    body.theme-light .bg-black\/5:not(.hero-polygon *),
-    body.theme-light .bg-black\/10:not(.hero-polygon *),
-    body.theme-light .bg-black\/20:not(.hero-polygon *),
-    body.theme-light .bg-black\/25:not(.hero-polygon *),
-    body.theme-light .bg-black\/30:not(.hero-polygon *),
-    body.theme-light .bg-black\/40:not(.hero-polygon *) {
-      background-color: #F8FAFC !important;
-      border: 1px solid #E2E8F0 !important;
-    }
-
-    /* 5. Transparente weiße Badges & Pills */
-    body.theme-light .bg-white\/5:not(.hero-polygon *),
-    body.theme-light .bg-white\/10:not(.hero-polygon *),
-    body.theme-light .bg-white\/15:not(.hero-polygon *),
-    body.theme-light .bg-white\/20:not(.hero-polygon *) {
-      background-color: #FFFFFF !important;
-      border: 1px solid #CBD5E1 !important;
-    }
-
-    /* 6. Weiße Rahmenlinien */
-    body.theme-light .border-white\/5:not(.hero-polygon *),
-    body.theme-light .border-white\/10:not(.hero-polygon *),
-    body.theme-light .border-white\/15:not(.hero-polygon *),
-    body.theme-light .border-white\/20:not(.hero-polygon *) {
-      border-color: #E2E8F0 !important;
-    }
-
-    /* 7. Hover-Effekte */
-    body.theme-light .hover\:bg-white\/5:not(.hero-polygon *):hover,
-    body.theme-light .hover\:bg-white\/10:not(.hero-polygon *):hover,
-    body.theme-light .hover\:bg-black\/5:not(.hero-polygon *):hover,
-    body.theme-light .hover\:bg-black\/10:not(.hero-polygon *):hover {
-      background-color: #F1F5F9 !important;
-    }
-
-    /* 8. AUSNAHMEN: Text auf solidem Brand-Blue / Akzentbuttons MUSS weiß sein */
-    body.theme-light .bg-brand-orange,
-    body.theme-light .bg-brand-orange *,
-    body.theme-light .bg-brand-orangeHover,
-    body.theme-light .bg-brand-orangeHover *,
-    body.theme-light .bg-brand-blue,
-    body.theme-light .bg-brand-blue *,
-    body.theme-light .bg-brand-blueHover,
-    body.theme-light .bg-brand-blueHover *,
-    body.theme-light .hover\:bg-brand-orange:hover,
-    body.theme-light .hover\:bg-brand-orange:hover *,
-    body.theme-light .hover\:bg-brand-blue:hover,
-    body.theme-light .hover\:bg-brand-blue:hover *,
-    body.theme-light .bg-emerald-600,
-    body.theme-light .bg-emerald-600 * {
-      color: #FFFFFF !important;
-    }
-
-    /* WICHTIG: Aufgetönte Hover-/Badge-Elemente dürfen NIEMALS weißen Text erzwingen */
-    body.theme-light .hover\:bg-brand-orange\/10:hover,
-    body.theme-light .hover\:bg-brand-orangeLight:hover,
-    body.theme-light .hover\:bg-brand-blue\/10:hover,
-    body.theme-light .hover\:bg-brand-blueLight:hover {
-      background-color: rgba(55, 141, 204, 0.12) !important;
-    }
-
-    /* 9. Floating Theme Switcher Leiste */
-    body.theme-light .fixed.bottom-6.left-6 .bg-gray-900\/90 {
-      background-color: rgba(15, 23, 42, 0.92) !important;
-      border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    }
-    body.theme-light #btnDarkTheme {
-      color: #CBD5E1 !important;
-    }
-    body.theme-light #btnDarkTheme:hover {
-      color: #FFFFFF !important;
-    }
-    body.theme-light #btnLightTheme {
-      background-color: #378DCC !important;
-      color: #FFFFFF !important;
-    }
-
-    /* ========================================================================= */
-    /* GAPLESS DROPDOWN & MEGA-MENU LOGIC (BEHEBT DAS ABREISSEN BEIM WECHSELN)   */
-    /* ========================================================================= */
-    .dropdown-group {
-      position: relative;
-      height: 100%;
-      display: flex;
-      align-items: center;
-    }
-
-    .dropdown-panel {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      padding-top: 6px; /* Nahtlose Hover-Brücke */
-      z-index: 60;
-      display: none;
-      opacity: 0;
-      transform: translateY(4px);
-      transition: opacity 0.15s ease-out, transform 0.15s ease-out;
-      pointer-events: none;
-    }
-
-    /* Unsichtbare Hitbox-Brücke gegen Maus-Abreißen */
-    .dropdown-panel::before {
-      content: '';
-      position: absolute;
-      top: -12px;
-      left: 0;
-      right: 0;
-      height: 14px;
-      background: transparent;
-    }
-
-    /* Öffnen per Hover, Fokus oder Click (.is-open) */
-    .dropdown-group:hover > .dropdown-panel,
-    .dropdown-group:focus-within > .dropdown-panel,
-    .dropdown-panel:hover,
-    .dropdown-panel.is-open {
-      display: block !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-      transform: translateY(0) !important;
-      pointer-events: auto !important;
-    }
-
-    .dropdown-group:hover .dropdown-chevron,
-    .dropdown-group.is-open .dropdown-chevron {
-      transform: rotate(180deg);
-    }
-
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #0A0B0E; }
-    ::-webkit-scrollbar-thumb { background: #282C38; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #378DCC; }
-    
-    .hero-polygon {
-      clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
-    }
-    @media (max-width: 768px) {
-      .hero-polygon {
-        clip-path: polygon(0 0, 100% 0, 100% 98%, 0 100%);
-      }
-    }
-    /* Mobile Overflow Guard */
-    html, body {
-      overflow-x: clip;
-      max-width: 100%;
-      width: 100%;
-    }
-  </style>
+  <!-- Design Tokens & Theme Styles -->
+  <link rel="stylesheet" href="assets/theme.css">
+  <!-- Shared Tailwind Config & Theme Manager -->
+  <script src="assets/theme.js"></script>
 </head>
 <body id="appBody" class="bg-[#F8F9FA] text-[#1E293B] font-sans antialiased selection:bg-brand-orange selection:text-white transition-colors duration-300">
 
@@ -306,17 +25,17 @@
   <!-- ========================================================================= -->
   <div class="hidden md:flex fixed bottom-6 left-6 z-50">
     <div class="bg-gray-900/90 backdrop-blur-md p-1.5 rounded-2xl border border-white/20 shadow-2xl flex items-center space-x-1">
-      <button 
-        id="btnDarkTheme" 
-        onclick="setTheme('dark')" 
+      <button
+        id="btnDarkTheme"
+        onclick="setTheme('dark')"
         class="px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow"
       >
         <i class="fa-solid fa-moon text-xs"></i>
         <span>Dark (Performance)</span>
       </button>
-      <button 
-        id="btnLightTheme" 
-        onclick="setTheme('light')" 
+      <button
+        id="btnLightTheme"
+        onclick="setTheme('light')"
         class="px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10"
       >
         <i class="fa-solid fa-sun text-xs"></i>
@@ -330,7 +49,7 @@
   <!-- ========================================================================= -->
   <header style="background-color: var(--tier1-bg); color: var(--tier1-text);" class="w-full text-xs transition-colors duration-300">
     <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 h-10 flex items-center justify-between">
-      
+
       <!-- Links: Bewertung & Telefon-Hotline -->
       <div class="flex items-center space-x-8">
         <div class="flex items-center space-x-2">
@@ -393,12 +112,12 @@
         <!-- Die Kontrast-Suche (Clean, Borderless Pill-Design) -->
         <div class="flex-1 max-w-2xl hidden md:block">
           <form id="searchForm" action="suche.html" method="POST" class="relative">
-            <input 
-              type="text" 
+            <input
+              type="text"
               id="search_keys"
               name="search_keys"
-              style="background-color: var(--search-bg); color: var(--search-text);" 
-              placeholder="Fahrzeug, Modell, Artikel oder Motorcode suchen (z.B. Golf 7 GTI Fox, Audi RS6)..." 
+              style="background-color: var(--search-bg); color: var(--search-text);"
+              placeholder="Fahrzeug, Modell, Artikel oder Motorcode suchen (z.B. Golf 7 GTI Fox, Audi RS6)..."
               class="w-full text-sm font-medium rounded-full pl-12 pr-28 py-3.5 border-0 focus:ring-2 focus:ring-brand-orange/40 focus:outline-none transition shadow-sm placeholder:text-gray-400"
             >
             <div class="absolute inset-y-0 left-0 pl-4.5 flex items-center pointer-events-none text-brand-orange text-base">
@@ -413,7 +132,7 @@
 
         <!-- Rechte Aktionen -->
         <div class="flex items-center space-x-1.5 sm:space-x-5 flex-shrink-0">
-          
+
           <!-- Quick Theme Toggle auf Mobile -->
           <button onclick="toggleThemeQuick()" class="md:hidden p-1.5 text-gray-300 hover:text-white rounded-lg hover:bg-black/10 transition" title="Design wechseln (Dark/Hell)">
             <i id="themeQuickIcon" class="fa-solid fa-sun text-sm"></i>
@@ -437,7 +156,7 @@
           </div>
 
           <!-- Benutzerkonto -->
-          <a href="#" style="color: var(--logo-text);" class="px-2.5 py-2 rounded-xl hover:bg-black/5 transition hidden sm:flex flex-col items-center opacity-85 hover:opacity-100">
+          <a href="konto.html" style="color: var(--logo-text);" class="px-2.5 py-2 rounded-xl hover:bg-black/5 transition hidden sm:flex flex-col items-center opacity-85 hover:opacity-100" title="Mein Kundenkonto">
             <i class="fa-regular fa-user text-base sm:text-lg"></i>
             <span class="text-[10px] mt-0.5 font-medium">Konto</span>
           </a>
@@ -465,12 +184,12 @@
       <!-- Mobile Suchleiste direkt im Drawer -->
       <div class="relative md:hidden mb-2">
         <form id="searchForm_mob" action="suche.html" method="POST" class="relative">
-          <input 
-            type="text" 
+          <input
+            type="text"
             id="search_keys_mob"
             name="search_keys"
-            style="background-color: var(--search-bg); color: var(--search-text);" 
-            placeholder="Sportauspuff, Marke, Modell suchen..." 
+            style="background-color: var(--search-bg); color: var(--search-text);"
+            placeholder="Sportauspuff, Marke, Modell suchen..."
             class="w-full text-xs font-medium rounded-xl pl-9 pr-20 py-2.5 border-0 focus:ring-2 focus:ring-brand-orange/40 focus:outline-none transition shadow-sm placeholder:text-gray-400"
           >
           <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-brand-orange text-xs">
@@ -481,6 +200,12 @@
           </button>
         </form>
       </div>
+
+      <!-- Benutzerkonto Link im Drawer -->
+      <a href="konto.html" onclick="toggleMobileDrawer()" class="flex items-center space-x-2.5 p-2.5 rounded-xl bg-black/20 hover:bg-black/30 transition text-xs font-semibold" style="color: var(--logo-text);">
+        <i class="fa-regular fa-user text-brand-orange text-sm"></i>
+        <span>Mein Kundenkonto / Anmelden</span>
+      </a>
 
       <!-- Quick Theme Switcher im Drawer -->
       <div class="flex items-center justify-between p-2 rounded-xl bg-black/20 text-xs">
@@ -529,10 +254,10 @@
     <nav style="background-color: var(--tier3-bg);" class="hidden lg:block transition-colors duration-300">
       <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
         <div style="color: var(--tier3-text);" class="h-12 flex items-center justify-between text-xs font-bold uppercase tracking-wider">
-          
+
           <!-- Die 4 Kernkategorien (Clean ohne Border-Linien) -->
           <div class="flex h-full items-center space-x-2">
-            
+
             <a href="kategorie.html" class="px-4 py-1.5 rounded-lg flex items-center space-x-2 text-white bg-brand-orange shadow-sm">
               <i class="fa-solid fa-fire text-white text-xs"></i>
               <span class="font-racing text-sm tracking-wider">Sportauspuff</span>
@@ -557,7 +282,7 @@
                 <span>Weitere Kategorien</span>
                 <i class="dropdown-chevron fa-solid fa-chevron-down text-[10px] transition-transform opacity-70"></i>
               </button>
-              
+
               <div class="dropdown-panel absolute top-full left-0 z-50">
                 <div style="background-color: var(--tier2-bg); border-color: var(--panel-border);" class="w-[520px] rounded-2xl shadow-2xl p-5 border text-left">
                   <!-- Top Grid: 2 Spalten -->
@@ -641,7 +366,7 @@
                 <span>Hersteller-Marken</span>
                 <i class="dropdown-chevron fa-solid fa-chevron-down text-[10px] transition-transform opacity-70"></i>
               </button>
-              
+
               <div class="dropdown-panel absolute top-full left-0 z-50">
                 <div style="background-color: var(--tier2-bg); border-color: var(--panel-border);" class="w-[580px] rounded-2xl shadow-2xl p-5 border text-left">
                   <!-- Top Grid: 2 Spalten -->
@@ -750,20 +475,20 @@
   <!-- 4. HERO SECTION MIT DYNAMISCHEM THEME (DARK / LIGHT WECHSEL)              -->
   <!-- ========================================================================= -->
   <section style="background-color: var(--hero-bg);" class="relative pt-12 pb-28 lg:pb-36 hero-polygon overflow-hidden border-b border-black/10 transition-colors duration-300">
-    
+
     <!-- Das reale Kundenbild (Audi RS6 Ragazzon) -->
-    <div 
+    <div
       id="heroCarBg"
       class="absolute inset-0 z-0 bg-cover bg-center lg:bg-[center_right_15%] transform scale-100 transition-all duration-700"
       style="background-image: url('assets/audi-rs6-ragazzon.jpg'); opacity: var(--hero-img-opacity);"
     ></div>
 
     <!-- Dynamischer Farbverlauf über das Bild -->
-    <div 
+    <div
       class="absolute inset-0 z-0 pointer-events-none transition-all duration-300"
       style="background: linear-gradient(to right, var(--hero-overlay-from) 0%, var(--hero-overlay-via) 45%, transparent 100%);"
     ></div>
-    <div 
+    <div
       class="absolute inset-0 z-0 pointer-events-none transition-all duration-300"
       style="background: linear-gradient(to top, var(--hero-overlay-from) 0%, transparent 60%);"
     ></div>
@@ -778,7 +503,7 @@
         <!-- LINKE SPALTE: STRAHLENDER TITEL MIT THEME-SWITCH                      -->
         <!-- ===================================================================== -->
         <div class="lg:col-span-6 space-y-7">
-          
+
           <div class="inline-flex items-center space-x-2 bg-white/10 dark:bg-black/70 backdrop-blur-md border border-brand-orange text-brand-orange px-4 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase shadow-xl">
             <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse"></span>
             <span>Über 25.000 Sportauspuffanlagen ab Lager lieferbar</span>
@@ -798,7 +523,7 @@
           </h1>
 
           <p style="color: var(--hero-bullets);" class="text-base sm:text-lg leading-relaxed max-w-xl font-medium transition-colors duration-300">
-            Finde in Sekunden die exakt passende Sportabgasanlage für dein Auto. 
+            Finde in Sekunden die exakt passende Sportabgasanlage für dein Auto.
             Mit <strong>100% Passform-Garantie</strong> nach AutoDoc-Vorbild, sofortiger ECE-Gutachtenprüfung und bundesweitem Montageservice.
           </p>
 
@@ -831,15 +556,15 @@
         <!-- ========================================================================= -->
         <div class="lg:col-span-6">
           <div style="background-color: var(--card-bg); box-shadow: var(--card-shadow);" class="rounded-3xl overflow-hidden text-gray-900 transition-all duration-300">
-            
+
             <!-- TAB BAR: Segmented Control (Clean & Borderless) -->
             <div class="p-3 bg-gray-100/80">
               <div class="flex bg-gray-200/70 p-1 rounded-2xl gap-1">
-                
+
                 <!-- Tab 1: Kaskadierte Kfz-Suche -->
-                <button 
-                  id="tabBtnKfz" 
-                  onclick="switchFinderTab('kfz')" 
+                <button
+                  id="tabBtnKfz"
+                  onclick="switchFinderTab('kfz')"
                   class="flex-1 py-3 px-3 text-center font-racing text-base sm:text-lg uppercase tracking-wider font-extrabold transition flex items-center justify-center space-x-2 text-brand-orange bg-white rounded-xl shadow-sm"
                 >
                   <i class="fa-solid fa-car text-brand-orange"></i>
@@ -847,9 +572,9 @@
                 </button>
 
                 <!-- Tab 2: Direkte HSN / TSN Suche -->
-                <button 
-                  id="tabBtnHsn" 
-                  onclick="switchFinderTab('hsn')" 
+                <button
+                  id="tabBtnHsn"
+                  onclick="switchFinderTab('hsn')"
                   class="flex-1 py-3 px-3 text-center font-racing text-base sm:text-lg uppercase tracking-wider font-bold transition flex items-center justify-center space-x-2 text-gray-500 hover:text-gray-900 rounded-xl"
                 >
                   <i class="fa-solid fa-file-lines text-gray-400"></i>
@@ -862,7 +587,7 @@
             <!-- TAB-INHALT 1: KFZ-SUCHE                                         -->
             <!-- =============================================================== -->
             <div id="tabContentKfz" class="p-6 sm:p-9 space-y-6">
-              
+
               <!-- Quick Brand Selection -->
               <div>
                 <label class="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-2.5">
@@ -892,7 +617,7 @@
 
               <!-- Dropdown Kaskade -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                
+
                 <!-- 1. Hersteller (nav_make) -->
                 <div>
                   <label id="lbl_make" for="nav_make" class="block text-xs font-bold text-gray-700 mb-1">1. Fahrzeughersteller</label>
@@ -961,9 +686,9 @@
                   <span>Filter zurücksetzen</span>
                 </button>
 
-                <button 
-                  id="btnSubmitKfz" 
-                  onclick="submitCarSelection()" 
+                <button
+                  id="btnSubmitKfz"
+                  onclick="submitCarSelection()"
                   class="w-full sm:w-auto px-8 py-4 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-xl uppercase tracking-wider font-extrabold rounded-xl shadow-xl hover:shadow-orange-500/30 transition transform active:scale-95 flex items-center justify-center space-x-2.5"
                 >
                   <i class="fa-solid fa-magnifying-glass"></i>
@@ -978,7 +703,7 @@
             <!-- TAB-INHALT 2: HSN-TSN DIREKTSUCHE                               -->
             <!-- =============================================================== -->
             <div id="tabContentHsn" class="p-6 sm:p-9 space-y-6 hidden">
-              
+
               <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 flex items-start space-x-3 text-gray-700">
                 <div class="text-brand-orange text-lg mt-0.5">
                   <i class="fa-solid fa-circle-info"></i>
@@ -996,11 +721,11 @@
                   <label class="block text-xs font-bold text-gray-700 mb-1">
                     HSN (Herstellerschlüssel) <span class="text-brand-orange">*</span>
                   </label>
-                  <input 
-                    id="inputHsn" 
-                    type="text" 
-                    maxlength="4" 
-                    placeholder="z.B. 0588" 
+                  <input
+                    id="inputHsn"
+                    type="text"
+                    maxlength="4"
+                    placeholder="z.B. 0588"
                     class="w-full bg-white text-gray-900 text-lg font-mono tracking-widest uppercase rounded-xl px-4 py-3 border border-gray-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 focus:outline-none shadow-sm font-bold"
                   >
                   <span class="text-[11px] text-gray-500 mt-1 block">4-stellig numerisch</span>
@@ -1010,11 +735,11 @@
                   <label class="block text-xs font-bold text-gray-700 mb-1">
                     TSN (Typenschlüssel) <span class="text-brand-orange">*</span>
                   </label>
-                  <input 
-                    id="inputTsn" 
-                    type="text" 
-                    maxlength="3" 
-                    placeholder="z.B. BNE" 
+                  <input
+                    id="inputTsn"
+                    type="text"
+                    maxlength="3"
+                    placeholder="z.B. BNE"
                     class="w-full bg-white text-gray-900 text-lg font-mono tracking-widest uppercase rounded-xl px-4 py-3 border border-gray-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 focus:outline-none shadow-sm font-bold"
                   >
                   <span class="text-[11px] text-gray-500 mt-1 block">Erste 3 Zeichen aus Feld 2.2</span>
@@ -1028,8 +753,8 @@
                   <span>Felder leeren</span>
                 </button>
 
-                <button 
-                  onclick="submitHsnTsn()" 
+                <button
+                  onclick="submitHsnTsn()"
                   class="w-full sm:w-auto px-8 py-4 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-xl uppercase tracking-wider font-extrabold rounded-xl shadow-xl transition flex items-center justify-center space-x-2"
                 >
                   <i class="fa-solid fa-bolt"></i>
@@ -1052,9 +777,9 @@
   <!-- ========================================================================= -->
   <section class="py-16 bg-white border-b border-gray-200">
     <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
-      
+
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-5xl mx-auto">
-        
+
         <!-- Schritt 1: Auto wählen -->
         <div class="flex items-center space-x-6 p-5 rounded-2xl hover:bg-gray-50 transition border border-transparent hover:border-gray-200">
           <div class="w-16 h-16 rounded-2xl bg-brand-orange text-white font-racing font-extrabold text-3xl flex items-center justify-center flex-shrink-0 shadow-xl">
@@ -1149,7 +874,7 @@
 
     <!-- Marken Grid -->
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-      
+
       <!-- Audi Card -->
       <div onclick="selectQuickBrand('Audi')" class="bg-white rounded-2xl border border-gray-200 hover:border-brand-orange p-6 text-center shadow-sm hover:shadow-xl transition group cursor-pointer flex flex-col justify-between">
         <div class="h-32 flex items-center justify-center overflow-hidden mb-4">
@@ -1214,7 +939,7 @@
   <!-- ========================================================================= -->
   <section class="py-16 bg-white border-t border-gray-200">
     <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
-      
+
       <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
         <div>
           <span class="text-brand-orange font-bold text-xs uppercase tracking-wider">Top-Empfehlungen</span>
@@ -1506,42 +1231,6 @@
   <!-- 10. INTERAKTIVE LOGIK & THEME SWITCHER                                    -->
   <!-- ========================================================================= -->
   <script>
-    // Live Theme Switcher Funktion
-    function setTheme(theme) {
-      const body = document.getElementById('appBody');
-      const btnDark = document.getElementById('btnDarkTheme');
-      const btnLight = document.getElementById('btnLightTheme');
-      const quickIcon = document.getElementById('themeQuickIcon');
-
-      if (theme === 'light') {
-        body.classList.add('theme-light');
-        if (btnLight) btnLight.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow";
-        if (btnDark) btnDark.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10";
-        if (quickIcon) {
-          quickIcon.className = "fa-solid fa-moon text-sm";
-        }
-        localStorage.setItem('sportauspuff_theme', 'light');
-      } else {
-        body.classList.remove('theme-light');
-        if (btnDark) btnDark.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow";
-        if (btnLight) btnLight.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10";
-        if (quickIcon) {
-          quickIcon.className = "fa-solid fa-sun text-sm";
-        }
-        localStorage.setItem('sportauspuff_theme', 'dark');
-      }
-    }
-
-    // Gespeichertes Theme beim Start laden (oder per ?theme=light / ?theme=dark in der URL steuerbar)
-    const urlParams = new URLSearchParams(window.location.search);
-    const urlTheme = urlParams.get('theme');
-    const savedTheme = localStorage.getItem('sportauspuff_theme');
-    if (urlTheme === 'light' || (!urlTheme && savedTheme === 'light')) {
-      setTheme('light');
-    } else if (urlTheme === 'dark') {
-      setTheme('dark');
-    }
-
     const vehicleDatabase = {
       "Audi": {
         models: {
@@ -1777,56 +1466,6 @@
         }
       }
     }
-
-    function toggleThemeQuick() {
-      const isLight = document.getElementById('appBody').classList.contains('theme-light');
-      setTheme(isLight ? 'dark' : 'light');
-    }
-
-    // Gapless Dropdown Toggle (Klick-Fixierung & Outside-Click Support)
-    function initDropdowns() {
-      document.querySelectorAll('.dropdown-group').forEach(group => {
-        const trigger = group.querySelector('.dropdown-trigger');
-        const panel = group.querySelector('.dropdown-panel');
-        if (!trigger || !panel) return;
-
-        trigger.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          const isOpen = panel.classList.contains('is-open');
-          document.querySelectorAll('.dropdown-panel.is-open').forEach(p => {
-            if (p !== panel) p.classList.remove('is-open');
-          });
-          document.querySelectorAll('.dropdown-group.is-open').forEach(g => {
-            if (g !== group) g.classList.remove('is-open');
-          });
-          if (!isOpen) {
-            panel.classList.add('is-open');
-            group.classList.add('is-open');
-          } else {
-            panel.classList.remove('is-open');
-            group.classList.remove('is-open');
-          }
-        });
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.dropdown-group')) {
-          document.querySelectorAll('.dropdown-panel.is-open').forEach(p => p.classList.remove('is-open'));
-          document.querySelectorAll('.dropdown-group.is-open').forEach(g => g.classList.remove('is-open'));
-        }
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          document.querySelectorAll('.dropdown-panel.is-open').forEach(p => p.classList.remove('is-open'));
-          document.querySelectorAll('.dropdown-group.is-open').forEach(g => g.classList.remove('is-open'));
-        }
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', initDropdowns);
-    initDropdowns();
   </script>
 </body>
 </html>

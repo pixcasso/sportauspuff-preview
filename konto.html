@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mein Kundenkonto | Dein-Sportauspuff.de</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Barlow Condensed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Design Tokens & Theme Styles -->
+  <link rel="stylesheet" href="assets/theme.css">
+  <!-- Shared Tailwind Config & Theme Manager -->
+  <script src="assets/theme.js"></script>
+</head>
+<body id="appBody" style="background-color: var(--page-bg); color: var(--text-main);" class="font-sans antialiased selection:bg-brand-orange selection:text-white transition-colors duration-300 min-h-screen flex flex-col">
+
+  <!-- ========================================================================= -->
+  <!-- FLOATING THEME-SWITCHER (DESKTOP ONLY - AUF MOBILE IM HEADER / DRAWER)     -->
+  <!-- ========================================================================= -->
+  <div class="hidden md:flex fixed bottom-6 left-6 z-50">
+    <div class="bg-gray-900/90 backdrop-blur-md p-1.5 rounded-2xl border border-white/20 shadow-2xl flex items-center space-x-1">
+      <button
+        id="btnDarkTheme"
+        onclick="setTheme('dark')"
+        class="px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow"
+      >
+        <i class="fa-solid fa-moon text-xs"></i>
+        <span>Dark (Performance)</span>
+      </button>
+      <button
+        id="btnLightTheme"
+        onclick="setTheme('light')"
+        class="px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10"
+      >
+        <i class="fa-solid fa-sun text-xs"></i>
+        <span>Hell (Präzision)</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 1. ZEILE 1: TOP UTILITY BAR (40px, Theme-fähig)                           -->
+  <!-- ========================================================================= -->
+  <header style="background-color: var(--tier1-bg); color: var(--tier1-text);" class="w-full text-xs transition-colors duration-300">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 h-10 flex items-center justify-between">
+
+      <!-- Links: Bewertung & Telefon-Hotline -->
+      <div class="flex items-center space-x-8">
+        <div class="flex items-center space-x-2">
+          <div class="flex text-amber-400 text-xs">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <span class="font-bold text-xs" style="color: var(--logo-text);">4.9 / 5.0</span>
+          <span class="hidden sm:inline">(über 12.000 Bewertungen)</span>
+        </div>
+
+        <div class="hidden md:flex items-center space-x-2">
+          <i class="fa-solid fa-phone text-brand-orange"></i>
+          <span>Kfz-Fachberatung: <strong class="hover:text-brand-orange transition cursor-pointer text-xs" style="color: var(--logo-text);">+49 (0) 371 64 63 87 55</strong></span>
+          <span class="text-[11px] opacity-75">(Mo–Fr 8–18 Uhr)</span>
+        </div>
+      </div>
+
+      <!-- Rechts: USPs & FAQ -->
+      <div class="flex items-center space-x-6">
+        <span class="hidden sm:flex items-center space-x-2">
+          <i class="fa-solid fa-truck-fast text-slate-400"></i>
+          <span>Kostenloser Versand ab 100 €</span>
+        </span>
+        <span class="opacity-40 hidden sm:inline">•</span>
+        <span class="hidden lg:flex items-center space-x-2">
+          <i class="fa-solid fa-certificate text-slate-400"></i>
+          <span>100% Passformgarantie</span>
+        </span>
+        <span class="opacity-40 hidden lg:inline">•</span>
+        <a href="#hilfe" class="hover:text-brand-orange transition flex items-center space-x-1.5 opacity-80 hover:opacity-100">
+          <i class="fa-regular fa-circle-question"></i>
+          <span>Hilfe & FAQ</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 2. ZEILE 2: MAIN HEADER (Logo, Suche, Garage-Pill, Konto, Warenkorb)      -->
+  <!-- ========================================================================= -->
+  <div style="background-color: var(--tier2-bg);" class="sticky top-0 z-50 shadow-md transition-colors duration-300">
+    <div class="max-w-[1600px] mx-auto px-3 sm:px-8 lg:px-12">
+      <div class="h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4 lg:gap-8">
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobileMenuBtn" onclick="toggleMobileDrawer()" style="color: var(--logo-text);" class="lg:hidden p-1.5 rounded-lg hover:bg-black/5 flex-shrink-0" aria-label="Menü öffnen">
+          <i id="mobileMenuIcon" class="fa-solid fa-bars text-lg sm:text-xl"></i>
+        </button>
+
+        <!-- Brand Logo Dein-Sportauspuff.de -->
+        <a href="index.html" class="flex items-center group flex-shrink-0 py-1" title="Dein-Sportauspuff.de - Mehr Sound & Power">
+          <img src="assets/dein-sportauspuff.svg" alt="Dein-Sportauspuff.de" class="h-6 sm:h-7 lg:h-8 max-w-[190px] sm:max-w-[280px] lg:max-w-none w-auto object-contain transition-transform group-hover:scale-105">
+        </a>
+
+        <!-- Die Kontrast-Suche -->
+        <div class="flex-1 max-w-2xl hidden md:block">
+          <form id="searchForm" action="suche.html" method="POST" class="relative">
+            <input
+              type="text"
+              id="search_keys"
+              name="search_keys"
+              style="background-color: var(--search-bg); color: var(--search-text);"
+              placeholder="Fahrzeug, Modell, Artikel oder Motorcode suchen (z.B. RS6 Ragazzon)..."
+              class="w-full text-sm font-medium rounded-full pl-12 pr-28 py-3.5 border-0 focus:ring-2 focus:ring-brand-orange/40 focus:outline-none transition shadow-sm placeholder:text-gray-400"
+            >
+            <div class="absolute inset-y-0 left-0 pl-4.5 flex items-center pointer-events-none text-brand-orange text-base">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <button type="submit" name="send" class="absolute inset-y-1.5 right-1.5 px-5 bg-brand-orange hover:bg-brand-orangeHover text-white text-xs font-racing font-bold uppercase tracking-wider rounded-full transition shadow-sm flex items-center space-x-1.5">
+              <span>Suchen</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Rechte Aktionen -->
+        <div class="flex items-center space-x-1.5 sm:space-x-5 flex-shrink-0">
+
+          <!-- Quick Theme Toggle auf Mobile -->
+          <button onclick="toggleThemeQuick()" class="md:hidden p-1.5 text-gray-300 hover:text-white rounded-lg hover:bg-black/10 transition" title="Design wechseln (Dark/Hell)">
+            <i id="themeQuickIcon" class="fa-solid fa-sun text-sm"></i>
+          </button>
+
+          <!-- AutoDoc-Style Virtuelle Kfz-Garage Pill -->
+          <div id="activeCarPill" style="background-color: var(--car-pill-bg);" class="hidden sm:flex items-center rounded-xl px-3.5 py-2 cursor-pointer transition group border border-brand-orange/20 hover:border-brand-orange/50 shadow-sm" onclick="location.href='kategorie.html?brand=Audi&model=RS6'">
+            <div class="w-8 h-8 rounded-lg bg-brand-orange/15 flex items-center justify-center text-brand-orange mr-2.5 shadow-inner relative">
+              <i class="fa-solid fa-warehouse text-sm"></i>
+              <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-gray-900"></span>
+            </div>
+            <div class="text-left text-xs leading-tight">
+              <div class="text-[10px] uppercase font-bold tracking-wider text-emerald-400 flex items-center space-x-1">
+                <span>Garage (1 aktiv)</span>
+                <i class="fa-solid fa-circle-check text-[9px]"></i>
+              </div>
+              <div id="activeCarLabel" style="color: var(--car-pill-text);" class="font-bold group-hover:text-brand-orange transition truncate max-w-[130px] lg:max-w-[160px]">
+                Audi RS6 Avant C8
+              </div>
+            </div>
+          </div>
+
+          <!-- Benutzerkonto Button (Aktiv hervorgehoben auf dieser Seite) -->
+          <a href="konto.html" class="px-2.5 py-2 rounded-xl transition hidden sm:flex flex-col items-center text-brand-orange bg-brand-orange/10 font-bold border border-brand-orange/30 shadow-sm" title="Mein Kundenkonto">
+            <i class="fa-solid fa-user text-base sm:text-lg"></i>
+            <span class="text-[10px] mt-0.5">Konto</span>
+          </a>
+
+          <!-- Warenkorb Button -->
+          <a href="kategorie.html#warenkorb" class="flex items-center bg-brand-orange hover:bg-brand-orangeHover text-white rounded-xl p-2 sm:px-4 sm:py-2.5 transition shadow-lg group flex-shrink-0">
+            <div class="relative mr-0 sm:mr-2.5">
+              <i class="fa-solid fa-basket-shopping text-base sm:text-lg"></i>
+              <span class="absolute -top-2 -right-2 bg-white text-brand-orange text-[10px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center shadow">
+                1
+              </span>
+            </div>
+            <div class="text-left hidden sm:block">
+              <div class="text-[10px] text-orange-100 uppercase font-bold tracking-wider">Warenkorb</div>
+              <div class="text-xs font-racing font-extrabold text-white tracking-wide">2.499,00 €</div>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobileDrawer" style="background-color: var(--tier2-bg);" class="hidden lg:hidden px-4 py-4 space-y-3 text-sm shadow-2xl transition-all border-t border-white/10 max-h-[calc(100vh-4.5rem)] overflow-y-auto">
+      <div class="relative md:hidden mb-2">
+        <form id="searchForm_mob" action="suche.html" method="POST" class="relative">
+          <input
+            type="text"
+            id="search_keys_mob"
+            name="search_keys"
+            style="background-color: var(--search-bg); color: var(--search-text);"
+            placeholder="Sportauspuff, Marke, Modell suchen..."
+            class="w-full text-xs font-medium rounded-xl pl-9 pr-20 py-2.5 border-0 focus:ring-2 focus:ring-brand-orange/40 focus:outline-none transition shadow-sm placeholder:text-gray-400"
+          >
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-brand-orange text-xs">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <button type="submit" name="send" class="absolute inset-y-1 right-1 px-3 bg-brand-orange hover:bg-brand-orangeHover text-white text-[11px] font-racing font-bold uppercase rounded-lg transition">
+            Suchen
+          </button>
+        </form>
+      </div>
+
+      <!-- Benutzerkonto Link im Drawer (Aktiv) -->
+      <a href="konto.html" onclick="toggleMobileDrawer()" class="flex items-center space-x-2.5 p-2.5 rounded-xl bg-brand-orange/15 text-brand-orange border border-brand-orange/30 font-bold text-xs">
+        <i class="fa-solid fa-user text-sm"></i>
+        <span>Mein Kundenkonto (Aktiv)</span>
+      </a>
+
+      <!-- Quick Theme Switcher im Drawer -->
+      <div class="flex items-center justify-between p-2 rounded-xl bg-black/20 text-xs">
+        <span class="text-gray-400 font-bold uppercase">Erscheinungsbild:</span>
+        <div class="flex space-x-1">
+          <button onclick="setTheme('dark')" class="px-2.5 py-1 rounded-lg text-xs font-racing font-bold bg-brand-orange text-white flex items-center space-x-1">
+            <i class="fa-solid fa-moon text-[10px]"></i>
+            <span>Dark</span>
+          </button>
+          <button onclick="setTheme('light')" class="px-2.5 py-1 rounded-lg text-xs font-racing font-bold bg-white/10 text-gray-300 flex items-center space-x-1">
+            <i class="fa-solid fa-sun text-[10px]"></i>
+            <span>Hell</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="font-bold text-xs uppercase tracking-wider text-brand-orange pt-1">Produkt-Kategorien</div>
+      <div class="space-y-1">
+        <a href="kategorie.html" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Sportauspuff Komplett</a>
+        <a href="kategorie.html#endschalldaempfer" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Endschalldämpfer</a>
+        <a href="kategorie.html#komplettanlagen" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Komplettanlagen & Duplex</a>
+        <a href="kategorie.html#klappen" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Klappenauspuffanlagen</a>
+        <a href="kategorie.html#downpipes" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Downpipes & Kats</a>
+        <a href="kategorie.html#endrohre" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Endrohre & Blenden</a>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- 3. ZEILE 3: KATEGORIE-LEISTE (Clean & Gapless Dropdowns)                   -->
+    <!-- ========================================================================= -->
+    <nav style="background-color: var(--tier3-bg); border-color: var(--tier3-border-top);" class="hidden lg:block border-t text-sm font-medium transition-colors duration-300">
+      <div class="max-w-[1600px] mx-auto px-12 h-12 flex items-center justify-between">
+        <div class="flex items-center space-x-1 h-full" style="color: var(--tier3-text);">
+          <a href="kategorie.html" class="px-3.5 py-1.5 rounded-lg hover:text-brand-orange hover:bg-black/5 transition font-racing text-sm tracking-wider">Sportauspuff Komplett</a>
+          <a href="kategorie.html#endschalldaempfer" class="px-3.5 py-1.5 rounded-lg hover:text-brand-orange hover:bg-black/5 transition font-racing text-sm tracking-wider">Endschalldämpfer</a>
+          <a href="kategorie.html#komplettanlagen" class="px-3.5 py-1.5 rounded-lg hover:text-brand-orange hover:bg-black/5 transition font-racing text-sm tracking-wider">Komplettanlagen & Duplex</a>
+          <a href="kategorie.html#klappen" class="px-3.5 py-1.5 rounded-lg hover:text-brand-orange hover:bg-black/5 transition font-racing text-sm tracking-wider">Klappenauspuffanlagen</a>
+          <a href="kategorie.html#downpipes" class="px-3.5 py-1.5 rounded-lg hover:text-brand-orange hover:bg-black/5 transition font-racing text-sm tracking-wider">Downpipes</a>
+          <a href="kategorie.html#endrohre" class="px-3.5 py-1.5 rounded-lg hover:text-brand-orange hover:bg-black/5 transition font-racing text-sm tracking-wider">Endrohre</a>
+          <a href="kategorie.html?brand=Ragazzon" class="px-3.5 py-1.5 rounded-lg hover:text-brand-orange hover:bg-black/5 transition font-racing text-sm tracking-wider">Marken</a>
+        </div>
+        <div class="flex items-center space-x-4">
+          <a href="kategorie.html" class="text-xs font-bold text-brand-orange hover:underline flex items-center space-x-1">
+            <i class="fa-solid fa-volume-high text-xs mr-1"></i>
+            <span>Soundfiles anhören</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 4. INTERAKTIVER DEMO-SWITCHER (Zustand A vs. Zustand B)                   -->
+  <!-- ========================================================================= -->
+  <div class="w-full bg-gradient-to-r from-gray-900 via-slate-900 to-gray-900 text-white border-b border-brand-orange/30 py-2.5 px-4 shadow-inner">
+    <div class="max-w-[1600px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+      <div class="flex items-center space-x-2">
+        <span class="px-2 py-0.5 rounded bg-brand-orange text-white font-racing font-extrabold uppercase text-[10px] tracking-wider">Prototyp-Tester</span>
+        <span class="text-gray-300 font-medium">Zwischen Kundenstatus wechseln:</span>
+      </div>
+      <div class="flex items-center space-x-2 bg-black/40 p-1 rounded-xl border border-white/10">
+        <button
+          id="demoBtnAuth"
+          onclick="switchCustomerView('auth')"
+          class="px-3 py-1.5 rounded-lg text-xs font-racing font-bold uppercase transition flex items-center space-x-1.5 text-gray-400 hover:text-white"
+        >
+          <i class="fa-solid fa-right-to-bracket text-[11px]"></i>
+          <span>Zustand A: Login & Registrieren</span>
+        </button>
+        <button
+          id="demoBtnDashboard"
+          onclick="switchCustomerView('dashboard')"
+          class="px-3 py-1.5 rounded-lg text-xs font-racing font-extrabold uppercase bg-brand-orange text-white shadow transition flex items-center space-x-1.5"
+        >
+          <i class="fa-solid fa-id-card text-[11px]"></i>
+          <span>Zustand B: Mein Konto (Eingeloggt)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Breadcrumb -->
+  <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-3.5 text-xs text-gray-400 flex items-center space-x-2">
+    <a href="index.html" class="hover:text-brand-orange transition flex items-center space-x-1">
+      <i class="fa-solid fa-house text-[10px]"></i>
+      <span>Startseite</span>
+    </a>
+    <span class="opacity-50">/</span>
+    <span id="breadcrumbCurrent" class="text-brand-orange font-semibold">Mein Kundenkonto</span>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 5. HAUPTBEREICH: ZUSTAND A - AUTHENTIFIZIERUNG (LOGIN & REGISTRIERUNG)    -->
+  <!-- ========================================================================= -->
+  <main id="viewAuth" class="flex-1 max-w-[1600px] w-full mx-auto px-4 sm:px-8 lg:px-12 py-6 hidden">
+
+    <div class="mb-8 text-center max-w-2xl mx-auto">
+      <span class="text-xs uppercase font-racing tracking-widest text-brand-orange font-bold block mb-1">Dein-Sportauspuff Kundenbereich</span>
+      <h1 class="font-racing text-3xl sm:text-4xl uppercase tracking-wider font-extrabold" style="color: var(--text-main);">
+        Anmelden oder Kundenkonto erstellen
+      </h1>
+      <p class="text-xs sm:text-sm text-gray-400 mt-2">
+        Verwalte dein Fahrzeug, verfolge Bestellungen in Echtzeit und profitiere von unserem 100% Passform-Garantieservice.
+      </p>
+    </div>
+
+    <!-- Auth Sub-Tabs Switcher -->
+    <div class="flex justify-center mb-8">
+      <div class="inline-flex p-1.5 rounded-2xl border shadow-lg max-w-md w-full" style="background-color: var(--tier2-bg); border-color: var(--panel-border);">
+        <button
+          id="authTabLoginBtn"
+          onclick="switchAuthTab('login')"
+          class="flex-1 py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-extrabold transition text-white bg-brand-orange shadow"
+        >
+          <i class="fa-solid fa-lock text-xs mr-1.5"></i>
+          <span>Ich bin bereits Kunde</span>
+        </button>
+        <button
+          id="authTabRegisterBtn"
+          onclick="switchAuthTab('register')"
+          class="flex-1 py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-bold transition text-gray-400 hover:text-white"
+        >
+          <i class="fa-solid fa-user-plus text-xs mr-1.5"></i>
+          <span>Neukunde registrieren</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+      <!-- Linke Spalte: Login- oder Registrierungs-Formular -->
+      <div class="lg:col-span-8">
+
+        <!-- ==================== FORMULAR 1: LOGIN ==================== -->
+        <div id="authBoxLogin" style="background-color: var(--panel-card); border-color: var(--panel-border);" class="rounded-3xl p-6 sm:p-8 border shadow-xl">
+          <div class="flex items-center space-x-3 mb-6 pb-4 border-b border-white/10" style="border-color: var(--panel-border);">
+            <div class="w-10 h-10 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center text-lg">
+              <i class="fa-solid fa-right-to-bracket"></i>
+            </div>
+            <div>
+              <h2 class="font-racing text-xl sm:text-2xl uppercase tracking-wider font-extrabold" style="color: var(--text-main);">
+                Im Kundenkonto anmelden
+              </h2>
+              <p class="text-xs text-gray-400">Bitte gib deine hinterlegte E-Mail-Adresse und dein Passwort ein.</p>
+            </div>
+          </div>
+
+          <form id="formLogin" onsubmit="handleAuthLogin(event)" class="space-y-5">
+            <!-- E-Mail -->
+            <div>
+              <label for="login_email" class="block text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--text-main);">
+                E-Mail-Adresse <span class="text-brand-orange">*</span>
+              </label>
+              <div class="relative">
+                <input
+                  type="email"
+                  id="login_email"
+                  name="user"
+                  value="m.schmidt@berlin-tuning.de"
+                  required
+                  placeholder="name@beispiel.de"
+                  class="w-full text-sm font-medium rounded-xl pl-11 pr-4 py-3 bg-black/20 border border-white/10 focus:border-brand-orange focus:outline-none transition shadow-inner"
+                >
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                  <i class="fa-regular fa-envelope text-sm"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Passwort mit pwSwitch -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label for="login_pass" class="block text-xs font-bold uppercase tracking-wider" style="color: var(--text-main);">
+                  Passwort <span class="text-brand-orange">*</span>
+                </label>
+                <a href="#forgot" onclick="togglePasswordForgot(event)" class="text-xs text-brand-orange hover:underline">
+                  Passwort vergessen?
+                </a>
+              </div>
+              <div class="relative">
+                <input
+                  type="password"
+                  id="login_pass"
+                  name="pass"
+                  value="Sportauspuff2026!"
+                  required
+                  placeholder="Dein Passwort"
+                  class="w-full text-sm font-medium rounded-xl pl-11 pr-11 py-3 bg-black/20 border border-white/10 focus:border-brand-orange focus:outline-none transition shadow-inner"
+                >
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                  <i class="fa-solid fa-lock text-sm"></i>
+                </div>
+                <button type="button" class="pwSwitch absolute inset-y-0 right-0 pr-3.5 flex items-center text-gray-400 hover:text-white cursor-pointer" aria-label="Passwort anzeigen">
+                  <i class="fa-solid fa-eye text-sm"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Angemeldet bleiben & Passwort vergessen Box -->
+            <div class="flex items-center justify-between pt-1">
+              <label class="flex items-center space-x-2.5 cursor-pointer text-xs">
+                <input type="checkbox" id="save_login" name="save_login" checked class="w-4 h-4 rounded text-brand-orange focus:ring-brand-orange">
+                <span class="text-gray-300">Auf diesem Gerät angemeldet bleiben</span>
+              </label>
+            </div>
+
+            <!-- Ausklappbarer Passwort-Vergessen Bereich -->
+            <div id="passwordForgotBox" class="hidden p-4 rounded-2xl bg-black/30 border border-white/10 space-y-3">
+              <div class="text-xs font-bold text-brand-orange uppercase">Passwort zurücksetzen</div>
+              <p class="text-xs text-gray-300">Gib deine E-Mail-Adresse ein. Wir senden dir umgehend einen sicheren Link zum Zurücksetzen deines Passworts.</p>
+              <div class="flex gap-2">
+                <input type="email" placeholder="E-Mail-Adresse" class="flex-1 text-xs rounded-xl px-3 py-2 bg-black/20 border border-white/10 text-white">
+                <button type="button" onclick="alert('Link zum Zurücksetzen wurde an Ihre E-Mail-Adresse gesendet.'); togglePasswordForgot(event);" class="px-4 py-2 bg-brand-orange text-white text-xs font-racing font-bold uppercase rounded-xl">Link senden</button>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-2">
+              <button
+                type="submit"
+                class="w-full py-4 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-base sm:text-lg uppercase tracking-wider font-extrabold rounded-2xl shadow-xl transition flex items-center justify-center space-x-2"
+              >
+                <span>Jetzt anmelden & Garage öffnen</span>
+                <i class="fa-solid fa-arrow-right text-sm"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- ==================== FORMULAR 2: REGISTRIERUNG ==================== -->
+        <div id="authBoxRegister" style="background-color: var(--panel-card); border-color: var(--panel-border);" class="rounded-3xl p-6 sm:p-8 border shadow-xl hidden">
+          <div class="flex items-center space-x-3 mb-6 pb-4 border-b border-white/10" style="border-color: var(--panel-border);">
+            <div class="w-10 h-10 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center text-lg">
+              <i class="fa-solid fa-user-plus"></i>
+            </div>
+            <div>
+              <h2 class="font-racing text-xl sm:text-2xl uppercase tracking-wider font-extrabold" style="color: var(--text-main);">
+                Neues Kundenkonto erstellen
+              </h2>
+              <p class="text-xs text-gray-400">Genieße kostenlose Fahrzeugzuordnung, Gutachten-Downloads und Sendungsverfolgung.</p>
+            </div>
+          </div>
+
+          <form id="formRegister" onsubmit="handleAuthRegister(event)" class="space-y-5">
+
+            <!-- Anrede -->
+            <div>
+              <span class="block text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--text-main);">
+                Anrede <span class="text-brand-orange">*</span>
+              </span>
+              <div class="flex items-center space-x-6 text-xs text-gray-300">
+                <label class="flex items-center space-x-2 cursor-pointer">
+                  <input type="radio" name="customers_gender" value="m" checked class="text-brand-orange focus:ring-brand-orange">
+                  <span>Herr</span>
+                </label>
+                <label class="flex items-center space-x-2 cursor-pointer">
+                  <input type="radio" name="customers_gender" value="f" class="text-brand-orange focus:ring-brand-orange">
+                  <span>Frau</span>
+                </label>
+                <label class="flex items-center space-x-2 cursor-pointer">
+                  <input type="radio" name="customers_gender" value="d" class="text-brand-orange focus:ring-brand-orange">
+                  <span>Divers / Firma</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Vorname & Nachname -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="reg_firstname" class="block text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--text-main);">
+                  Vorname <span class="text-brand-orange">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="reg_firstname"
+                  name="customers_firstname"
+                  required
+                  placeholder="Maximilian"
+                  class="w-full text-sm font-medium rounded-xl px-4 py-3 bg-black/20 border border-white/10 focus:border-brand-orange focus:outline-none transition shadow-inner"
+                >
+              </div>
+              <div>
+                <label for="reg_lastname" class="block text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--text-main);">
+                  Nachname <span class="text-brand-orange">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="reg_lastname"
+                  name="customers_lastname"
+                  required
+                  placeholder="Schmidt"
+                  class="w-full text-sm font-medium rounded-xl px-4 py-3 bg-black/20 border border-white/10 focus:border-brand-orange focus:outline-none transition shadow-inner"
+                >
+              </div>
+            </div>
+
+            <!-- Firma & B2B Reseller Hint -->
+            <div>
+              <label for="reg_company" class="block text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--text-main);">
+                Firma <span class="text-[10px] text-gray-400 font-normal">(optional für B2B / Werkstatt)</span>
+              </label>
+              <input
+                type="text"
+                id="reg_company"
+                name="customers_company_name"
+                oninput="onCompanyInput(this.value)"
+                placeholder="z.B. KFZ-Meisterbetrieb Schmidt GmbH"
+                class="w-full text-sm font-medium rounded-xl px-4 py-3 bg-black/20 border border-white/10 focus:border-brand-orange focus:outline-none transition shadow-inner"
+              >
+              <!-- Dynamischer B2B-Hinweis -->
+              <div id="b2bResellerHint" class="hidden mt-2.5 p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs text-amber-200 flex items-start space-x-2.5">
+                <i class="fa-solid fa-building text-amber-400 text-sm mt-0.5 flex-shrink-0"></i>
+                <div>
+                  <strong class="font-bold block text-amber-300">Gewerblicher Kunde oder Werkstatt?</strong>
+                  <span>Jetzt B2B-Händlerkonto anfordern für Werkstatt- & Händlerkonditionen mit Sonderrabatten bis zu 25% auf Sportauspuffanlagen.</span>
+                  <a href="#b2b" onclick="alert('B2B-Registrierungsformular wird aufgerufen.')" class="font-bold underline text-white block mt-1 hover:text-amber-400">Zur B2B-Händleranmeldung →</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Straße & Hausnummer -->
+            <div>
+              <label for="reg_street" class="block text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--text-main);">
+                Straße und Hausnummer <span class="text-brand-orange">*</span>
+              </label>
+              <input
+                type="text"
+                id="reg_street"
+                name="customers_street_address"
+                required
+                placeholder="Kurfürstendamm 182"
+                class="w-full text-sm font-medium rounded-xl px-4 py-3 bg-black/20 border border-white/10 focus:border-brand-orange focus:outline-none transition shadow-inner"
+              >
+            </div>
+
+            <!-- PLZ, Ort & Land -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <label for="reg_postcode" class="block text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--text-main);">
+                  PLZ <span class="text-brand-orange">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="reg_postcode"
+                  name="customers_postcode"
+                  required
+                  placeholder="10707"
+                  class="w-full text-sm font-medium rounded-xl px-4 py-3 bg-black/20 border border-white/10 focus:border-brand-orange focus:outline-none transition shadow-inner"
+                >
+              </div>
+              <div>
+                <label for="reg_city" class="block text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--text-main);">
+                  Ort <span class="text-brand-orange">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="reg_city"
+                  name="customers_city"
+                  required
+                  placeholder="Berlin"
+                  class="w-full text-sm font-medium rounded-xl px-4 py-3 bg-black/20 border border-white/10 focus:border-brand-orange focus:outline-none transition shadow-inner"
+                >
+              </div>
+              <div>
+                <label for="reg_country" class="block text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--text-main);">
+                  Land <span class="text-brand-orange">*</span>
+                </label>
+                <select
+                  id="reg_country"
+                  name="customers_country_id"
+                  required
+                  class="w-full text-sm font-medium rounded-xl px-4 py-3 bg-black/20 border border-white/10 focus:border-brand-orange focus:outline-none transition shadow-inner"
+                >
+                  <option value="81" selected>Deutschland</option>
+                  <option value="14">Österreich</option>
+                  <option value="204">Schweiz</option>
+                  <option value="150">Niederlande</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Telefon -->
+            <div>
+              <label for="reg_phone" class="block text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--text-main);">
+                Telefon <span class="text-[10px] text-gray-400 font-normal">(für Avisierung durch GLS / Spedition)</span>
+              </label>
+              <input
+                type="tel"
+                id="reg_phone"
+                name="customers_telefon"
+                placeholder="+49 170 1234567"
+                class="w-full text-sm font-medium rounded-xl px-4 py-3 bg-black/20 border border-white/10 focus:border-brand-orange focus:outline-none transition shadow-inner"
+              >
+            </div>
+
+            <!-- E-Mail Adresse -->
+            <div>
+              <label for="reg_email" class="block text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--text-main);">
+                E-Mail-Adresse <span class="text-brand-orange">*</span>
+              </label>
+              <input
+                type="email"
+                id="reg_email"
+                name="customers_email_address"
+                required
+                placeholder="name@beispiel.de"
+                class="w-full text-sm font-medium rounded-xl px-4 py-3 bg-black/20 border border-white/10 focus:border-brand-orange focus:outline-none transition shadow-inner"
+              >
+            </div>
+
+            <!-- Passwörter mit pwSwitch -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="reg_password" class="block text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--text-main);">
+                  Passwort wählen <span class="text-brand-orange">*</span>
+                </label>
+                <div class="relative">
+                  <input
+                    type="password"
+                    id="reg_password"
+                    name="customers_password"
+                    required
+                    placeholder="Mind. 8 Zeichen"
+                    class="w-full text-sm font-medium rounded-xl pl-4 pr-11 py-3 bg-black/20 border border-white/10 focus:border-brand-orange focus:outline-none transition shadow-inner"
+                  >
+                  <button type="button" class="pwSwitch absolute inset-y-0 right-0 pr-3.5 flex items-center text-gray-400 hover:text-white cursor-pointer" aria-label="Passwort anzeigen">
+                    <i class="fa-solid fa-eye text-sm"></i>
+                  </button>
+                </div>
+              </div>
+              <div>
+                <label for="reg_password_repeat" class="block text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--text-main);">
+                  Passwort wiederholen <span class="text-brand-orange">*</span>
+                </label>
+                <div class="relative">
+                  <input
+                    type="password"
+                    id="reg_password_repeat"
+                    name="customers_password_repeat"
+                    required
+                    placeholder="Passwort bestätigen"
+                    class="w-full text-sm font-medium rounded-xl pl-4 pr-11 py-3 bg-black/20 border border-white/10 focus:border-brand-orange focus:outline-none transition shadow-inner"
+                  >
+                  <button type="button" class="pwSwitch absolute inset-y-0 right-0 pr-3.5 flex items-center text-gray-400 hover:text-white cursor-pointer" aria-label="Passwort anzeigen">
+                    <i class="fa-solid fa-eye text-sm"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- AGB & Newsletter Checkboxen -->
+            <div class="space-y-2.5 pt-2">
+              <label class="flex items-start space-x-2.5 cursor-pointer text-xs">
+                <input type="checkbox" id="reg_policy" name="policy" required class="w-4 h-4 mt-0.5 rounded text-brand-orange focus:ring-brand-orange">
+                <span class="text-gray-300">
+                  Ich stimme den <a href="#agb" class="text-brand-orange hover:underline font-bold">AGB</a> und der <a href="#datenschutz" class="text-brand-orange hover:underline font-bold">Datenschutzerklärung</a> von Dein-Sportauspuff.de zu. <span class="text-brand-orange">*</span>
+                </span>
+              </label>
+
+              <label class="flex items-start space-x-2.5 cursor-pointer text-xs">
+                <input type="checkbox" id="reg_newsletter" name="newsletter" checked class="w-4 h-4 mt-0.5 rounded text-brand-orange focus:ring-brand-orange">
+                <span class="text-gray-300">
+                  Ja, ich möchte exklusive Tuning-Gutscheine, Soundcheck-Neuheiten und Auspuff-Rabatte per E-Mail erhalten. (Jederzeit abbestellbar)
+                </span>
+              </label>
+            </div>
+
+            <!-- Register Submit Button -->
+            <div class="pt-2">
+              <button
+                type="submit"
+                class="w-full py-4 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-base sm:text-lg uppercase tracking-wider font-extrabold rounded-2xl shadow-xl transition flex items-center justify-center space-x-2"
+              >
+                <span>Kundenkonto jetzt kostenlos anlegen</span>
+                <i class="fa-solid fa-user-check text-sm"></i>
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Rechte Spalte: Vorteile & Trust (AutoDoc / Performance inspiriert) -->
+      <div class="lg:col-span-4 space-y-5">
+
+        <div style="background-color: var(--panel-card); border-color: var(--panel-border);" class="rounded-3xl p-6 border shadow-xl">
+          <h3 class="font-racing text-lg sm:text-xl uppercase tracking-wider font-extrabold mb-4 text-brand-orange flex items-center space-x-2">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Deine Kundenvorteile</span>
+          </h3>
+
+          <div class="space-y-4">
+            <div class="flex items-start space-x-3">
+              <div class="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-sm flex-shrink-0 mt-0.5">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <div>
+                <strong class="text-xs font-bold block" style="color: var(--text-main);">Blitzschnelle Bestellung</strong>
+                <span class="text-xs text-gray-400">Einmal Adressdaten hinterlegen und künftig in Sekunden bestellen.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <div class="w-8 h-8 rounded-lg bg-brand-orange/15 text-brand-orange flex items-center justify-center text-sm flex-shrink-0 mt-0.5">
+                <i class="fa-solid fa-car-side"></i>
+              </div>
+              <div>
+                <strong class="text-xs font-bold block" style="color: var(--text-main);">100% Passform-Garantie</strong>
+                <span class="text-xs text-gray-400">Speichere dein Fahrzeug in „Meine Garage“ für automatische Kompatibilitätsprüfung.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <div class="w-8 h-8 rounded-lg bg-blue-500/15 text-blue-400 flex items-center justify-center text-sm flex-shrink-0 mt-0.5">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <strong class="text-xs font-bold block" style="color: var(--text-main);">Live Sendungsverfolgung</strong>
+                <span class="text-xs text-gray-400">Jederzeit Paketstatus, Carrier-Tracking und Liefertermine abrufen.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <div class="w-8 h-8 rounded-lg bg-purple-500/15 text-purple-400 flex items-center justify-center text-sm flex-shrink-0 mt-0.5">
+                <i class="fa-solid fa-file-pdf"></i>
+              </div>
+              <div>
+                <strong class="text-xs font-bold block" style="color: var(--text-main);">Gutachten & Rechnungs-Download</strong>
+                <span class="text-xs text-gray-400">Direkter Zugriff auf ECE/TÜV-Dokumente und PDF-Rechnungen.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <div class="w-8 h-8 rounded-lg bg-amber-500/15 text-amber-400 flex items-center justify-center text-sm flex-shrink-0 mt-0.5">
+                <i class="fa-solid fa-headset"></i>
+              </div>
+              <div>
+                <strong class="text-xs font-bold block" style="color: var(--text-main);">Prioritäts-Support</strong>
+                <span class="text-xs text-gray-400">Bevorzugte Bearbeitung durch unsere Auspuffspezialisten.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hot Support Box -->
+        <div style="background-color: var(--filter-block-bg); border-color: var(--panel-border);" class="rounded-3xl p-6 border shadow-lg text-center">
+          <i class="fa-solid fa-phone-volume text-brand-orange text-2xl mb-2"></i>
+          <h4 class="font-racing text-base uppercase font-bold" style="color: var(--text-main);">Fragen zur Registrierung?</h4>
+          <p class="text-xs text-gray-400 mt-1 mb-3">Unser Kfz-Team unterstützt dich werktags von 8 bis 18 Uhr.</p>
+          <a href="tel:+4937164638755" class="inline-block px-4 py-2 bg-white/10 hover:bg-brand-orange hover:text-white rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold transition" style="color: var(--text-main);">
+            +49 (0) 371 64 63 87 55
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- 6. HAUPTBEREICH: ZUSTAND B - KUNDEN-DASHBOARD (EINGELOGGT)                -->
+  <!-- ========================================================================= -->
+  <main id="viewDashboard" class="flex-1 max-w-[1600px] w-full mx-auto px-4 sm:px-8 lg:px-12 py-6">
+
+    <!-- Profil-Kopfzeile (Welcome Header Banner) -->
+    <div style="background-color: var(--panel-card); border-color: var(--panel-border);" class="rounded-3xl p-6 sm:p-8 border shadow-2xl mb-8 relative overflow-hidden">
+      <div class="absolute -right-10 -bottom-10 opacity-5 pointer-events-none text-9xl text-brand-orange">
+        <i class="fa-solid fa-gauge-high"></i>
+      </div>
+
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
+
+        <div class="flex items-center space-x-4 sm:space-x-5">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-brand-orange to-amber-600 text-white flex items-center justify-center text-2xl sm:text-3xl font-racing font-extrabold shadow-xl flex-shrink-0">
+            MS
+          </div>
+          <div>
+            <div class="flex items-center space-x-2.5 flex-wrap gap-y-1">
+              <h1 class="font-racing text-2xl sm:text-3xl uppercase tracking-wider font-extrabold" style="color: var(--text-main);">
+                Hallo, Maximilian Schmidt!
+              </h1>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-racing font-extrabold uppercase tracking-wider bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center space-x-1">
+                <i class="fa-solid fa-crown text-[9px]"></i>
+                <span>Enthusiast / Premium-Kunde</span>
+              </span>
+            </div>
+            <div class="flex items-center space-x-4 text-xs text-gray-400 mt-1.5 flex-wrap">
+              <span>Kunden-Nr.: <strong class="text-white" style="color: var(--text-main);">DSP-84920</strong></span>
+              <span>•</span>
+              <span>Kunde seit: <strong>März 2024</strong></span>
+              <span>•</span>
+              <span class="text-emerald-400 flex items-center space-x-1">
+                <i class="fa-solid fa-circle-check text-[10px]"></i>
+                <span>E-Mail bestätigt</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-2.5 sm:self-center">
+          <button onclick="switchCustomerView('auth')" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-red-600 text-xs font-racing uppercase tracking-wider font-bold transition flex items-center space-x-1.5" style="color: var(--text-main);" title="Abmelden">
+            <i class="fa-solid fa-arrow-right-from-bracket text-xs"></i>
+            <span>Abmelden</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Dashboard Sub-Navigation Tabs -->
+      <div class="flex items-center space-x-2 sm:space-x-4 mt-8 pt-6 border-t border-white/10 overflow-x-auto no-scrollbar" style="border-color: var(--panel-border);">
+        <button
+          id="dashTabGarageBtn"
+          onclick="switchDashTab('garage')"
+          class="dash-tab-btn py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-extrabold transition flex items-center space-x-2 flex-shrink-0 bg-brand-orange text-white shadow"
+        >
+          <i class="fa-solid fa-warehouse text-xs"></i>
+          <span>Meine Garage (1 Fahrzeug)</span>
+        </button>
+
+        <button
+          id="dashTabOrdersBtn"
+          onclick="switchDashTab('orders')"
+          class="dash-tab-btn py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-bold transition flex items-center space-x-2 flex-shrink-0 text-gray-400 hover:text-white"
+        >
+          <i class="fa-solid fa-box-archive text-xs"></i>
+          <span>Bestellungen (2)</span>
+        </button>
+
+        <button
+          id="dashTabAddressesBtn"
+          onclick="switchDashTab('addresses')"
+          class="dash-tab-btn py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-bold transition flex items-center space-x-2 flex-shrink-0 text-gray-400 hover:text-white"
+        >
+          <i class="fa-solid fa-address-book text-xs"></i>
+          <span>Adressbuch</span>
+        </button>
+
+        <button
+          id="dashTabAccountBtn"
+          onclick="switchDashTab('account')"
+          class="dash-tab-btn py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-bold transition flex items-center space-x-2 flex-shrink-0 text-gray-400 hover:text-white"
+        >
+          <i class="fa-solid fa-user-gear text-xs"></i>
+          <span>Kontodaten & Passwort</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 1: MEINE GARAGE (FAHRZEUGKONTEXT)                                     -->
+    <!-- ========================================================================= -->
+    <div id="dashSectionGarage" class="space-y-6">
+
+      <!-- Haupt-Garage Karte -->
+      <div style="background-color: var(--panel-card); border-color: var(--panel-border);" class="rounded-3xl p-6 sm:p-8 border shadow-xl relative overflow-hidden">
+
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-white/10" style="border-color: var(--panel-border);">
+
+          <div class="flex items-start space-x-4">
+            <div class="w-14 h-14 rounded-2xl bg-brand-orange/20 text-brand-orange flex items-center justify-center text-2xl flex-shrink-0">
+              <i class="fa-solid fa-car"></i>
+            </div>
+            <div>
+              <div class="flex items-center space-x-2">
+                <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-racing font-extrabold text-[10px] uppercase tracking-wider">
+                  Aktives Hauptfahrzeug
+                </span>
+                <span class="text-xs text-gray-400">Verifiziert nach KBA / Zulassung</span>
+              </div>
+              <h2 class="font-racing text-2xl sm:text-3xl uppercase tracking-wider font-extrabold mt-1" style="color: var(--text-main);">
+                Audi RS6 Avant (C8 / 4K) 4.0 TFSI quattro
+              </h2>
+              <p class="text-xs text-gray-400">Sportkombi • Mild-Hybrid • Biturbo V8</p>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-3">
+            <a
+              href="kategorie.html?brand=Audi&model=RS6"
+              class="px-5 py-3 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-sm uppercase tracking-wider font-extrabold rounded-xl shadow-lg transition flex items-center space-x-2"
+            >
+              <i class="fa-solid fa-magnifying-glass text-xs"></i>
+              <span>Passende Sportauspuffe (14)</span>
+            </a>
+            <button
+              onclick="openGarageModal()"
+              class="px-4 py-3 bg-white/10 hover:bg-white/20 text-xs font-racing uppercase tracking-wider font-bold rounded-xl transition"
+              style="color: var(--text-main);"
+            >
+              Fahrzeug wechseln
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Technische Daten Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 py-6">
+          <div class="p-4 rounded-2xl bg-black/20 border border-white/5">
+            <span class="text-[10px] uppercase font-bold text-gray-400 block mb-1">HSN / TSN</span>
+            <span class="font-racing text-lg sm:text-xl font-extrabold text-brand-orange">1860 / ABD</span>
+          </div>
+          <div class="p-4 rounded-2xl bg-black/20 border border-white/5">
+            <span class="text-[10px] uppercase font-bold text-gray-400 block mb-1">Leistung</span>
+            <span class="font-racing text-lg sm:text-xl font-extrabold" style="color: var(--text-main);">441 kW / 600 PS</span>
+          </div>
+          <div class="p-4 rounded-2xl bg-black/20 border border-white/5">
+            <span class="text-[10px] uppercase font-bold text-gray-400 block mb-1">Baujahr / Typ</span>
+            <span class="font-racing text-lg sm:text-xl font-extrabold" style="color: var(--text-main);">2021 (Typ 4K/C8)</span>
+          </div>
+          <div class="p-4 rounded-2xl bg-black/20 border border-white/5">
+            <span class="text-[10px] uppercase font-bold text-gray-400 block mb-1">Motorcode / Hubraum</span>
+            <span class="font-racing text-lg sm:text-xl font-extrabold" style="color: var(--text-main);">DJPB / 3.996 cm³</span>
+          </div>
+        </div>
+
+        <!-- Quick Garage Features / Banner -->
+        <div style="background-color: var(--filter-block-bg); border-color: var(--panel-border);" class="rounded-2xl p-5 border flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center space-x-3.5">
+            <div class="w-10 h-10 rounded-xl bg-brand-orange text-white flex items-center justify-center text-lg flex-shrink-0 shadow">
+              <i class="fa-solid fa-volume-high"></i>
+            </div>
+            <div>
+              <strong class="text-sm font-bold block" style="color: var(--text-main);">Soundcheck & Klappensteuerung verfügbar</strong>
+              <span class="text-xs text-gray-400">Höre dir an, wie der RS6 C8 mit Ragazzon und Fox Sportauspuffanlagen klingt.</span>
+            </div>
+          </div>
+          <div class="flex items-center space-x-2">
+            <a href="detail.html" class="px-4 py-2 bg-brand-orange text-white rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold shadow hover:bg-brand-orangeHover transition">
+              Soundfile anhören ♫
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Zweitfahrzeug hinzufügen CTA -->
+      <div style="background-color: var(--tier2-bg); border-color: var(--panel-border);" class="rounded-3xl p-6 border border-dashed flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div class="flex items-center space-x-4">
+          <div class="w-12 h-12 rounded-2xl bg-white/5 text-gray-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+          <div>
+            <strong class="text-sm font-bold block" style="color: var(--text-main);">Zweitfahrzeug in Garage hinterlegen</strong>
+            <span class="text-xs text-gray-400">Verwalte bis zu 5 Fahrzeuge (z.B. VW Golf 7 GTI, BMW M3) für schnelles Wechseln.</span>
+          </div>
+        </div>
+        <button onclick="openGarageModal()" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-brand-orange hover:text-white text-xs font-racing uppercase tracking-wider font-bold transition" style="color: var(--text-main);">
+          + Fahrzeug hinzufügen
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 2: BESTELLUNGEN & SENDUNGSVERFOLGUNG (orders/orders_list.html)        -->
+    <!-- ========================================================================= -->
+    <div id="dashSectionOrders" class="space-y-6 hidden">
+
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="font-racing text-2xl uppercase tracking-wider font-extrabold" style="color: var(--text-main);">
+            Deine Bestellübersicht
+          </h2>
+          <p class="text-xs text-gray-400">Hier findest du alle Aufträge, Paketnummern und Rechnungen.</p>
+        </div>
+        <span class="text-xs text-gray-400 font-medium">2 Bestellungen gesamt</span>
+      </div>
+
+      <!-- Bestellung 1: Aktuell / Versendet -->
+      <div style="background-color: var(--panel-card); border-color: var(--panel-border);" class="rounded-3xl border shadow-xl overflow-hidden">
+
+        <!-- Header Zeile Bestellung -->
+        <div class="p-6 border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4" style="border-color: var(--panel-border);">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
+            <div>
+              <span class="text-gray-400 block text-[10px] uppercase font-bold">Bestellnummer</span>
+              <strong class="text-sm font-racing tracking-wide text-brand-orange">DSP-2026-44910</strong>
+            </div>
+            <div>
+              <span class="text-gray-400 block text-[10px] uppercase font-bold">Bestelldatum</span>
+              <span class="font-semibold" style="color: var(--text-main);">14. Okt. 2026</span>
+            </div>
+            <div>
+              <span class="text-gray-400 block text-[10px] uppercase font-bold">Gesamtsumme</span>
+              <span class="font-racing text-base font-extrabold" style="color: var(--text-main);">2.548,00 €</span>
+            </div>
+            <div>
+              <span class="text-gray-400 block text-[10px] uppercase font-bold">Zahlungsart</span>
+              <span class="font-semibold text-gray-300">PayPal Express</span>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <!-- Status Badge -->
+            <span class="px-3 py-1 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center space-x-1.5">
+              <i class="fa-solid fa-truck-fast text-[11px]"></i>
+              <span>Versendet mit GLS Express</span>
+            </span>
+            <button onclick="toggleOrderDetails('order1')" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition" title="Details ein/ausklappen">
+              <i id="order1Chevron" class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tracking Bar -->
+        <div class="px-6 py-3 bg-black/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs">
+          <div class="flex items-center space-x-2">
+            <span class="text-gray-400">Tracking-Nummer:</span>
+            <strong class="font-mono text-brand-orange">GLS-DE-8839201948</strong>
+          </div>
+          <div class="flex items-center space-x-3">
+            <a href="https://www.gls-pakete.de" target="_blank" class="text-brand-orange hover:underline font-bold flex items-center space-x-1">
+              <span>Sendungsverfolgung live aufrufen</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+            <button onclick="alert('Rechnung DSP-2026-44910.pdf wird heruntergeladen.')" class="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-white text-[11px] font-racing font-bold uppercase transition flex items-center space-x-1">
+              <i class="fa-solid fa-file-invoice text-xs"></i>
+              <span>PDF-Rechnung</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Aufklappbare Bestelldetails -->
+        <div id="order1Details" class="p-6 space-y-6">
+
+          <!-- Produktliste -->
+          <div class="space-y-4">
+
+            <!-- Produkt 1: Ragazzon RS6 Auspuff -->
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 rounded-2xl bg-black/20 border border-white/5 gap-4">
+              <div class="flex items-center space-x-4">
+                <img src="assets/audi-rs6-ragazzon.jpg" alt="Ragazzon Sportauspuff" class="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-xl border border-white/10 flex-shrink-0">
+                <div>
+                  <a href="detail.html" class="font-racing text-base sm:text-lg uppercase tracking-wider font-extrabold hover:text-brand-orange transition" style="color: var(--text-main);">
+                    Ragazzon Duplex Klappenauspuffanlage ab OPF
+                  </a>
+                  <div class="text-xs text-gray-400 mt-1 flex items-center space-x-3 flex-wrap">
+                    <span>Art.-Nr.: <strong>50.0912.80</strong></span>
+                    <span>•</span>
+                    <span>Passend für: <strong>Audi RS6 C8 (600 PS)</strong></span>
+                    <span>•</span>
+                    <span class="text-emerald-400 font-bold">ECE-Zulassung (Eintragungsfrei)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="text-right sm:flex-shrink-0">
+                <div class="font-racing text-lg sm:text-xl font-extrabold" style="color: var(--text-main);">2.499,00 €</div>
+                <div class="text-xs text-gray-400">(1x 2.499,00 €)</div>
+              </div>
+            </div>
+
+            <!-- Produkt 2: Zubehör -->
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 rounded-2xl bg-black/20 border border-white/5 gap-4">
+              <div class="flex items-center space-x-4">
+                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-black/30 border border-white/10 flex items-center justify-center text-2xl text-brand-orange flex-shrink-0">
+                  <i class="fa-solid fa-ring"></i>
+                </div>
+                <div>
+                  <h4 class="font-racing text-base sm:text-lg uppercase tracking-wider font-bold" style="color: var(--text-main);">
+                    PU-Auspuffgummis Set verstärkt (4 Stück)
+                  </h4>
+                  <div class="text-xs text-gray-400 mt-1">
+                    Art.-Nr.: <strong>PF-EXH-4X</strong> • Schwingungsdämpfend
+                  </div>
+                </div>
+              </div>
+              <div class="text-right sm:flex-shrink-0">
+                <div class="font-racing text-lg sm:text-xl font-extrabold" style="color: var(--text-main);">49,00 €</div>
+                <div class="text-xs text-gray-400">(1x 49,00 €)</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Adressen & Versanddetails nebeneinander -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-white/10" style="border-color: var(--panel-border);">
+            <div class="p-4 rounded-2xl bg-black/20 border border-white/5 text-xs">
+              <div class="font-racing text-sm uppercase tracking-wider font-bold text-brand-orange mb-2 flex items-center space-x-1.5">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>Rechnungsadresse</span>
+              </div>
+              <div class="space-y-0.5 text-gray-300">
+                <strong class="text-white block" style="color: var(--text-main);">Rennsport Performance GmbH</strong>
+                <div>Maximilian Schmidt</div>
+                <div>Kurfürstendamm 182</div>
+                <div>10707 Berlin, Deutschland</div>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-black/20 border border-white/5 text-xs">
+              <div class="font-racing text-sm uppercase tracking-wider font-bold text-brand-orange mb-2 flex items-center space-x-1.5">
+                <i class="fa-solid fa-truck"></i>
+                <span>Lieferadresse (GLS Express)</span>
+              </div>
+              <div class="space-y-0.5 text-gray-300">
+                <strong class="text-white block" style="color: var(--text-main);">Maximilian Schmidt</strong>
+                <div>Werkstatt & Montagehalle 4</div>
+                <div>Industriestraße 12</div>
+                <div>10317 Berlin, Deutschland</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Bestellung 2: Zugestellt (Historie) -->
+      <div style="background-color: var(--panel-card); border-color: var(--panel-border);" class="rounded-3xl border shadow-xl overflow-hidden opacity-90">
+        <div class="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
+            <div>
+              <span class="text-gray-400 block text-[10px] uppercase font-bold">Bestellnummer</span>
+              <strong class="text-sm font-racing tracking-wide" style="color: var(--text-main);">DSP-2025-18234</strong>
+            </div>
+            <div>
+              <span class="text-gray-400 block text-[10px] uppercase font-bold">Bestelldatum</span>
+              <span class="font-semibold" style="color: var(--text-main);">22. Nov. 2025</span>
+            </div>
+            <div>
+              <span class="text-gray-400 block text-[10px] uppercase font-bold">Gesamtsumme</span>
+              <span class="font-racing text-base font-extrabold" style="color: var(--text-main);">149,00 €</span>
+            </div>
+            <div>
+              <span class="text-gray-400 block text-[10px] uppercase font-bold">Artikel</span>
+              <span class="font-semibold text-gray-300">Autosol Metal Polish Set</span>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <span class="px-3 py-1 rounded-xl text-xs font-racing uppercase tracking-wider font-bold bg-white/10 text-gray-300">
+              <i class="fa-solid fa-check text-emerald-400 mr-1"></i>
+              Zugestellt
+            </span>
+            <button onclick="alert('Rechnung DSP-2025-18234.pdf wird heruntergeladen.')" class="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-white text-[11px] font-racing font-bold uppercase transition">
+              Rechnung
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 3: ADRESSBUCH (addresses.html)                                        -->
+    <!-- ========================================================================= -->
+    <div id="dashSectionAddresses" class="space-y-6 hidden">
+
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h2 class="font-racing text-2xl uppercase tracking-wider font-extrabold" style="color: var(--text-main);">
+            Hinterlegte Adressen
+          </h2>
+          <p class="text-xs text-gray-400">Verwalte deine Rechnungs- und Lieferadressen für einen reibungslosen Bestellablauf.</p>
+        </div>
+        <button onclick="toggleNewAddressForm()" class="px-4 py-2.5 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-xs uppercase tracking-wider font-extrabold rounded-xl shadow transition flex items-center space-x-1.5 self-start sm:self-auto">
+          <i class="fa-solid fa-plus text-xs"></i>
+          <span>Neue Adresse hinzufügen</span>
+        </button>
+      </div>
+
+      <!-- Ausklappbares Formular für neue Adresse -->
+      <div id="newAddressForm" class="hidden rounded-3xl p-6 sm:p-8 border shadow-xl space-y-5" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+        <div class="flex items-center justify-between pb-4 border-b border-white/10" style="border-color: var(--panel-border);">
+          <h3 class="font-racing text-lg uppercase tracking-wider font-extrabold text-brand-orange">
+            Neue Liefer- oder Rechnungsadresse erfassen
+          </h3>
+          <button onclick="toggleNewAddressForm()" class="text-gray-400 hover:text-white text-sm">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <form onsubmit="handleAddressSave(event)" class="space-y-4 text-xs">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-bold uppercase mb-1">Vorname *</label>
+              <input type="text" required placeholder="Vorname" class="w-full rounded-xl px-3.5 py-2.5 bg-black/20 border border-white/10">
+            </div>
+            <div>
+              <label class="block font-bold uppercase mb-1">Nachname *</label>
+              <input type="text" required placeholder="Nachname" class="w-full rounded-xl px-3.5 py-2.5 bg-black/20 border border-white/10">
+            </div>
+          </div>
+          <div>
+            <label class="block font-bold uppercase mb-1">Firma / Zusatz (optional)</label>
+            <input type="text" placeholder="Firma oder Werkstatt" class="w-full rounded-xl px-3.5 py-2.5 bg-black/20 border border-white/10">
+          </div>
+          <div>
+            <label class="block font-bold uppercase mb-1">Straße & Hausnummer *</label>
+            <input type="text" required placeholder="Musterstraße 42" class="w-full rounded-xl px-3.5 py-2.5 bg-black/20 border border-white/10">
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block font-bold uppercase mb-1">PLZ *</label>
+              <input type="text" required placeholder="12345" class="w-full rounded-xl px-3.5 py-2.5 bg-black/20 border border-white/10">
+            </div>
+            <div>
+              <label class="block font-bold uppercase mb-1">Ort *</label>
+              <input type="text" required placeholder="Musterstadt" class="w-full rounded-xl px-3.5 py-2.5 bg-black/20 border border-white/10">
+            </div>
+            <div>
+              <label class="block font-bold uppercase mb-1">Land *</label>
+              <select class="w-full rounded-xl px-3.5 py-2.5 bg-black/20 border border-white/10">
+                <option value="DE">Deutschland</option>
+                <option value="AT">Österreich</option>
+                <option value="CH">Schweiz</option>
+              </select>
+            </div>
+          </div>
+          <div class="pt-2 flex items-center space-x-6">
+            <label class="flex items-center space-x-2 cursor-pointer">
+              <input type="checkbox" checked class="rounded text-brand-orange focus:ring-brand-orange">
+              <span>Als Standard-Lieferadresse festlegen</span>
+            </label>
+          </div>
+          <div class="pt-3 flex justify-end space-x-3">
+            <button type="button" onclick="toggleNewAddressForm()" class="px-4 py-2 rounded-xl bg-white/10 text-gray-300 font-racing uppercase font-bold">Abbrechen</button>
+            <button type="submit" class="px-6 py-2 rounded-xl bg-brand-orange text-white font-racing uppercase font-extrabold shadow">Adresse speichern</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Bestehende Adressen 2 Spalten -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Standard Rechnungsadresse -->
+        <div style="background-color: var(--panel-card); border-color: var(--panel-border);" class="rounded-3xl p-6 border shadow-xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/10" style="border-color: var(--panel-border);">
+              <span class="font-racing text-base uppercase tracking-wider font-extrabold text-brand-orange flex items-center space-x-2">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>Standard-Rechnungsadresse</span>
+              </span>
+              <span class="px-2 py-0.5 rounded bg-brand-orange/20 text-brand-orange font-racing font-bold text-[10px] uppercase">
+                Hauptadresse
+              </span>
+            </div>
+            <div class="space-y-1 text-sm">
+              <strong class="font-bold text-base block" style="color: var(--text-main);">Rennsport Performance GmbH</strong>
+              <div class="text-gray-300">Maximilian Schmidt</div>
+              <div class="text-gray-300">Kurfürstendamm 182</div>
+              <div class="text-gray-300">10707 Berlin</div>
+              <div class="text-gray-400">Deutschland</div>
+              <div class="text-xs text-gray-400 mt-2">Telefon: +49 (0) 30 8920194</div>
+            </div>
+          </div>
+          <div class="pt-5 mt-5 border-t border-white/10 flex items-center space-x-3" style="border-color: var(--panel-border);">
+            <button onclick="alert('Adresse bearbeiten aufgerufen')" class="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-racing uppercase font-bold transition" style="color: var(--text-main);">
+              Bearbeiten
+            </button>
+          </div>
+        </div>
+
+        <!-- Standard Lieferadresse -->
+        <div style="background-color: var(--panel-card); border-color: var(--panel-border);" class="rounded-3xl p-6 border shadow-xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/10" style="border-color: var(--panel-border);">
+              <span class="font-racing text-base uppercase tracking-wider font-extrabold text-emerald-400 flex items-center space-x-2">
+                <i class="fa-solid fa-truck"></i>
+                <span>Standard-Lieferadresse</span>
+              </span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-racing font-bold text-[10px] uppercase">
+                GLS Express Station
+              </span>
+            </div>
+            <div class="space-y-1 text-sm">
+              <strong class="font-bold text-base block" style="color: var(--text-main);">Maximilian Schmidt</strong>
+              <div class="text-gray-300">Werkstatt & Montagehalle 4</div>
+              <div class="text-gray-300">Industriestraße 12</div>
+              <div class="text-gray-300">10317 Berlin</div>
+              <div class="text-gray-400">Deutschland</div>
+              <div class="text-xs text-gray-400 mt-2">Avisierung via SMS: +49 170 1234567</div>
+            </div>
+          </div>
+          <div class="pt-5 mt-5 border-t border-white/10 flex items-center space-x-3" style="border-color: var(--panel-border);">
+            <button onclick="alert('Adresse bearbeiten aufgerufen')" class="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-racing uppercase font-bold transition" style="color: var(--text-main);">
+              Bearbeiten
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 4: KONTODATEN & PASSWORT (account.html)                               -->
+    <!-- ========================================================================= -->
+    <div id="dashSectionAccount" class="space-y-8 hidden">
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+        <!-- Spalte 1: Persönliche Daten -->
+        <div style="background-color: var(--panel-card); border-color: var(--panel-border);" class="rounded-3xl p-6 sm:p-8 border shadow-xl space-y-6">
+          <div class="flex items-center space-x-3 pb-4 border-b border-white/10" style="border-color: var(--panel-border);">
+            <div class="w-10 h-10 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center text-lg">
+              <i class="fa-solid fa-user-pen"></i>
+            </div>
+            <div>
+              <h3 class="font-racing text-xl uppercase tracking-wider font-extrabold" style="color: var(--text-main);">
+                Persönliche Angaben
+              </h3>
+              <p class="text-xs text-gray-400">Passe deine Kontaktdaten und Firmenbezeichnung an.</p>
+            </div>
+          </div>
+
+          <form onsubmit="handleAccountSave(event)" class="space-y-4 text-xs">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block font-bold uppercase mb-1" style="color: var(--text-main);">Vorname *</label>
+                <input type="text" value="Maximilian" required class="w-full rounded-xl px-3.5 py-2.5 bg-black/20 border border-white/10">
+              </div>
+              <div>
+                <label class="block font-bold uppercase mb-1" style="color: var(--text-main);">Nachname *</label>
+                <input type="text" value="Schmidt" required class="w-full rounded-xl px-3.5 py-2.5 bg-black/20 border border-white/10">
+              </div>
+            </div>
+
+            <div>
+              <label class="block font-bold uppercase mb-1" style="color: var(--text-main);">Firma (optional)</label>
+              <input type="text" value="Rennsport Performance GmbH" class="w-full rounded-xl px-3.5 py-2.5 bg-black/20 border border-white/10">
+            </div>
+
+            <div>
+              <label class="block font-bold uppercase mb-1" style="color: var(--text-main);">E-Mail-Adresse *</label>
+              <input type="email" value="m.schmidt@berlin-tuning.de" required class="w-full rounded-xl px-3.5 py-2.5 bg-black/20 border border-white/10">
+            </div>
+
+            <div>
+              <label class="block font-bold uppercase mb-1" style="color: var(--text-main);">Telefonnummer</label>
+              <input type="tel" value="+49 (0) 30 8920194" class="w-full rounded-xl px-3.5 py-2.5 bg-black/20 border border-white/10">
+            </div>
+
+            <div class="pt-2">
+              <label class="flex items-center space-x-2 cursor-pointer">
+                <input type="checkbox" checked class="rounded text-brand-orange focus:ring-brand-orange">
+                <span class="text-gray-300">Newsletter für exklusive Sportauspuff-Rabatte und Soundfiles abonnieren</span>
+              </label>
+            </div>
+
+            <div class="pt-4">
+              <button type="submit" class="px-6 py-3 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-xs uppercase tracking-wider font-extrabold rounded-xl shadow transition">
+                Kontodaten aktualisieren
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Spalte 2: Passwort ändern -->
+        <div style="background-color: var(--panel-card); border-color: var(--panel-border);" class="rounded-3xl p-6 sm:p-8 border shadow-xl space-y-6">
+          <div class="flex items-center space-x-3 pb-4 border-b border-white/10" style="border-color: var(--panel-border);">
+            <div class="w-10 h-10 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center text-lg">
+              <i class="fa-solid fa-key"></i>
+            </div>
+            <div>
+              <h3 class="font-racing text-xl uppercase tracking-wider font-extrabold" style="color: var(--text-main);">
+                Passwort ändern
+              </h3>
+              <p class="text-xs text-gray-400">Verwende mindestens 8 Zeichen mit Groß-, Kleinbuchstaben und Zahlen.</p>
+            </div>
+          </div>
+
+          <form onsubmit="handlePasswordChange(event)" class="space-y-4 text-xs">
+            <div>
+              <label class="block font-bold uppercase mb-1" style="color: var(--text-main);">Aktuelles Passwort *</label>
+              <div class="relative">
+                <input type="password" required placeholder="Bisheriges Passwort" class="w-full rounded-xl pl-3.5 pr-10 py-2.5 bg-black/20 border border-white/10">
+                <button type="button" class="pwSwitch absolute inset-y-0 right-0 pr-3.5 flex items-center text-gray-400 hover:text-white cursor-pointer">
+                  <i class="fa-solid fa-eye text-xs"></i>
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <label class="block font-bold uppercase mb-1" style="color: var(--text-main);">Neues Passwort *</label>
+              <div class="relative">
+                <input type="password" required placeholder="Neues Passwort" class="w-full rounded-xl pl-3.5 pr-10 py-2.5 bg-black/20 border border-white/10">
+                <button type="button" class="pwSwitch absolute inset-y-0 right-0 pr-3.5 flex items-center text-gray-400 hover:text-white cursor-pointer">
+                  <i class="fa-solid fa-eye text-xs"></i>
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <label class="block font-bold uppercase mb-1" style="color: var(--text-main);">Neues Passwort wiederholen *</label>
+              <div class="relative">
+                <input type="password" required placeholder="Neues Passwort bestätigen" class="w-full rounded-xl pl-3.5 pr-10 py-2.5 bg-black/20 border border-white/10">
+                <button type="button" class="pwSwitch absolute inset-y-0 right-0 pr-3.5 flex items-center text-gray-400 hover:text-white cursor-pointer">
+                  <i class="fa-solid fa-eye text-xs"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="pt-4">
+              <button type="submit" class="px-6 py-3 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-xs uppercase tracking-wider font-extrabold rounded-xl shadow transition">
+                Neues Passwort speichern
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: FAHRZEUG WECHSELN / HSN-TSN SCAN                                   -->
+  <!-- ========================================================================= -->
+  <div id="garageModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div style="background-color: var(--tier2-bg); border-color: var(--panel-border);" class="max-w-lg w-full rounded-3xl p-6 sm:p-8 border shadow-2xl relative text-left">
+      <button onclick="closeGarageModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white text-xl p-1">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="flex items-center space-x-3 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-brand-orange text-white flex items-center justify-center text-lg">
+          <i class="fa-solid fa-car"></i>
+        </div>
+        <div>
+          <span class="text-xs font-racing uppercase tracking-wider text-brand-orange font-bold block">Meine Garage</span>
+          <h3 class="font-racing text-xl uppercase tracking-wider font-extrabold" style="color: var(--text-main);">Fahrzeug auswählen</h3>
+        </div>
+      </div>
+
+      <div class="space-y-3 my-5 text-xs">
+        <button onclick="selectCarInGarage('Audi RS6 Avant (C8)', '1860/ABD', '600 PS'); closeGarageModal();" class="w-full p-3.5 rounded-2xl bg-black/30 border border-brand-orange text-left flex items-center justify-between transition hover:bg-black/40">
+          <div>
+            <strong class="font-bold block text-sm" style="color: var(--text-main);">Audi RS6 Avant (C8) 4.0 TFSI</strong>
+            <span class="text-gray-400">HSN: 1860 / TSN: ABD • 600 PS • Bj. 2021</span>
+          </div>
+          <span class="px-2 py-0.5 rounded bg-brand-orange text-white font-racing text-[10px] uppercase font-bold">Aktiv</span>
+        </button>
+
+        <button onclick="selectCarInGarage('Volkswagen Golf VII (7) GTI', '0603/BPT', '245 PS'); closeGarageModal();" class="w-full p-3.5 rounded-2xl bg-black/20 border border-white/10 text-left flex items-center justify-between transition hover:border-brand-orange">
+          <div>
+            <strong class="font-bold block text-sm" style="color: var(--text-main);">Volkswagen Golf VII (7) GTI</strong>
+            <span class="text-gray-400">HSN: 0603 / TSN: BPT • 245 PS • Bj. 2018</span>
+          </div>
+          <span class="text-gray-400 text-xs">Auswählen →</span>
+        </button>
+      </div>
+
+      <div class="pt-3 border-t border-white/10 flex justify-end" style="border-color: var(--panel-border);">
+        <a href="index.html#fahrzeugfinder" class="text-xs text-brand-orange font-bold hover:underline flex items-center space-x-1">
+          <span>Über Fahrzeugfinder neues Modell konfigurieren →</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 7. FOOTER                                                                 -->
+  <!-- ========================================================================= -->
+  <footer style="background-color: var(--tier1-bg);" class="border-t border-white/10 text-xs mt-16 transition-colors duration-300">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <a href="index.html" class="inline-block mb-3">
+            <img src="assets/dein-sportauspuff.svg" alt="Dein-Sportauspuff.de" class="h-6 w-auto object-contain">
+          </a>
+          <p class="text-gray-400 leading-relaxed mb-4">
+            Dein führender Online-Fachhändler für Sportauspuffanlagen, Downpipes, Klappensysteme und Endrohre in Deutschland, Österreich und der Schweiz.
+          </p>
+          <div class="text-amber-400 flex items-center space-x-1 font-bold">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <span class="text-white ml-2 text-xs" style="color: var(--text-main);">4.9 von 5 Sternen</span>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-racing text-base uppercase tracking-wider font-bold mb-3" style="color: var(--text-main);">Kundenbereich</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="konto.html" class="hover:text-brand-orange text-brand-orange font-semibold">Mein Konto / Garage</a></li>
+            <li><a href="konto.html?tab=orders" class="hover:text-brand-orange">Bestellungen & Tracking</a></li>
+            <li><a href="konto.html?tab=addresses" class="hover:text-brand-orange">Adressbuch</a></li>
+            <li><a href="kategorie.html?brand=Audi&model=RS6" class="hover:text-brand-orange">Passende Sportauspuffe</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-racing text-base uppercase tracking-wider font-bold mb-3" style="color: var(--text-main);">Beliebte Marken</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="kategorie.html?brand=Ragazzon" class="hover:text-brand-orange">Ragazzon Exhaust</a></li>
+            <li><a href="kategorie.html?brand=FOX" class="hover:text-brand-orange">FOX Sportauspuff</a></li>
+            <li><a href="kategorie.html?brand=Bastuck" class="hover:text-brand-orange">Bastuck Edelstahl</a></li>
+            <li><a href="kategorie.html?brand=REMUS" class="hover:text-brand-orange">REMUS Sport Exhaust</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-racing text-base uppercase tracking-wider font-bold mb-3" style="color: var(--text-main);">Sicherheit & Service</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#" class="hover:text-brand-orange">100% Passformgarantie</a></li>
+            <li><a href="#" class="hover:text-brand-orange">ECE / ABE Gutachtenservice</a></li>
+            <li><a href="#" class="hover:text-brand-orange">Bundesweiter Montageservice</a></li>
+            <li><a href="#" class="hover:text-brand-orange">30 Tage Rückgaberecht</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 mt-8 border-t flex flex-col sm:flex-row items-center justify-between text-gray-500 text-xs" style="border-color: var(--panel-border);">
+        <div>© 2026 Dein-Sportauspuff.de — Alle Rechte vorbehalten.</div>
+        <div class="flex space-x-6 mt-3 sm:mt-0">
+          <a href="#" class="hover:text-gray-300">Impressum</a>
+          <a href="#" class="hover:text-gray-300">Datenschutz</a>
+          <a href="#" class="hover:text-gray-300">AGB</a>
+          <a href="index.html" class="hover:text-brand-orange">Zurück zur Startseite</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- 8. KONTO INTERAKTIVE LOGIK                                                -->
+  <!-- ========================================================================= -->
+  <script>
+    // 1. Password Visibility Switcher (.pwSwitch)
+    function initPasswordToggles() {
+      document.querySelectorAll('.pwSwitch').forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          const parent = toggle.closest('.relative') || toggle.parentElement;
+          const input = parent.querySelector('input');
+          if (!input) return;
+          if (input.type === 'password') {
+            input.type = 'text';
+            const icon = toggle.querySelector('i');
+            if (icon) {
+              icon.classList.remove('fa-eye');
+              icon.classList.add('fa-eye-slash');
+            }
+          } else {
+            input.type = 'password';
+            const icon = toggle.querySelector('i');
+            if (icon) {
+              icon.classList.remove('fa-eye-slash');
+              icon.classList.add('fa-eye');
+            }
+          }
+        });
+      });
+    }
+
+    // 2. Demo Switcher (Zustand A vs. Zustand B)
+    function switchCustomerView(view) {
+      const viewAuth = document.getElementById('viewAuth');
+      const viewDashboard = document.getElementById('viewDashboard');
+      const btnAuth = document.getElementById('demoBtnAuth');
+      const btnDashboard = document.getElementById('demoBtnDashboard');
+      const breadcrumb = document.getElementById('breadcrumbCurrent');
+
+      if (view === 'dashboard') {
+        viewAuth.classList.add('hidden');
+        viewDashboard.classList.remove('hidden');
+        if (btnDashboard) {
+          btnDashboard.className = "px-3 py-1.5 rounded-lg text-xs font-racing font-extrabold uppercase bg-brand-orange text-white shadow transition flex items-center space-x-1.5";
+        }
+        if (btnAuth) {
+          btnAuth.className = "px-3 py-1.5 rounded-lg text-xs font-racing font-bold uppercase transition flex items-center space-x-1.5 text-gray-400 hover:text-white";
+        }
+        if (breadcrumb) breadcrumb.innerText = "Mein Konto / Dashboard";
+      } else {
+        viewDashboard.classList.add('hidden');
+        viewAuth.classList.remove('hidden');
+        if (btnAuth) {
+          btnAuth.className = "px-3 py-1.5 rounded-lg text-xs font-racing font-extrabold uppercase bg-brand-orange text-white shadow transition flex items-center space-x-1.5";
+        }
+        if (btnDashboard) {
+          btnDashboard.className = "px-3 py-1.5 rounded-lg text-xs font-racing font-bold uppercase transition flex items-center space-x-1.5 text-gray-400 hover:text-white";
+        }
+        if (breadcrumb) breadcrumb.innerText = "Anmelden / Registrieren";
+      }
+    }
+
+    // 3. Auth Sub-Tabs Switcher (Login vs. Registrierung)
+    function switchAuthTab(tab) {
+      const boxLogin = document.getElementById('authBoxLogin');
+      const boxRegister = document.getElementById('authBoxRegister');
+      const btnLogin = document.getElementById('authTabLoginBtn');
+      const btnRegister = document.getElementById('authTabRegisterBtn');
+
+      if (tab === 'register') {
+        boxLogin.classList.add('hidden');
+        boxRegister.classList.remove('hidden');
+        btnRegister.className = "flex-1 py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-extrabold transition text-white bg-brand-orange shadow";
+        btnLogin.className = "flex-1 py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-bold transition text-gray-400 hover:text-white";
+      } else {
+        boxRegister.classList.add('hidden');
+        boxLogin.classList.remove('hidden');
+        btnLogin.className = "flex-1 py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-extrabold transition text-white bg-brand-orange shadow";
+        btnRegister.className = "flex-1 py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-bold transition text-gray-400 hover:text-white";
+      }
+    }
+
+    // 4. Dashboard Sub-Tabs (Garage, Bestellungen, Adressen, Kontodaten)
+    function switchDashTab(tab) {
+      const tabs = ['garage', 'orders', 'addresses', 'account'];
+      tabs.forEach(t => {
+        const sec = document.getElementById('dashSection' + t.charAt(0).toUpperCase() + t.slice(1));
+        const btn = document.getElementById('dashTab' + t.charAt(0).toUpperCase() + t.slice(1) + 'Btn');
+        if (t === tab) {
+          if (sec) sec.classList.remove('hidden');
+          if (btn) btn.className = "dash-tab-btn py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-extrabold transition flex items-center space-x-2 flex-shrink-0 bg-brand-orange text-white shadow";
+        } else {
+          if (sec) sec.classList.add('hidden');
+          if (btn) btn.className = "dash-tab-btn py-2.5 px-4 rounded-xl font-racing text-sm sm:text-base uppercase tracking-wider font-bold transition flex items-center space-x-2 flex-shrink-0 text-gray-400 hover:text-white";
+        }
+      });
+    }
+
+    // 5. Bestell-Details Toggle
+    function toggleOrderDetails(orderId) {
+      const details = document.getElementById(orderId + 'Details');
+      const chevron = document.getElementById(orderId + 'Chevron');
+      if (!details) return;
+      details.classList.toggle('hidden');
+      if (chevron) {
+        chevron.classList.toggle('rotate-180');
+      }
+    }
+
+    // 6. Adressformular Toggle
+    function toggleNewAddressForm() {
+      const form = document.getElementById('newAddressForm');
+      if (form) {
+        form.classList.toggle('hidden');
+        if (!form.classList.contains('hidden')) {
+          form.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
+    }
+
+    // 7. B2B Reseller Hint
+    function onCompanyInput(val) {
+      const hint = document.getElementById('b2bResellerHint');
+      if (hint) {
+        if (val.trim().length > 1) {
+          hint.classList.remove('hidden');
+        } else {
+          hint.classList.add('hidden');
+        }
+      }
+    }
+
+    // 8. Passwort vergessen Toggle
+    function togglePasswordForgot(e) {
+      if (e) e.preventDefault();
+      const box = document.getElementById('passwordForgotBox');
+      if (box) box.classList.toggle('hidden');
+    }
+
+    // 9. Garage Modal
+    function openGarageModal() {
+      document.getElementById('garageModal').classList.remove('hidden');
+    }
+    function closeGarageModal() {
+      document.getElementById('garageModal').classList.add('hidden');
+    }
+    function selectCarInGarage(name, hsnTsn, power) {
+      alert(`Fahrzeug erfolgreich zu "${name}" (${hsnTsn}, ${power}) gewechselt!`);
+    }
+
+    // 10. Form Submits (mit Toast/Alert Feedback & Auto-Transition ins Dashboard)
+    function handleAuthLogin(e) {
+      e.preventDefault();
+      alert('Anmeldung erfolgreich! Willkommen zurück, Maximilian Schmidt.');
+      switchCustomerView('dashboard');
+    }
+
+    function handleAuthRegister(e) {
+      e.preventDefault();
+      alert('Kundenkonto erfolgreich angelegt! Willkommen bei Dein-Sportauspuff.de.');
+      switchCustomerView('dashboard');
+    }
+
+    function handleAddressSave(e) {
+      e.preventDefault();
+      alert('Adresse erfolgreich im Adressbuch gespeichert!');
+      toggleNewAddressForm();
+    }
+
+    function handleAccountSave(e) {
+      e.preventDefault();
+      alert('Deine persönlichen Angaben wurden erfolgreich aktualisiert.');
+    }
+
+    function handlePasswordChange(e) {
+      e.preventDefault();
+      alert('Dein Passwort wurde erfolgreich aktualisiert.');
+    }
+
+    // 11. Mobile Drawer Toggle
+    function toggleMobileDrawer() {
+      const drawer = document.getElementById('mobileDrawer');
+      const icon = document.getElementById('mobileMenuIcon');
+      if (!drawer) return;
+      const isHidden = drawer.classList.contains('hidden');
+      if (isHidden) {
+        drawer.classList.remove('hidden');
+        if (icon) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-xmark');
+        }
+      } else {
+        drawer.classList.add('hidden');
+        if (icon) {
+          icon.classList.remove('fa-xmark');
+          icon.classList.add('fa-bars');
+        }
+      }
+    }
+
+    // 12. URL Parameter Initialisierung
+    document.addEventListener('DOMContentLoaded', () => {
+      initPasswordToggles();
+
+      const urlParams = window.urlParams || new URLSearchParams(window.location.search);
+      const viewParam = urlParams.get('view');
+      const tabParam = urlParams.get('tab');
+
+      if (viewParam === 'auth') {
+        switchCustomerView('auth');
+      } else {
+        // Standardmäßig zeigen wir das reichhaltige Dashboard (oder wenn ?view=dashboard)
+        switchCustomerView('dashboard');
+      }
+
+      if (tabParam && ['garage', 'orders', 'addresses', 'account'].includes(tabParam)) {
+        switchDashTab(tabParam);
+      }
+    });
+  </script>
+</body>
+</html>

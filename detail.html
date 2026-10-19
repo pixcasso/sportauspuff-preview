@@ -13,315 +13,10 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              blue: '#378DCC',
-              blueHover: '#2875AB',
-              blueBright: '#5CAAE3',
-              blueLight: '#EBF4FB',
-              accent: '#F59E0B',
-              accentHover: '#D97706',
-              // Backward-compatibility aliases so all existing classes render in Dein-Sportauspuff blue #378DCC
-              orange: '#378DCC',
-              orangeHover: '#2875AB',
-              orangeBright: '#5CAAE3',
-              orangeLight: '#EBF4FB'
-            }
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            racing: ['"Barlow Condensed"', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    /* CSS Variables für den nahtlosen Live-Theme-Wechsel (Dark & Light) */
-    :root {
-      --tier1-bg: #090B10;
-      --tier1-text: #94A3B8;
-      --tier2-bg: #12151E;
-      --tier3-bg: #0D1017;
-      --tier3-text: #CBD5E1;
-      --logo-text: #FFFFFF;
-      --search-bg: #1D2230;
-      --search-text: #FFFFFF;
-      --car-pill-bg: #1A1E2B;
-      --car-pill-text: #FFFFFF;
-      --page-bg: #0A0D14;
-      --panel-bg: #121622;
-      --panel-card: #171C2B;
-      --panel-border: rgba(255, 255, 255, 0.08);
-      --text-main: #FFFFFF;
-      --text-muted: #94A3B8;
-      --badge-bg: rgba(55, 141, 204, 0.12);
-      --badge-text: #378DCC;
-      --filter-bar-bg: #101420;
-
-      /* DIE ZARTE EDLE KONTRÄRFARBE ZUM ORANGE (Deep Petrol-Slate) - BORDERLESS */
-      --filter-block-bg: linear-gradient(150deg, rgba(16, 28, 48, 0.95) 0%, rgba(10, 18, 34, 0.98) 100%);
-      --filter-block-border: transparent;
-      --filter-block-shadow: 0 20px 40px -15px rgba(2, 6, 23, 0.7);
-      --filter-input-bg: #0B1322;
-      --filter-pill-bg: #0E182A;
-    }
-
-    body.theme-light {
-      --tier1-bg: #F8FAFC;
-      --tier1-text: #64748B;
-      --tier2-bg: #FFFFFF;
-      --tier3-bg: #FFFFFF;
-      --tier3-text: #334155;
-      --logo-text: #0F172A;
-      --search-bg: #F1F5F9;
-      --search-text: #0F172A;
-      --car-pill-bg: #F1F5F9;
-      --car-pill-text: #0F172A;
-      --page-bg: #F8FAFC;
-      --panel-bg: #FFFFFF;
-      --panel-card: #FFFFFF;
-      --panel-border: rgba(0, 0, 0, 0.08);
-      --text-main: #0F172A;
-      --text-muted: #64748B;
-      --badge-bg: #EBF4FB;
-      --badge-text: #2875AB;
-      --filter-bar-bg: #FFFFFF;
-
-      --filter-block-bg: linear-gradient(150deg, #EDF4FA 0%, #E3EDF6 100%);
-      --filter-block-border: transparent;
-      --filter-block-shadow: 0 14px 32px -10px rgba(15, 23, 42, 0.06);
-      --filter-input-bg: #FFFFFF;
-      --filter-pill-bg: #FFFFFF;
-    }
-
-    /* ========================================================================= */
-    /* HOCHKONTRAST & ACCESSIBILITY REGELN FÜR DEN HELLEN MODUS (THEME-LIGHT)    */
-    /* ========================================================================= */
-    body.theme-light {
-      color: #0F172A;
-    }
-
-    /* 1. Primärtexte: text-white & text-slate-200 werden zu tiefem, satten Slate-900 */
-    body.theme-light .text-white {
-      color: #0F172A !important;
-    }
-    body.theme-light .text-slate-100,
-    body.theme-light .text-slate-200,
-    body.theme-light .text-gray-100,
-    body.theme-light .text-gray-200 {
-      color: #0F172A !important;
-    }
-
-    /* 2. Fließtexte & Beschreibungen: text-gray-300 / text-slate-300 zu kontraststarkem Slate-700 (> 8.5:1) */
-    body.theme-light .text-gray-300,
-    body.theme-light .text-slate-300 {
-      color: #334155 !important;
-    }
-
-    /* 3. Muted-Labels, Nebentexte & Durchstreichpreise: text-gray-400 / text-slate-400 zu Slate-600 (> 5.5:1) */
-    body.theme-light .text-gray-400,
-    body.theme-light .text-slate-400,
-    body.theme-light .text-gray-500,
-    body.theme-light .text-slate-500 {
-      color: #475569 !important;
-    }
-
-    /* 4. Graue Inset-Flächen, Boxen & Wells (bg-black/10 bis bg-black/40) zu edlem Slate-50/100 */
-    body.theme-light .bg-black\/5,
-    body.theme-light .bg-black\/10,
-    body.theme-light .bg-black\/20,
-    body.theme-light .bg-black\/25,
-    body.theme-light .bg-black\/30,
-    body.theme-light .bg-black\/40 {
-      background-color: #F8FAFC !important;
-      border: 1px solid #E2E8F0 !important;
-    }
-
-    /* 5. Transparente weiße Badges & Pills (bg-white/5, bg-white/10) zu sauberen Pills */
-    body.theme-light .bg-white\/5,
-    body.theme-light .bg-white\/10,
-    body.theme-light .bg-white\/15,
-    body.theme-light .bg-white\/20 {
-      background-color: #FFFFFF !important;
-      border: 1px solid #CBD5E1 !important;
-    }
-
-    /* 6. Weiße Rahmenlinien werden zu dezenten Slate-200 Kanten */
-    body.theme-light .border-white\/5,
-    body.theme-light .border-white\/10,
-    body.theme-light .border-white\/15,
-    body.theme-light .border-white\/20 {
-      border-color: #E2E8F0 !important;
-    }
-
-    /* 7. Hover-Effekte auf hellen Zeilen und Buttons */
-    body.theme-light .hover\:bg-white\/5:hover,
-    body.theme-light .hover\:bg-white\/10:hover,
-    body.theme-light .hover\:bg-white\/20:hover,
-    body.theme-light .hover\:bg-black\/5:hover,
-    body.theme-light .hover\:bg-black\/10:hover {
-      background-color: #F1F5F9 !important;
-    }
-
-    /* 8. AUSNAHMEN: Text auf durchgehendem Brand-Orange & Bild-Badges MUSS weiß bleiben */
-    body.theme-light .bg-brand-orange,
-    body.theme-light .bg-brand-orange *,
-    body.theme-light .bg-brand-orangeHover,
-    body.theme-light .bg-brand-orangeHover *,
-    body.theme-light .hover\:bg-brand-orange:hover,
-    body.theme-light .hover\:bg-brand-orange:hover *,
-    body.theme-light .bg-emerald-600,
-    body.theme-light .bg-emerald-600 *,
-    body.theme-light span.bg-gray-950,
-    body.theme-light span.bg-gray-950 *,
-    body.theme-light span.bg-black\/70,
-    body.theme-light span.bg-black\/70 * {
-      color: #FFFFFF !important;
-    }
-
-    body.theme-light .bg-gray-900\/80 {
-      background-color: #E2E8F0 !important;
-    }
-
-    /* WICHTIG: Aufgetönte Hover-/Badge-Elemente dürfen NIEMALS weißen Text erzwingen */
-    body.theme-light .hover\:bg-brand-orange\/10:hover,
-    body.theme-light .hover\:bg-brand-orangeLight:hover {
-      background-color: rgba(255, 102, 0, 0.12) !important;
-    }
-
-    /* 9. Live-Lieferzeit Badge (#delTime) im hellen Modus */
-    body.theme-light #delTime {
-      background-color: #FFFFFF !important;
-      border: 1px solid #CBD5E1 !important;
-      color: #0F172A !important;
-    }
-
-    /* 10. Formulare & Inputs in Modals & Seiten */
-    body.theme-light input:not(#ammount),
-    body.theme-light select,
-    body.theme-light textarea {
-      background-color: #FFFFFF !important;
-      color: #0F172A !important;
-      border: 1px solid #CBD5E1 !important;
-    }
-    body.theme-light input#ammount {
-      background-color: transparent !important;
-      border: none !important;
-      color: #0F172A !important;
-    }
-    body.theme-light input::placeholder {
-      color: #94A3B8 !important;
-    }
-
-    /* 11. Checkboxen im hellen Modus */
-    body.theme-light input[type="checkbox"] {
-      background-color: #FFFFFF !important;
-      border: 1px solid #CBD5E1 !important;
-    }
-
-    /* 12. Floating Theme Switcher Leiste bleibt dunkel und exzellent bedienbar */
-    body.theme-light .fixed.bottom-6.left-6 .bg-gray-900\/90 {
-      background-color: rgba(15, 23, 42, 0.92) !important;
-      border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    }
-    body.theme-light #btnDarkTheme {
-      color: #CBD5E1 !important;
-    }
-    body.theme-light #btnDarkTheme:hover {
-      color: #FFFFFF !important;
-    }
-    body.theme-light #btnLightTheme {
-      background-color: #378DCC !important;
-      color: #FFFFFF !important;
-    }
-
-    /* 13. Tabs Hover */
-    body.theme-light .detail-tab-btn:hover {
-      color: #0F172A !important;
-    }
-
-    /* ========================================================================= */
-    /* GAPLESS DROPDOWN & MEGA-MENU LOGIC (BEHEBT DAS ABREISSEN BEIM WECHSELN)   */
-    /* ========================================================================= */
-    .dropdown-group {
-      position: relative;
-      height: 100%;
-      display: flex;
-      align-items: center;
-    }
-
-    .dropdown-panel {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      padding-top: 6px; /* Nahtlose Hover-Brücke */
-      z-index: 60;
-      display: none;
-      opacity: 0;
-      transform: translateY(4px);
-      transition: opacity 0.15s ease-out, transform 0.15s ease-out;
-      pointer-events: none;
-    }
-
-    /* Unsichtbare Hitbox-Brücke gegen Maus-Abreißen */
-    .dropdown-panel::before {
-      content: '';
-      position: absolute;
-      top: -12px;
-      left: 0;
-      right: 0;
-      height: 14px;
-      background: transparent;
-    }
-
-    /* Öffnen per Hover, Fokus oder Click (.is-open) */
-    .dropdown-group:hover > .dropdown-panel,
-    .dropdown-group:focus-within > .dropdown-panel,
-    .dropdown-panel:hover,
-    .dropdown-panel.is-open {
-      display: block !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-      transform: translateY(0) !important;
-      pointer-events: auto !important;
-    }
-
-    .dropdown-group:hover .dropdown-chevron,
-    .dropdown-group.is-open .dropdown-chevron {
-      transform: rotate(180deg);
-    }
-
-    /* Mobile Overflow Guard: Verhindert jedes seitliche Wackeln auf Smartphones ohne position: sticky zu stören */
-    html, body {
-      overflow-x: clip;
-      max-width: 100%;
-      width: 100%;
-    }
-
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #0A0B0E; }
-    ::-webkit-scrollbar-thumb { background: #282C38; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #378DCC; }
-
-    /* Equalizer Animation im Audio-Modal */
-    @keyframes eqBar {
-      0%, 100% { height: 4px; }
-      50% { height: 26px; }
-    }
-    .eq-bar-1 { animation: eqBar 0.8s ease-in-out infinite 0.1s; }
-    .eq-bar-2 { animation: eqBar 0.9s ease-in-out infinite 0.3s; }
-    .eq-bar-3 { animation: eqBar 0.7s ease-in-out infinite 0.2s; }
-    .eq-bar-4 { animation: eqBar 1.1s ease-in-out infinite 0.4s; }
-    .eq-bar-5 { animation: eqBar 0.85s ease-in-out infinite 0.15s; }
-    .eq-bar-6 { animation: eqBar 0.95s ease-in-out infinite 0.35s; }
-  </style>
+  <!-- Design Tokens & Theme Styles -->
+  <link rel="stylesheet" href="assets/theme.css">
+  <!-- Shared Tailwind Config & Theme Manager -->
+  <script src="assets/theme.js"></script>
 </head>
 <body id="appBody" style="background-color: var(--page-bg); color: var(--text-main);" class="font-sans antialiased selection:bg-brand-orange selection:text-white transition-colors duration-300 min-h-screen flex flex-col pb-20 lg:pb-0">
 
@@ -330,17 +25,17 @@
   <!-- ========================================================================= -->
   <div class="hidden md:flex fixed bottom-6 left-6 z-50">
     <div class="bg-gray-900/90 backdrop-blur-md p-1.5 rounded-2xl border border-white/20 shadow-2xl flex items-center space-x-1">
-      <button 
-        id="btnDarkTheme" 
-        onclick="setTheme('dark')" 
+      <button
+        id="btnDarkTheme"
+        onclick="setTheme('dark')"
         class="px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow"
       >
         <i class="fa-solid fa-moon text-xs"></i>
         <span>Dark (Performance)</span>
       </button>
-      <button 
-        id="btnLightTheme" 
-        onclick="setTheme('light')" 
+      <button
+        id="btnLightTheme"
+        onclick="setTheme('light')"
         class="px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10"
       >
         <i class="fa-solid fa-sun text-xs"></i>
@@ -354,7 +49,7 @@
   <!-- ========================================================================= -->
   <header style="background-color: var(--tier1-bg); color: var(--tier1-text);" class="w-full text-xs transition-colors duration-300 border-b border-black/10">
     <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 h-9 sm:h-10 flex items-center justify-between">
-      
+
       <!-- Links: Bewertung & Telefon-Hotline -->
       <div class="flex items-center space-x-4 sm:space-x-8">
         <div class="flex items-center space-x-1.5 sm:space-x-2">
@@ -418,12 +113,12 @@
         <!-- Desktop Suche -->
         <div class="flex-1 max-w-2xl hidden md:block">
           <form id="searchForm" action="suche.html" method="POST" class="relative">
-            <input 
-              type="text" 
+            <input
+              type="text"
               id="search_keys"
               name="search_keys"
-              style="background-color: var(--search-bg); color: var(--search-text);" 
-              placeholder="Fahrzeug, Modell, Artikel oder Motorcode suchen..." 
+              style="background-color: var(--search-bg); color: var(--search-text);"
+              placeholder="Fahrzeug, Modell, Artikel oder Motorcode suchen..."
               value="Ragazzon RS6 C8"
               class="w-full text-sm font-medium rounded-full pl-12 pr-28 py-3.5 border-0 focus:ring-2 focus:ring-brand-orange/40 focus:outline-none transition shadow-sm placeholder:text-gray-400"
             >
@@ -439,7 +134,7 @@
 
         <!-- Rechte Aktionen -->
         <div class="flex items-center space-x-1 sm:space-x-4 flex-shrink-0">
-          
+
           <!-- Quick Theme Toggle auf Mobile -->
           <button onclick="toggleThemeQuick()" class="md:hidden p-1.5 text-gray-300 hover:text-white rounded-lg hover:bg-black/10 transition" title="Design wechseln (Dark/Hell)">
             <i id="themeQuickIcon" class="fa-solid fa-sun text-sm"></i>
@@ -463,7 +158,7 @@
           </a>
 
           <!-- Benutzerkonto -->
-          <a href="#" style="color: var(--logo-text);" class="px-2.5 py-2 rounded-xl hover:bg-black/5 transition hidden sm:flex flex-col items-center opacity-85 hover:opacity-100">
+          <a href="konto.html" style="color: var(--logo-text);" class="px-2.5 py-2 rounded-xl hover:bg-black/5 transition hidden sm:flex flex-col items-center opacity-85 hover:opacity-100" title="Mein Kundenkonto">
             <i class="fa-regular fa-user text-base sm:text-lg"></i>
             <span class="text-[10px] mt-0.5 font-medium">Konto</span>
           </a>
@@ -491,12 +186,12 @@
       <!-- Mobile Suchleiste direkt im Drawer -->
       <div class="relative md:hidden mb-2">
         <form id="searchForm_mob" action="suche.html" method="POST" class="relative">
-          <input 
-            type="text" 
+          <input
+            type="text"
             id="search_keys_mob"
             name="search_keys"
-            style="background-color: var(--search-bg); color: var(--search-text);" 
-            placeholder="Modell oder Artikel suchen..." 
+            style="background-color: var(--search-bg); color: var(--search-text);"
+            placeholder="Modell oder Artikel suchen..."
             class="w-full text-xs font-medium rounded-xl pl-9 pr-20 py-2.5 border-0 focus:ring-2 focus:ring-brand-orange/40 focus:outline-none transition shadow-sm placeholder:text-gray-400"
           >
           <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-brand-orange text-xs">
@@ -507,6 +202,12 @@
           </button>
         </form>
       </div>
+
+      <!-- Benutzerkonto Link im Drawer -->
+      <a href="konto.html" onclick="toggleMobileDrawer()" class="flex items-center space-x-2.5 p-2.5 rounded-xl bg-black/20 hover:bg-black/30 transition text-xs font-semibold" style="color: var(--logo-text);">
+        <i class="fa-regular fa-user text-brand-orange text-sm"></i>
+        <span>Mein Kundenkonto / Anmelden</span>
+      </a>
 
       <!-- Quick Theme Switcher im Drawer -->
       <div class="flex items-center justify-between p-2 rounded-xl bg-black/20 text-xs">
@@ -572,7 +273,7 @@
                 <span>Weitere Kategorien</span>
                 <i class="dropdown-chevron fa-solid fa-chevron-down text-[10px] transition-transform opacity-70"></i>
               </button>
-              
+
               <div class="dropdown-panel absolute top-full left-0 z-50">
                 <div style="background-color: var(--tier2-bg); border-color: var(--panel-border);" class="w-[520px] rounded-2xl shadow-2xl p-5 border text-left">
                   <!-- Top Grid: 2 Spalten -->
@@ -656,7 +357,7 @@
                 <span>Hersteller-Marken</span>
                 <i class="dropdown-chevron fa-solid fa-chevron-down text-[10px] transition-transform opacity-70"></i>
               </button>
-              
+
               <div class="dropdown-panel absolute top-full left-0 z-50">
                 <div style="background-color: var(--tier2-bg); border-color: var(--panel-border);" class="w-[580px] rounded-2xl shadow-2xl p-5 border text-left">
                   <!-- Top Grid: 2 Spalten -->
@@ -792,7 +493,7 @@
   <!-- 5. MAIN PRODUCT DETAIL STAGE (MOBILE-FIRST ARCHITEKTUR)                   -->
   <!-- ========================================================================= -->
   <main class="w-full max-w-[1600px] mx-auto px-3 sm:px-8 lg:px-12 py-2 sm:py-4 flex-1 min-w-0">
-    
+
     <!-- PASST-GARANTIE BANNER (VOLLSTÄNDIG RESPONSIV OHNE TEXT-ABBRUCH) -->
     <div style="background: var(--filter-block-bg); box-shadow: var(--filter-block-shadow);" class="w-full min-w-0 rounded-2xl p-3 sm:p-4 mb-4 sm:mb-6 border border-white/10 backdrop-blur-md">
       <div class="flex items-start sm:items-center justify-between gap-2 sm:gap-4 min-w-0">
@@ -843,10 +544,10 @@
       <!-- LINKE SPALTE: MEDIA SHOWCASE, BILDER, SOUNDCHECK & VIDEO              -->
       <!-- ===================================================================== -->
       <div class="w-full min-w-0 lg:col-span-7 space-y-4 sm:space-y-6">
-        
+
         <!-- Hauptbild Stage (Border-Detox & Kollisionsfreie Badges) -->
         <div style="background-color: var(--panel-card); border-color: var(--panel-border);" class="rounded-2xl sm:rounded-3xl p-3 sm:p-6 lg:p-8 border shadow-xl relative overflow-hidden group">
-          
+
           <!-- Badges Floating Oben Links (Kompakt und max-width begrenzt) -->
           <div class="absolute top-2.5 left-2.5 sm:top-5 sm:left-5 z-20 flex flex-wrap gap-1.5 sm:gap-2 max-w-[65%] sm:max-w-none">
             <span class="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-semibold bg-black/70 text-slate-200 border border-white/15 flex items-center space-x-1.5 shadow backdrop-blur-md">
@@ -863,8 +564,8 @@
           </div>
 
           <!-- Soundcheck Button am BILD-FUSS RECHTS (Kollidiert NIEMALS mit Badges oben!) -->
-          <button 
-            onclick="openSoundModal('Ragazzon Duplex Klappenauspuff', 'Audi RS6 Avant C8', 'V8 Biturbo mit tiefem Grollen & dynamischem Klappensound', 'assets/audi-rs6-ragazzon.jpg')" 
+          <button
+            onclick="openSoundModal('Ragazzon Duplex Klappenauspuff', 'Audi RS6 Avant C8', 'V8 Biturbo mit tiefem Grollen & dynamischem Klappensound', 'assets/audi-rs6-ragazzon.jpg')"
             class="absolute bottom-2.5 right-2.5 sm:bottom-5 sm:right-5 z-20 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-gray-950/85 hover:bg-brand-orange text-white text-[11px] sm:text-xs font-racing uppercase tracking-wider font-bold backdrop-blur-md border border-white/20 shadow-lg flex items-center space-x-1.5 transition"
           >
             <i class="fa-solid fa-volume-high text-brand-orange group-hover:text-white"></i>
@@ -873,10 +574,10 @@
 
           <!-- Großes Produktbild (Mobil auf angenehme Höhe skaliert) -->
           <div class="relative w-full h-[240px] sm:h-[380px] lg:h-[460px] rounded-xl sm:rounded-2xl overflow-hidden flex items-center justify-center bg-black/20">
-            <img 
+            <img
               id="mainProductImg"
-              src="assets/audi-rs6-ragazzon.jpg" 
-              alt="Ragazzon Audi RS6 Avant C8 Edelstahl Klappenauspuffanlage" 
+              src="assets/audi-rs6-ragazzon.jpg"
+              alt="Ragazzon Audi RS6 Avant C8 Edelstahl Klappenauspuffanlage"
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             >
           </div>
@@ -950,9 +651,9 @@
       <!-- RECHTE SPALTE: PRODUKTDATEN & BUY BOX (MATCHES price_block_normal)     -->
       <!-- ===================================================================== -->
       <div class="w-full min-w-0 lg:col-span-5 space-y-4 sm:space-y-6">
-        
+
         <div style="background-color: var(--panel-card); border-color: var(--panel-border);" class="w-full min-w-0 rounded-2xl sm:rounded-3xl p-4 sm:p-7 lg:p-8 border shadow-xl relative">
-          
+
           <!-- Desktop Header (Auf Desktop sichtbar) -->
           <div class="hidden lg:block border-b pb-4 mb-4" style="border-color: var(--panel-border);">
             <div class="flex items-center justify-between">
@@ -964,7 +665,7 @@
                   Art.-Nr.: <strong class="text-gray-200 font-mono">50.0898.80</strong> • EAN: 8056324021458
                 </span>
               </div>
-              
+
               <div class="text-right">
                 <div class="flex text-amber-400 text-xs">
                   <i class="fa-solid fa-star"></i>
@@ -1065,13 +766,13 @@
                 <button type="button" onclick="decreaseQty()" class="w-7 sm:w-8 h-full text-gray-400 hover:text-white flex items-center justify-center font-bold text-sm sm:text-base transition" aria-label="Menge verringern">
                   <i class="fa-solid fa-minus text-xs"></i>
                 </button>
-                <input 
-                  type="number" 
-                  name="quantity" 
-                  id="ammount" 
-                  value="1" 
-                  min="1" 
-                  max="10" 
+                <input
+                  type="number"
+                  name="quantity"
+                  id="ammount"
+                  value="1"
+                  min="1"
+                  max="10"
                   class="w-7 sm:w-12 text-center bg-transparent text-sm sm:text-lg font-racing font-extrabold text-white border-0 focus:outline-none"
                   aria-label="Artikelanzahl"
                 >
@@ -1081,10 +782,10 @@
               </div>
 
               <!-- Großer Orange Kaufen-Button (#toCart) -->
-              <button 
-                type="submit" 
-                id="toCart" 
-                name="submit" 
+              <button
+                type="submit"
+                id="toCart"
+                name="submit"
                 class="flex-1 min-w-0 h-12 sm:h-14 px-2.5 sm:px-6 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-sm sm:text-2xl uppercase tracking-wider font-extrabold rounded-xl sm:rounded-2xl shadow-xl hover:shadow-orange-500/30 transition transform active:scale-95 flex items-center justify-center space-x-1.5 sm:space-x-3 group"
               >
                 <i class="fa-solid fa-basket-shopping text-sm sm:text-xl group-hover:scale-110 transition-transform flex-shrink-0"></i>
@@ -1094,9 +795,9 @@
             </div>
 
             <!-- Sekundärer CTA: Montage Service direkt dazu anfragen -->
-            <button 
-              type="button" 
-              onclick="openMontageModal()" 
+            <button
+              type="button"
+              onclick="openMontageModal()"
               class="w-full py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl border border-brand-orange/40 hover:bg-brand-orange/10 text-brand-orange font-racing uppercase tracking-wider font-bold text-xs sm:text-sm flex items-center justify-center space-x-2 transition"
             >
               <i class="fa-solid fa-screwdriver-wrench text-xs"></i>
@@ -1149,39 +850,39 @@
     <!-- ========================================================================= -->
     <div class="w-full min-w-0 mt-8 sm:mt-12">
       <div style="background-color: var(--panel-card); border-color: var(--panel-border);" class="w-full min-w-0 rounded-2xl sm:rounded-3xl border shadow-xl overflow-hidden">
-        
+
         <!-- Tab Navigation Bar mit horizontalem Touch-Scroll -->
         <div class="w-full max-w-full flex border-b overflow-x-auto whitespace-nowrap scrollbar-none px-2 sm:px-4" style="border-color: var(--panel-border); background-color: var(--tier3-bg);">
-          <button 
-            id="tabBtnDesc" 
-            onclick="switchDetailTab('desc')" 
+          <button
+            id="tabBtnDesc"
+            onclick="switchDetailTab('desc')"
             class="detail-tab-btn py-3 sm:py-4 px-3 sm:px-8 font-racing text-sm sm:text-lg uppercase tracking-wider font-extrabold text-brand-orange border-b-2 border-brand-orange transition flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0"
           >
             <i class="fa-solid fa-circle-info text-xs sm:text-sm"></i>
             <span>1. Beschreibung & Technik</span>
           </button>
 
-          <button 
-            id="tabBtnCars" 
-            onclick="switchDetailTab('cars')" 
+          <button
+            id="tabBtnCars"
+            onclick="switchDetailTab('cars')"
             class="detail-tab-btn py-3 sm:py-4 px-3 sm:px-8 font-racing text-sm sm:text-lg uppercase tracking-wider font-bold text-gray-400 hover:text-white border-b-2 border-transparent transition flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0"
           >
             <i class="fa-solid fa-car text-xs sm:text-sm"></i>
             <span>2. Passende Fahrzeuge</span>
           </button>
 
-          <button 
-            id="tabBtnDocs" 
-            onclick="switchDetailTab('docs')" 
+          <button
+            id="tabBtnDocs"
+            onclick="switchDetailTab('docs')"
             class="detail-tab-btn py-3 sm:py-4 px-3 sm:px-8 font-racing text-sm sm:text-lg uppercase tracking-wider font-bold text-gray-400 hover:text-white border-b-2 border-transparent transition flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0"
           >
             <i class="fa-solid fa-file-pdf text-xs sm:text-sm"></i>
             <span>3. Gutachten & Zulassung</span>
           </button>
 
-          <button 
-            id="tabBtnReviews" 
-            onclick="switchDetailTab('reviews')" 
+          <button
+            id="tabBtnReviews"
+            onclick="switchDetailTab('reviews')"
             class="detail-tab-btn py-3 sm:py-4 px-3 sm:px-8 font-racing text-sm sm:text-lg uppercase tracking-wider font-bold text-gray-400 hover:text-white border-b-2 border-transparent transition flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0"
           >
             <i class="fa-solid fa-star text-amber-400 text-xs sm:text-sm"></i>
@@ -1199,8 +900,8 @@
                 Ragazzon Edelstahl-Klappenauspuffanlage ab OPF für Audi RS6 Avant (C8 / 4K)
               </h2>
               <p class="text-xs sm:text-sm leading-relaxed text-gray-300">
-                Die Ragazzon Abgasanlage für den Audi RS6 Avant C8 setzt neue Maßstäbe in Klangkultur, Verarbeitung und Leistungsentfaltung. 
-                Speziell für den 4.0 Liter V8 Biturbo Mild-Hybrid entwickelt, ersetzt diese Anlage die originale Abgasanlage ab den Otto-Partikelfiltern (OPF) 
+                Die Ragazzon Abgasanlage für den Audi RS6 Avant C8 setzt neue Maßstäbe in Klangkultur, Verarbeitung und Leistungsentfaltung.
+                Speziell für den 4.0 Liter V8 Biturbo Mild-Hybrid entwickelt, ersetzt diese Anlage die originale Abgasanlage ab den Otto-Partikelfiltern (OPF)
                 durch strömungsoptimierte 2x 76mm Rohre aus erstklassigem AISI 304 Edelstahl.
               </p>
             </div>
@@ -1319,7 +1020,7 @@
                   </div>
                 </div>
                 <p class="text-xs text-gray-300 leading-relaxed">
-                  Die Sportabgasanlage verfügt über eine offizielle ECE-Typgenehmigung. Das E-Prüfzeichen ist direkt auf den Schalldämpfern eingeprägt. 
+                  Die Sportabgasanlage verfügt über eine offizielle ECE-Typgenehmigung. Das E-Prüfzeichen ist direkt auf den Schalldämpfern eingeprägt.
                   Eine Eintragung in die Fahrzeugpapiere sowie eine Vorführung bei einer Prüfstelle (TÜV/DEKRA) ist <strong>nicht erforderlich</strong>.
                 </p>
                 <button class="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-racing text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-2 transition">
@@ -1420,7 +1121,7 @@
       </div>
 
       <div class="w-full min-w-0 grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-6">
-        
+
         <!-- Zubehör 1: Montageschellen Set -->
         <div style="background-color: var(--panel-card); border-color: var(--panel-border);" class="rounded-2xl sm:rounded-3xl p-4 sm:p-5 border shadow-lg flex flex-col justify-between">
           <div>
@@ -1634,43 +1335,6 @@
   <!-- JAVASCRIPT LOGIC                                                          -->
   <!-- ========================================================================= -->
   <script>
-    // Theme Switcher Logic (Dark / Light)
-    function setTheme(theme) {
-      const body = document.getElementById('appBody');
-      const btnDark = document.getElementById('btnDarkTheme');
-      const btnLight = document.getElementById('btnLightTheme');
-      const quickIcon = document.getElementById('themeQuickIcon');
-
-      if (theme === 'light') {
-        body.classList.add('theme-light');
-        if (btnLight) btnLight.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow";
-        if (btnDark) btnDark.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10";
-        if (quickIcon) {
-          quickIcon.className = "fa-solid fa-moon text-sm";
-        }
-        localStorage.setItem('sportauspuff_theme', 'light');
-      } else {
-        body.classList.remove('theme-light');
-        if (btnDark) btnDark.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow";
-        if (btnLight) btnLight.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10";
-        if (quickIcon) {
-          quickIcon.className = "fa-solid fa-sun text-sm";
-        }
-        localStorage.setItem('sportauspuff_theme', 'dark');
-      }
-    }
-
-    function toggleThemeQuick() {
-      const isLight = document.getElementById('appBody').classList.contains('theme-light');
-      setTheme(isLight ? 'dark' : 'light');
-    }
-
-    // Beim Start Theme laden
-    const savedTheme = localStorage.getItem('sportauspuff_theme');
-    if (savedTheme === 'light') {
-      setTheme('light');
-    }
-
     // Mengenauswahl (#ammount)
     function increaseQty() {
       const input = document.getElementById('ammount');
@@ -1828,51 +1492,6 @@
         stickyBar.classList.add('translate-y-full');
       }
     });
-
-    // Gapless Dropdown Toggle (Klick-Fixierung & Outside-Click Support)
-    function initDropdowns() {
-      document.querySelectorAll('.dropdown-group').forEach(group => {
-        const trigger = group.querySelector('.dropdown-trigger');
-        const panel = group.querySelector('.dropdown-panel');
-        if (!trigger || !panel) return;
-
-        trigger.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          const isOpen = panel.classList.contains('is-open');
-          document.querySelectorAll('.dropdown-panel.is-open').forEach(p => {
-            if (p !== panel) p.classList.remove('is-open');
-          });
-          document.querySelectorAll('.dropdown-group.is-open').forEach(g => {
-            if (g !== group) g.classList.remove('is-open');
-          });
-          if (!isOpen) {
-            panel.classList.add('is-open');
-            group.classList.add('is-open');
-          } else {
-            panel.classList.remove('is-open');
-            group.classList.remove('is-open');
-          }
-        });
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.dropdown-group')) {
-          document.querySelectorAll('.dropdown-panel.is-open').forEach(p => p.classList.remove('is-open'));
-          document.querySelectorAll('.dropdown-group.is-open').forEach(g => g.classList.remove('is-open'));
-        }
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          document.querySelectorAll('.dropdown-panel.is-open').forEach(p => p.classList.remove('is-open'));
-          document.querySelectorAll('.dropdown-group.is-open').forEach(g => g.classList.remove('is-open'));
-        }
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', initDropdowns);
-    initDropdowns();
   </script>
 </body>
 </html>
