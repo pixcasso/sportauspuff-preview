@@ -451,3 +451,61 @@ html, body {
 .eq-bar-4 { animation: eqBar 1.1s ease-in-out infinite 0.4s; }
 .eq-bar-5 { animation: eqBar 0.85s ease-in-out infinite 0.15s; }
 .eq-bar-6 { animation: eqBar 0.95s ease-in-out infinite 0.35s; }
+
+/* ========================================================================= */
+/* 6. PRODUKT-LISTE: 3-ZONEN DESKTOP-LAYOUT (#productGrid.view-list)         */
+/* ========================================================================= */
+#productGrid.view-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+}
+@media (min-width: 1024px) {
+  #productGrid.view-list .product-card {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: stretch !important;
+    gap: 1.5rem !important;
+    padding: 1.5rem !important;
+  }
+  #productGrid.view-list .product-card-media {
+    width: 280px !important;
+    flex-shrink: 0 !important;
+    margin-bottom: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+  #productGrid.view-list .product-card-media img,
+  #productGrid.view-list .product-card-media .h-52 {
+    height: 180px !important;
+    object-fit: cover !important;
+  }
+  #productGrid.view-list .product-card-body {
+    flex: 1 1 0% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    min-width: 0 !important;
+  }
+  #productGrid.view-list .product-card-action {
+    width: 260px !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    border-top: none !important;
+    border-left: 1px solid var(--panel-border) !important;
+    padding-top: 0 !important;
+    padding-left: 1.5rem !important;
+    margin-top: 0 !important;
+  }
+  #productGrid.view-list .product-card-action .btn-detail {
+    width: 100% !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 1rem !important;
+  }
+}
+body.theme-light #productGrid.view-list .product-card-action {
+  border-left-color: #E2E8F0 !important;
+}
