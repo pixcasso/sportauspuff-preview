@@ -164,16 +164,16 @@
           </a>
 
           <!-- Warenkorb Button -->
-          <a href="#warenkorb" class="flex items-center bg-brand-orange hover:bg-brand-orangeHover text-white rounded-xl p-2 sm:px-4 sm:py-2.5 transition shadow-lg group flex-shrink-0">
+          <a href="warenkorb.html" class="flex items-center bg-brand-orange hover:bg-brand-orangeHover text-white rounded-xl p-2 sm:px-4 sm:py-2.5 transition shadow-lg group flex-shrink-0" title="Warenkorb">
             <div class="relative mr-0 sm:mr-2.5">
               <i class="fa-solid fa-basket-shopping text-base sm:text-lg"></i>
               <span id="cartCountBadge" class="absolute -top-2 -right-2 bg-white text-brand-orange text-[10px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center shadow">
-                0
+                1
               </span>
             </div>
             <div class="text-left hidden sm:block">
               <div class="text-[10px] text-orange-100 uppercase font-bold tracking-wider">Warenkorb</div>
-              <div id="cartSumHeader" class="text-xs font-racing font-extrabold text-white tracking-wide">0,00 €</div>
+              <div id="cartSumHeader" class="text-xs font-racing font-extrabold text-white tracking-wide">2.499,00 €</div>
             </div>
           </a>
         </div>
@@ -1332,6 +1332,106 @@
   </footer>
 
   <!-- ========================================================================= -->
+  <!-- MINI-CART SLIDE-OVER DRAWER & TOAST NOTIFICATION                          -->
+  <!-- ========================================================================= -->
+  <div id="miniCartDrawerBackdrop" onclick="closeMiniCartDrawer()" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden transition-opacity duration-300"></div>
+
+  <div id="miniCartDrawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-md shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out" style="background-color: var(--panel-bg); border-left: 1px solid var(--panel-border);">
+
+    <!-- Mini-Cart Header -->
+    <div class="p-4 sm:p-5 border-b flex items-center justify-between" style="border-color: var(--panel-border);">
+      <div class="flex items-center space-x-2.5">
+        <div class="w-8 h-8 rounded-lg bg-brand-orange/15 text-brand-orange flex items-center justify-center text-sm">
+          <i class="fa-solid fa-basket-shopping"></i>
+        </div>
+        <div>
+          <h3 class="font-racing text-lg sm:text-xl uppercase font-black tracking-wide" style="color: var(--text-main);">Dein Warenkorb</h3>
+          <span id="miniCartCount" class="text-xs text-gray-400 font-medium">1 Artikel</span>
+        </div>
+      </div>
+      <button onclick="closeMiniCartDrawer()" class="p-2 text-gray-400 hover:text-white rounded-lg hover:bg-white/10 transition" aria-label="Schließen">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+
+    <!-- Gratis Versand Banner im Drawer -->
+    <div class="px-5 py-3 bg-emerald-500/10 border-b border-emerald-500/20 text-emerald-400 text-xs flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <i class="fa-solid fa-circle-check"></i>
+        <span class="font-semibold">Gratis Versand erreicht! (ab 100 €)</span>
+      </div>
+      <span class="text-[11px] font-bold uppercase tracking-wider bg-emerald-500/20 px-2 py-0.5 rounded">0,00 € DE</span>
+    </div>
+
+    <!-- Artikel-Liste im Drawer -->
+    <div class="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4">
+      <div class="rounded-xl p-3.5 border flex gap-3.5 relative" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+        <img src="assets/audi-rs6-ragazzon.jpg" alt="Ragazzon Duplex Klappenauspuffanlage" class="w-20 h-20 rounded-lg object-cover bg-black/20 flex-shrink-0">
+        <div class="flex-1 min-w-0">
+          <div class="text-[10px] font-bold text-brand-orange uppercase">Ragazzon • 50.0912.80</div>
+          <h4 class="font-racing text-sm font-bold uppercase leading-tight line-clamp-2 mt-0.5" style="color: var(--text-main);">
+            Ragazzon Duplex Klappenauspuffanlage ab OPF
+          </h4>
+          <div class="text-xs text-emerald-400 font-medium mt-1">
+            <i class="fa-solid fa-check text-[10px] mr-1"></i> 100% Passend für Audi RS6 C8
+          </div>
+          <div class="flex items-center justify-between mt-2 pt-2 border-t border-white/5">
+            <span class="text-xs text-gray-400">Menge: <strong id="miniCartItemQty" class="text-white">1x</strong></span>
+            <span id="miniCartItemPrice" class="font-racing text-base font-extrabold text-brand-orange">2.499,00 €</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AutoDoc Passform Garantie Reminder -->
+      <div class="rounded-xl p-3 bg-black/20 border border-white/5 text-xs text-gray-400 flex items-start space-x-2.5">
+        <i class="fa-solid fa-shield-halved text-emerald-400 text-sm mt-0.5"></i>
+        <div>
+          <span class="font-bold text-gray-200">Meister-Vorabprüfung inklusive</span>
+          <p class="text-[11px] text-gray-400 mt-0.5">Deine Bestellung wird vor dem Versand anhand deiner Schlüsselnummern auf 100% Passgenauigkeit geprüft.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mini-Cart Footer & CTAs -->
+    <div class="p-4 sm:p-5 border-t space-y-3" style="border-color: var(--panel-border); background-color: var(--tier2-bg);">
+      <div class="flex items-baseline justify-between">
+        <span class="text-xs text-gray-400 font-bold uppercase tracking-wider">Zwischensumme:</span>
+        <span id="miniCartSubtotal" class="font-racing text-2xl font-black text-brand-orange">2.499,00 €</span>
+      </div>
+      <div class="text-[10px] text-gray-400 text-right">inkl. 19% MwSt. • Versandkostenfrei (DE)</div>
+
+      <div class="space-y-2 pt-1">
+        <a href="warenkorb.html" class="w-full py-3.5 px-4 rounded-xl bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-lg uppercase tracking-wider font-extrabold transition shadow-lg flex items-center justify-center space-x-2 group">
+          <span>Warenkorb & Zur Kasse</span>
+          <i class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
+        </a>
+        <button onclick="closeMiniCartDrawer()" class="w-full py-2.5 px-4 rounded-xl border border-white/10 hover:bg-white/5 text-gray-300 font-racing text-xs uppercase tracking-wider font-bold transition text-center">
+          Weiter einkaufen
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FLOATING TOAST NOTIFICATION -->
+  <div id="cartToastNotification" class="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-50 max-w-sm w-full rounded-2xl p-4 shadow-2xl border border-emerald-500/30 bg-gray-900/95 backdrop-blur-md text-white transform translate-y-24 opacity-0 pointer-events-none transition-all duration-300 flex items-start space-x-3">
+    <div class="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-base flex-shrink-0 border border-emerald-500/30">
+      <i class="fa-solid fa-circle-check"></i>
+    </div>
+    <div class="flex-1 min-w-0">
+      <div class="font-racing text-sm font-bold uppercase tracking-wide text-emerald-300">Im Warenkorb!</div>
+      <div id="toastMessage" class="text-xs text-gray-300 truncate mt-0.5">Ragazzon Duplex Klappenauspuffanlage</div>
+      <div class="mt-2.5 flex items-center space-x-3">
+        <a href="warenkorb.html" class="text-xs font-racing font-bold uppercase tracking-wider text-brand-orange hover:underline flex items-center space-x-1">
+          <span>Zum Warenkorb</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+        <button onclick="hideCartToast()" class="text-xs text-gray-400 hover:text-white">Weiter shoppen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
   <!-- JAVASCRIPT LOGIC                                                          -->
   <!-- ========================================================================= -->
   <script>
@@ -1376,38 +1476,120 @@
       });
     }
 
-    // Warenkorb Handling
-    let cartTotal = 0;
-    let cartItems = 0;
+    // Warenkorb Handling & Mini-Cart Drawer
+    let cartTotal = 2499.00;
+    let cartItems = 1;
+
+    function openMiniCartDrawer() {
+      const drawer = document.getElementById('miniCartDrawer');
+      const backdrop = document.getElementById('miniCartDrawerBackdrop');
+      if (backdrop) backdrop.classList.remove('hidden');
+      if (drawer) drawer.classList.remove('translate-x-full');
+    }
+
+    function closeMiniCartDrawer() {
+      const drawer = document.getElementById('miniCartDrawer');
+      const backdrop = document.getElementById('miniCartDrawerBackdrop');
+      if (drawer) drawer.classList.add('translate-x-full');
+      if (backdrop) backdrop.classList.add('hidden');
+    }
+
+    function showCartToast(title) {
+      const toast = document.getElementById('cartToastNotification');
+      const msg = document.getElementById('toastMessage');
+      if (msg && title) msg.innerText = title;
+      if (toast) {
+        toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          hideCartToast();
+        }, 4000);
+      }
+    }
+
+    function hideCartToast() {
+      const toast = document.getElementById('cartToastNotification');
+      if (toast) toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+    }
+
     function handleProductBuy(e) {
-      e.preventDefault();
-      const qty = parseInt(document.getElementById('ammount').value, 10) || 1;
+      if (e) e.preventDefault();
+      const qtyInput = document.getElementById('ammount');
+      const qty = parseInt(qtyInput ? qtyInput.value : 1, 10) || 1;
       const price = 2499.00;
-      cartItems += qty;
-      cartTotal += (price * qty);
+      cartItems = qty;
+      cartTotal = price * qty;
 
-      document.getElementById('cartCountBadge').innerText = cartItems;
-      document.getElementById('cartSumHeader').innerText = cartTotal.toLocaleString('de-DE', { minimumFractionDigits: 2 }) + ' €';
+      const formattedTotal = cartTotal.toLocaleString('de-DE', { minimumFractionDigits: 2 }) + ' €';
 
+      const badge = document.getElementById('cartCountBadge');
+      const sumHeader = document.getElementById('cartSumHeader');
+      if (badge) badge.innerText = cartItems;
+      if (sumHeader) sumHeader.innerText = formattedTotal;
+
+      const miniCount = document.getElementById('miniCartCount');
+      if (miniCount) miniCount.innerText = `${cartItems} ${cartItems === 1 ? 'Artikel' : 'Artikel'}`;
+      const miniQty = document.getElementById('miniCartItemQty');
+      if (miniQty) miniQty.innerText = `${qty}x`;
+      const miniPrice = document.getElementById('miniCartItemPrice');
+      if (miniPrice) miniPrice.innerText = formattedTotal;
+      const miniSub = document.getElementById('miniCartSubtotal');
+      if (miniSub) miniSub.innerText = formattedTotal;
+
+      // 1. Visuelles Button Feedback Desktop (#toCart)
       const btn = document.getElementById('toCart');
-      const originalHTML = btn.innerHTML;
-      btn.innerHTML = `<i class="fa-solid fa-check text-white text-lg sm:text-xl"></i><span>${qty}x Hinzugefügt!</span>`;
-      btn.classList.remove('bg-brand-orange');
-      btn.classList.add('bg-emerald-600');
+      if (btn) {
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = `<i class="fa-solid fa-check text-white text-lg sm:text-xl"></i><span>${qty}x Im Warenkorb!</span>`;
+        btn.classList.remove('bg-brand-orange', 'hover:bg-brand-orangeHover');
+        btn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
 
+        setTimeout(() => {
+          btn.innerHTML = originalHTML;
+          btn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
+          btn.classList.add('bg-brand-orange', 'hover:bg-brand-orangeHover');
+        }, 3000);
+      }
+
+      // 2. Visuelles Feedback Mobile Sticky Bar
+      const mobileStickyBtn = document.querySelector('#stickyMobileBar button');
+      if (mobileStickyBtn) {
+        const origMobHTML = mobileStickyBtn.innerHTML;
+        mobileStickyBtn.innerHTML = `<i class="fa-solid fa-check text-xs"></i><span>Im Warenkorb!</span>`;
+        mobileStickyBtn.classList.remove('bg-brand-orange');
+        mobileStickyBtn.classList.add('bg-emerald-600');
+        setTimeout(() => {
+          mobileStickyBtn.innerHTML = origMobHTML;
+          mobileStickyBtn.classList.remove('bg-emerald-600');
+          mobileStickyBtn.classList.add('bg-brand-orange');
+        }, 3000);
+      }
+
+      // 3. Toast Notification & Slide-Over Drawer
+      showCartToast(`${qty}x Ragazzon Duplex Klappenauspuffanlage hinzugefügt`);
       setTimeout(() => {
-        btn.innerHTML = originalHTML;
-        btn.classList.remove('bg-emerald-600');
-        btn.classList.add('bg-brand-orange');
-      }, 2500);
+        openMiniCartDrawer();
+      }, 350);
     }
 
     function addToCartCross(name, price) {
       cartItems += 1;
       cartTotal += price;
-      document.getElementById('cartCountBadge').innerText = cartItems;
-      document.getElementById('cartSumHeader').innerText = cartTotal.toLocaleString('de-DE', { minimumFractionDigits: 2 }) + ' €';
-      alert(`${name} für ${price.toLocaleString('de-DE', { minimumFractionDigits: 2 })} € zum Warenkorb hinzugefügt!`);
+      const formattedTotal = cartTotal.toLocaleString('de-DE', { minimumFractionDigits: 2 }) + ' €';
+
+      const badge = document.getElementById('cartCountBadge');
+      const sumHeader = document.getElementById('cartSumHeader');
+      if (badge) badge.innerText = cartItems;
+      if (sumHeader) sumHeader.innerText = formattedTotal;
+
+      const miniCount = document.getElementById('miniCartCount');
+      if (miniCount) miniCount.innerText = `${cartItems} Artikel`;
+      const miniSub = document.getElementById('miniCartSubtotal');
+      if (miniSub) miniSub.innerText = formattedTotal;
+
+      showCartToast(`${name} für ${price.toLocaleString('de-DE', { minimumFractionDigits: 2 })} € hinzugefügt!`);
+      setTimeout(() => {
+        openMiniCartDrawer();
+      }, 350);
     }
 
     // Sound Modals & Inline Audio

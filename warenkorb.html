@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Warenkorb | Dein-Sportauspuff.de</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Barlow Condensed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Design Tokens & Theme Styles -->
+  <link rel="stylesheet" href="assets/theme.css">
+  <!-- Shared Tailwind Config & Theme Manager -->
+  <script src="assets/theme.js"></script>
+</head>
+<body id="appBody" style="background-color: var(--page-bg); color: var(--text-main);" class="font-sans antialiased selection:bg-brand-orange selection:text-white transition-colors duration-300 min-h-screen flex flex-col pb-24 sm:pb-0">
+
+  <!-- ========================================================================= -->
+  <!-- FLOATING THEME-SWITCHER (DESKTOP ONLY - AUF MOBILE IM HEADER / DRAWER)     -->
+  <!-- ========================================================================= -->
+  <div class="hidden md:flex fixed bottom-6 left-6 z-50">
+    <div class="bg-gray-900/90 backdrop-blur-md p-1.5 rounded-2xl border border-white/20 shadow-2xl flex items-center space-x-1">
+      <button
+        id="btnDarkTheme"
+        onclick="setTheme('dark')"
+        class="px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow"
+      >
+        <i class="fa-solid fa-moon text-xs"></i>
+        <span>Dark (Performance)</span>
+      </button>
+      <button
+        id="btnLightTheme"
+        onclick="setTheme('light')"
+        class="px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10"
+      >
+        <i class="fa-solid fa-sun text-xs"></i>
+        <span>Hell (Präzision)</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 1. ZEILE 1: TOP UTILITY BAR (40px, Theme-fähig)                           -->
+  <!-- ========================================================================= -->
+  <header style="background-color: var(--tier1-bg); color: var(--tier1-text);" class="w-full text-xs transition-colors duration-300">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 h-10 flex items-center justify-between">
+
+      <!-- Links: Bewertung & Telefon-Hotline -->
+      <div class="flex items-center space-x-8">
+        <div class="flex items-center space-x-2">
+          <div class="flex text-amber-400 text-xs">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <span class="font-bold text-xs" style="color: var(--logo-text);">4.9 / 5.0</span>
+          <span class="hidden sm:inline">(über 12.000 Bewertungen)</span>
+        </div>
+
+        <div class="hidden md:flex items-center space-x-2">
+          <i class="fa-solid fa-phone text-brand-orange"></i>
+          <span>Kfz-Fachberatung: <strong class="hover:text-brand-orange transition cursor-pointer text-xs" style="color: var(--logo-text);">+49 (0) 371 64 63 87 55</strong></span>
+          <span class="text-[11px] opacity-75">(Mo–Fr 8–18 Uhr)</span>
+        </div>
+      </div>
+
+      <!-- Rechts: USPs & FAQ -->
+      <div class="flex items-center space-x-6">
+        <span class="hidden sm:flex items-center space-x-2">
+          <i class="fa-solid fa-truck-fast text-slate-400"></i>
+          <span>Kostenloser Versand ab 100 €</span>
+        </span>
+        <span class="opacity-40 hidden sm:inline">•</span>
+        <span class="hidden lg:flex items-center space-x-2">
+          <i class="fa-solid fa-certificate text-slate-400"></i>
+          <span>100% Passformgarantie</span>
+        </span>
+        <span class="opacity-40 hidden lg:inline">•</span>
+        <a href="#hilfe" class="hover:text-brand-orange transition flex items-center space-x-1.5 opacity-80 hover:opacity-100">
+          <i class="fa-regular fa-circle-question"></i>
+          <span>Hilfe & FAQ</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 2. ZEILE 2: MAIN HEADER (Logo, Suche, Garage-Pill, Konto, Warenkorb)      -->
+  <!-- ========================================================================= -->
+  <div style="background-color: var(--tier2-bg);" class="sticky top-0 z-50 shadow-md transition-colors duration-300">
+    <div class="max-w-[1600px] mx-auto px-3 sm:px-8 lg:px-12">
+      <div class="h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4 lg:gap-8">
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobileMenuBtn" onclick="toggleMobileDrawer()" style="color: var(--logo-text);" class="lg:hidden p-1.5 rounded-lg hover:bg-black/5 flex-shrink-0" aria-label="Menü öffnen">
+          <i id="mobileMenuIcon" class="fa-solid fa-bars text-lg sm:text-xl"></i>
+        </button>
+
+        <!-- Brand Logo Dein-Sportauspuff.de -->
+        <a href="index.html" class="flex items-center group flex-shrink-0 py-1" title="Dein-Sportauspuff.de - Mehr Sound & Power">
+          <img src="assets/dein-sportauspuff.svg" alt="Dein-Sportauspuff.de" class="h-6 sm:h-7 lg:h-8 max-w-[190px] sm:max-w-[280px] lg:max-w-none w-auto object-contain transition-transform group-hover:scale-105">
+        </a>
+
+        <!-- Die Kontrast-Suche -->
+        <div class="flex-1 max-w-2xl hidden md:block">
+          <form id="searchForm" action="suche.html" method="POST" class="relative">
+            <input
+              type="text"
+              id="search_keys"
+              name="search_keys"
+              style="background-color: var(--search-bg); color: var(--search-text);"
+              placeholder="Fahrzeug, Modell, Artikel oder Motorcode suchen (z.B. RS6 Ragazzon)..."
+              class="w-full text-sm font-medium rounded-full pl-12 pr-28 py-3.5 border-0 focus:ring-2 focus:ring-brand-orange/40 focus:outline-none transition shadow-sm placeholder:text-gray-400"
+            >
+            <div class="absolute inset-y-0 left-0 pl-4.5 flex items-center pointer-events-none text-brand-orange text-base">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <button type="submit" name="send" class="absolute inset-y-1.5 right-1.5 px-5 bg-brand-orange hover:bg-brand-orangeHover text-white text-xs font-racing font-bold uppercase tracking-wider rounded-full transition shadow-sm flex items-center space-x-1.5">
+              <span>Suchen</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Rechte Aktionen -->
+        <div class="flex items-center space-x-1.5 sm:space-x-5 flex-shrink-0">
+
+          <!-- Quick Theme Toggle auf Mobile -->
+          <button onclick="toggleThemeQuick()" class="md:hidden p-1.5 text-gray-300 hover:text-white rounded-lg hover:bg-black/10 transition" title="Design wechseln (Dark/Hell)">
+            <i id="themeQuickIcon" class="fa-solid fa-sun text-sm"></i>
+          </button>
+
+          <!-- AutoDoc-Style Virtuelle Kfz-Garage Pill -->
+          <div id="activeCarPill" style="background-color: var(--car-pill-bg);" class="hidden sm:flex items-center rounded-xl px-3.5 py-2 cursor-pointer transition group border border-brand-orange/20 hover:border-brand-orange/50 shadow-sm" onclick="openGarageModal()">
+            <div class="w-8 h-8 rounded-lg bg-brand-orange/15 flex items-center justify-center text-brand-orange mr-2.5 shadow-inner relative">
+              <i class="fa-solid fa-warehouse text-sm"></i>
+              <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-gray-900"></span>
+            </div>
+            <div class="text-left text-xs leading-tight">
+              <div class="text-[10px] uppercase font-bold tracking-wider text-emerald-400 flex items-center space-x-1">
+                <span>Garage (1 aktiv)</span>
+                <i class="fa-solid fa-circle-check text-[9px]"></i>
+              </div>
+              <div id="activeCarLabel" style="color: var(--car-pill-text);" class="font-bold group-hover:text-brand-orange transition truncate max-w-[130px] lg:max-w-[160px]">
+                Audi RS6 Avant C8
+              </div>
+            </div>
+          </div>
+
+          <!-- Benutzerkonto Button -->
+          <a href="konto.html" style="color: var(--logo-text);" class="px-2.5 py-2 rounded-xl hover:bg-black/5 transition hidden sm:flex flex-col items-center opacity-85 hover:opacity-100" title="Mein Kundenkonto">
+            <i class="fa-regular fa-user text-base sm:text-lg"></i>
+            <span class="text-[10px] mt-0.5 font-medium">Konto</span>
+          </a>
+
+          <!-- Warenkorb Button (Auf dieser Seite AKTIV hervorgehoben) -->
+          <a href="warenkorb.html" class="flex items-center bg-brand-orange text-white rounded-xl p-2 sm:px-4 sm:py-2.5 transition shadow-lg group flex-shrink-0 ring-2 ring-brand-orange/50 ring-offset-2 ring-offset-transparent" title="Warenkorb (Aktive Seite)">
+            <div class="relative mr-0 sm:mr-2.5">
+              <i class="fa-solid fa-basket-shopping text-base sm:text-lg"></i>
+              <span id="cartCountBadge" class="absolute -top-2 -right-2 bg-white text-brand-orange text-[10px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center shadow">
+                1
+              </span>
+            </div>
+            <div class="text-left hidden sm:block">
+              <div class="text-[10px] text-orange-100 uppercase font-bold tracking-wider">Warenkorb</div>
+              <div id="cartSumHeader" class="text-xs font-racing font-extrabold text-white tracking-wide">2.499,00 €</div>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobileDrawer" style="background-color: var(--tier2-bg);" class="hidden lg:hidden px-4 py-4 space-y-3 text-sm shadow-2xl transition-all border-t border-white/10 max-h-[calc(100vh-4.5rem)] overflow-y-auto">
+      <div class="relative md:hidden mb-2">
+        <form id="searchForm_mob" action="suche.html" method="POST" class="relative">
+          <input
+            type="text"
+            id="search_keys_mob"
+            name="search_keys"
+            style="background-color: var(--search-bg); color: var(--search-text);"
+            placeholder="Sportauspuff, Marke, Modell suchen..."
+            class="w-full text-xs font-medium rounded-xl pl-9 pr-20 py-2.5 border-0 focus:ring-2 focus:ring-brand-orange/40 focus:outline-none transition shadow-sm placeholder:text-gray-400"
+          >
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-brand-orange text-xs">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <button type="submit" name="send" class="absolute inset-y-1 right-1 px-3 bg-brand-orange hover:bg-brand-orangeHover text-white text-[11px] font-racing font-bold uppercase rounded-lg transition">
+            Suchen
+          </button>
+        </form>
+      </div>
+
+      <!-- Warenkorb Link im Drawer (Aktiv) -->
+      <a href="warenkorb.html" onclick="toggleMobileDrawer()" class="flex items-center justify-between p-2.5 rounded-xl bg-brand-orange text-white font-bold text-xs shadow">
+        <div class="flex items-center space-x-2.5">
+          <i class="fa-solid fa-basket-shopping text-sm"></i>
+          <span>Warenkorb (Aktiv)</span>
+        </div>
+        <span id="drawerCartSum" class="font-racing text-sm font-extrabold">2.499,00 €</span>
+      </a>
+
+      <!-- Quick Theme Switcher im Drawer -->
+      <div class="flex items-center justify-between p-2 rounded-xl bg-black/20 text-xs">
+        <span class="text-gray-400 font-bold uppercase">Erscheinungsbild:</span>
+        <div class="flex space-x-1">
+          <button onclick="setTheme('dark')" class="px-2.5 py-1 rounded-lg text-xs font-racing font-bold bg-brand-orange text-white flex items-center space-x-1">
+            <i class="fa-solid fa-moon text-[10px]"></i>
+            <span>Dark</span>
+          </button>
+          <button onclick="setTheme('light')" class="px-2.5 py-1 rounded-lg text-xs font-racing font-bold bg-white/10 text-gray-300 flex items-center space-x-1">
+            <i class="fa-solid fa-sun text-[10px]"></i>
+            <span>Hell</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="font-bold text-xs uppercase tracking-wider text-brand-orange pt-1">Produkt-Kategorien</div>
+      <div class="space-y-1">
+        <a href="kategorie.html" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Sportauspuff Komplett</a>
+        <a href="kategorie.html#endschalldaempfer" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Endschalldämpfer</a>
+        <a href="kategorie.html#komplettanlagen" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Komplettanlagen & Duplex</a>
+        <a href="kategorie.html#klappen" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Klappenauspuffanlagen</a>
+        <a href="kategorie.html#downpipes" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Downpipes & Kats</a>
+        <a href="kategorie.html#endrohre" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Endrohre & Blenden</a>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- 3. ZEILE 3: KATEGORIE-LEISTE (Clean & Gapless Dropdowns)                   -->
+    <!-- ========================================================================= -->
+    <nav style="background-color: var(--tier3-bg); border-color: var(--tier3-border-top);" class="hidden lg:block border-t text-sm font-medium transition-colors duration-300">
+      <div class="max-w-[1600px] mx-auto px-12 h-12 flex items-center justify-between">
+        <div class="flex items-center space-x-1 h-full" style="color: var(--tier3-text);">
+          <a href="kategorie.html" class="px-3.5 py-1.5 rounded-lg hover:text-brand-orange hover:bg-black/5 transition font-racing text-sm tracking-wider">Sportauspuff Komplett</a>
+          <a href="kategorie.html#endschalldaempfer" class="px-3.5 py-1.5 rounded-lg hover:text-brand-orange hover:bg-black/5 transition font-racing text-sm tracking-wider">Endschalldämpfer</a>
+          <a href="kategorie.html#komplettanlagen" class="px-3.5 py-1.5 rounded-lg hover:text-brand-orange hover:bg-black/5 transition font-racing text-sm tracking-wider">Komplettanlagen & Duplex</a>
+          <a href="kategorie.html#klappen" class="px-3.5 py-1.5 rounded-lg hover:text-brand-orange hover:bg-black/5 transition font-racing text-sm tracking-wider">Klappenauspuffanlagen</a>
+          <a href="kategorie.html#downpipes" class="px-3.5 py-1.5 rounded-lg hover:text-brand-orange hover:bg-black/5 transition font-racing text-sm tracking-wider">Downpipes</a>
+          <a href="kategorie.html#endrohre" class="px-3.5 py-1.5 rounded-lg hover:text-brand-orange hover:bg-black/5 transition font-racing text-sm tracking-wider">Endrohre</a>
+          <a href="kategorie.html?brand=Ragazzon" class="px-3.5 py-1.5 rounded-lg hover:text-brand-orange hover:bg-black/5 transition font-racing text-sm tracking-wider">Marken</a>
+        </div>
+        <div class="flex items-center space-x-4">
+          <a href="kategorie.html" class="text-xs font-bold text-brand-orange hover:underline flex items-center space-x-1">
+            <i class="fa-solid fa-volume-high text-xs mr-1"></i>
+            <span>Soundfiles anhören</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- BREADCRUMB & CHECKOUT PROGRESS STEPPER                                    -->
+  <!-- ========================================================================= -->
+  <div class="border-b" style="border-color: var(--panel-border);">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-3.5 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs">
+
+      <!-- Breadcrumb -->
+      <div class="text-gray-400 flex items-center space-x-2">
+        <a href="index.html" class="hover:text-brand-orange transition flex items-center space-x-1">
+          <i class="fa-solid fa-house text-[10px]"></i>
+          <span>Startseite</span>
+        </a>
+        <span class="opacity-50">/</span>
+        <a href="kategorie.html?brand=Audi&model=RS6" class="hover:text-brand-orange transition">Audi RS6 Avant C8</a>
+        <span class="opacity-50">/</span>
+        <span class="text-brand-orange font-semibold">Warenkorb</span>
+      </div>
+
+      <!-- Checkout 3-Step Indicator (AutoDoc Style) -->
+      <div class="flex items-center space-x-2 sm:space-x-4 font-racing uppercase tracking-wider text-xs">
+        <div class="flex items-center space-x-1.5 text-brand-orange font-extrabold">
+          <span class="w-5 h-5 rounded-full bg-brand-orange text-white flex items-center justify-center text-[10px]">1</span>
+          <span>Warenkorb</span>
+        </div>
+        <span class="text-gray-500 font-sans">→</span>
+        <div class="flex items-center space-x-1.5 text-gray-500 font-bold">
+          <span class="w-5 h-5 rounded-full bg-black/20 text-gray-400 flex items-center justify-center text-[10px] border border-white/10">2</span>
+          <span>Kasse & Adresse</span>
+        </div>
+        <span class="text-gray-500 font-sans">→</span>
+        <div class="flex items-center space-x-1.5 text-gray-500 font-bold hidden sm:flex">
+          <span class="w-5 h-5 rounded-full bg-black/20 text-gray-400 flex items-center justify-center text-[10px] border border-white/10">3</span>
+          <span>Bestätigung</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- HAUPTBEREICH: WARENKORB & KASSEN-ZUSAMMENFASSUNG                          -->
+  <!-- ========================================================================= -->
+  <main class="flex-1 max-w-[1600px] w-full mx-auto px-4 sm:px-8 lg:px-12 py-6 sm:py-8 space-y-6">
+
+    <!-- 1. FAHRZEUG-KONTEXT & PASSFORM-SICHERHEIT BANNER -->
+    <section class="rounded-2xl p-4 sm:p-5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div class="flex items-start sm:items-center space-x-3.5">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-lg flex-shrink-0">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <div class="space-y-0.5">
+          <div class="flex flex-wrap items-center gap-2">
+            <h2 class="font-racing text-base sm:text-lg uppercase tracking-wide font-extrabold text-emerald-300">
+              100% Passform garantiert für dein aktives Fahrzeug
+            </h2>
+            <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/30">
+              Geprüft & Freigegeben
+            </span>
+          </div>
+          <p class="text-xs sm:text-sm text-emerald-200/90 font-medium">
+            Audi RS6 Avant (C8) 4.0 TFSI (600 PS / 441 kW) • HSN: <strong>1860</strong> / TSN: <strong>ABD</strong> • Bj. 2019–heute
+          </p>
+          <p class="text-[11px] text-emerald-300/70 pt-0.5 hidden sm:block">
+            <i class="fa-solid fa-user-shield mr-1"></i> Unser Kfz-Meisterteam prüft jede Bestellung vor dem Versand anhand deiner Schlüsselnummern auf 100% Kompatibilität.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-2 self-start md:self-center flex-shrink-0">
+        <button onclick="openGarageModal()" class="px-3.5 py-2 rounded-xl text-xs font-racing font-bold uppercase tracking-wider text-emerald-300 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 transition flex items-center space-x-1.5">
+          <i class="fa-solid fa-rotate text-[11px]"></i>
+          <span>Fahrzeug wechseln</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 2. HAUPT-GRID (LINKE SPALTE: ARTIKELLISTE & UPSELL | RECHTE SPALTE: STICKY KASSE) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+      <!-- ===================================================================== -->
+      <!-- LINKE SPALTE (8 Cols): Artikelliste, Zubehör-Upsell & Gutschein       -->
+      <!-- ===================================================================== -->
+      <div class="lg:col-span-8 space-y-6">
+
+        <!-- Header der Artikelliste -->
+        <div class="flex items-center justify-between pb-2 border-b" style="border-color: var(--panel-border);">
+          <div class="flex items-center space-x-3">
+            <h1 class="font-racing text-2xl sm:text-3xl uppercase font-black tracking-wide" style="color: var(--text-main);">
+              Warenkorb
+            </h1>
+            <span id="cartCountTag" class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-brand-orange/15 text-brand-orange border border-brand-orange/30">
+              1 Artikel
+            </span>
+          </div>
+          <button id="btnClearCart" onclick="clearCart()" class="text-xs text-gray-400 hover:text-red-400 transition flex items-center space-x-1 py-1 px-2 rounded-lg hover:bg-red-500/10">
+            <i class="fa-regular fa-trash-can"></i>
+            <span>Warenkorb leeren</span>
+          </button>
+        </div>
+
+        <!-- ARTIKELLISTE CONTAINER -->
+        <div id="cartItemsList" class="space-y-4">
+
+          <!-- 1. HAUPTARTIKEL (Ragazzon Duplex Klappenauspuffanlage) -->
+          <div id="itemRow_ragazzon" class="rounded-2xl p-4 sm:p-5 border transition-all duration-200 shadow-sm relative group" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+            <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+
+              <!-- Produktbild mit Zoom / Badge -->
+              <div class="w-full sm:w-44 h-36 sm:h-36 rounded-xl overflow-hidden bg-black/10 border flex-shrink-0 relative" style="border-color: var(--panel-border);">
+                <img src="assets/audi-rs6-ragazzon.jpg" alt="Ragazzon Duplex Klappenauspuffanlage ab OPF" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                <span class="absolute top-2 left-2 px-2 py-0.5 rounded text-[10px] font-racing uppercase tracking-wider font-extrabold bg-brand-orange text-white shadow">
+                  Bestseller
+                </span>
+              </div>
+
+              <!-- Produktinformationen & Spezifikationen -->
+              <div class="flex-1 flex flex-col justify-between space-y-3">
+                <div>
+                  <div class="flex flex-wrap items-center justify-between gap-2">
+                    <div class="text-xs font-bold text-brand-orange uppercase tracking-wider">
+                      Ragazzon • Art.-Nr.: <span class="font-mono text-gray-400">50.0912.80</span>
+                    </div>
+                    <!-- Entfernen Button oben rechts (Mobile & Desktop) -->
+                    <button onclick="removeItem('ragazzon')" class="text-gray-400 hover:text-red-400 transition text-xs flex items-center space-x-1 p-1" title="Artikel entfernen">
+                      <i class="fa-regular fa-trash-can"></i>
+                      <span class="sm:hidden text-[11px]">Entfernen</span>
+                    </button>
+                  </div>
+
+                  <h3 class="font-racing text-lg sm:text-xl font-bold uppercase tracking-wide leading-tight mt-1" style="color: var(--text-main);">
+                    Ragazzon Duplex Klappenauspuffanlage ab OPF
+                  </h3>
+
+                  <!-- Badges / Spezifikationen -->
+                  <div class="flex flex-wrap items-center gap-1.5 mt-2.5">
+                    <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                      <i class="fa-solid fa-file-circle-check mr-1 text-[10px]"></i> ECE-Genehmigung (eintragungsfrei)
+                    </span>
+                    <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-blue-500/15 text-blue-400 border border-blue-500/30">
+                      <i class="fa-solid fa-shield-halved mr-1 text-[10px]"></i> Edelstahl V2A
+                    </span>
+                    <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-slate-500/15 text-slate-300 border border-slate-500/30">
+                      <i class="fa-solid fa-ruler-combined mr-1 text-[10px]"></i> Rohrdurchmesser: 2x 76mm
+                    </span>
+                  </div>
+
+                  <!-- Lieferstatus -->
+                  <div class="mt-3 flex items-center space-x-2 text-xs font-semibold text-emerald-400">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Auf Lager – Versandfertig in 24h</span>
+                    <span class="text-gray-400 text-[11px] font-normal">• Kostenlose Speditionslieferung</span>
+                  </div>
+                </div>
+
+                <!-- Untere Zeile: Mengen-Stepper & Preis -->
+                <div class="pt-3 border-t flex flex-wrap items-center justify-between gap-4" style="border-color: var(--panel-border);">
+
+                  <!-- Mengen-Stepper -->
+                  <div class="flex items-center space-x-3">
+                    <span class="text-xs text-gray-400 font-medium">Menge:</span>
+                    <div class="flex items-center rounded-xl border border-white/10 bg-black/20 p-0.5">
+                      <button onclick="changeQty('ragazzon', -1)" class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/10 transition" title="Menge reduzieren">
+                        <i class="fa-solid fa-minus text-xs"></i>
+                      </button>
+                      <input
+                        type="number"
+                        id="qty_ragazzon"
+                        value="1"
+                        min="1"
+                        max="10"
+                        onchange="setQty('ragazzon', this.value)"
+                        class="w-12 text-center bg-transparent text-sm font-bold focus:outline-none border-0"
+                        style="color: var(--text-main);"
+                      >
+                      <button onclick="changeQty('ragazzon', 1)" class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/10 transition" title="Menge erhöhen">
+                        <i class="fa-solid fa-plus text-xs"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Einzel- und Gesamtpreis -->
+                  <div class="text-right">
+                    <div class="text-[11px] text-gray-400">Einzelpreis: 2.499,00 €</div>
+                    <div id="price_ragazzon" class="font-racing text-2xl font-extrabold text-brand-orange leading-tight">
+                      2.499,00 €
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <!-- DYNAMISCHE ZEILEN FÜR ZUBEHÖR WERDEN PER JAVASCRIPT HIER EINGEFÜGT -->
+          <div id="dynamicUpsellItemsContainer" class="space-y-4"></div>
+
+        </div>
+
+        <!-- =================================================================== -->
+        <!-- EMPTY STATE CONTAINER (Wird eingeblendet, wenn Warenkorb leer ist) -->
+        <!-- =================================================================== -->
+        <div id="emptyCartState" class="hidden rounded-2xl p-8 sm:p-12 text-center border shadow-sm space-y-5" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+          <div class="w-20 h-20 rounded-full bg-brand-orange/15 text-brand-orange border border-brand-orange/30 mx-auto flex items-center justify-center text-3xl">
+            <i class="fa-solid fa-cart-arrow-down"></i>
+          </div>
+          <div class="space-y-2 max-w-lg mx-auto">
+            <h2 class="font-racing text-2xl sm:text-3xl uppercase font-black" style="color: var(--text-main);">
+              Dein Warenkorb ist aktuell leer
+            </h2>
+            <p class="text-sm text-gray-400">
+              Dein Audi RS6 Avant C8 wartet auf echten V8-Motorsound! Wähle eine passende Sportauspuffanlage oder Komponenten aus unserem Sortiment.
+            </p>
+          </div>
+          <div class="pt-3 flex flex-wrap items-center justify-center gap-3">
+            <a href="kategorie.html?brand=Audi&model=RS6" class="px-6 py-3 rounded-xl bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-base uppercase tracking-wider font-extrabold transition shadow-lg flex items-center space-x-2">
+              <span>Jetzt Auspuffanlage für Audi RS6 finden</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+            <button onclick="restoreDefaultCart()" class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-racing text-base uppercase tracking-wider font-bold transition">
+              <i class="fa-solid fa-rotate-left mr-1.5"></i> Beispiel-Artikel wiederherstellen
+            </button>
+          </div>
+        </div>
+
+        <!-- =================================================================== -->
+        <!-- ZUBEHÖR-UPSELL: „WIRD HÄUFIG DAZU BESTELLT“                         -->
+        <!-- =================================================================== -->
+        <div id="upsellSection" class="rounded-2xl p-5 sm:p-6 border shadow-sm space-y-4" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-2.5">
+              <div class="w-8 h-8 rounded-lg bg-brand-orange/15 text-brand-orange flex items-center justify-center text-sm font-bold">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+              </div>
+              <div>
+                <h3 class="font-racing text-lg sm:text-xl uppercase font-bold tracking-wide" style="color: var(--text-main);">
+                  Wird häufig dazu bestellt
+                </h3>
+                <p class="text-xs text-gray-400">
+                  Praktisches Montagezubehör – 100% passgenau für deine Audi RS6 Ragazzon-Anlage
+                </p>
+              </div>
+            </div>
+            <span class="text-[11px] font-bold text-emerald-400 hidden sm:inline">
+              <i class="fa-solid fa-check mr-1"></i> Direkt versandfertig
+            </span>
+          </div>
+
+          <!-- Upsell Items Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+
+            <!-- Upsell Item 1: PU Auspuffgummis -->
+            <div id="upsellCard_gummis" class="rounded-xl p-4 border border-white/5 bg-black/10 flex flex-col justify-between space-y-3 hover:border-brand-orange/40 transition">
+              <div class="flex items-start space-x-3">
+                <div class="w-14 h-14 rounded-lg bg-gray-800 flex items-center justify-center text-brand-orange text-xl flex-shrink-0 border border-white/10">
+                  <i class="fa-solid fa-ring"></i>
+                </div>
+                <div class="min-w-0">
+                  <h4 class="font-racing text-base font-bold uppercase leading-tight" style="color: var(--text-main);">
+                    Verstärkte HD-PU Auspuffgummis (4er-Set)
+                  </h4>
+                  <div class="text-[11px] text-gray-400 mt-0.5">Art.-Nr.: PU-HD-RS6-4</div>
+                  <p class="text-xs text-gray-400 mt-1 line-clamp-2">
+                    Minimiert Vibrationen und verhindert Anschlagen an die RS6-Heckschürze bei Volllast.
+                  </p>
+                </div>
+              </div>
+              <div class="pt-2 border-t border-white/5 flex items-center justify-between">
+                <div>
+                  <span class="font-racing text-lg font-extrabold text-brand-orange">29,90 €</span>
+                  <span class="text-[10px] text-gray-400 block">inkl. 19% MwSt.</span>
+                </div>
+                <button
+                  id="btnAddUpsell_gummis"
+                  onclick="toggleUpsellItem('gummis')"
+                  class="px-3.5 py-1.5 rounded-xl bg-brand-orange hover:bg-brand-orangeHover text-white text-xs font-racing font-bold uppercase tracking-wider transition shadow flex items-center space-x-1.5"
+                >
+                  <i class="fa-solid fa-plus text-[10px]"></i>
+                  <span>Hinzufügen</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Upsell Item 2: Montagepaste -->
+            <div id="upsellCard_paste" class="rounded-xl p-4 border border-white/5 bg-black/10 flex flex-col justify-between space-y-3 hover:border-brand-orange/40 transition">
+              <div class="flex items-start space-x-3">
+                <div class="w-14 h-14 rounded-lg bg-gray-800 flex items-center justify-center text-brand-orange text-xl flex-shrink-0 border border-white/10">
+                  <i class="fa-solid fa-fire-flame-curved"></i>
+                </div>
+                <div class="min-w-0">
+                  <h4 class="font-racing text-base font-bold uppercase leading-tight" style="color: var(--text-main);">
+                    Hochtemperatur-Montagepaste (150g)
+                  </h4>
+                  <div class="text-[11px] text-gray-400 mt-0.5">Art.-Nr.: HT-PASTE-150</div>
+                  <p class="text-xs text-gray-400 mt-1 line-clamp-2">
+                    Hitzebeständig bis 1.100°C. Garantiert 100% gasdichte Steckverbindungen und leichte Demontage.
+                  </p>
+                </div>
+              </div>
+              <div class="pt-2 border-t border-white/5 flex items-center justify-between">
+                <div>
+                  <span class="font-racing text-lg font-extrabold text-brand-orange">12,90 €</span>
+                  <span class="text-[10px] text-gray-400 block">inkl. 19% MwSt.</span>
+                </div>
+                <button
+                  id="btnAddUpsell_paste"
+                  onclick="toggleUpsellItem('paste')"
+                  class="px-3.5 py-1.5 rounded-xl bg-brand-orange hover:bg-brand-orangeHover text-white text-xs font-racing font-bold uppercase tracking-wider transition shadow flex items-center space-x-1.5"
+                >
+                  <i class="fa-solid fa-plus text-[10px]"></i>
+                  <span>Hinzufügen</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- =================================================================== -->
+        <!-- GUTSCHEIN- & AKTIONSCODE-BOX                                        -->
+        <!-- =================================================================== -->
+        <div class="rounded-2xl p-5 border shadow-sm space-y-3" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+          <div class="flex items-center justify-between">
+            <label for="couponInput" class="font-racing text-base uppercase font-bold tracking-wide flex items-center space-x-2" style="color: var(--text-main);">
+              <i class="fa-solid fa-ticket text-brand-orange"></i>
+              <span>Rabattcode oder Gutschein einlösen</span>
+            </label>
+            <span class="text-[11px] text-gray-400">Code eingeben & sofort sparen</span>
+          </div>
+
+          <form onsubmit="handleApplyCoupon(event)" class="flex flex-col sm:flex-row gap-2.5">
+            <div class="relative flex-1">
+              <input
+                type="text"
+                id="couponInput"
+                placeholder="Gutscheincode eingeben (z.B. SOUND10)..."
+                class="w-full text-xs font-medium rounded-xl pl-9 pr-4 py-3 border focus:ring-2 focus:ring-brand-orange/40 focus:outline-none transition uppercase tracking-wider placeholder:normal-case placeholder:tracking-normal placeholder:text-gray-500"
+                style="background-color: var(--search-bg); color: var(--search-text); border-color: var(--panel-border);"
+              >
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400 text-xs">
+                <i class="fa-solid fa-tag"></i>
+              </div>
+            </div>
+            <button
+              type="submit"
+              id="btnApplyCoupon"
+              class="px-6 py-3 rounded-xl bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-xs font-bold uppercase tracking-wider transition shadow flex items-center justify-center space-x-1.5 flex-shrink-0"
+            >
+              <i class="fa-solid fa-check text-xs"></i>
+              <span>Einlösen</span>
+            </button>
+          </form>
+
+          <!-- Feedback Alerts -->
+          <div id="couponSuccessAlert" class="hidden rounded-xl p-3 bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-circle-check text-sm"></i>
+              <span>Gutscheincode <strong id="couponAppliedLabel" class="font-mono">SOUND10</strong> aktiv! 10% Rabatt wurden abgezogen.</span>
+            </div>
+            <button onclick="removeCoupon()" class="text-xs text-emerald-300 hover:text-white underline font-semibold ml-2">
+              Entfernen
+            </button>
+          </div>
+
+          <div id="couponErrorAlert" class="hidden rounded-xl p-3 bg-red-500/15 border border-red-500/30 text-red-400 text-xs flex items-center space-x-2">
+            <i class="fa-solid fa-circle-exclamation text-sm"></i>
+            <span id="couponErrorMsg">Ungültiger Aktionscode. Probiere zum Testen den Code <strong>SOUND10</strong>.</span>
+          </div>
+
+          <div class="text-[11px] text-gray-400 flex items-center space-x-1.5">
+            <i class="fa-solid fa-circle-info text-brand-orange"></i>
+            <span>Tipp für Tester: Nutze den Rabattcode <strong>SOUND10</strong> für 10% Direktabzug.</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===================================================================== -->
+      <!-- RECHTE SPALTE (4 Cols): Sticky Kassen-Zusammenfassung & Checkout      -->
+      <!-- ===================================================================== -->
+      <aside class="lg:col-span-4 sticky top-24 space-y-6">
+
+        <div class="rounded-2xl p-5 sm:p-6 border shadow-xl space-y-5" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+
+          <!-- Box-Titel -->
+          <h2 class="font-racing text-xl sm:text-2xl uppercase font-black tracking-wide pb-3 border-b flex items-center justify-between" style="color: var(--text-main); border-color: var(--panel-border);">
+            <span>Bestellübersicht</span>
+            <i class="fa-solid fa-receipt text-brand-orange text-lg"></i>
+          </h2>
+
+          <!-- 1. VERSANDKOSTEN-FORTSCHRITTSBALKEN -->
+          <div class="rounded-xl p-3.5 bg-black/20 border border-white/5 space-y-2">
+            <div class="flex items-center justify-between text-xs font-semibold">
+              <span id="shippingProgressText" class="text-emerald-400 flex items-center space-x-1.5">
+                <i class="fa-solid fa-truck-fast"></i>
+                <span>Gratis Versand erreicht!</span>
+              </span>
+              <span class="text-gray-400 text-[11px]">ab 100 € frei</span>
+            </div>
+            <div class="w-full bg-gray-700/50 h-2 rounded-full overflow-hidden">
+              <div id="shippingProgressBar" class="bg-emerald-500 h-full rounded-full transition-all duration-500" style="width: 100%;"></div>
+            </div>
+            <div class="text-[10px] text-gray-400 flex items-center justify-between">
+              <span>0 €</span>
+              <span>100 € Schwelle</span>
+            </div>
+          </div>
+
+          <!-- 2. SUMMEN-AUFSTELLUNG -->
+          <div class="space-y-3 text-xs sm:text-sm font-medium pt-1">
+
+            <div class="flex items-center justify-between">
+              <span class="text-gray-400">Artikel-Zwischensumme:</span>
+              <span id="sumSubtotal" class="font-bold" style="color: var(--text-main);">2.499,00 €</span>
+            </div>
+
+            <!-- Rabatt Zeile (initial verborgen) -->
+            <div id="rowDiscount" class="hidden flex items-center justify-between text-emerald-400 font-bold">
+              <span class="flex items-center space-x-1">
+                <span>Rabatt (<span id="discountPercentText">10%</span>):</span>
+              </span>
+              <span id="sumDiscount">-249,90 €</span>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-gray-400 flex items-center space-x-1">
+                <span>Versandkosten (DE):</span>
+                <i class="fa-solid fa-circle-info text-[11px] text-gray-500 cursor-pointer" title="Kostenloser Standard- & Speditionsversand innerhalb Deutschlands ab 100 € Warenwert."></i>
+              </span>
+              <span id="sumShipping" class="font-bold text-emerald-400">0,00 € (Kostenlos)</span>
+            </div>
+
+            <div class="flex items-center justify-between text-xs text-gray-400">
+              <span>Darin enthaltene 19% MwSt.:</span>
+              <span id="sumVat" class="font-mono">398,99 €</span>
+            </div>
+
+            <div class="pt-3 border-t flex items-baseline justify-between" style="border-color: var(--panel-border);">
+              <div>
+                <span class="font-racing text-base uppercase font-bold tracking-wider" style="color: var(--text-main);">Gesamtbetrag</span>
+                <span class="block text-[10px] text-gray-400">inkl. MwSt. & Versand</span>
+              </div>
+              <span id="sumTotal" class="font-racing text-3xl sm:text-4xl font-black text-brand-orange leading-none">
+                2.499,00 €
+              </span>
+            </div>
+
+          </div>
+
+          <!-- 3. HAUPT-CTA: SICHER ZUR KASSE -->
+          <div class="pt-2 space-y-3">
+            <button
+              id="btnMainCheckout"
+              onclick="startCheckout()"
+              class="w-full py-4 px-6 rounded-xl bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-xl uppercase tracking-wider font-extrabold transition shadow-xl hover:shadow-brand-orange/20 flex items-center justify-center space-x-2.5 group"
+            >
+              <i class="fa-solid fa-lock text-base text-orange-200"></i>
+              <span>Sicher zur Kasse gehen</span>
+              <i class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
+            </button>
+
+            <!-- Express-Checkout Trenner -->
+            <div class="relative flex py-2 items-center">
+              <div class="flex-grow border-t" style="border-color: var(--panel-border);"></div>
+              <span class="flex-shrink mx-3 text-[11px] uppercase tracking-wider text-gray-400 font-racing font-bold">— oder Express-Kauf —</span>
+              <div class="flex-grow border-t" style="border-color: var(--panel-border);"></div>
+            </div>
+
+            <!-- Express-Checkout Buttons -->
+            <div class="space-y-2">
+              <!-- PayPal Express Button -->
+              <button
+                onclick="payWithPayPal()"
+                class="w-full py-3 px-4 rounded-xl bg-[#FFC439] hover:bg-[#F2BA36] text-[#003087] font-sans font-bold text-xs sm:text-sm transition shadow flex items-center justify-center space-x-2"
+                title="Mit PayPal Express bezahlen"
+              >
+                <span>Direkt zu</span>
+                <span class="font-bold tracking-tight text-sm"><i class="fa-brands fa-paypal text-base text-[#003087]"></i> PayPal</span>
+              </button>
+
+              <!-- Klarna Express Button -->
+              <button
+                onclick="payWithKlarna()"
+                class="w-full py-3 px-4 rounded-xl bg-[#FFB3C7] hover:bg-[#F5A3B8] text-[#0A0A0A] font-sans font-bold text-xs sm:text-sm transition shadow flex items-center justify-center space-x-2"
+                title="Mit Klarna Sofort bezahlen"
+              >
+                <span>Sofort bezahlen mit</span>
+                <span class="font-extrabold tracking-wider">Klarna.</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 4. VERBRAUCHER- & SICHERHEITS-GARANTIEN (AUTODOC-STYLE) -->
+          <div class="pt-4 border-t space-y-3" style="border-color: var(--panel-border);">
+            <div class="flex items-start space-x-3 text-xs">
+              <div class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div>
+                <strong class="font-bold text-emerald-400">100% Passform-Garantie:</strong>
+                <p class="text-gray-400 text-[11px] mt-0.5">Meister-Vorabprüfung jeder Bestellung anhand deiner Fahrzeug-Schlüsselnummern.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3 text-xs">
+              <div class="w-6 h-6 rounded-lg bg-blue-500/15 text-blue-400 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">
+                <i class="fa-solid fa-arrow-rotate-left"></i>
+              </div>
+              <div>
+                <strong class="font-bold" style="color: var(--text-main);">30 Tage Rückgaberecht:</strong>
+                <p class="text-gray-400 text-[11px] mt-0.5">Kostenloser Rückversand innerhalb Deutschlands & unkomplizierte Rückabwicklung.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3 text-xs">
+              <div class="w-6 h-6 rounded-lg bg-slate-500/15 text-slate-300 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <div>
+                <strong class="font-bold" style="color: var(--text-main);">SSL-Verschlüsselung:</strong>
+                <p class="text-gray-400 text-[11px] mt-0.5">256-Bit TLS-Verschlüsselung nach modernsten Sicherheits- und Bankenstandards.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3 text-xs">
+              <div class="w-6 h-6 rounded-lg bg-amber-500/15 text-amber-400 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">
+                <i class="fa-solid fa-award"></i>
+              </div>
+              <div>
+                <strong class="font-bold" style="color: var(--text-main);">Autorisierter Vertragshändler:</strong>
+                <p class="text-gray-400 text-[11px] mt-0.5">100% originale Neuware direkt von Ragazzon, REMUS, Eisenmann & Milltek.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. ZAHLUNGSMETHODEN ICONS -->
+          <div class="pt-3 border-t text-center space-y-2" style="border-color: var(--panel-border);">
+            <div class="text-[10px] uppercase font-bold tracking-wider text-gray-500">Sichere Zahlungsarten</div>
+            <div class="flex flex-wrap items-center justify-center gap-2 text-gray-400 text-lg">
+              <span class="px-2 py-1 rounded bg-black/20 border border-white/5 text-xs font-bold text-blue-400"><i class="fa-brands fa-paypal mr-1"></i>PayPal</span>
+              <span class="px-2 py-1 rounded bg-black/20 border border-white/5 text-xs font-bold text-pink-400">Klarna</span>
+              <span class="px-2 py-1 rounded bg-black/20 border border-white/5 text-xs font-bold text-emerald-400"><i class="fa-solid fa-credit-card mr-1"></i>Visa / MC</span>
+              <span class="px-2 py-1 rounded bg-black/20 border border-white/5 text-xs font-bold text-gray-300"><i class="fa-brands fa-apple mr-1"></i>Apple Pay</span>
+              <span class="px-2 py-1 rounded bg-black/20 border border-white/5 text-xs font-bold text-gray-300"><i class="fa-brands fa-google mr-1"></i>G Pay</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Hotline Card -->
+        <div class="rounded-2xl p-4 border flex items-center space-x-3.5 shadow-sm text-xs" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+          <div class="w-10 h-10 rounded-xl bg-brand-orange/15 text-brand-orange flex items-center justify-center text-lg flex-shrink-0">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <div>
+            <div class="font-bold" style="color: var(--text-main);">Fragen zu Passform oder Montage?</div>
+            <div class="text-gray-400 text-[11px]">Kfz-Techniker Hotline: <a href="tel:+4937164638755" class="text-brand-orange font-bold hover:underline">+49 (0) 371 64 63 87 55</a></div>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE STICKY BOTTOM BAR (Nur auf Viewports < 640px)                       -->
+  <!-- ========================================================================= -->
+  <div id="mobileCartStickyBar" class="fixed bottom-0 inset-x-0 z-40 bg-gray-950/95 backdrop-blur-md border-t border-white/10 px-4 py-3 sm:hidden shadow-2xl flex items-center justify-between gap-3">
+    <div class="min-w-0">
+      <div class="text-[10px] text-gray-400 font-bold uppercase truncate">Gesamtbetrag (inkl. MwSt.)</div>
+      <div id="mobileBarTotal" class="font-racing text-xl font-extrabold text-brand-orange leading-tight">2.499,00 €</div>
+    </div>
+    <button onclick="startCheckout()" class="px-5 py-2.5 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-sm uppercase tracking-wider font-extrabold rounded-xl shadow-lg transition flex items-center space-x-1.5 flex-shrink-0">
+      <span>Zur Kasse</span>
+      <i class="fa-solid fa-arrow-right text-xs"></i>
+    </button>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- GARAGE AUSWAHL MODAL (Kompatibel mit konto.html & Header-Pill)            -->
+  <!-- ========================================================================= -->
+  <div id="garageModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="w-full max-w-xl rounded-2xl border p-6 shadow-2xl space-y-5 animate-in fade-in zoom-in-95 duration-200" style="background-color: var(--panel-bg); border-color: var(--panel-border);">
+      <div class="flex items-center justify-between pb-3 border-b" style="border-color: var(--panel-border);">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-brand-orange/15 text-brand-orange flex items-center justify-center text-lg">
+            <i class="fa-solid fa-warehouse"></i>
+          </div>
+          <div>
+            <h3 class="font-racing text-xl uppercase font-bold" style="color: var(--text-main);">Deine Kfz-Garage</h3>
+            <p class="text-xs text-gray-400">Wähle dein aktives Fahrzeug für Passform-Prüfung</p>
+          </div>
+        </div>
+        <button onclick="closeGarageModal()" class="text-gray-400 hover:text-white p-2">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <div class="space-y-3">
+        <!-- Fahrzeug 1 (Aktuell aktiv) -->
+        <div class="p-3.5 rounded-xl border-2 border-brand-orange bg-brand-orange/10 flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <i class="fa-solid fa-car-side text-brand-orange text-xl"></i>
+            <div>
+              <div class="font-bold text-sm" style="color: var(--text-main);">Audi RS6 Avant C8 (4.0 TFSI, 600 PS)</div>
+              <div class="text-xs text-gray-400">HSN: 1860 / TSN: ABD • Aktiv</div>
+            </div>
+          </div>
+          <span class="text-xs font-bold text-brand-orange uppercase px-2.5 py-1 rounded bg-brand-orange/20">Aktiv</span>
+        </div>
+
+        <!-- Fahrzeug 2 (Alternative) -->
+        <div onclick="selectCarInGarage('BMW M3 Competition (G80)', '0005 / CTH', '510 PS')" class="p-3.5 rounded-xl border border-white/10 hover:border-brand-orange/50 cursor-pointer flex items-center justify-between transition hover:bg-white/5">
+          <div class="flex items-center space-x-3">
+            <i class="fa-solid fa-car-side text-gray-400 text-xl"></i>
+            <div>
+              <div class="font-bold text-sm" style="color: var(--text-main);">BMW M3 Competition G80 (510 PS)</div>
+              <div class="text-xs text-gray-400">HSN: 0005 / TSN: CTH</div>
+            </div>
+          </div>
+          <button class="text-xs font-racing uppercase tracking-wider text-gray-400 hover:text-white px-3 py-1 rounded-lg bg-white/5">Aktivieren</button>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t flex justify-end" style="border-color: var(--panel-border);">
+        <button onclick="closeGarageModal()" class="px-5 py-2 rounded-xl bg-brand-orange text-white text-xs font-racing font-bold uppercase tracking-wider">
+          Schließen
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- CHECKOUT DEMO MODAL                                                       -->
+  <!-- ========================================================================= -->
+  <div id="checkoutModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="w-full max-w-md rounded-2xl border p-6 shadow-2xl text-center space-y-4" style="background-color: var(--panel-bg); border-color: var(--panel-border);">
+      <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 mx-auto flex items-center justify-center text-2xl">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <h3 class="font-racing text-2xl uppercase font-bold" style="color: var(--text-main);">
+        Weiterleitung zur Kasse
+      </h3>
+      <p class="text-xs sm:text-sm text-gray-400">
+        Dies ist der interaktive Prototyp von Dein-Sportauspuff.de. Deine gewählten Artikel im Wert von <strong id="modalCheckoutTotal" class="text-brand-orange">2.499,00 €</strong> wurden sicher für den Bestellprozess vorbereitet!
+      </p>
+      <div class="pt-3 flex space-x-3">
+        <button onclick="closeCheckoutModal()" class="flex-1 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-racing uppercase font-bold transition">
+          Warenkorb bearbeiten
+        </button>
+        <button onclick="alert('Kaufprozess-Demo abgeschlossen!'); closeCheckoutModal();" class="flex-1 py-2.5 rounded-xl bg-brand-orange hover:bg-brand-orangeHover text-white text-xs font-racing uppercase font-bold transition shadow">
+          Weiter →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER                                                                    -->
+  <!-- ========================================================================= -->
+  <footer class="mt-auto border-t text-sm transition-colors duration-300" style="background-color: var(--tier1-bg); border-color: var(--panel-border);">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <img src="assets/dein-sportauspuff.svg" alt="Dein-Sportauspuff.de" class="h-7 w-auto mb-4">
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">
+            Dein führender Fachhändler für Sportauspuffanlagen, Klappenauspuffe und Soundupgrades für Audi, BMW, Mercedes-AMG, Porsche und viele mehr.
+          </p>
+          <div class="flex space-x-3 text-gray-400 text-sm">
+            <a href="#" class="w-8 h-8 rounded-lg bg-black/20 flex items-center justify-center hover:text-brand-orange transition"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="w-8 h-8 rounded-lg bg-black/20 flex items-center justify-center hover:text-brand-orange transition"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="w-8 h-8 rounded-lg bg-black/20 flex items-center justify-center hover:text-brand-orange transition"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-racing text-base uppercase tracking-wider font-bold mb-3" style="color: var(--text-main);">Shop & Kategorien</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="kategorie.html" class="hover:text-brand-orange">Sportauspuff Komplett</a></li>
+            <li><a href="kategorie.html#klappen" class="hover:text-brand-orange">Klappenauspuffanlagen</a></li>
+            <li><a href="kategorie.html#downpipes" class="hover:text-brand-orange">Downpipes & Sportkats</a></li>
+            <li><a href="kategorie.html#endrohre" class="hover:text-brand-orange">Endrohre & Diffusoren</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-racing text-base uppercase tracking-wider font-bold mb-3" style="color: var(--text-main);">Top Marken</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="kategorie.html?brand=Ragazzon" class="hover:text-brand-orange">Ragazzon Exhaust</a></li>
+            <li><a href="kategorie.html?brand=Eisenmann" class="hover:text-brand-orange">Eisenmann Exhaust Systems</a></li>
+            <li><a href="kategorie.html?brand=Milltek" class="hover:text-brand-orange">Milltek Sport</a></li>
+            <li><a href="kategorie.html?brand=REMUS" class="hover:text-brand-orange">REMUS Sport Exhaust</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-racing text-base uppercase tracking-wider font-bold mb-3" style="color: var(--text-main);">Sicherheit & Service</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#" class="hover:text-brand-orange">100% Passformgarantie</a></li>
+            <li><a href="#" class="hover:text-brand-orange">ECE / ABE Gutachtenservice</a></li>
+            <li><a href="#" class="hover:text-brand-orange">Bundesweiter Montageservice</a></li>
+            <li><a href="#" class="hover:text-brand-orange">30 Tage Rückgaberecht</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 mt-8 border-t flex flex-col sm:flex-row items-center justify-between text-gray-500 text-xs" style="border-color: var(--panel-border);">
+        <div>© 2026 Dein-Sportauspuff.de — Alle Rechte vorbehalten.</div>
+        <div class="flex space-x-6 mt-3 sm:mt-0">
+          <a href="#" class="hover:text-gray-300">Impressum</a>
+          <a href="#" class="hover:text-gray-300">Datenschutz</a>
+          <a href="#" class="hover:text-gray-300">AGB</a>
+          <a href="index.html" class="hover:text-brand-orange">Zurück zur Startseite</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- WARENKORB INTERAKTIVE LOGIK & STATE MANAGEMENT                            -->
+  <!-- ========================================================================= -->
+  <script>
+    // 1. Warenkorb State
+    const cartState = {
+      items: [
+        {
+          id: 'ragazzon',
+          name: 'Ragazzon Duplex Klappenauspuffanlage ab OPF',
+          brand: 'Ragazzon',
+          artNr: '50.0912.80',
+          price: 2499.00,
+          qty: 1,
+          image: 'assets/audi-rs6-ragazzon.jpg',
+          badges: ['ECE-Genehmigung', 'Edelstahl V2A', '2x 76mm'],
+          delivery: 'Auf Lager – Versandfertig in 24h',
+          isUpsell: false
+        }
+      ],
+      upsellsAvailable: {
+        gummis: {
+          id: 'gummis',
+          name: 'Verstärkte HD-PU Auspuffgummis (4er-Set)',
+          brand: 'Powerflex / Dein-Sportauspuff HD',
+          artNr: 'PU-HD-RS6-4',
+          price: 29.90,
+          qty: 1,
+          icon: 'fa-ring',
+          delivery: 'Auf Lager – Versandfertig in 24h',
+          isUpsell: true
+        },
+        paste: {
+          id: 'paste',
+          name: 'Hochtemperatur-Montagepaste (150g Tube)',
+          brand: 'Liqui Moly / Exhaust Pro',
+          artNr: 'HT-PASTE-150',
+          price: 12.90,
+          qty: 1,
+          icon: 'fa-fire-flame-curved',
+          delivery: 'Auf Lager – Versandfertig in 24h',
+          isUpsell: true
+        }
+      },
+      discountCode: '',
+      discountPercent: 0,
+      freeShippingThreshold: 100.00,
+      shippingRate: 5.90
+    };
+
+    // Hilfsfunktion: Formatierung Euro
+    function formatEuro(val) {
+      return val.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+    }
+
+    // 2. Mengen-Änderung (+ / -)
+    function changeQty(id, delta) {
+      const item = cartState.items.find(i => i.id === id);
+      if (!item) return;
+      const newQty = item.qty + delta;
+      if (newQty <= 0) {
+        removeItem(id);
+      } else {
+        item.qty = Math.min(newQty, 20);
+        renderCart();
+      }
+    }
+
+    // Direkte Mengeneingabe
+    function setQty(id, val) {
+      const item = cartState.items.find(i => i.id === id);
+      if (!item) return;
+      const parsed = parseInt(val, 10);
+      if (isNaN(parsed) || parsed <= 0) {
+        removeItem(id);
+      } else {
+        item.qty = Math.min(parsed, 20);
+        renderCart();
+      }
+    }
+
+    // 3. Artikel entfernen
+    function removeItem(id) {
+      const index = cartState.items.findIndex(i => i.id === id);
+      if (index === -1) return;
+
+      const removed = cartState.items.splice(index, 1)[0];
+
+      // Falls Upsell entfernt wurde, Button im Upsell-Bereich zurücksetzen
+      if (removed.isUpsell) {
+        updateUpsellButtonState(removed.id, false);
+      }
+
+      renderCart();
+    }
+
+    // 4. Upsell hinzufügen oder entfernen
+    function toggleUpsellItem(upsellKey) {
+      const upsellData = cartState.upsellsAvailable[upsellKey];
+      if (!upsellData) return;
+
+      const existingIndex = cartState.items.findIndex(i => i.id === upsellData.id);
+
+      if (existingIndex > -1) {
+        // Bereits vorhanden -> entfernen
+        cartState.items.splice(existingIndex, 1);
+        updateUpsellButtonState(upsellKey, false);
+      } else {
+        // Noch nicht vorhanden -> hinzufügen
+        cartState.items.push({
+          ...upsellData,
+          qty: 1
+        });
+        updateUpsellButtonState(upsellKey, true);
+      }
+
+      renderCart();
+    }
+
+    function updateUpsellButtonState(upsellKey, isAdded) {
+      const btn = document.getElementById('btnAddUpsell_' + upsellKey);
+      const card = document.getElementById('upsellCard_' + upsellKey);
+      if (!btn) return;
+
+      if (isAdded) {
+        btn.innerHTML = `<i class="fa-solid fa-check text-[10px]"></i><span>Hinzugefügt</span>`;
+        btn.className = "px-3.5 py-1.5 rounded-xl bg-emerald-600 text-white text-xs font-racing font-bold uppercase tracking-wider transition shadow flex items-center space-x-1.5";
+        if (card) card.classList.add('border-emerald-500/40', 'bg-emerald-500/5');
+      } else {
+        btn.innerHTML = `<i class="fa-solid fa-plus text-[10px]"></i><span>Hinzufügen</span>`;
+        btn.className = "px-3.5 py-1.5 rounded-xl bg-brand-orange hover:bg-brand-orangeHover text-white text-xs font-racing font-bold uppercase tracking-wider transition shadow flex items-center space-x-1.5";
+        if (card) card.classList.remove('border-emerald-500/40', 'bg-emerald-500/5');
+      }
+    }
+
+    // 5. Gutschein / Rabattcode einlösen
+    function handleApplyCoupon(e) {
+      e.preventDefault();
+      const input = document.getElementById('couponInput');
+      const successAlert = document.getElementById('couponSuccessAlert');
+      const errorAlert = document.getElementById('couponErrorAlert');
+      const errorMsg = document.getElementById('couponErrorMsg');
+      const appliedLabel = document.getElementById('couponAppliedLabel');
+
+      if (!input) return;
+      const code = input.value.trim().toUpperCase();
+
+      if (!code) {
+        if (errorAlert) {
+          errorMsg.innerText = 'Bitte gib einen Gutscheincode ein.';
+          errorAlert.classList.remove('hidden');
+        }
+        if (successAlert) successAlert.classList.add('hidden');
+        return;
+      }
+
+      // Validierung (z.B. SOUND10, RS6, RACE10)
+      if (code === 'SOUND10' || code === 'RS6' || code === 'RACE10') {
+        cartState.discountCode = code;
+        cartState.discountPercent = 10;
+
+        if (successAlert) {
+          if (appliedLabel) appliedLabel.innerText = code;
+          successAlert.classList.remove('hidden');
+        }
+        if (errorAlert) errorAlert.classList.add('hidden');
+        renderCart();
+      } else {
+        if (errorAlert) {
+          errorMsg.innerHTML = `Code <strong>${code}</strong> ungültig oder abgelaufen. Probiere den Code <strong>SOUND10</strong>.`;
+          errorAlert.classList.remove('hidden');
+        }
+        if (successAlert) successAlert.classList.add('hidden');
+      }
+    }
+
+    function removeCoupon() {
+      cartState.discountCode = '';
+      cartState.discountPercent = 0;
+      const input = document.getElementById('couponInput');
+      const successAlert = document.getElementById('couponSuccessAlert');
+      const errorAlert = document.getElementById('couponErrorAlert');
+      if (input) input.value = '';
+      if (successAlert) successAlert.classList.add('hidden');
+      if (errorAlert) errorAlert.classList.add('hidden');
+      renderCart();
+    }
+
+    // 6. Gesamten Warenkorb leeren
+    function clearCart() {
+      if (cartState.items.length === 0) return;
+      if (confirm('Möchtest du den gesamten Warenkorb wirklich leeren?')) {
+        cartState.items = [];
+        updateUpsellButtonState('gummis', false);
+        updateUpsellButtonState('paste', false);
+        renderCart();
+      }
+    }
+
+    // Beispiel-Warenkorb wiederherstellen
+    function restoreDefaultCart() {
+      cartState.items = [
+        {
+          id: 'ragazzon',
+          name: 'Ragazzon Duplex Klappenauspuffanlage ab OPF',
+          brand: 'Ragazzon',
+          artNr: '50.0912.80',
+          price: 2499.00,
+          qty: 1,
+          image: 'assets/audi-rs6-ragazzon.jpg',
+          badges: ['ECE-Genehmigung', 'Edelstahl V2A', '2x 76mm'],
+          delivery: 'Auf Lager – Versandfertig in 24h',
+          isUpsell: false
+        }
+      ];
+      renderCart();
+    }
+
+    // 7. Render-Funktion
+    function renderCart() {
+      const itemsList = document.getElementById('cartItemsList');
+      const emptyState = document.getElementById('emptyCartState');
+      const btnClear = document.getElementById('btnClearCart');
+      const upsellSection = document.getElementById('upsellSection');
+      const ragazzonRow = document.getElementById('itemRow_ragazzon');
+      const dynamicUpsellContainer = document.getElementById('dynamicUpsellItemsContainer');
+
+      // 1. Empty State Handling
+      if (cartState.items.length === 0) {
+        if (itemsList) itemsList.classList.add('hidden');
+        if (emptyState) emptyState.classList.remove('hidden');
+        if (btnClear) btnClear.classList.add('hidden');
+        // Mobile Sticky Bar ausblenden
+        const mobileBar = document.getElementById('mobileCartStickyBar');
+        if (mobileBar) mobileBar.classList.add('hidden');
+      } else {
+        if (itemsList) itemsList.classList.remove('hidden');
+        if (emptyState) emptyState.classList.add('hidden');
+        if (btnClear) btnClear.classList.remove('hidden');
+        const mobileBar = document.getElementById('mobileCartStickyBar');
+        if (mobileBar) mobileBar.classList.remove('hidden');
+      }
+
+      // 2. Hauptartikel Ragazzon prüfen & updaten
+      const ragazzonItem = cartState.items.find(i => i.id === 'ragazzon');
+      if (ragazzonItem) {
+        if (ragazzonRow) {
+          ragazzonRow.classList.remove('hidden');
+          const qtyInput = document.getElementById('qty_ragazzon');
+          const priceDisplay = document.getElementById('price_ragazzon');
+          if (qtyInput) qtyInput.value = ragazzonItem.qty;
+          if (priceDisplay) priceDisplay.innerText = formatEuro(ragazzonItem.price * ragazzonItem.qty);
+        }
+      } else {
+        if (ragazzonRow) ragazzonRow.classList.add('hidden');
+      }
+
+      // 3. Dynamische Zubehör-Zeilen rendern
+      if (dynamicUpsellContainer) {
+        dynamicUpsellContainer.innerHTML = '';
+        const upsellItems = cartState.items.filter(i => i.isUpsell);
+
+        upsellItems.forEach(item => {
+          const itemRow = document.createElement('div');
+          itemRow.className = "rounded-2xl p-4 sm:p-5 border transition-all duration-200 shadow-sm relative group";
+          itemRow.style.backgroundColor = "var(--panel-card)";
+          itemRow.style.borderColor = "var(--panel-border)";
+
+          itemRow.innerHTML = `
+            <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+              <div class="w-full sm:w-28 h-24 sm:h-24 rounded-xl overflow-hidden bg-black/20 border flex-shrink-0 flex items-center justify-center text-brand-orange text-3xl" style="border-color: var(--panel-border);">
+                <i class="fa-solid ${item.icon || 'fa-box'}"></i>
+              </div>
+
+              <div class="flex-1 flex flex-col justify-between space-y-2">
+                <div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-[11px] font-bold text-brand-orange uppercase tracking-wider">${item.brand} • Art.-Nr.: <span class="font-mono text-gray-400">${item.artNr}</span></span>
+                    <button onclick="removeItem('${item.id}')" class="text-gray-400 hover:text-red-400 transition text-xs flex items-center space-x-1 p-1" title="Entfernen">
+                      <i class="fa-regular fa-trash-can"></i>
+                      <span class="sm:hidden text-[11px]">Entfernen</span>
+                    </button>
+                  </div>
+                  <h3 class="font-racing text-base sm:text-lg font-bold uppercase tracking-wide mt-0.5" style="color: var(--text-main);">${item.name}</h3>
+                  <div class="flex items-center space-x-2 text-xs font-semibold text-emerald-400 mt-1">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    <span>${item.delivery}</span>
+                  </div>
+                </div>
+
+                <div class="pt-2 border-t flex items-center justify-between gap-4" style="border-color: var(--panel-border);">
+                  <div class="flex items-center space-x-3">
+                    <span class="text-xs text-gray-400 font-medium">Menge:</span>
+                    <div class="flex items-center rounded-xl border border-white/10 bg-black/20 p-0.5">
+                      <button onclick="changeQty('${item.id}', -1)" class="w-7 h-7 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/10 transition">
+                        <i class="fa-solid fa-minus text-[10px]"></i>
+                      </button>
+                      <input
+                        type="number"
+                        value="${item.qty}"
+                        min="1"
+                        max="10"
+                        onchange="setQty('${item.id}', this.value)"
+                        class="w-10 text-center bg-transparent text-xs font-bold focus:outline-none border-0"
+                        style="color: var(--text-main);"
+                      >
+                      <button onclick="changeQty('${item.id}', 1)" class="w-7 h-7 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/10 transition">
+                        <i class="fa-solid fa-plus text-[10px]"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="text-right">
+                    <div class="text-[10px] text-gray-400">Einzelpreis: ${formatEuro(item.price)}</div>
+                    <div class="font-racing text-xl font-extrabold text-brand-orange leading-tight">${formatEuro(item.price * item.qty)}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          dynamicUpsellContainer.appendChild(itemRow);
+        });
+      }
+
+      // 4. Summen kalkulieren
+      let totalQty = 0;
+      let subtotal = 0;
+
+      cartState.items.forEach(i => {
+        totalQty += i.qty;
+        subtotal += (i.price * i.qty);
+      });
+
+      let discountAmount = 0;
+      if (cartState.discountPercent > 0 && subtotal > 0) {
+        discountAmount = (subtotal * cartState.discountPercent) / 100;
+      }
+
+      const discountedSubtotal = Math.max(0, subtotal - discountAmount);
+
+      // Versandkosten ermitteln
+      let shipping = 0;
+      if (discountedSubtotal > 0 && discountedSubtotal < cartState.freeShippingThreshold) {
+        shipping = cartState.shippingRate;
+      }
+
+      const grandTotal = discountedSubtotal > 0 ? (discountedSubtotal + shipping) : 0;
+      // 19% MwSt. (im Bruttobetrag enthalten)
+      const vat = grandTotal > 0 ? (grandTotal * 19) / 119 : 0;
+
+      // 5. DOM-Elemente aktualisieren
+      // Header-Badges
+      const headerBadge = document.getElementById('cartCountBadge');
+      const headerSum = document.getElementById('cartSumHeader');
+      const drawerSum = document.getElementById('drawerCartSum');
+      const cartCountTag = document.getElementById('cartCountTag');
+
+      if (headerBadge) headerBadge.innerText = totalQty;
+      if (headerSum) headerSum.innerText = formatEuro(grandTotal);
+      if (drawerSum) drawerSum.innerText = formatEuro(grandTotal);
+      if (cartCountTag) cartCountTag.innerText = totalQty === 1 ? '1 Artikel' : `${totalQty} Artikel`;
+
+      // Kassen-Zusammenfassung Spalte
+      const elSubtotal = document.getElementById('sumSubtotal');
+      const elDiscountRow = document.getElementById('rowDiscount');
+      const elDiscount = document.getElementById('sumDiscount');
+      const elDiscountPercentText = document.getElementById('discountPercentText');
+      const elShipping = document.getElementById('sumShipping');
+      const elVat = document.getElementById('sumVat');
+      const elTotal = document.getElementById('sumTotal');
+      const elMobileBarTotal = document.getElementById('mobileBarTotal');
+      const elModalTotal = document.getElementById('modalCheckoutTotal');
+
+      if (elSubtotal) elSubtotal.innerText = formatEuro(subtotal);
+
+      if (elDiscountRow) {
+        if (discountAmount > 0) {
+          elDiscountRow.classList.remove('hidden');
+          if (elDiscount) elDiscount.innerText = '-' + formatEuro(discountAmount);
+          if (elDiscountPercentText) elDiscountPercentText.innerText = `${cartState.discountPercent}%`;
+        } else {
+          elDiscountRow.classList.add('hidden');
+        }
+      }
+
+      if (elShipping) {
+        if (shipping === 0 && discountedSubtotal >= cartState.freeShippingThreshold) {
+          elShipping.innerHTML = `<span class="text-emerald-400 font-bold">0,00 € (Kostenlos)</span>`;
+        } else if (shipping === 0 && discountedSubtotal === 0) {
+          elShipping.innerText = '0,00 €';
+        } else {
+          elShipping.innerHTML = `<span class="text-gray-300">${formatEuro(shipping)}</span>`;
+        }
+      }
+
+      if (elVat) elVat.innerText = formatEuro(vat);
+      if (elTotal) elTotal.innerText = formatEuro(grandTotal);
+      if (elMobileBarTotal) elMobileBarTotal.innerText = formatEuro(grandTotal);
+      if (elModalTotal) elModalTotal.innerText = formatEuro(grandTotal);
+
+      // Versandkosten-Fortschrittsbalken aktualisieren
+      const shippingProgressText = document.getElementById('shippingProgressText');
+      const shippingProgressBar = document.getElementById('shippingProgressBar');
+
+      if (shippingProgressBar && shippingProgressText) {
+        if (discountedSubtotal >= cartState.freeShippingThreshold || discountedSubtotal === 0 && cartState.items.length === 0) {
+          shippingProgressBar.style.width = '100%';
+          shippingProgressBar.className = "bg-emerald-500 h-full rounded-full transition-all duration-500";
+          shippingProgressText.innerHTML = `<i class="fa-solid fa-truck-fast"></i><span>Gratis Versand erreicht! (Kostenloser Versand ab 100 €)</span>`;
+          shippingProgressText.className = "text-emerald-400 flex items-center space-x-1.5";
+        } else {
+          const diff = cartState.freeShippingThreshold - discountedSubtotal;
+          const pct = Math.min(100, Math.max(5, (discountedSubtotal / cartState.freeShippingThreshold) * 100));
+          shippingProgressBar.style.width = pct + '%';
+          shippingProgressBar.className = "bg-brand-orange h-full rounded-full transition-all duration-500";
+          shippingProgressText.innerHTML = `<i class="fa-solid fa-truck text-brand-orange"></i><span>Noch <strong>${formatEuro(diff)}</strong> bis zum Gratis-Versand!</span>`;
+          shippingProgressText.className = "text-brand-orange flex items-center space-x-1.5";
+        }
+      }
+
+      // Sync Upsell Buttons State
+      ['gummis', 'paste'].forEach(k => {
+        const isPresent = cartState.items.some(i => i.id === k);
+        updateUpsellButtonState(k, isPresent);
+      });
+    }
+
+    // 8. Kassen-Trigger & Checkout Modals
+    function startCheckout() {
+      if (cartState.items.length === 0) {
+        alert('Dein Warenkorb ist leer.');
+        return;
+      }
+      const modal = document.getElementById('checkoutModal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeCheckoutModal() {
+      const modal = document.getElementById('checkoutModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function payWithPayPal() {
+      if (cartState.items.length === 0) {
+        alert('Dein Warenkorb ist leer.');
+        return;
+      }
+      alert('Weiterleitung zu PayPal Express...');
+    }
+
+    function payWithKlarna() {
+      if (cartState.items.length === 0) {
+        alert('Dein Warenkorb ist leer.');
+        return;
+      }
+      alert('Weiterleitung zu Klarna Sofort bezahlen...');
+    }
+
+    // 9. Garage Modal
+    function openGarageModal() {
+      const modal = document.getElementById('garageModal');
+      if (modal) modal.classList.remove('hidden');
+    }
+    function closeGarageModal() {
+      const modal = document.getElementById('garageModal');
+      if (modal) modal.classList.add('hidden');
+    }
+    function selectCarInGarage(name, hsnTsn, power) {
+      alert(`Fahrzeug erfolgreich zu "${name}" (${hsnTsn}, ${power}) gewechselt!`);
+      closeGarageModal();
+    }
+
+    // 10. Mobile Drawer Toggle
+    function toggleMobileDrawer() {
+      const drawer = document.getElementById('mobileDrawer');
+      const icon = document.getElementById('mobileMenuIcon');
+      if (!drawer) return;
+      const isHidden = drawer.classList.contains('hidden');
+      if (isHidden) {
+        drawer.classList.remove('hidden');
+        if (icon) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-xmark');
+        }
+      } else {
+        drawer.classList.add('hidden');
+        if (icon) {
+          icon.classList.remove('fa-xmark');
+          icon.classList.add('fa-bars');
+        }
+      }
+    }
+
+    // Initialisierung beim Laden
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCart();
+    });
+  </script>
+</body>
+</html>
