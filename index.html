@@ -279,8 +279,8 @@
             <i id="themeQuickIcon" class="fa-solid fa-sun text-sm"></i>
           </button>
 
-          <!-- AutoDoc-Style Virtuelle Kfz-Garage Pill -->
-          <div id="activeCarPill" style="background-color: var(--car-pill-bg);" class="hidden sm:flex items-center rounded-xl px-3.5 py-2 cursor-pointer transition group border border-brand-orange/20 hover:border-brand-orange/50 shadow-sm" onclick="location.href='kategorie.html?brand=Audi&model=RS6'">
+          <!-- Kfz-Meister-Standard Virtuelle Kfz-Garage Pill -->
+          <div id="activeCarPill" style="background-color: var(--car-pill-bg);" class="hidden sm:flex items-center rounded-xl px-3.5 py-2 cursor-pointer transition group border border-brand-orange/20 hover:border-brand-orange/50 shadow-sm" onclick="onGaragePillClick()">
             <div class="w-8 h-8 rounded-lg bg-brand-orange/15 flex items-center justify-center text-brand-orange mr-2.5 shadow-inner relative">
               <i class="fa-solid fa-warehouse text-sm"></i>
               <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-gray-900"></span>
@@ -665,10 +665,10 @@
 
           <p style="color: var(--hero-bullets);" class="text-base sm:text-lg leading-relaxed max-w-xl font-medium transition-colors duration-300">
             Finde in Sekunden die exakt passende Sportabgasanlage für dein Auto.
-            Mit <strong>100% Passform-Garantie</strong> nach AutoDoc-Vorbild, sofortiger ECE-Gutachtenprüfung und bundesweitem Montageservice.
+            Mit <strong>100% Passform-Garantie</strong> durch Kfz-Meister-Vorabprüfung, sofortiger ECE-Gutachtenprüfung und bundesweitem Montageservice.
           </p>
 
-          <!-- AutoDoc-Style Trust-Bullets -->
+          <!-- Kfz-Meister-Standard Trust-Bullets -->
           <div class="pt-2 space-y-3 text-sm font-medium" style="color: var(--hero-bullets);">
             <div class="flex items-center space-x-3">
               <div class="w-6 h-6 rounded-full bg-amber-500/20 border border-amber-500 flex items-center justify-center text-amber-400 text-xs flex-shrink-0">
@@ -714,6 +714,7 @@
                   onclick="switchFinderTab('kfz')"
                   class="flex-1 py-3 px-3 text-center font-racing text-base sm:text-lg uppercase tracking-wider font-extrabold transition flex items-center justify-center space-x-2 text-brand-orange bg-white rounded-xl shadow-sm"
                 >
+                  <span class="relative flex h-2.5 w-2.5 mr-1.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-orange opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-orange"></span></span>
                   <i class="fa-solid fa-car text-brand-orange"></i>
                   <span>1. KFZ-Suche (Modell)</span>
                 </button>
@@ -896,6 +897,7 @@
                   onclick="submitCarSelection()"
                   class="btn-pulse w-full sm:w-auto px-8 py-4 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-xl uppercase tracking-wider font-extrabold rounded-xl shadow-xl hover:shadow-orange-500/30 transition transform active:scale-95 flex items-center justify-center space-x-2.5"
                 >
+                  <span class="relative flex h-2.5 w-2.5 mr-1"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-80"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span></span>
                   <i class="fa-solid fa-magnifying-glass"></i>
                   <span id="btnSubmitKfzText">Passende Sportauspuffe finden</span>
                   <i class="fa-solid fa-chevron-right text-xs"></i>
@@ -2176,7 +2178,7 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 10. AUTODOC-INSPIRATION: 100% PASSFORM-GARANTIE & MONTAGENETZWERK         -->
+  <!-- 10. 100% PASSFORM-GARANTIE & MONTAGENETZWERK (KFZ-MEISTER-STANDARD)   -->
   <!-- ========================================================================= -->
   <section style="background-color: var(--page-bg); border-color: var(--panel-border);" class="py-16 border-b transition-colors duration-300">
     <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
@@ -2191,7 +2193,7 @@
           <div class="lg:col-span-7 space-y-6">
             <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full text-xs font-racing uppercase tracking-wider font-extrabold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
               <i class="fa-solid fa-shield-check text-xs"></i>
-              <span>AutoDoc-Vorbild: 100% Passform garantiert</span>
+              <span>Dein-Sportauspuff Meisterprüfung: 100% Passform garantiert</span>
             </div>
 
             <h2 class="font-racing text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase italic tracking-tight text-white leading-tight">
@@ -2916,8 +2918,10 @@
 
       // Pulse-Animation dezent dimmen/entfernen sobald Fahrzeugmarke gewählt ist
       const btnSubmit = document.getElementById('btnSubmitKfz');
+      const pill = document.getElementById('activeCarPill');
       if (brand) {
         if (btnSubmit) btnSubmit.classList.remove('btn-pulse');
+        if (pill) pill.classList.remove('garage-pulse');
       } else {
         if (btnSubmit) btnSubmit.classList.add('btn-pulse');
       }
@@ -2985,12 +2989,27 @@
       }
     }
 
+    function onGaragePillClick() {
+      const finder = document.getElementById('tabContentKfz');
+      if (finder) {
+        finder.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const pill = document.getElementById('activeCarPill');
+        if (pill) pill.classList.add('garage-pulse');
+        const btnSubmit = document.getElementById('btnSubmitKfz');
+        if (btnSubmit) btnSubmit.classList.add('btn-pulse');
+      } else {
+        location.href = 'kategorie.html?brand=Audi&model=RS6';
+      }
+    }
+
     function resetKfzFilter() {
       document.getElementById('nav_make').value = '';
       onBrandChange();
       document.getElementById('btnSubmitKfzText').innerText = "Passende Sportauspuffe finden";
       const btnSubmit = document.getElementById('btnSubmitKfz');
       if (btnSubmit) btnSubmit.classList.add('btn-pulse');
+      const pill = document.getElementById('activeCarPill');
+      if (pill) pill.classList.add('garage-pulse');
     }
 
     function submitCarSelection() {
