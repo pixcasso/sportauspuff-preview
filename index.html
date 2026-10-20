@@ -50,8 +50,8 @@
   <header style="background-color: var(--tier1-bg); color: var(--tier1-text);" class="w-full text-xs transition-colors duration-300">
     <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 h-10 flex items-center justify-between">
 
-      <!-- Links: Bewertung & Telefon-Hotline -->
-      <div class="flex items-center space-x-8">
+      <!-- Links: Bewertung, Top Shop 2026 Auszeichnung & Telefon-Hotline -->
+      <div class="flex items-center space-x-4 sm:space-x-6 lg:space-x-8">
         <div class="flex items-center space-x-2">
           <div class="flex text-amber-400 text-xs">
             <i class="fa-solid fa-star"></i>
@@ -64,7 +64,15 @@
           <span class="hidden sm:inline">(über 12.000 Bewertungen)</span>
         </div>
 
-        <div class="hidden md:flex items-center space-x-2">
+        <!-- Top Shop 2026 Auszeichnung -->
+        <div class="hidden md:flex items-center">
+          <span class="badge-topshop" title="Ausgezeichnet als Top Shop 2026 für exzellenten Service und Kundenzufriedenheit">
+            <i class="fa-solid fa-trophy"></i>
+            <span>Ausgezeichnet als Top Shop 2026 (5x in Folge)</span>
+          </span>
+        </div>
+
+        <div class="hidden lg:flex items-center space-x-2">
           <i class="fa-solid fa-phone text-brand-orange"></i>
           <span>Kfz-Fachberatung: <strong class="hover:text-brand-orange transition cursor-pointer text-xs" style="color: var(--logo-text);">+49 (0) 371 64 63 87 55</strong></span>
           <span class="text-[11px] opacity-75">(Mo–Fr 8–18 Uhr)</span>
@@ -109,13 +117,14 @@
           <img src="assets/dein-sportauspuff.svg" alt="Dein-Sportauspuff.de" class="h-6 sm:h-7 lg:h-8 max-w-[190px] sm:max-w-[280px] lg:max-w-none w-auto object-contain transition-transform group-hover:scale-105">
         </a>
 
-        <!-- Die Kontrast-Suche (Clean, Borderless Pill-Design) -->
-        <div class="flex-1 max-w-2xl hidden md:block">
+        <!-- Die Kontrast-Suche (Clean, Borderless Pill-Design) mit Live-Vorschau Dropdown -->
+        <div class="flex-1 max-w-2xl hidden md:block relative">
           <form id="searchForm" action="suche.html" method="POST" class="relative">
             <input
               type="text"
               id="search_keys"
               name="search_keys"
+              autocomplete="off"
               style="background-color: var(--search-bg); color: var(--search-text);"
               placeholder="Fahrzeug, Modell, Artikel oder Motorcode suchen (z.B. Golf 7 GTI Fox, Audi RS6)..."
               class="w-full text-sm font-medium rounded-full pl-12 pr-28 py-3.5 border-0 focus:ring-2 focus:ring-brand-orange/40 focus:outline-none transition shadow-sm placeholder:text-gray-400"
@@ -128,6 +137,138 @@
               <i class="fa-solid fa-arrow-right text-[10px]"></i>
             </button>
           </form>
+
+          <!-- Live-Such-Vorschau Dropdown (#searchPreviewDropdown) -->
+          <div
+            id="searchPreviewDropdown"
+            class="hidden absolute top-full left-0 right-0 mt-2 rounded-2xl overflow-hidden z-50 text-left border shadow-2xl"
+          >
+            <!-- Trends & Häufig gesucht -->
+            <div class="p-4 border-b border-white/10" style="border-color: var(--panel-border);">
+              <div class="search-preview-section-title text-[10px] font-racing uppercase tracking-wider font-extrabold text-gray-400 mb-2.5 flex items-center space-x-1.5">
+                <i class="fa-solid fa-arrow-trend-up text-brand-orange text-xs"></i>
+                <span>Trends &amp; Häufig gesucht:</span>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <button type="button" class="search-trend-pill" data-search-term="Audi RS6 Ragazzon">
+                  <i class="fa-solid fa-magnifying-glass text-[10px] text-brand-orange"></i>
+                  <span>Audi RS6 Ragazzon</span>
+                </button>
+                <button type="button" class="search-trend-pill" data-search-term="Golf 8 GTI Fox">
+                  <i class="fa-solid fa-magnifying-glass text-[10px] text-brand-orange"></i>
+                  <span>Golf 8 GTI Fox</span>
+                </button>
+                <button type="button" class="search-trend-pill" data-search-term="BMW M340i Remus">
+                  <i class="fa-solid fa-magnifying-glass text-[10px] text-brand-orange"></i>
+                  <span>BMW M340i Remus</span>
+                </button>
+                <button type="button" class="search-trend-pill" data-search-term="Klappenauspuff ECE">
+                  <i class="fa-solid fa-certificate text-[10px] text-amber-400"></i>
+                  <span>Klappenauspuff ECE</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Sofort-Ergebnisse (3 Bestseller) -->
+            <div class="p-2 space-y-1">
+              <div class="search-preview-section-title px-3 pt-2 pb-1 text-[10px] font-racing uppercase tracking-wider font-extrabold text-gray-400">
+                Sofort verfügbare Bestseller
+              </div>
+
+              <!-- Bestseller 1: Audi RS6 Avant C8 Ragazzon -->
+              <a href="detail.html" class="search-preview-item flex items-center justify-between p-3 rounded-xl hover:bg-white/5 transition group border border-transparent">
+                <div class="flex items-center space-x-3 min-w-0">
+                  <div class="w-12 h-12 rounded-lg bg-black/20 flex-shrink-0 overflow-hidden flex items-center justify-center border border-white/10">
+                    <img src="assets/audi-rs6-ragazzon.jpg" alt="Audi RS6 Ragazzon" class="w-full h-full object-cover">
+                  </div>
+                  <div class="min-w-0">
+                    <div class="flex items-center space-x-2">
+                      <span class="text-xs font-bold truncate group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+                        Audi RS6 Avant C8 Ragazzon Klappenanlage
+                      </span>
+                      <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex-shrink-0">
+                        100% ECE
+                      </span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 flex items-center space-x-2 mt-0.5">
+                      <span>Art.-Nr. 50.0892.00</span>
+                      <span>•</span>
+                      <span class="text-emerald-500 font-semibold"><i class="fa-solid fa-check text-[9px] mr-1"></i>Auf Lager</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-right flex-shrink-0 pl-3">
+                  <div class="font-racing text-base font-extrabold text-brand-orange">2.499,00 €</div>
+                  <div class="text-[10px] text-gray-400">inkl. MwSt.</div>
+                </div>
+              </a>
+
+              <!-- Bestseller 2: VW Golf 8 GTI FOX -->
+              <a href="kategorie.html" class="search-preview-item flex items-center justify-between p-3 rounded-xl hover:bg-white/5 transition group border border-transparent">
+                <div class="flex items-center space-x-3 min-w-0">
+                  <div class="w-12 h-12 rounded-lg bg-black/20 flex-shrink-0 overflow-hidden flex items-center justify-center border border-white/10 text-brand-orange font-racing font-bold text-lg">
+                    FOX
+                  </div>
+                  <div class="min-w-0">
+                    <div class="flex items-center space-x-2">
+                      <span class="text-xs font-bold truncate group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+                        VW Golf 8 GTI FOX Duplex Sportauspuff
+                      </span>
+                      <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex-shrink-0">
+                        100% ECE
+                      </span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 flex items-center space-x-2 mt-0.5">
+                      <span>Art.-Nr. VW053034-776</span>
+                      <span>•</span>
+                      <span class="text-emerald-500 font-semibold"><i class="fa-solid fa-check text-[9px] mr-1"></i>Auf Lager</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-right flex-shrink-0 pl-3">
+                  <div class="font-racing text-base font-extrabold text-brand-orange">949,00 €</div>
+                  <div class="text-[10px] text-gray-400">inkl. MwSt.</div>
+                </div>
+              </a>
+
+              <!-- Bestseller 3: BMW M340i xDrive REMUS -->
+              <a href="detail.html" class="search-preview-item flex items-center justify-between p-3 rounded-xl hover:bg-white/5 transition group border border-transparent">
+                <div class="flex items-center space-x-3 min-w-0">
+                  <div class="w-12 h-12 rounded-lg bg-black/20 flex-shrink-0 overflow-hidden flex items-center justify-center border border-white/10 text-brand-orange font-racing font-bold text-xs">
+                    REMUS
+                  </div>
+                  <div class="min-w-0">
+                    <div class="flex items-center space-x-2">
+                      <span class="text-xs font-bold truncate group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+                        BMW M340i xDrive REMUS Klappenauspuff
+                      </span>
+                      <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex-shrink-0">
+                        100% ECE
+                      </span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 flex items-center space-x-2 mt-0.5">
+                      <span>Art.-Nr. 086020-1500</span>
+                      <span>•</span>
+                      <span class="text-emerald-500 font-semibold"><i class="fa-solid fa-check text-[9px] mr-1"></i>Auf Lager</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-right flex-shrink-0 pl-3">
+                  <div class="font-racing text-base font-extrabold text-brand-orange">2.190,00 €</div>
+                  <div class="text-[10px] text-gray-400">inkl. MwSt.</div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Dropdown Footer -->
+            <div class="search-preview-footer p-3 bg-black/20 border-t flex items-center justify-between text-xs" style="border-color: var(--panel-border);">
+              <span class="text-gray-400 text-[11px] hidden sm:inline">Drücke <kbd class="px-1.5 py-0.5 bg-black/30 rounded border border-white/10 font-mono text-[10px]">ESC</kbd> zum Schließen</span>
+              <a href="kategorie.html" class="text-brand-orange font-racing uppercase tracking-wider font-extrabold hover:underline flex items-center space-x-1.5 ml-auto">
+                <span>Alle Ergebnisse für Suche anzeigen</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
         </div>
 
         <!-- Rechte Aktionen -->
@@ -530,6 +671,12 @@
           <!-- AutoDoc-Style Trust-Bullets -->
           <div class="pt-2 space-y-3 text-sm font-medium" style="color: var(--hero-bullets);">
             <div class="flex items-center space-x-3">
+              <div class="w-6 h-6 rounded-full bg-amber-500/20 border border-amber-500 flex items-center justify-center text-amber-400 text-xs flex-shrink-0">
+                <i class="fa-solid fa-trophy"></i>
+              </div>
+              <span><strong>Ausgezeichnet als Top Shop 2026 (5x in Folge):</strong> Höchste Kundenzufriedenheit, Blitzversand & zertifizierte Fachberatung</span>
+            </div>
+            <div class="flex items-center space-x-3">
               <div class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500 flex items-center justify-center text-emerald-400 text-xs flex-shrink-0">
                 <i class="fa-solid fa-shield-check"></i>
               </div>
@@ -747,7 +894,7 @@
                 <button
                   id="btnSubmitKfz"
                   onclick="submitCarSelection()"
-                  class="w-full sm:w-auto px-8 py-4 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-xl uppercase tracking-wider font-extrabold rounded-xl shadow-xl hover:shadow-orange-500/30 transition transform active:scale-95 flex items-center justify-center space-x-2.5"
+                  class="btn-pulse w-full sm:w-auto px-8 py-4 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-xl uppercase tracking-wider font-extrabold rounded-xl shadow-xl hover:shadow-orange-500/30 transition transform active:scale-95 flex items-center justify-center space-x-2.5"
                 >
                   <i class="fa-solid fa-magnifying-glass"></i>
                   <span id="btnSubmitKfzText">Passende Sportauspuffe finden</span>
@@ -939,7 +1086,7 @@
         <a href="kategorie.html#klappen" class="group relative rounded-3xl overflow-hidden shadow-xl border hover:border-brand-orange transition-all duration-500 flex flex-col justify-between min-h-[380px]" style="border-color: var(--panel-border);">
           <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('assets/audi-rs6-ragazzon.jpg');"></div>
           <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/75 to-gray-950/30"></div>
-          
+
           <!-- Header Badge -->
           <div class="relative z-10 p-5 flex items-start justify-between">
             <span class="px-3 py-1.5 rounded-full text-[11px] font-racing uppercase font-extrabold tracking-wider bg-brand-orange text-white shadow-lg flex items-center space-x-1.5">
@@ -1148,7 +1295,7 @@
           <!-- Rechts: Der Sound-Player & Equalizer Visualizer -->
           <div class="lg:col-span-5">
             <div class="bg-black/50 border border-white/15 rounded-3xl p-6 sm:p-8 backdrop-blur-lg shadow-2xl space-y-6">
-              
+
               <div class="flex items-center justify-between border-b border-white/10 pb-4">
                 <div>
                   <span id="soundLabelTitle" class="font-racing text-lg font-bold uppercase tracking-wider text-white block">
@@ -1166,7 +1313,7 @@
               <!-- Equalizer Visualizer Animation -->
               <div class="h-28 bg-black/60 rounded-2xl border border-white/10 flex items-center justify-center px-6 relative overflow-hidden">
                 <div class="absolute inset-0 bg-gradient-to-r from-transparent via-brand-orange/10 to-transparent opacity-50"></div>
-                
+
                 <!-- 12 Equalizer Bars (.eq-bar-1 bis .eq-bar-6) -->
                 <div id="eqContainer" class="flex items-end justify-center space-x-2 h-16 w-full relative z-10">
                   <div class="w-2.5 bg-brand-orange rounded-full h-4 eq-bar-1 transition-all"></div>
@@ -2253,6 +2400,249 @@
   </section>
 
   <!-- ========================================================================= -->
+  <!-- 12. VISUELLER COMMUNITY-BLOCK (SOUNDCHECKS, REELS & FAHRER-COMMUNITY)      -->
+  <!-- ========================================================================= -->
+  <section style="background-color: var(--panel-bg); border-color: var(--panel-border);" class="py-16 border-b transition-colors duration-300">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
+
+      <!-- Header mit Eyebrow, Titel und Untertitel -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs font-bold font-racing uppercase tracking-wider bg-brand-orange/10 text-brand-orange border border-brand-orange/20 mb-3">
+          <i class="fa-solid fa-volume-high text-xs"></i>
+          <span>DEIN-SPORTAUSPUFF SOUND-COMMUNITY</span>
+        </div>
+        <h2 class="font-racing text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase italic tracking-tight" style="color: var(--text-main);">
+          WERDE TEIL DER SOUND-COMMUNITY
+        </h2>
+        <p class="text-sm sm:text-base mt-2 font-medium" style="color: var(--text-muted);">
+          Soundchecks auf YouTube &amp; Real-Life Stories auf Instagram &amp; Facebook
+        </p>
+      </div>
+
+      <!-- 4 responsive Kacheln: 1 Spalte mobil, 2 Spalten Tablet, 4 Spalten Desktop -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Kachel 1: YouTube Soundcheck Video -->
+        <div class="community-card rounded-2xl border overflow-hidden flex flex-col justify-between group cursor-pointer" style="background-color: var(--panel-card); border-color: var(--panel-border);" onclick="toggleAudioPlayback()" title="Klicken für interaktiven Soundcheck">
+          <!-- Video-Thumbnail Bereich -->
+          <div class="relative h-56 overflow-hidden bg-black/40">
+            <img src="assets/audi-rs6-ragazzon.jpg" alt="Audi RS6 C8 Ragazzon Soundcheck" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
+
+            <!-- YouTube Badge -->
+            <div class="absolute top-3 left-3 inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-red-600/90 text-white text-[11px] font-bold shadow-md">
+              <i class="fa-brands fa-youtube"></i>
+              <span>YouTube 4K</span>
+            </div>
+
+            <!-- Sound Wave / EQ Bars oben rechts -->
+            <div class="absolute top-3 right-3 flex items-end space-x-0.5 h-4 bg-black/60 px-2 py-1 rounded-md backdrop-blur-sm">
+              <span class="w-1 bg-red-400 rounded-full eq-bar-1"></span>
+              <span class="w-1 bg-red-400 rounded-full eq-bar-2"></span>
+              <span class="w-1 bg-red-400 rounded-full eq-bar-3"></span>
+              <span class="w-1 bg-red-400 rounded-full eq-bar-4"></span>
+            </div>
+
+            <!-- Großer Play Button zentriert -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-red-600/90 text-white flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:bg-red-600 transition-all duration-300">
+                <i class="fa-solid fa-play text-lg ml-1"></i>
+              </div>
+            </div>
+
+            <!-- Laufzeit & Views Pill -->
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] text-white/90 font-medium">
+              <span class="bg-black/70 px-2 py-0.5 rounded backdrop-blur-sm"><i class="fa-regular fa-clock mr-1 text-red-400"></i>04:18 Min</span>
+              <span class="bg-black/70 px-2 py-0.5 rounded backdrop-blur-sm"><i class="fa-regular fa-eye mr-1 text-red-400"></i>142.000 Views</span>
+            </div>
+          </div>
+
+          <!-- Video Text Details -->
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-[10px] font-racing uppercase tracking-wider text-red-500 font-extrabold mb-1">
+                Offizieller Soundcheck
+              </div>
+              <h3 class="font-racing text-xl font-bold uppercase italic leading-tight group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+                Audi RS6 C8 Ragazzon Klappe offen Soundcheck (Kaltstart &amp; Volllast)
+              </h3>
+              <p class="text-xs mt-2 line-clamp-2" style="color: var(--text-muted);">
+                Klappenauspuffanlage mit OPF-Ersatzrohr &amp; 100% ECE-EG Genehmigung im direkten Akustik-Vergleich.
+              </p>
+            </div>
+
+            <div class="pt-4 mt-4 border-t flex items-center justify-between text-xs font-bold text-red-500 group-hover:text-red-400 transition-colors" style="border-color: var(--panel-border);">
+              <span class="flex items-center space-x-1.5">
+                <i class="fa-solid fa-headphones"></i>
+                <span>Jetzt reinhören</span>
+              </span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kachel 2: Instagram Reel 1 (VW Golf 8 GTI FOX Duplex) -->
+        <div class="community-card rounded-2xl border overflow-hidden flex flex-col justify-between group cursor-pointer" style="background-color: var(--panel-card); border-color: var(--panel-border);" onclick="location.href='kategorie.html?brand=Volkswagen&model=Golf%20VIII%20(8)'">
+          <!-- Reel Bild / Header -->
+          <div class="relative h-56 overflow-hidden bg-gradient-to-br from-indigo-900/40 via-purple-900/30 to-pink-900/40">
+            <div class="absolute inset-0 flex flex-col justify-between p-4">
+              <div class="flex items-center justify-between z-10">
+                <div class="flex items-center space-x-2 bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                  <div class="w-5 h-5 rounded-full bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 flex items-center justify-center text-white text-[10px]">
+                    <i class="fa-brands fa-instagram"></i>
+                  </div>
+                  <span class="text-[11px] font-bold text-white">@dein_sportauspuff</span>
+                  <i class="fa-solid fa-circle-check text-blue-400 text-[10px]"></i>
+                </div>
+                <span class="bg-black/60 px-2 py-0.5 rounded text-[10px] text-pink-300 font-bold backdrop-blur-sm">Reel</span>
+              </div>
+
+              <!-- Mittiges Emblem -->
+              <div class="text-center my-auto">
+                <div class="inline-flex w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 items-center justify-center text-white group-hover:scale-110 transition-transform">
+                  <i class="fa-solid fa-play text-pink-400 ml-0.5"></i>
+                </div>
+                <div class="text-xs font-racing font-bold uppercase tracking-wider text-pink-200 mt-2">
+                  Vorher / Nachher Sound
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between text-[11px] text-white/90 z-10">
+                <span class="flex items-center space-x-1"><i class="fa-solid fa-heart text-pink-500"></i> <span>8.420</span></span>
+                <span class="flex items-center space-x-1"><i class="fa-solid fa-comment text-white/80"></i> <span>284</span></span>
+              </div>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
+          </div>
+
+          <!-- Text Details -->
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-[10px] font-racing uppercase tracking-wider text-pink-500 font-extrabold mb-1">
+                Instagram Real-Life Reel
+              </div>
+              <h3 class="font-racing text-xl font-bold uppercase italic leading-tight group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+                VW Golf 8 GTI – FOX Duplex OPF-Back Einbau &amp; Soundvergleich
+              </h3>
+              <p class="text-xs mt-2 line-clamp-2" style="color: var(--text-muted);">
+                Kundenstory: Schnelle Montage in unserer Partnerwerkstatt. Dezent im Comfort-Modus, kernig und dumpf im Sport-Modus.
+              </p>
+            </div>
+
+            <div class="pt-4 mt-4 border-t flex items-center justify-between text-xs font-bold text-pink-500 group-hover:text-pink-400 transition-colors" style="border-color: var(--panel-border);">
+              <span class="flex items-center space-x-1.5">
+                <i class="fa-brands fa-instagram"></i>
+                <span>Reel auf Instagram ansehen</span>
+              </span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kachel 3: Instagram Reel 2 (BMW M340i xDrive REMUS Klappenanlage) -->
+        <div class="community-card rounded-2xl border overflow-hidden flex flex-col justify-between group cursor-pointer" style="background-color: var(--panel-card); border-color: var(--panel-border);" onclick="location.href='detail.html'">
+          <!-- Reel Bild / Header -->
+          <div class="relative h-56 overflow-hidden bg-gradient-to-br from-blue-950 via-slate-900 to-sky-950">
+            <div class="absolute inset-0 flex flex-col justify-between p-4">
+              <div class="flex items-center justify-between z-10">
+                <div class="flex items-center space-x-2 bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                  <div class="w-5 h-5 rounded-full bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 flex items-center justify-center text-white text-[10px]">
+                    <i class="fa-brands fa-instagram"></i>
+                  </div>
+                  <span class="text-[11px] font-bold text-white">@dein_sportauspuff</span>
+                  <i class="fa-solid fa-circle-check text-blue-400 text-[10px]"></i>
+                </div>
+                <span class="bg-black/60 px-2 py-0.5 rounded text-[10px] text-emerald-400 font-bold backdrop-blur-sm">100% ECE</span>
+              </div>
+
+              <!-- Mittiges Emblem -->
+              <div class="text-center my-auto">
+                <div class="inline-flex w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 items-center justify-center text-white group-hover:scale-110 transition-transform">
+                  <i class="fa-solid fa-play text-brand-orange ml-0.5"></i>
+                </div>
+                <div class="text-xs font-racing font-bold uppercase tracking-wider text-sky-200 mt-2">
+                  B58 6-Zylinder Klappensound
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between text-[11px] text-white/90 z-10">
+                <span class="flex items-center space-x-1"><i class="fa-solid fa-heart text-pink-500"></i> <span>11.950</span></span>
+                <span class="flex items-center space-x-1"><i class="fa-solid fa-comment text-white/80"></i> <span>412</span></span>
+              </div>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
+          </div>
+
+          <!-- Text Details -->
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-[10px] font-racing uppercase tracking-wider text-brand-orange font-extrabold mb-1">
+                Kunden-Highlights
+              </div>
+              <h3 class="font-racing text-xl font-bold uppercase italic leading-tight group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+                BMW M340i xDrive – Remus Klappenanlage mit 100% ECE-Zulassung
+              </h3>
+              <p class="text-xs mt-2 line-clamp-2" style="color: var(--text-muted);">
+                Echtes Reihen-Sechszylinder-Brüllen ohne OPF-Fehlermeldung. Steuerung über das originale BMW Drive Select.
+              </p>
+            </div>
+
+            <div class="pt-4 mt-4 border-t flex items-center justify-between text-xs font-bold text-brand-orange group-hover:text-brand-orangeHover transition-colors" style="border-color: var(--panel-border);">
+              <span class="flex items-center space-x-1.5">
+                <i class="fa-solid fa-car-side"></i>
+                <span>Zum Produkt im Shop</span>
+              </span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kachel 4: Community & Facebook-Gruppe -->
+        <div class="community-card rounded-2xl border overflow-hidden flex flex-col justify-between group p-6" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center text-2xl shadow-lg">
+                <i class="fa-brands fa-facebook-f"></i>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-400 text-[11px] font-bold">
+                Offizielle Gruppe
+              </span>
+            </div>
+
+            <h3 class="font-racing text-2xl font-bold uppercase italic leading-tight group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Über 15.000 begeisterte Tuning-Kunden
+            </h3>
+
+            <p class="text-xs mt-2.5 leading-relaxed" style="color: var(--text-muted);">
+              Tausche dich mit Fahrern deiner Marke aus: Sound-Files, Montage-Tipps, Vorher-Nachher Messungen &amp; exklusive Community-Aktionen.
+            </p>
+
+            <!-- Community Avatar Stapel -->
+            <div class="pt-5 flex items-center space-x-2">
+              <div class="flex -space-x-2 overflow-hidden">
+                <div class="inline-block h-8 w-8 rounded-full ring-2 ring-gray-900 bg-brand-orange text-white text-xs font-bold flex items-center justify-center">MK</div>
+                <div class="inline-block h-8 w-8 rounded-full ring-2 ring-gray-900 bg-emerald-600 text-white text-xs font-bold flex items-center justify-center">RS</div>
+                <div class="inline-block h-8 w-8 rounded-full ring-2 ring-gray-900 bg-purple-600 text-white text-xs font-bold flex items-center justify-center">TB</div>
+                <div class="inline-block h-8 w-8 rounded-full ring-2 ring-gray-900 bg-amber-600 text-white text-xs font-bold flex items-center justify-center">DL</div>
+              </div>
+              <span class="text-xs font-extrabold text-brand-orange">+15.420 Mitglieder</span>
+            </div>
+          </div>
+
+          <div class="pt-6">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 bg-brand-orange hover:bg-brand-orangeHover text-white rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center justify-center space-x-2 shadow-md transition group-hover:shadow-lg">
+              <span>Community beitreten</span>
+              <i class="fa-solid fa-arrow-right text-[11px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
   <!-- 8. FLOATING BERATER-WIDGET                                                -->
   <!-- ========================================================================= -->
   <div class="fixed bottom-6 right-6 z-40">
@@ -2524,6 +2914,14 @@
       yearSelect.disabled = true;
       engineSelect.disabled = true;
 
+      // Pulse-Animation dezent dimmen/entfernen sobald Fahrzeugmarke gewählt ist
+      const btnSubmit = document.getElementById('btnSubmitKfz');
+      if (brand) {
+        if (btnSubmit) btnSubmit.classList.remove('btn-pulse');
+      } else {
+        if (btnSubmit) btnSubmit.classList.add('btn-pulse');
+      }
+
       if (brand && vehicleDatabase[brand]) {
         modelSelect.disabled = false;
         modelSelect.className = "js_select w-full bg-white text-gray-900 text-sm font-semibold rounded-xl px-4 py-3 border border-gray-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 focus:outline-none appearance-none cursor-pointer shadow-sm";
@@ -2591,6 +2989,8 @@
       document.getElementById('nav_make').value = '';
       onBrandChange();
       document.getElementById('btnSubmitKfzText').innerText = "Passende Sportauspuffe finden";
+      const btnSubmit = document.getElementById('btnSubmitKfz');
+      if (btnSubmit) btnSubmit.classList.add('btn-pulse');
     }
 
     function submitCarSelection() {

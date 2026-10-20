@@ -138,10 +138,66 @@ function initDropdowns() {
   });
 }
 
+// 4. Live Search Preview Dropdown Logic
+function initSearchPreview() {
+  const searchInput = document.getElementById('search_keys');
+  const dropdown = document.getElementById('searchPreviewDropdown');
+  if (!searchInput || !dropdown) return;
+
+  function openDropdown() {
+    dropdown.classList.remove('hidden');
+  }
+
+  function closeDropdown() {
+    dropdown.classList.add('hidden');
+  }
+
+  searchInput.addEventListener('focus', openDropdown);
+  searchInput.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openDropdown();
+  });
+
+  // Trend-Pills Klick: Begriff direkt einsetzen & Dropdown offen halten
+  dropdown.querySelectorAll('.search-trend-pill').forEach(pill => {
+    pill.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const term = pill.getAttribute('data-search-term') || pill.textContent.trim();
+      searchInput.value = term;
+      searchInput.focus();
+    });
+  });
+
+  // Klick innerhalb des Dropdowns nicht nach außen weiterleiten
+  dropdown.addEventListener('click', (e) => {
+    // Falls Klick auf Link oder Button, Link folgen lassen, sonst stopPropagation
+    if (e.target.closest('a')) {
+      return;
+    }
+    e.stopPropagation();
+  });
+
+  // Outside Click schließt Dropdown
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('#searchForm') && !e.target.closest('#searchPreviewDropdown')) {
+      closeDropdown();
+    }
+  });
+
+  // Escape-Taste schließt Dropdown
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeDropdown();
+    }
+  });
+}
+
 // Global Exports
 window.setTheme = setTheme;
 window.toggleThemeQuick = toggleThemeQuick;
 window.initDropdowns = initDropdowns;
+window.initSearchPreview = initSearchPreview;
 window.getUrlParams = getUrlParams;
 window.urlParams = getUrlParams();
 
@@ -150,8 +206,10 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initDropdowns();
+    initSearchPreview();
   });
 } else {
   initTheme();
   initDropdowns();
+  initSearchPreview();
 }

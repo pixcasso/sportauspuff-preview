@@ -509,3 +509,130 @@ html, body {
 body.theme-light #productGrid.view-list .product-card-action {
   border-left-color: #E2E8F0 !important;
 }
+
+
+/* ========================================================================= */
+/* 7. INDEX & HEADER REFINEMENTS (PAKET 1)                                   */
+/* ========================================================================= */
+
+/* 7.1 Auszeichnung Top Shop 2026 Badge */
+.badge-topshop {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  background-color: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #F59E0B;
+  font-weight: 700;
+  font-size: 0.6875rem;
+  letter-spacing: 0.025em;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.badge-topshop:hover {
+  background-color: rgba(245, 158, 11, 0.22);
+  border-color: rgba(245, 158, 11, 0.6);
+}
+body.theme-light .badge-topshop {
+  background-color: #FEF3C7 !important;
+  border-color: #F59E0B !important;
+  color: #B45309 !important;
+}
+body.theme-light .badge-topshop * {
+  color: #B45309 !important;
+}
+
+/* 7.2 Fahrzeugfinder Button Pulsing Glow Animation */
+@keyframes finderPulse {
+  0%, 100% {
+    box-shadow: 0 10px 25px -5px rgba(55, 141, 204, 0.4), 0 0 0 0 rgba(55, 141, 204, 0.3);
+  }
+  50% {
+    box-shadow: 0 15px 35px -5px rgba(55, 141, 204, 0.7), 0 0 25px 6px rgba(55, 141, 204, 0.5);
+  }
+}
+
+.btn-pulse {
+  animation: finderPulse 2.2s infinite ease-in-out;
+}
+
+/* 7.3 Live Search Preview Dropdown */
+#searchPreviewDropdown {
+  background-color: var(--panel-card);
+  border: 1px solid var(--panel-border);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.75), 0 0 35px rgba(55, 141, 204, 0.2);
+  color: var(--text-main);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+body.theme-light #searchPreviewDropdown {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15), 0 0 25px rgba(55, 141, 204, 0.08) !important;
+  color: #0F172A !important;
+}
+
+body.theme-light #searchPreviewDropdown .search-preview-section-title {
+  color: #64748B !important;
+}
+
+body.theme-light #searchPreviewDropdown .search-preview-item {
+  border-color: #F1F5F9 !important;
+}
+
+body.theme-light #searchPreviewDropdown .search-preview-item:hover {
+  background-color: #F8FAFC !important;
+}
+
+body.theme-light #searchPreviewDropdown .search-preview-footer {
+  background-color: #F8FAFC !important;
+  border-top-color: #E2E8F0 !important;
+}
+
+.search-trend-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.search-trend-pill:hover {
+  background-color: rgba(55, 141, 204, 0.15);
+  border-color: var(--brand-blue);
+  color: var(--brand-blue);
+}
+
+body.theme-light .search-trend-pill {
+  background-color: #F1F5F9 !important;
+  border-color: #CBD5E1 !important;
+  color: #475569 !important;
+}
+
+body.theme-light .search-trend-pill:hover {
+  background-color: rgba(55, 141, 204, 0.12) !important;
+  border-color: #378DCC !important;
+  color: #2875AB !important;
+}
+
+/* 7.4 Community Block Kacheln */
+.community-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.community-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(55, 141, 204, 0.15);
+}
+body.theme-light .community-card:hover {
+  box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.12), 0 0 20px rgba(55, 141, 204, 0.1);
+}
