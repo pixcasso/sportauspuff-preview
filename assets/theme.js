@@ -222,3 +222,25 @@ if (document.readyState === 'loading') {
   initDropdowns();
   initSearchPreview();
 }
+
+// 5. Central Mobile Drawer Toggle with Icon Animation
+function toggleMobileDrawer() {
+  const drawer = document.getElementById('mobileDrawer');
+  const icon = document.getElementById('mobileMenuIcon');
+  if (!drawer) return;
+  const isHidden = drawer.classList.contains('hidden');
+  if (isHidden) {
+    drawer.classList.remove('hidden');
+    if (icon) {
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-xmark');
+    }
+  } else {
+    drawer.classList.add('hidden');
+    if (icon) {
+      icon.classList.remove('fa-xmark');
+      icon.classList.add('fa-bars');
+    }
+  }
+}
+window.toggleMobileDrawer = toggleMobileDrawer;
