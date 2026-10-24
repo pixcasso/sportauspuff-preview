@@ -818,26 +818,34 @@ body.theme-light .floating-theme-btn * {
 /* ========================================================================= */
 .brand-card {
   min-height: 155px;
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
 }
 
-/* Light Mode: Logos sitzen direkt auf der Karte in ihren echten Markenfarben */
-body.theme-light .brand-logo-img {
+.brand-card:hover {
+  border-color: #378DCC !important;
+  box-shadow: 0 10px 25px -5px rgba(55, 141, 204, 0.25), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+  transform: translateY(-4px);
+}
+
+/* Logos sitzen in beiden Modi direkt auf Weiß in ihren echten, brillanten Markenfarben */
+.brand-logo-img {
   filter: none !important;
   opacity: 1 !important;
 }
 
-/* Dark Mode: Logos als brillante, kontrastreiche Embleme (High-Performance Motorsport-Look) */
-body:not(.theme-light) .brand-logo-img {
-  filter: brightness(0) invert(1);
-  opacity: 0.88;
-  transition: opacity 0.25s ease, transform 0.3s ease;
+/* Infotext auf der weißen Karte in kontrastreichem Slate */
+.brand-card .brand-infotext {
+  color: #64748B !important;
 }
 
-body:not(.theme-light) .group:hover .brand-logo-img {
-  opacity: 1;
+.brand-card:hover .brand-infotext {
+  color: #0F172A !important;
 }
 
-/* Badges für Hersteller-Kacheln */
+/* Badges für Hersteller-Kacheln auf weißem Untergrund */
 .badge-hersteller {
   display: inline-flex;
   align-items: center;
@@ -849,25 +857,19 @@ body:not(.theme-light) .group:hover .brand-logo-img {
 }
 
 .badge-hersteller-brand {
-  background-color: rgba(55, 141, 204, 0.12);
-  color: var(--brand-blue);
-  border: 1px solid rgba(55, 141, 204, 0.28);
+  background-color: rgba(55, 141, 204, 0.12) !important;
+  color: #2875AB !important;
+  border: 1px solid rgba(55, 141, 204, 0.3) !important;
 }
 
 .badge-hersteller-green {
-  background-color: var(--brand-green-bg);
-  color: var(--brand-green);
-  border: 1px solid var(--brand-green-border);
+  background-color: rgba(54, 137, 0, 0.12) !important;
+  color: #368900 !important;
+  border: 1px solid rgba(54, 137, 0, 0.3) !important;
 }
 
 .badge-hersteller-neutral {
-  background-color: rgba(148, 163, 184, 0.12);
-  color: #64748B;
-  border: 1px solid rgba(148, 163, 184, 0.25);
-}
-
-body:not(.theme-light) .badge-hersteller-neutral {
-  background-color: rgba(255, 255, 255, 0.08);
-  color: #CBD5E1;
-  border-color: rgba(255, 255, 255, 0.12);
+  background-color: #F1F5F9 !important;
+  color: #475569 !important;
+  border: 1px solid #CBD5E1 !important;
 }
