@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 140" width="100%" height="100%">
+  <defs>
+    <linearGradient id="fmsRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E11D48" />
+      <stop offset="100%" stop-color="#BE123C" />
+    </linearGradient>
+  </defs>
+  <!-- Racing Badge / Swooshes -->
+  <g transform="skewX(-14)">
+    <polygon points="35,28 75,28 55,108 15,108" fill="url(#fmsRed)" />
+    <polygon points="85,28 105,28 85,108 65,108" fill="#1E293B" />
+    <polygon points="115,28 127,28 107,108 95,108" fill="url(#fmsRed)" />
+  </g>
+  <!-- Text FRIEDRICH -->
+  <text x="145" y="74" font-family="'Racing Sans One', 'Arial Black', Impact, sans-serif" font-size="54" font-weight="900" font-style="italic" fill="#0F172A" letter-spacing="1">
+    FRIEDRICH
+  </text>
+  <!-- Text MOTORSPORT -->
+  <text x="150" y="106" font-family="'Montserrat', 'Arial', sans-serif" font-size="20" font-weight="800" font-style="italic" fill="#E11D48" letter-spacing="6">
+    MOTORSPORT
+  </text>
+</svg>
