@@ -175,56 +175,56 @@ body.theme-light {
 /* 3. HOCHKONTRAST & ACCESSIBILITY REGELN FÜR DEN HELLEN MODUS               */
 /* ========================================================================= */
 
-/* 1. Primärtexte außerhalb des Hero-Bereichs */
-body.theme-light .text-white:not(.hero-polygon *):not(.bg-brand-orange):not(.bg-brand-orange *):not(.bg-brand-orangeHover):not(.bg-brand-orangeHover *):not(.bg-brand-blue):not(.bg-brand-blue *):not(.bg-brand-blueHover):not(.bg-brand-blueHover *):not([href*="warenkorb.html"]):not([href*="warenkorb.html"] *):not(.bg-emerald-600):not(.bg-emerald-500):not(.bg-red-600):not(.bg-gray-900):not(.bg-gray-950):not(.floating-theme-switch *) {
+/* 1. Primärtexte außerhalb des Hero-Bereichs & dunkler Flächen */
+body.theme-light .text-white:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *):not(.bg-brand-orange):not(.bg-brand-orange *):not(.bg-brand-orangeHover):not(.bg-brand-orangeHover *):not(.bg-brand-blue):not(.bg-brand-blue *):not(.bg-brand-blueHover):not(.bg-brand-blueHover *):not([href*="warenkorb.html"]):not([href*="warenkorb.html"] *):not(.bg-emerald-600):not(.bg-emerald-500):not(.bg-red-600):not(.bg-gray-900):not(.bg-gray-950):not(.floating-theme-switch *) {
   color: #0F172A !important;
 }
-body.theme-light .text-slate-100:not(.hero-polygon *),
-body.theme-light .text-slate-200:not(.hero-polygon *),
-body.theme-light .text-gray-100:not(.hero-polygon *),
-body.theme-light .text-gray-200:not(.hero-polygon *) {
+body.theme-light .text-slate-100:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *),
+body.theme-light .text-slate-200:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *),
+body.theme-light .text-gray-100:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *),
+body.theme-light .text-gray-200:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *) {
   color: #0F172A !important;
 }
 
-/* 2. Fließtexte & Beschreibungen */
-body.theme-light .text-gray-300:not(.hero-polygon *),
-body.theme-light .text-slate-300:not(.hero-polygon *) {
+/* 2. Fließtexte & Beschreibungen außerhalb dunkler Flächen */
+body.theme-light .text-gray-300:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *),
+body.theme-light .text-slate-300:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *) {
   color: #334155 !important;
 }
 
-/* 3. Muted-Labels, Nebentexte & Durchstreichpreise */
-body.theme-light .text-gray-400:not(.hero-polygon *),
-body.theme-light .text-slate-400:not(.hero-polygon *),
-body.theme-light .text-gray-500:not(.hero-polygon *),
-body.theme-light .text-slate-500:not(.hero-polygon *) {
+/* 3. Muted-Labels, Nebentexte & Durchstreichpreise außerhalb dunkler Flächen */
+body.theme-light .text-gray-400:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *),
+body.theme-light .text-slate-400:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *),
+body.theme-light .text-gray-500:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *),
+body.theme-light .text-slate-500:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *) {
   color: #475569 !important;
 }
 
-/* 4. Graue Inset-Flächen, Boxen & Wells */
-body.theme-light .bg-black\/5:not(.hero-polygon *),
-body.theme-light .bg-black\/10:not(.hero-polygon *),
-body.theme-light .bg-black\/20:not(.hero-polygon *),
-body.theme-light .bg-black\/25:not(.hero-polygon *),
-body.theme-light .bg-black\/30:not(.hero-polygon *),
-body.theme-light .bg-black\/40:not(.hero-polygon *) {
+/* 4. Graue Inset-Flächen, Boxen & Wells außerhalb dunkler Flächen */
+body.theme-light .bg-black\/5:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *),
+body.theme-light .bg-black\/10:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *),
+body.theme-light .bg-black\/20:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *),
+body.theme-light .bg-black\/25:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *),
+body.theme-light .bg-black\/30:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *),
+body.theme-light .bg-black\/40:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *) {
   background-color: #F8FAFC !important;
   border: 1px solid #E2E8F0 !important;
 }
 
-/* 5. Transparente weiße Badges & Pills */
-body.theme-light .bg-white\/5:not(.hero-polygon *),
-body.theme-light .bg-white\/10:not(.hero-polygon *),
-body.theme-light .bg-white\/15:not(.hero-polygon *),
-body.theme-light .bg-white\/20:not(.hero-polygon *) {
+/* 5. Transparente weiße Badges & Pills außerhalb dunkler Flächen */
+body.theme-light .bg-white\/5:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *),
+body.theme-light .bg-white\/10:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *),
+body.theme-light .bg-white\/15:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *),
+body.theme-light .bg-white\/20:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *) {
   background-color: #FFFFFF !important;
   border: 1px solid #CBD5E1 !important;
 }
 
-/* 6. Weiße Rahmenlinien */
-body.theme-light .border-white\/5:not(.hero-polygon *),
-body.theme-light .border-white\/10:not(.hero-polygon *),
-body.theme-light .border-white\/15:not(.hero-polygon *),
-body.theme-light .border-white\/20:not(.hero-polygon *) {
+/* 6. Weiße Rahmenlinien außerhalb dunkler Flächen */
+body.theme-light .border-white\/5:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *),
+body.theme-light .border-white\/10:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *),
+body.theme-light .border-white\/15:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *),
+body.theme-light .border-white\/20:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer *) {
   border-color: #E2E8F0 !important;
 }
 
@@ -235,6 +235,58 @@ body.theme-light .hover\:bg-white\/20:not(.hero-polygon *):hover,
 body.theme-light .hover\:bg-black\/5:not(.hero-polygon *):hover,
 body.theme-light .hover\:bg-black\/10:not(.hero-polygon *):hover {
   background-color: #F1F5F9 !important;
+}
+
+/* ========================================================================= */
+/* 8b. DUNKLE FLÄCHEN (DARK SURFACES / MEDIA-CARDS / FOOTER IM LIGHT MODE)    */
+/* ========================================================================= */
+/* Garantiert strahlende, hochkontrastige Typografie auf allen dunklen Flächen */
+body.theme-light .dark-surface .text-white,
+body.theme-light [data-theme-surface="dark"] .text-white,
+body.theme-light .baugruppen-card .text-white,
+body.theme-light footer .text-white {
+  color: #FFFFFF !important;
+}
+
+body.theme-light .dark-surface .text-slate-100,
+body.theme-light .dark-surface .text-slate-200,
+body.theme-light .dark-surface .text-gray-100,
+body.theme-light .dark-surface .text-gray-200,
+body.theme-light [data-theme-surface="dark"] .text-slate-100,
+body.theme-light [data-theme-surface="dark"] .text-slate-200,
+body.theme-light [data-theme-surface="dark"] .text-gray-100,
+body.theme-light [data-theme-surface="dark"] .text-gray-200,
+body.theme-light .baugruppen-card .text-slate-100,
+body.theme-light .baugruppen-card .text-slate-200,
+body.theme-light .baugruppen-card .text-gray-100,
+body.theme-light .baugruppen-card .text-gray-200,
+body.theme-light footer .text-slate-100,
+body.theme-light footer .text-slate-200,
+body.theme-light footer .text-gray-100,
+body.theme-light footer .text-gray-200 {
+  color: #F8FAFC !important;
+}
+
+body.theme-light .dark-surface .text-gray-300,
+body.theme-light .dark-surface .text-slate-300,
+body.theme-light [data-theme-surface="dark"] .text-gray-300,
+body.theme-light [data-theme-surface="dark"] .text-slate-300,
+body.theme-light .baugruppen-card .text-gray-300,
+body.theme-light .baugruppen-card .text-slate-300,
+body.theme-light footer .text-gray-300,
+body.theme-light footer .text-slate-300 {
+  color: #CBD5E1 !important;
+}
+
+body.theme-light .dark-surface .text-gray-400,
+body.theme-light .dark-surface .text-slate-400,
+body.theme-light [data-theme-surface="dark"] .text-gray-400,
+body.theme-light [data-theme-surface="dark"] .text-slate-400,
+body.theme-light .baugruppen-card .text-gray-400,
+body.theme-light .baugruppen-card .text-slate-400,
+body.theme-light footer .text-gray-400,
+body.theme-light footer .text-slate-400 {
+  color: #94A3B8 !important;
 }
 
 /* 8. AUSNAHMEN: Text auf solidem Brand-Blue / Akzentbuttons MUSS weiß sein */
