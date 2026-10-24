@@ -18,7 +18,7 @@
   <!-- Shared Tailwind Config & Theme Manager -->
   <script src="assets/theme.js"></script>
 </head>
-<body id="appBody" class="bg-[#F8F9FA] text-[#1E293B] font-sans antialiased selection:bg-brand-orange selection:text-white transition-colors duration-300">
+<body id="appBody" style="background-color: var(--page-bg); color: var(--text-main);" class="font-sans antialiased selection:bg-brand-orange selection:text-white transition-colors duration-300">
 
   <!-- ========================================================================= -->
   <!-- 1. ZEILE 1: TOP UTILITY BAR (Luftig, 40px Höhe, Theming-Fähig)            -->
@@ -576,7 +576,8 @@
   <!-- ========================================================================= -->
   <!-- 4. HERO SECTION MIT DYNAMISCHEM THEME (DARK / LIGHT WECHSEL)              -->
   <!-- ========================================================================= -->
-  <section style="background-color: var(--hero-bg);" class="relative pt-12 pb-28 lg:pb-36 hero-polygon overflow-hidden border-b border-black/10 transition-colors duration-300">
+  <div style="background-color: var(--panel-bg);" class="w-full transition-colors duration-300">
+    <section style="background-color: var(--hero-bg);" class="relative pt-12 pb-28 lg:pb-36 hero-polygon overflow-hidden transition-colors duration-300">
 
     <!-- Das reale Kundenbild (Audi RS6 Ragazzon) -->
     <div
@@ -988,6 +989,7 @@
       </div>
     </div>
   </section>
+  </div>
 
   <!-- ========================================================================= -->
   <!-- 5. DER 2-SCHRITT-KAUFWEG & SERVICE-VERSPRECHEN                            -->

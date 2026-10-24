@@ -409,11 +409,13 @@ body.theme-light .dash-tab-btn:not(.bg-brand-orange):hover * {
 /* 5. UTILITIES: SCROLLBAR, HERO-POLYGON, EQUALIZER ANIMATION & GUARDS       */
 /* ========================================================================= */
 
-/* Mobile Overflow Guard */
+/* Mobile Overflow Guard & Root Body Theming */
 html, body {
   overflow-x: clip;
   max-width: 100%;
   width: 100%;
+  background-color: var(--page-bg);
+  color: var(--text-main);
 }
 
 /* Custom Scrollbar */
