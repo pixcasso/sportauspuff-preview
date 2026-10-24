@@ -21,30 +21,6 @@
 <body id="appBody" class="bg-[#F8F9FA] text-[#1E293B] font-sans antialiased selection:bg-brand-orange selection:text-white transition-colors duration-300">
 
   <!-- ========================================================================= -->
-  <!-- FLOATING THEME-SWITCHER (DESKTOP ONLY - AUF MOBILE IM HEADER / DRAWER)     -->
-  <!-- ========================================================================= -->
-  <div class="hidden md:flex fixed bottom-6 left-6 z-50">
-    <div class="bg-gray-900/90 backdrop-blur-md p-1.5 rounded-2xl border border-white/20 shadow-2xl flex items-center space-x-1">
-      <button
-        id="btnDarkTheme"
-        onclick="setTheme('dark')"
-        class="px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow"
-      >
-        <i class="fa-solid fa-moon text-xs"></i>
-        <span>Dark (Performance)</span>
-      </button>
-      <button
-        id="btnLightTheme"
-        onclick="setTheme('light')"
-        class="px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10"
-      >
-        <i class="fa-solid fa-sun text-xs"></i>
-        <span>Hell (Präzision)</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- ========================================================================= -->
   <!-- 1. ZEILE 1: TOP UTILITY BAR (Luftig, 40px Höhe, Theming-Fähig)            -->
   <!-- ========================================================================= -->
   <header style="background-color: var(--tier1-bg); color: var(--tier1-text);" class="w-full text-xs transition-colors duration-300">
@@ -3301,7 +3277,7 @@
   <!-- ========================================================================= -->
   <!-- FLOATING THEME TOGGLE (Runder Umschalter unten links)                      -->
   <!-- ========================================================================= -->
-  <div class="fixed bottom-6 left-6 z-40">
+  <div class="fixed bottom-6 left-6 z-50">
     <button
       id="floatingThemeToggle"
       onclick="toggleThemeQuick()"

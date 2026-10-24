@@ -38,20 +38,13 @@ if (typeof tailwind !== 'undefined') {
 // 2. Robust Theme Manager
 function setTheme(theme) {
   const body = document.getElementById('appBody') || document.body;
-  const btnDark = document.getElementById('btnDarkTheme');
-  const btnLight = document.getElementById('btnLightTheme');
   const mobBtnDark = document.getElementById('mobBtnDark');
   const mobBtnLight = document.getElementById('mobBtnLight');
   const quickIcon = document.getElementById('themeQuickIcon');
+  const floatingBtn = document.getElementById('floatingThemeToggle');
 
   if (theme === 'light') {
     if (body) body.classList.add('theme-light');
-    if (btnLight) {
-      btnLight.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow";
-    }
-    if (btnDark) {
-      btnDark.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10";
-    }
     if (mobBtnLight) {
       mobBtnLight.className = "px-2.5 py-1 rounded-md text-[11px] font-racing font-bold flex items-center space-x-1 bg-brand-orange text-white shadow transition";
     }
@@ -61,19 +54,12 @@ function setTheme(theme) {
     if (quickIcon) {
       quickIcon.className = "fa-solid fa-moon text-base transition-colors";
     }
-    const floatingBtnLight = document.getElementById('floatingThemeToggle');
-    if (floatingBtnLight) {
-      floatingBtnLight.setAttribute('title', 'Zu Dark Mode wechseln');
+    if (floatingBtn) {
+      floatingBtn.setAttribute('title', 'Zu Dark Mode wechseln');
     }
     localStorage.setItem('sportauspuff_theme', 'light');
   } else {
     if (body) body.classList.remove('theme-light');
-    if (btnDark) {
-      btnDark.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition bg-brand-orange text-white shadow";
-    }
-    if (btnLight) {
-      btnLight.className = "px-3 py-1.5 rounded-xl text-xs font-racing uppercase tracking-wider font-extrabold flex items-center space-x-1.5 transition text-gray-300 hover:text-white hover:bg-white/10";
-    }
     if (mobBtnDark) {
       mobBtnDark.className = "px-2.5 py-1 rounded-md text-[11px] font-racing font-bold flex items-center space-x-1 bg-brand-orange text-white shadow transition";
     }
@@ -83,9 +69,8 @@ function setTheme(theme) {
     if (quickIcon) {
       quickIcon.className = "fa-solid fa-sun text-base text-amber-400 transition-colors";
     }
-    const floatingBtnDark = document.getElementById('floatingThemeToggle');
-    if (floatingBtnDark) {
-      floatingBtnDark.setAttribute('title', 'Zu Light Mode wechseln');
+    if (floatingBtn) {
+      floatingBtn.setAttribute('title', 'Zu Light Mode wechseln');
     }
     localStorage.setItem('sportauspuff_theme', 'dark');
   }

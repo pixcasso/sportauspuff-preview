@@ -303,21 +303,7 @@ body.theme-light input[type="checkbox"] {
   border: 1px solid #CBD5E1 !important;
 }
 
-/* 12. Floating Theme Switcher Leiste bleibt dunkel und exzellent bedienbar */
-body.theme-light .fixed.bottom-6.left-6 .bg-gray-900\/90 {
-  background-color: rgba(15, 23, 42, 0.92) !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-}
-body.theme-light #btnDarkTheme {
-  color: #CBD5E1 !important;
-}
-body.theme-light #btnDarkTheme:hover {
-  color: #FFFFFF !important;
-}
-body.theme-light #btnLightTheme {
-  background-color: #378DCC !important;
-  color: #FFFFFF !important;
-}
+/* 12. Floating Theme Switcher: Replaced by round .floating-theme-btn */
 
 /* 13. Tabs Hover */
 body.theme-light .detail-tab-btn:hover {
