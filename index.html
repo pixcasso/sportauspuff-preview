@@ -64,14 +64,6 @@
           <span class="hidden sm:inline">(über 12.000 Bewertungen)</span>
         </div>
 
-        <!-- Top Shop 2026 Auszeichnung -->
-        <div class="hidden md:flex items-center">
-          <span class="badge-topshop" title="Ausgezeichnet als Top Shop 2026 für exzellenten Service und Kundenzufriedenheit">
-            <i class="fa-solid fa-trophy"></i>
-            <span>Ausgezeichnet als Top Shop 2026 (5x in Folge)</span>
-          </span>
-        </div>
-
         <div class="hidden lg:flex items-center space-x-2">
           <i class="fa-solid fa-phone text-brand-orange"></i>
           <span>Kfz-Fachberatung: <strong class="hover:text-brand-orange transition cursor-pointer text-xs" style="color: var(--logo-text);">+49 (0) 371 64 63 87 55</strong></span>
@@ -129,7 +121,7 @@
               placeholder="Fahrzeug, Modell, Artikel oder Motorcode suchen (z.B. Golf 7 GTI Fox, Audi RS6)..."
               class="w-full text-sm font-medium rounded-full pl-12 pr-28 py-3.5 border-0 focus:ring-2 focus:ring-brand-orange/40 focus:outline-none transition shadow-sm placeholder:text-gray-400"
             >
-            <div class="absolute inset-y-0 left-0 pl-4.5 flex items-center pointer-events-none text-brand-orange text-base">
+            <div class="absolute inset-y-0 left-0 w-12 flex items-center justify-center pointer-events-none text-brand-orange text-base">
               <i class="fa-solid fa-magnifying-glass"></i>
             </div>
             <button type="submit" name="send" class="absolute inset-y-1.5 right-1.5 px-5 bg-brand-orange hover:bg-brand-orangeHover text-white text-xs font-racing font-bold uppercase tracking-wider rounded-full transition shadow-sm flex items-center space-x-1.5">
@@ -274,45 +266,39 @@
         <!-- Rechte Aktionen -->
         <div class="flex items-center space-x-1.5 sm:space-x-5 flex-shrink-0">
 
-          <!-- Quick Theme Toggle auf Mobile -->
-          <button onclick="toggleThemeQuick()" class="md:hidden p-1.5 text-gray-300 hover:text-white rounded-lg hover:bg-black/10 transition" title="Design wechseln (Dark/Hell)">
-            <i id="themeQuickIcon" class="fa-solid fa-sun text-sm"></i>
-          </button>
-
-          <!-- Kfz-Meister-Standard Virtuelle Kfz-Garage Pill -->
-          <div id="activeCarPill" style="background-color: var(--car-pill-bg);" class="hidden sm:flex items-center rounded-xl px-3.5 py-2 cursor-pointer transition group border border-brand-orange/20 hover:border-brand-orange/50 shadow-sm" onclick="onGaragePillClick()">
-            <div class="w-8 h-8 rounded-lg bg-brand-orange/15 flex items-center justify-center text-brand-orange mr-2.5 shadow-inner relative">
-              <i class="fa-solid fa-warehouse text-sm"></i>
-              <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-gray-900"></span>
+          <!-- Kfz-Meister-Standard Virtuelle Kfz-Garage Pill (Clean, borderless, h-11) -->
+          <div id="activeCarPill" style="background-color: var(--car-pill-bg);" class="hidden sm:flex items-center h-11 rounded-xl px-3.5 cursor-pointer transition group shadow-sm hover:opacity-95 flex-shrink-0 space-x-3" onclick="onGaragePillClick()">
+            <div class="relative flex items-center justify-center text-brand-orange flex-shrink-0">
+              <i class="fa-solid fa-warehouse text-base"></i>
+              <span class="absolute -top-1 -right-1 w-2 h-2 rounded-full" style="background-color: var(--brand-green);"></span>
             </div>
             <div class="text-left text-xs leading-tight">
-              <div class="text-[10px] uppercase font-bold tracking-wider text-emerald-400 flex items-center space-x-1">
+              <div class="text-[10px] uppercase font-bold tracking-wider flex items-center space-x-1" style="color: var(--brand-green);">
                 <span>Garage (1 aktiv)</span>
-                <i class="fa-solid fa-circle-check text-[9px]"></i>
+                <i class="fa-solid fa-circle-check text-[9px]" style="color: var(--brand-green);"></i>
               </div>
-              <div id="activeCarLabel" style="color: var(--car-pill-text);" class="font-bold group-hover:text-brand-orange transition truncate max-w-[130px] lg:max-w-[160px]">
+              <div id="activeCarLabel" style="color: var(--car-pill-text);" class="font-bold group-hover:text-brand-orange transition truncate max-w-[130px] lg:max-w-[150px]">
                 Audi RS6 Avant C8
               </div>
             </div>
           </div>
 
-          <!-- Benutzerkonto -->
-          <a href="konto.html" style="color: var(--logo-text);" class="px-2.5 py-2 rounded-xl hover:bg-black/5 transition hidden sm:flex flex-col items-center opacity-85 hover:opacity-100" title="Mein Kundenkonto">
-            <i class="fa-regular fa-user text-base sm:text-lg"></i>
-            <span class="text-[10px] mt-0.5 font-medium">Konto</span>
+          <!-- Benutzerkonto (Einheitliche h-11 Pill, gleicher Look & Feel) -->
+          <a href="konto.html" style="background-color: var(--car-pill-bg); color: var(--car-pill-text);" class="h-11 px-3.5 rounded-xl transition hidden sm:flex items-center space-x-2 shadow-sm hover:opacity-90 group flex-shrink-0" title="Mein Kundenkonto">
+            <i class="fa-regular fa-user text-sm text-gray-400 group-hover:text-brand-orange transition"></i>
+            <span class="text-xs font-bold">Konto</span>
           </a>
 
-          <!-- Warenkorb Button -->
-          <a href="warenkorb.html" class="flex items-center bg-brand-orange hover:bg-brand-orangeHover text-white rounded-xl p-2 sm:px-4 sm:py-2.5 transition shadow-lg group flex-shrink-0" title="Warenkorb">
-            <div class="relative mr-0 sm:mr-2.5">
-              <i class="fa-solid fa-basket-shopping text-base sm:text-lg"></i>
-              <span class="absolute -top-2 -right-2 bg-white text-brand-orange text-[10px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center shadow">
+          <!-- Warenkorb Button (h-11, nur Icon + Kontrast-Zähler + weißer Preis) -->
+          <a href="warenkorb.html" class="h-11 flex items-center bg-brand-orange hover:bg-brand-orangeHover text-white rounded-xl px-3.5 sm:px-4 transition shadow-md group flex-shrink-0 space-x-2.5" title="Warenkorb">
+            <div class="relative flex items-center justify-center">
+              <i class="fa-solid fa-basket-shopping text-base" style="color: #ffffff !important;"></i>
+              <span id="cartCountBadge" class="cart-badge-count absolute -top-2 -right-2.5 bg-amber-400 text-slate-900 text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center shadow">
                 1
               </span>
             </div>
-            <div class="text-left hidden sm:block">
-              <div class="text-[10px] text-orange-100 uppercase font-bold tracking-wider">Warenkorb</div>
-              <div class="text-xs font-racing font-extrabold text-white tracking-wide">2.499,00 €</div>
+            <div id="cartSumHeader" class="font-racing text-sm font-extrabold tracking-wide leading-none pt-0.5 cart-pill-price" style="color: #ffffff !important;">
+              2.499,00 €
             </div>
           </a>
         </div>
@@ -348,21 +334,6 @@
         <span>Mein Kundenkonto / Anmelden</span>
       </a>
 
-      <!-- Quick Theme Switcher im Drawer -->
-      <div class="flex items-center justify-between p-2 rounded-xl bg-black/20 text-xs">
-        <span class="text-gray-400 font-bold uppercase">Erscheinungsbild:</span>
-        <div class="flex space-x-1">
-          <button onclick="setTheme('dark')" class="px-2.5 py-1 rounded-lg text-xs font-racing font-bold bg-brand-orange text-white flex items-center space-x-1">
-            <i class="fa-solid fa-moon text-[10px]"></i>
-            <span>Dark</span>
-          </button>
-          <button onclick="setTheme('light')" class="px-2.5 py-1 rounded-lg text-xs font-racing font-bold bg-white/10 text-gray-300 flex items-center space-x-1">
-            <i class="fa-solid fa-sun text-[10px]"></i>
-            <span>Hell</span>
-          </button>
-        </div>
-      </div>
-
       <div class="font-bold text-xs uppercase tracking-wider text-brand-orange pt-1">Produkt-Kategorien</div>
       <div class="space-y-1">
         <a href="kategorie.html" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl font-bold text-brand-orange bg-brand-orange/10">Sportauspuff Komplett</a>
@@ -383,10 +354,23 @@
           <i class="fa-solid fa-truck-fast text-slate-400"></i>
           <span>Kostenloser Versand ab 100 €</span>
         </div>
+
+      <!-- Subtiler Theme-Umschalter ganz unten im Drawer -->
+      <div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs" style="border-color: var(--panel-border);">
+        <span class="text-gray-400 text-[11px] font-medium">Design / Modus:</span>
+        <div class="inline-flex p-0.5 rounded-lg bg-black/20 border border-white/10" style="border-color: var(--panel-border);">
+          <button id="mobBtnDark" onclick="setTheme('dark')" class="px-2.5 py-1 rounded-md text-[11px] font-racing font-bold flex items-center space-x-1 bg-brand-orange text-white shadow transition">
+            <i class="fa-solid fa-moon text-[10px]"></i>
+            <span>Dark</span>
+          </button>
+          <button id="mobBtnLight" onclick="setTheme('light')" class="px-2.5 py-1 rounded-md text-[11px] font-racing font-bold flex items-center space-x-1 text-gray-400 hover:text-white transition">
+            <i class="fa-solid fa-sun text-[10px]"></i>
+            <span>Hell</span>
+          </button>
+        </div>
       </div>
     </div>
 
-    <!-- ========================================================================= -->
     <!-- 3. ZEILE 3: KATEGORIE-LEISTE (4 Kernkategorien + Dropdowns)               -->
     <!-- ========================================================================= -->
     <!-- ========================================================================= -->
@@ -645,9 +629,15 @@
         <!-- ===================================================================== -->
         <div class="lg:col-span-6 space-y-7">
 
-          <div class="inline-flex items-center space-x-2 bg-white/10 dark:bg-black/70 backdrop-blur-md border border-brand-orange text-brand-orange px-4 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase shadow-xl">
-            <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse"></span>
-            <span>Über 25.000 Sportauspuffanlagen ab Lager lieferbar</span>
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="inline-flex items-center space-x-2 bg-white/10 dark:bg-black/70 backdrop-blur-md border border-brand-orange text-brand-orange px-4 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase shadow-xl">
+              <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse"></span>
+              <span>Über 25.000 Sportauspuffanlagen ab Lager lieferbar</span>
+            </div>
+            <div class="inline-flex items-center space-x-1.5 bg-amber-500/15 border border-amber-500/40 text-amber-400 px-3.5 py-1.5 rounded-full text-xs font-bold shadow-lg" title="Ausgezeichnet als Top Shop 2026 für exzellenten Service und Kundenzufriedenheit">
+              <i class="fa-solid fa-trophy text-xs"></i>
+              <span>Top Shop 2026 (5x in Folge)</span>
+            </div>
           </div>
 
           <!-- Titel: Strahlend & Dynamisch im neuen Dein-Sportauspuff Blau -->
@@ -663,36 +653,41 @@
             </span>
           </h1>
 
-          <p style="color: var(--hero-bullets);" class="text-base sm:text-lg leading-relaxed max-w-xl font-medium transition-colors duration-300">
-            Finde in Sekunden die exakt passende Sportabgasanlage für dein Auto.
-            Mit <strong>100% Passform-Garantie</strong> durch Kfz-Meister-Vorabprüfung, sofortiger ECE-Gutachtenprüfung und bundesweitem Montageservice.
-          </p>
+          <!-- ================================================================= -->
+          <!-- DESKTOP NUR: ERKLÄRTEXT & TRUST-BULLETS                           -->
+          <!-- ================================================================= -->
+          <div class="hidden lg:block space-y-7">
+            <p style="color: var(--hero-bullets);" class="text-base sm:text-lg leading-relaxed max-w-xl font-medium transition-colors duration-300">
+              Finde in Sekunden die exakt passende Sportabgasanlage für dein Auto.
+              Mit <strong>100% Passform-Garantie</strong> durch Kfz-Meister-Vorabprüfung, sofortiger ECE-Gutachtenprüfung und bundesweitem Montageservice.
+            </p>
 
-          <!-- Kfz-Meister-Standard Trust-Bullets -->
-          <div class="pt-2 space-y-3 text-sm font-medium" style="color: var(--hero-bullets);">
-            <div class="flex items-center space-x-3">
-              <div class="w-6 h-6 rounded-full bg-amber-500/20 border border-amber-500 flex items-center justify-center text-amber-400 text-xs flex-shrink-0">
-                <i class="fa-solid fa-trophy"></i>
+            <!-- Kfz-Meister-Standard Trust-Bullets -->
+            <div class="pt-2 space-y-3 text-sm font-medium" style="color: var(--hero-bullets);">
+              <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 rounded-full bg-amber-500/20 border border-amber-500 flex items-center justify-center text-amber-400 text-xs flex-shrink-0">
+                  <i class="fa-solid fa-trophy"></i>
+                </div>
+                <span><strong>Ausgezeichnet als Top Shop 2026 (5x in Folge):</strong> Höchste Kundenzufriedenheit, Blitzversand & zertifizierte Fachberatung</span>
               </div>
-              <span><strong>Ausgezeichnet als Top Shop 2026 (5x in Folge):</strong> Höchste Kundenzufriedenheit, Blitzversand & zertifizierte Fachberatung</span>
-            </div>
-            <div class="flex items-center space-x-3">
-              <div class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500 flex items-center justify-center text-emerald-400 text-xs flex-shrink-0">
-                <i class="fa-solid fa-shield-check"></i>
+              <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500 flex items-center justify-center text-emerald-400 text-xs flex-shrink-0">
+                  <i class="fa-solid fa-shield-check"></i>
+                </div>
+                <span><strong>100% Passgenau-Garantie:</strong> Vorab-Prüfung jeder Bestellung durch Kfz-Meister nach HSN/TSN</span>
               </div>
-              <span><strong>100% Passgenau-Garantie:</strong> Vorab-Prüfung jeder Bestellung durch Kfz-Meister nach HSN/TSN</span>
-            </div>
-            <div class="flex items-center space-x-3">
-              <div class="w-6 h-6 rounded-full bg-brand-orange/20 border border-brand-orange flex items-center justify-center text-brand-orange text-xs flex-shrink-0">
-                <i class="fa-solid fa-certificate"></i>
+              <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 rounded-full bg-brand-orange/20 border border-brand-orange flex items-center justify-center text-brand-orange text-xs flex-shrink-0">
+                  <i class="fa-solid fa-certificate"></i>
+                </div>
+                <span><strong>TÜV / ECE eintragungsfrei:</strong> 100% legal mit EG-Betriebserlaubnis auf öffentlichen Straßen</span>
               </div>
-              <span><strong>TÜV / ECE eintragungsfrei:</strong> 100% legal mit EG-Betriebserlaubnis auf öffentlichen Straßen</span>
-            </div>
-            <div class="flex items-center space-x-3">
-              <div class="w-6 h-6 rounded-full bg-brand-orange/20 border border-brand-orange flex items-center justify-center text-brand-orange text-xs flex-shrink-0">
-                <i class="fa-solid fa-check"></i>
+              <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 rounded-full bg-brand-orange/20 border border-brand-orange flex items-center justify-center text-brand-orange text-xs flex-shrink-0">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <span><strong>Top-Marken ab Lager:</strong> Ragazzon, FOX, Bastuck, REMUS, Milltek, Eisenmann & Akrapovič</span>
               </div>
-              <span><strong>Top-Marken ab Lager:</strong> Ragazzon, FOX, Bastuck, REMUS, Milltek, Eisenmann & Akrapovič</span>
             </div>
           </div>
 
@@ -734,14 +729,14 @@
             <!-- =============================================================== -->
             <!-- TAB-INHALT 1: KFZ-SUCHE                                         -->
             <!-- =============================================================== -->
-            <div id="tabContentKfz" class="p-6 sm:p-9 space-y-6">
+            <div id="tabContentKfz" class="p-6 sm:p-9 flex flex-col gap-6">
 
-              <!-- Top-Modell Pills (1-Klick Schnellzugriff) -->
-              <div>
+              <!-- Top-Modell Pills (1-Klick Schnellzugriff) - Mobil ausgeblendet -->
+              <div class="hidden sm:block">
                 <div class="flex items-center justify-between mb-2">
                   <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider flex items-center space-x-1.5">
                     <i class="fa-solid fa-fire text-brand-orange text-xs"></i>
-                    <span>Top-Modelle (1-Klick Sofortauswahl):</span>
+                    <span>Top-Modelle:</span>
                   </label>
                   <span class="text-[10px] text-brand-orange font-bold uppercase tracking-wider hidden sm:inline">Beliebteste Fahrzeuge</span>
                 </div>
@@ -794,10 +789,10 @@
                 </div>
               </div>
 
-              <!-- Quick Brand Selection -->
-              <div>
+              <!-- Quick Brand Selection - Mobil ausgeblendet -->
+              <div class="hidden sm:block">
                 <label class="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-2.5">
-                  Schnellauswahl beliebter Marken:
+                  Beliebte Marken:
                 </label>
                 <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
                   <button onclick="selectQuickBrand('Audi')" class="py-2.5 px-2 rounded-xl bg-gray-100 hover:bg-brand-orangeLight text-center transition group">
@@ -899,7 +894,7 @@
                 >
                   <span class="relative flex h-2.5 w-2.5 mr-1"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-80"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span></span>
                   <i class="fa-solid fa-magnifying-glass"></i>
-                  <span id="btnSubmitKfzText">Passende Sportauspuffe finden</span>
+                  <span id="btnSubmitKfzText">Sportauspuff finden</span>
                   <i class="fa-solid fa-chevron-right text-xs"></i>
                 </button>
               </div>
@@ -972,6 +967,44 @@
 
             </div>
 
+          </div>
+
+          <!-- ================================================================= -->
+          <!-- MOBILE NUR: ERKLÄRTEXT & TRUST-BULLETS UNTER DER SUCHBOX          -->
+          <!-- ================================================================= -->
+          <div class="block lg:hidden mt-8 space-y-6">
+            <p style="color: var(--hero-bullets);" class="text-base sm:text-lg leading-relaxed font-medium transition-colors duration-300">
+              Finde in Sekunden die exakt passende Sportabgasanlage für dein Auto.
+              Mit <strong>100% Passform-Garantie</strong> durch Kfz-Meister-Vorabprüfung, sofortiger ECE-Gutachtenprüfung und bundesweitem Montageservice.
+            </p>
+
+            <!-- Kfz-Meister-Standard Trust-Bullets -->
+            <div class="pt-2 space-y-3 text-sm font-medium" style="color: var(--hero-bullets);">
+              <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 rounded-full bg-amber-500/20 border border-amber-500 flex items-center justify-center text-amber-400 text-xs flex-shrink-0">
+                  <i class="fa-solid fa-trophy"></i>
+                </div>
+                <span><strong>Ausgezeichnet als Top Shop 2026 (5x in Folge):</strong> Höchste Kundenzufriedenheit, Blitzversand & zertifizierte Fachberatung</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500 flex items-center justify-center text-emerald-400 text-xs flex-shrink-0">
+                  <i class="fa-solid fa-shield-check"></i>
+                </div>
+                <span><strong>100% Passgenau-Garantie:</strong> Vorab-Prüfung jeder Bestellung durch Kfz-Meister nach HSN/TSN</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 rounded-full bg-brand-orange/20 border border-brand-orange flex items-center justify-center text-brand-orange text-xs flex-shrink-0">
+                  <i class="fa-solid fa-certificate"></i>
+                </div>
+                <span><strong>TÜV / ECE eintragungsfrei:</strong> 100% legal mit EG-Betriebserlaubnis auf öffentlichen Straßen</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 rounded-full bg-brand-orange/20 border border-brand-orange flex items-center justify-center text-brand-orange text-xs flex-shrink-0">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <span><strong>Top-Marken ab Lager:</strong> Ragazzon, FOX, Bastuck, REMUS, Milltek, Eisenmann & Akrapovič</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -2717,6 +2750,23 @@
   <!-- ========================================================================= -->
   <footer class="bg-gray-900 text-gray-400 text-xs border-t border-gray-800 pt-14 pb-10">
     <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
+      <!-- Trust-Banner im Footer: Top Shop 2026 Auszeichnung & USPs -->
+      <div class="pb-8 mb-10 border-b border-gray-800 flex flex-wrap items-center justify-between gap-4 text-slate-300">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 text-lg flex-shrink-0">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <div>
+            <div class="text-white font-bold text-xs sm:text-sm">Ausgezeichnet als Top Shop 2026 (5x in Folge)</div>
+            <div class="text-[11px] text-gray-400">Auszeichnung für herausragende Servicequalität, zertifizierte Kfz-Fachberatung und Kundenzufriedenheit</div>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-6 text-xs text-gray-400">
+          <span class="flex items-center space-x-2"><i class="fa-solid fa-truck-fast text-brand-orange"></i><span>Kostenloser Versand ab 100 €</span></span>
+          <span class="flex items-center space-x-2"><i class="fa-solid fa-shield-halved text-emerald-400"></i><span>100% Passform-Garantie</span></span>
+          <span class="flex items-center space-x-2"><i class="fa-solid fa-certificate text-sky-400"></i><span>100% ECE / ABE eintragungsfrei</span></span>
+        </div>
+      </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-10 pb-12 border-b border-gray-800">
         <div>
           <h5 class="text-white font-bold mb-4 uppercase tracking-wider text-xs">Produktbereiche</h5>
@@ -3005,7 +3055,7 @@
     function resetKfzFilter() {
       document.getElementById('nav_make').value = '';
       onBrandChange();
-      document.getElementById('btnSubmitKfzText').innerText = "Passende Sportauspuffe finden";
+      document.getElementById('btnSubmitKfzText').innerText = "Sportauspuff finden";
       const btnSubmit = document.getElementById('btnSubmitKfz');
       if (btnSubmit) btnSubmit.classList.add('btn-pulse');
       const pill = document.getElementById('activeCarPill');
@@ -3246,5 +3296,21 @@
       }
     }
   </script>
+
+  <!-- ========================================================================= -->
+  <!-- FLOATING THEME TOGGLE (Runder Umschalter unten links)                      -->
+  <!-- ========================================================================= -->
+  <div class="fixed bottom-6 left-6 z-40">
+    <button
+      id="floatingThemeToggle"
+      onclick="toggleThemeQuick()"
+      class="floating-theme-btn w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 group cursor-pointer"
+      title="Design wechseln (Dark / Light Mode)"
+      aria-label="Design wechseln (Dark / Light Mode)"
+    >
+      <i id="themeQuickIcon" class="fa-solid fa-sun text-base transition-transform duration-500 group-hover:rotate-45"></i>
+    </button>
+  </div>
+
 </body>
 </html>

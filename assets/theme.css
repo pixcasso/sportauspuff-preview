@@ -14,6 +14,9 @@
   --brand-blue-light: #EBF4FB;
   --brand-accent: #F59E0B;
   --brand-accent-hover: #D97706;
+  --brand-green: #51ce00;
+  --brand-green-bg: rgba(81, 206, 0, 0.15);
+  --brand-green-border: rgba(81, 206, 0, 0.35);
 
   /* Tier-Hintergründe & Header-Ebenen */
   --tier1-bg: #090B10;
@@ -57,8 +60,8 @@
   --badge-text: #378DCC;
 
   /* Status-Badges (Dark) */
-  --badge-success-bg: rgba(16, 185, 129, 0.15);
-  --badge-success-text: #10B981;
+  --badge-success-bg: rgba(81, 206, 0, 0.15);
+  --badge-success-text: #51ce00;
   --badge-warning-bg: rgba(245, 158, 11, 0.15);
   --badge-warning-text: #F59E0B;
   --badge-info-bg: rgba(55, 141, 204, 0.15);
@@ -94,6 +97,9 @@
 /* 2. DESIGN TOKENS (BODY.THEME-LIGHT = HIGH-CONTRAST LIGHT MODE)           */
 /* ========================================================================= */
 body.theme-light {
+  --brand-green: #368900;
+  --brand-green-bg: rgba(54, 137, 0, 0.12);
+  --brand-green-border: rgba(54, 137, 0, 0.30);
   /* Tier-Hintergründe & Header-Ebenen */
   --tier1-bg: #F8FAFC;
   --tier1-text: #64748B;
@@ -136,8 +142,8 @@ body.theme-light {
   --badge-text: #2875AB;
 
   /* Status-Badges (Light) */
-  --badge-success-bg: #ECFDF5;
-  --badge-success-text: #047857;
+  --badge-success-bg: #EAF4E4;
+  --badge-success-text: #368900;
   --badge-warning-bg: #FFFBEB;
   --badge-warning-text: #B45309;
   --badge-info-bg: #EBF4FB;
@@ -170,7 +176,7 @@ body.theme-light {
 /* ========================================================================= */
 
 /* 1. Primärtexte außerhalb des Hero-Bereichs */
-body.theme-light .text-white:not(.hero-polygon *):not(.bg-brand-orange):not(.bg-brand-orangeHover):not(.bg-brand-blue):not(.bg-brand-blueHover):not(.bg-emerald-600):not(.bg-emerald-500):not(.bg-red-600):not(.bg-gray-900):not(.bg-gray-950):not(.floating-theme-switch *) {
+body.theme-light .text-white:not(.hero-polygon *):not(.bg-brand-orange):not(.bg-brand-orange *):not(.bg-brand-orangeHover):not(.bg-brand-orangeHover *):not(.bg-brand-blue):not(.bg-brand-blue *):not(.bg-brand-blueHover):not(.bg-brand-blueHover *):not([href*="warenkorb.html"]):not([href*="warenkorb.html"] *):not(.bg-emerald-600):not(.bg-emerald-500):not(.bg-red-600):not(.bg-gray-900):not(.bg-gray-950):not(.floating-theme-switch *) {
   color: #0F172A !important;
 }
 body.theme-light .text-slate-100:not(.hero-polygon *),
@@ -658,4 +664,103 @@ body.theme-light .search-trend-pill:hover {
 }
 body.theme-light .community-card:hover {
   box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.12), 0 0 20px rgba(55, 141, 204, 0.1);
+}
+
+/* 7.5 Header Actions & Warenkorb Kontrast-Sicherheit */
+/* Warenkorb-Button: Text & Icons MÜSSEN in LM und DM strahlend weiß sein (außer das Zähler-Badge) */
+a[href*="warenkorb.html"],
+a[href*="warenkorb.html"] i,
+a[href*="warenkorb.html"] div,
+a[href*="warenkorb.html"] span:not(.cart-badge-count),
+a[href*="warenkorb.html"] *:not(.cart-badge-count),
+.cart-pill-price {
+  color: #FFFFFF !important;
+}
+body.theme-light a[href*="warenkorb.html"],
+body.theme-light a[href*="warenkorb.html"] i,
+body.theme-light a[href*="warenkorb.html"] div,
+body.theme-light a[href*="warenkorb.html"] span:not(.cart-badge-count),
+body.theme-light a[href*="warenkorb.html"] *:not(.cart-badge-count),
+body.theme-light .cart-pill-price {
+  color: #FFFFFF !important;
+}
+
+.cart-badge-count {
+  background-color: #F59E0B !important;
+  color: #0F172A !important;
+}
+body.theme-light .cart-badge-count,
+body.theme-light .cart-badge-count * {
+  background-color: #F59E0B !important;
+  color: #0F172A !important;
+}
+
+/* ========================================================================= */
+/* GLOBALE 2-GRÜN HARMONISIERUNG (NUR 2 TÖNE: DM #51ce00 | LM #368900)        */
+/* ========================================================================= */
+.text-emerald-400,
+.text-emerald-500,
+.text-emerald-600,
+.text-kfz-green,
+.text-brand-success {
+  color: var(--brand-green) !important;
+}
+
+.bg-emerald-500,
+.bg-emerald-600,
+.bg-kfz-green,
+.bg-brand-success {
+  background-color: var(--brand-green) !important;
+}
+
+.bg-emerald-500\/10,
+.bg-emerald-500\/15,
+.bg-emerald-500\/20,
+.bg-emerald-600\/15,
+.bg-emerald-500\/25 {
+  background-color: var(--brand-green-bg) !important;
+}
+
+.border-emerald-500,
+.border-emerald-500\/20,
+.border-emerald-500\/30,
+.border-emerald-500\/40 {
+  border-color: var(--brand-green-border) !important;
+}
+
+/* ========================================================================= */
+/* 16. FLOATING THEME TOGGLE (BOTTOM-LEFT CIRCLE)                            */
+/* ========================================================================= */
+.floating-theme-btn {
+  background-color: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FBBF24;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.floating-theme-btn:hover {
+  background-color: #0F172A;
+  border-color: rgba(245, 158, 11, 0.6);
+  color: #F59E0B;
+  box-shadow: 0 12px 28px -5px rgba(245, 158, 11, 0.3), 0 0 12px rgba(245, 158, 11, 0.2);
+}
+
+body.theme-light .floating-theme-btn {
+  background-color: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #0F172A !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.12), 0 4px 6px -4px rgba(15, 23, 42, 0.08) !important;
+}
+
+body.theme-light .floating-theme-btn:hover {
+  background-color: #F8FAFC !important;
+  border-color: #378DCC !important;
+  color: #378DCC !important;
+  box-shadow: 0 12px 28px -5px rgba(55, 141, 204, 0.25) !important;
+}
+
+body.theme-light .floating-theme-btn * {
+  color: inherit !important;
 }
