@@ -954,15 +954,15 @@ body.theme-light .badge-car-count * {
 /* 20. GEFRAGTESTE PRODUKTTYPEN (SHOWCASE-SEKTION)                           */
 /* ========================================================================= */
 .produkttypen-section {
-  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.03) 0%, rgba(13, 21, 38, 0.95) 60%), linear-gradient(180deg, #090e1a 0%, #0d1527 50%, #090e1a 100%);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: radial-gradient(circle at 50% 0%, rgba(55, 141, 204, 0.12) 0%, rgba(13, 21, 38, 0.95) 60%), linear-gradient(180deg, #090e1a 0%, #0d1527 50%, #090e1a 100%);
+  border-top: 1px solid rgba(55, 141, 204, 0.15);
+  border-bottom: 1px solid rgba(55, 141, 204, 0.15);
 }
 
 body.theme-light .produkttypen-section {
-  background: linear-gradient(180deg, #F4F4F6 0%, #E5E7EB 50%, #F4F4F6 100%);
-  border-top: 1px solid #D1D5DB;
-  border-bottom: 1px solid #D1D5DB;
+  background: linear-gradient(180deg, #EDF3F8 0%, #E2ECF5 50%, #EDF3F8 100%);
+  border-top: 1px solid #CBD5E1;
+  border-bottom: 1px solid #CBD5E1;
 }
 
 .produkttyp-card {
