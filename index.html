@@ -2939,12 +2939,12 @@
               <span>YouTube 4K</span>
             </div>
 
-            <!-- Sound Wave / EQ Bars oben rechts -->
-            <div class="absolute top-3 right-3 flex items-end space-x-0.5 h-4 bg-black/60 px-2 py-1 rounded-md backdrop-blur-sm">
-              <span class="w-1 bg-red-400 rounded-full eq-bar-1"></span>
-              <span class="w-1 bg-red-400 rounded-full eq-bar-2"></span>
-              <span class="w-1 bg-red-400 rounded-full eq-bar-3"></span>
-              <span class="w-1 bg-red-400 rounded-full eq-bar-4"></span>
+            <!-- Sound Wave / EQ Bars oben rechts (kompakte, halbierte Höhe) -->
+            <div class="absolute top-3 right-3 flex items-end space-x-0.5 h-5 bg-black/60 px-2 py-1 rounded-md backdrop-blur-sm border border-white/10 shadow-sm pointer-events-none">
+              <span class="w-1 bg-red-400 rounded-full eq-bar-mini-1"></span>
+              <span class="w-1 bg-red-400 rounded-full eq-bar-mini-2"></span>
+              <span class="w-1 bg-red-400 rounded-full eq-bar-mini-3"></span>
+              <span class="w-1 bg-red-400 rounded-full eq-bar-mini-4"></span>
             </div>
 
             <!-- Großer Play Button zentriert -->
@@ -3121,13 +3121,13 @@
               Tausche dich mit Fahrern deiner Marke aus: Sound-Files, Montage-Tipps, Vorher-Nachher Messungen &amp; exklusive Community-Aktionen.
             </p>
 
-            <!-- Community Avatar Stapel -->
-            <div class="pt-5 flex items-center space-x-2">
-              <div class="flex -space-x-2 overflow-hidden">
-                <div class="inline-block h-8 w-8 rounded-full ring-2 ring-gray-900 bg-brand-orange text-white text-xs font-bold flex items-center justify-center">MK</div>
-                <div class="inline-block h-8 w-8 rounded-full ring-2 ring-gray-900 bg-emerald-600 text-white text-xs font-bold flex items-center justify-center">RS</div>
-                <div class="inline-block h-8 w-8 rounded-full ring-2 ring-gray-900 bg-purple-600 text-white text-xs font-bold flex items-center justify-center">TB</div>
-                <div class="inline-block h-8 w-8 rounded-full ring-2 ring-gray-900 bg-amber-600 text-white text-xs font-bold flex items-center justify-center">DL</div>
+            <!-- Community Avatar Stapel (ohne overflow-hidden & saubere Rundungen) -->
+            <div class="pt-5 flex items-center space-x-3">
+              <div class="community-avatar-stack">
+                <div class="community-avatar-item bg-brand-blue" title="Michael K.">MK</div>
+                <div class="community-avatar-item bg-emerald-600" title="Robert S.">RS</div>
+                <div class="community-avatar-item bg-purple-600" title="Thomas B.">TB</div>
+                <div class="community-avatar-item bg-brand-orange" title="Dennis L.">DL</div>
               </div>
               <span class="text-xs font-extrabold text-brand-orange">+15.420 Mitglieder</span>
             </div>
