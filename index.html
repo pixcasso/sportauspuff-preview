@@ -992,90 +992,73 @@
   </div>
 
   <!-- ========================================================================= -->
-  <!-- 5. DER 2-SCHRITT-KAUFWEG & SERVICE-VERSPRECHEN                            -->
+  <!-- 5. SHOP-VORTEILE & SERVICE-VERSPRECHEN (KOMPAKTES TRUST-BAND)            -->
   <!-- ========================================================================= -->
-  <section style="background-color: var(--panel-bg); border-color: var(--panel-border);" class="py-14 border-b transition-colors duration-300">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
+  <section style="background-color: var(--panel-bg); border-color: var(--panel-border);" class="py-5 sm:py-6 border-b transition-colors duration-300 relative z-20">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
-
-        <!-- Schritt 1: Auto wählen -->
-        <div class="flex items-center space-x-5 p-5 rounded-3xl transition border shadow-sm hover:shadow-lg group" style="background-color: var(--panel-card); border-color: var(--panel-border);">
-          <div class="w-14 h-14 rounded-2xl bg-brand-orange text-white font-racing font-extrabold text-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
-            1
-          </div>
-          <div class="h-20 w-28 flex items-center justify-center flex-shrink-0 overflow-hidden rounded-2xl bg-black/10 shadow-inner">
-            <img src="assets/audi-rs6-ragazzon.jpg" alt="Fahrzeugtyp wählen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-          </div>
-          <div>
-            <h3 class="font-racing text-2xl font-bold uppercase italic leading-tight group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
-              Fahrzeugtyp auswählen
-            </h3>
-            <p class="text-xs mt-1 font-medium leading-relaxed" style="color: var(--text-muted);">
-              Wähle Marke, Modell und Motor deines Autos für 100% garantierte Passgenauigkeit.
-            </p>
-          </div>
-        </div>
-
-        <!-- Schritt 2: Sound wählen & kaufen -->
-        <div class="flex items-center space-x-5 p-5 rounded-3xl transition border shadow-sm hover:shadow-lg group" style="background-color: var(--panel-card); border-color: var(--panel-border);">
-          <div class="w-14 h-14 rounded-2xl bg-brand-orange text-white font-racing font-extrabold text-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
-            2
-          </div>
-          <div class="h-20 w-28 flex items-center justify-center flex-shrink-0 overflow-hidden rounded-2xl bg-black/10 shadow-inner">
-            <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=300&q=80" alt="Sound wählen und kaufen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-          </div>
-          <div>
-            <h3 class="font-racing text-2xl font-bold uppercase italic leading-tight group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
-              Sound wählen & kaufen
-            </h3>
-            <p class="text-xs mt-1 font-medium leading-relaxed" style="color: var(--text-muted);">
-              Passende Abgasanlage auswählen, online bestellen und auf Wunsch direkt einbauen lassen.
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- 4 USPs (Inhalte exakt gemäß Dev-Seite) -->
-      <div class="mt-10 pt-8 border-t grid grid-cols-2 md:grid-cols-4 gap-6 text-center max-w-5xl mx-auto" style="border-color: var(--panel-border);">
         <!-- USP 1: Niedrige Preise -->
-        <div class="flex flex-col items-center group">
-          <div class="w-11 h-11 rounded-2xl bg-brand-orange/10 text-brand-orange flex items-center justify-center text-lg mb-2 group-hover:scale-110 transition-transform">
+        <div class="flex items-center space-x-3.5 group justify-center sm:justify-start">
+          <div class="w-10 h-10 rounded-xl bg-brand-orange/10 text-brand-orange flex items-center justify-center text-base flex-shrink-0 group-hover:scale-110 transition-transform">
             <i class="fa-solid fa-euro-sign"></i>
           </div>
-          <span class="font-bold text-sm" style="color: var(--text-main);">Niedrige Preise</span>
-          <span class="text-xs" style="color: var(--text-muted);">Best-Preis-Garantie</span>
+          <div>
+            <div class="font-racing font-extrabold text-sm uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Niedrige Preise
+            </div>
+            <div class="text-xs font-medium" style="color: var(--text-muted);">
+              Best-Preis-Garantie
+            </div>
+          </div>
         </div>
 
         <!-- USP 2: Versand FREI -->
-        <div class="flex flex-col items-center group">
-          <div class="w-11 h-11 rounded-2xl bg-brand-orange/10 text-brand-orange flex items-center justify-center text-lg mb-2 group-hover:scale-110 transition-transform">
+        <div class="flex items-center space-x-3.5 group justify-center sm:justify-start">
+          <div class="w-10 h-10 rounded-xl bg-brand-orange/10 text-brand-orange flex items-center justify-center text-base flex-shrink-0 group-hover:scale-110 transition-transform">
             <i class="fa-solid fa-truck-fast"></i>
           </div>
-          <span class="font-bold text-sm" style="color: var(--text-main);">Versand FREI</span>
-          <span class="text-xs" style="color: var(--text-muted);">ab 100,-€ ¹ Bestellwert</span>
+          <div>
+            <div class="font-racing font-extrabold text-sm uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Versand FREI
+            </div>
+            <div class="text-xs font-medium" style="color: var(--text-muted);">
+              Ab 100,- € Bestellwert¹
+            </div>
+          </div>
         </div>
 
         <!-- USP 3: Top Qualität -->
-        <div class="flex flex-col items-center group">
-          <div class="w-11 h-11 rounded-2xl bg-brand-orange/10 text-brand-orange flex items-center justify-center text-lg mb-2 group-hover:scale-110 transition-transform">
+        <div class="flex items-center space-x-3.5 group justify-center sm:justify-start">
+          <div class="w-10 h-10 rounded-xl bg-brand-orange/10 text-brand-orange flex items-center justify-center text-base flex-shrink-0 group-hover:scale-110 transition-transform">
             <i class="fa-solid fa-check"></i>
           </div>
-          <span class="font-bold text-sm" style="color: var(--text-main);">Top Qualität</span>
-          <span class="text-xs" style="color: var(--text-muted);">Edelstahl & passgenau</span>
+          <div>
+            <div class="font-racing font-extrabold text-sm uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Top Qualität
+            </div>
+            <div class="text-xs font-medium" style="color: var(--text-muted);">
+              Edelstahl &amp; passgenau
+            </div>
+          </div>
         </div>
 
         <!-- USP 4: Einfache Rückgabe -->
-        <div class="flex flex-col items-center group">
-          <div class="w-11 h-11 rounded-2xl bg-brand-orange/10 text-brand-orange flex items-center justify-center text-lg mb-2 group-hover:scale-110 transition-transform">
+        <div class="flex items-center space-x-3.5 group justify-center sm:justify-start">
+          <div class="w-10 h-10 rounded-xl bg-brand-orange/10 text-brand-orange flex items-center justify-center text-base flex-shrink-0 group-hover:scale-110 transition-transform">
             <i class="fa-solid fa-rotate-left"></i>
           </div>
-          <span class="font-bold text-sm" style="color: var(--text-main);">Einfache Rückgabe</span>
-          <span class="text-xs" style="color: var(--text-muted);">30 Tage Rückgaberecht</span>
+          <div>
+            <div class="font-racing font-extrabold text-sm uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Einfache Rückgabe
+            </div>
+            <div class="text-xs font-medium" style="color: var(--text-muted);">
+              30 Tage Rückgaberecht
+            </div>
+          </div>
         </div>
-      </div>
 
+      </div>
     </div>
   </section>
 
