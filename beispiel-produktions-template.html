@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Dein-Sportauspuff.de · Produktions-Template (Beispiel mit kompakten Klassen)</title>
+
+  <!-- Google Fonts: Inter & Barlow Condensed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- REINES PRODUKTIONS-CSS (KEIN TAILWIND-CDN!) -->
+  <link rel="stylesheet" href="assets/production-components.css">
+</head>
+<body id="appBody">
+
+  <!-- ========================================================================= -->
+  <!-- 1. HEADER (Kompakt & 44px Klickziel-Symmetrie)                            -->
+  <!-- ========================================================================= -->
+  <header style="background: var(--panel-bg); border-bottom: 1px solid var(--panel-border); position: sticky; top: 0; z-index: 40;">
+    <div class="ds-container" style="display: flex; align-items: center; justify-content: space-between; height: 4.5rem;">
+      
+      <!-- Logo -->
+      <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem;">
+        <img src="assets/dein-sportauspuff.svg" alt="Dein-Sportauspuff.de" style="height: 2.25rem;">
+      </a>
+
+      <!-- Haupt-Navigation (Kompakt) -->
+      <nav style="display: flex; align-items: center; gap: 1.5rem; font-family: var(--font-racing); text-transform: uppercase; font-weight: 800; font-size: 0.9375rem;">
+        <a href="#standort-fakten" style="color: var(--text-main); transition: color 0.2s;">Standort &amp; Lager</a>
+        <a href="#leistung" style="color: var(--text-main); transition: color 0.2s;">Leistungsprüfstand</a>
+        <a href="#bewertungen" style="color: var(--text-main); transition: color 0.2s;">Bewertungen</a>
+        <a href="#support" style="color: var(--text-main); transition: color 0.2s;">Beratung</a>
+      </nav>
+
+      <!-- Aktionsleiste (Exakt 44px Höhe gemäß Regel 2) -->
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <div class="ds-btn ds-btn-secondary" style="height: 2.75rem; border-radius: var(--radius-md);">
+          <i class="fa-solid fa-warehouse text-orange"></i>
+          <span>Audi RS6</span>
+        </div>
+        <div class="ds-btn ds-btn-blue" style="height: 2.75rem; border-radius: var(--radius-md);">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span>1.849,00 €</span>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 2. SEKTION: STANDORT & LOGISTIKZENTRUM (Zahlen & Fakten)                  -->
+  <!-- ========================================================================= -->
+  <section id="standort-fakten" class="ds-section ds-section-page">
+    <div class="ds-container">
+
+      <!-- Header -->
+      <div class="ds-header-block">
+        <div class="ds-pill ds-pill-orange">
+          <i class="fa-solid fa-warehouse"></i>
+          <span>Standort &amp; Logistikzentrum Chemnitz</span>
+        </div>
+        <h2 class="ds-title">
+          DEIN-SPORTAUSPUFF.DE IN <span class="text-orange">ZAHLEN &amp; FAKTEN</span>
+        </h2>
+        <p class="ds-subtitle">
+          Kein anonymer Dropshipper: Wir lagern, prüfen und versenden direkt aus unserem eigenen 2.000 m² Logistikzentrum in Sachsen.
+        </p>
+      </div>
+
+      <!-- Asymmetrischer 12er Split -->
+      <div class="ds-split-12">
+
+        <!-- Links: Foto Firmengebäude -->
+        <div class="ds-card ds-dark-surface" style="padding: 0; position: relative; overflow: hidden; min-height: 480px; display: flex; flex-direction: column; justify-content: space-between;">
+          <img src="assets/standort/zentrale-front.jpg" alt="Firmengebäude Chemnitz" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.2) 100%);"></div>
+
+          <!-- Oben: Badges -->
+          <div style="position: relative; z-index: 10; padding: 1.5rem; display: flex; justify-content: space-between;">
+            <div class="ds-pill" style="background: rgba(0,0,0,0.7); color: #FFF; border: 1px solid rgba(255,255,255,0.2);">
+              <span class="ds-pulse-dot"></span>
+              <span>Zentrale &amp; Logistik · Chemnitz</span>
+            </div>
+            <div class="ds-pill ds-pill-blue">
+              <i class="fa-solid fa-shield-check"></i>
+              <span>Inhabergeführt</span>
+            </div>
+          </div>
+
+          <!-- Unten: Schwebende Vor-Ort-Garantie -->
+          <div style="position: relative; z-index: 10; padding: 1.5rem;">
+            <div style="background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-lg); padding: 1.25rem; display: flex; align-items: center; justify-content: space-between;">
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="width: 2.75rem; height: 2.75rem; border-radius: 0.75rem; background: rgba(245, 158, 11, 0.2); color: var(--brand-orange); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
+                  <i class="fa-solid fa-boxes-stacked"></i>
+                </div>
+                <div>
+                  <div style="font-family: var(--font-racing); font-size: 1.125rem; font-weight: 900; text-transform: uppercase; color: #FFF;">Echter Vor-Ort-Bestand</div>
+                  <div style="font-size: 0.8125rem; color: #CBD5E1;">Über 5.000 Sportauspuffanlagen sofort abhol- &amp; versandbereit</div>
+                </div>
+              </div>
+              <img src="assets/standort/lager-warehouse.jpg" alt="Lager" style="width: 4rem; height: 4rem; border-radius: 0.75rem; object-fit: cover; border: 1px solid rgba(255,255,255,0.2);">
+            </div>
+          </div>
+        </div>
+
+        <!-- Rechts: 4 KPIs & 9-Punkte-Matrix -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+
+          <!-- 2x2 Grid Zahlen -->
+          <div class="ds-grid-2">
+            <div class="ds-card ds-card-kpi ds-card-hover">
+              <div class="ds-kpi-eyebrow">Sortimentsgröße <i class="fa-solid fa-layer-group"></i></div>
+              <div class="ds-kpi-val">über 48.000</div>
+              <h4 class="ds-kpi-title">Ausgewählte Produkte</h4>
+              <p class="ds-kpi-desc">Für über 35 Automarken: Endtöpfe bis Klappen-Komplettanlagen.</p>
+            </div>
+
+            <div class="ds-card ds-card-kpi ds-card-hover">
+              <div class="ds-kpi-eyebrow">Kundenzufriedenheit <i class="fa-solid fa-users"></i></div>
+              <div class="ds-kpi-val">über 117.000</div>
+              <h4 class="ds-kpi-title">Zufriedene Kunden</h4>
+              <p class="ds-kpi-desc">Europaweites Vertrauen durch 100% Passform-Sicherheit.</p>
+            </div>
+
+            <div class="ds-card ds-card-kpi ds-card-hover">
+              <div class="ds-kpi-eyebrow">Sofort lieferbar <i class="fa-solid fa-truck-ramp-box"></i></div>
+              <div class="ds-kpi-val">über 5.000</div>
+              <h4 class="ds-kpi-title">Lagernde Produkte</h4>
+              <p class="ds-kpi-desc">Realer Lagerbestand in Chemnitz für täglichen Expressversand.</p>
+            </div>
+
+            <div class="ds-card ds-card-kpi ds-card-hover">
+              <div class="ds-kpi-eyebrow">Logistikzentrum <i class="fa-solid fa-warehouse"></i></div>
+              <div class="ds-kpi-val">über 2.000 <span style="font-size: 1.5rem; color: var(--brand-orange);">m²</span></div>
+              <h4 class="ds-kpi-title">Lagerfläche vor Ort</h4>
+              <p class="ds-kpi-desc">Hochregallager &amp; Schweißnaht-Qualitätskontrolle.</p>
+            </div>
+          </div>
+
+          <!-- 9-Punkte Matrix -->
+          <div class="ds-card">
+            <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--panel-border); padding-bottom: 0.75rem; margin-bottom: 1rem;">
+              <h4 style="font-family: var(--font-racing); font-size: 1.125rem; font-weight: 800; text-transform: uppercase;">
+                Unser 9-Punkte Qualitätsversprechen
+              </h4>
+              <span class="ds-pill ds-pill-green"><i class="fa-solid fa-check"></i> 100% Geprüft</span>
+            </div>
+
+            <div class="ds-grid-3" style="gap: 0.75rem; font-size: 0.8125rem;">
+              <div style="background: var(--tier1-bg); padding: 0.65rem 0.85rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.5rem; font-weight: 600;">
+                <i class="fa-solid fa-circle-check text-green"></i> <span>Riesige Auswahl</span>
+              </div>
+              <div style="background: var(--tier1-bg); padding: 0.65rem 0.85rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.5rem; font-weight: 600;">
+                <i class="fa-solid fa-circle-check text-green"></i> <span>Kfz-Beratungsteam</span>
+              </div>
+              <div style="background: var(--tier1-bg); padding: 0.65rem 0.85rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.5rem; font-weight: 600;">
+                <i class="fa-solid fa-circle-check text-green"></i> <span>Ausgeklügelte Filter</span>
+              </div>
+              <div style="background: var(--tier1-bg); padding: 0.65rem 0.85rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.5rem; font-weight: 600;">
+                <i class="fa-solid fa-circle-check text-green"></i> <span>Schnelle Suche</span>
+              </div>
+              <div style="background: var(--tier1-bg); padding: 0.65rem 0.85rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.5rem; font-weight: 600;">
+                <i class="fa-solid fa-circle-check text-green"></i> <span>Sichere Zahlarten</span>
+              </div>
+              <div style="background: var(--tier1-bg); padding: 0.65rem 0.85rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.5rem; font-weight: 600;">
+                <i class="fa-solid fa-circle-check text-green"></i> <span>Nur Premium-Marken</span>
+              </div>
+              <div style="background: var(--tier1-bg); padding: 0.65rem 0.85rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.5rem; font-weight: 600;">
+                <i class="fa-solid fa-circle-check text-green"></i> <span>30 Tage Widerruf</span>
+              </div>
+              <div style="background: var(--tier1-bg); padding: 0.65rem 0.85rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.5rem; font-weight: 600;">
+                <i class="fa-solid fa-circle-check text-green"></i> <span>Telefon-Support</span>
+              </div>
+              <div style="background: var(--tier1-bg); padding: 0.65rem 0.85rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.5rem; font-weight: 600;">
+                <i class="fa-solid fa-circle-check text-green"></i> <span>Kauf ohne Konto</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 3. SEKTION: LEISTUNGSPRÜFSTAND IN ZAHLEN (Telemetrie & Vorteile)          -->
+  <!-- ========================================================================= -->
+  <section id="leistung" class="ds-section ds-section-panel">
+    <div class="ds-container">
+
+      <!-- Header -->
+      <div class="ds-header-block ds-header-center">
+        <div class="ds-pill ds-pill-blue">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Prüfstands-Telemetrie &amp; Vorteile</span>
+        </div>
+        <h2 class="ds-title">
+          WAS BRINGT EIN SPORTAUSPUFF <span class="text-orange">IN ZAHLEN?</span>
+        </h2>
+        <p class="ds-subtitle">
+          Reale Rollenprüfstand-Vergleichsmessungen vor &amp; nach der Montage einer optimierten Sportabgasanlage.
+        </p>
+      </div>
+
+      <!-- Telemetrie Split -->
+      <div class="ds-split-12" style="grid-template-columns: 7fr 5fr;">
+
+        <!-- Links: Die 6 Kernvorteile -->
+        <div class="ds-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="border-bottom: 1px solid var(--panel-border); padding-bottom: 0.75rem; margin-bottom: 1.25rem;">
+              <span style="font-family: var(--font-racing); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--brand-orange);">
+                Vorteile gegenüber OEM
+              </span>
+              <h3 style="font-family: var(--font-racing); font-size: 1.5rem; font-weight: 800; text-transform: uppercase;">
+                Warum ein Sportauspuff?
+              </h3>
+            </div>
+
+            <div class="ds-grid-2" style="gap: 1rem; font-size: 0.8125rem;">
+              <div style="background: var(--tier1-bg); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--panel-border);">
+                <div style="font-family: var(--font-racing); font-size: 0.875rem; font-weight: 800; text-transform: uppercase; color: var(--brand-orange); margin-bottom: 0.25rem;">
+                  1. Sportlicher Sound
+                </div>
+                <div style="color: var(--text-muted); line-height: 1.5;">
+                  Tiefe Töne betont, dröhnfrei bei Autobahnfahrten.
+                </div>
+              </div>
+
+              <div style="background: var(--tier1-bg); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--panel-border);">
+                <div style="font-family: var(--font-racing); font-size: 0.875rem; font-weight: 800; text-transform: uppercase; color: var(--brand-green); margin-bottom: 0.25rem;">
+                  2. Leistung &amp; Drehmoment
+                </div>
+                <div style="color: var(--text-muted); line-height: 1.5;">
+                  Reduzierter Staudruck steigert Power um 3% bis 5%.
+                </div>
+              </div>
+
+              <div style="background: var(--tier1-bg); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--panel-border);">
+                <div style="font-family: var(--font-racing); font-size: 0.875rem; font-weight: 800; text-transform: uppercase; color: var(--brand-blue-bright); margin-bottom: 0.25rem;">
+                  3. Gewichtsreduzierung
+                </div>
+                <div style="color: var(--text-muted); line-height: 1.5;">
+                  Edelstahl (V2A) &amp; Titan sparen zweistelliges Gewicht.
+                </div>
+              </div>
+
+              <div style="background: var(--tier1-bg); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--panel-border);">
+                <div style="font-family: var(--font-racing); font-size: 0.875rem; font-weight: 800; text-transform: uppercase; color: #C084FC; margin-bottom: 0.25rem;">
+                  4. Längere Haltbarkeit
+                </div>
+                <div style="color: var(--text-muted); line-height: 1.5;">
+                  Rostfreier Edelstahl stoppt Alterungs- &amp; Rostprozesse.
+                </div>
+              </div>
+
+              <div style="background: var(--tier1-bg); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--panel-border);">
+                <div style="font-family: var(--font-racing); font-size: 0.875rem; font-weight: 800; text-transform: uppercase; color: var(--brand-orange); margin-bottom: 0.25rem;">
+                  5. Schont Turbo &amp; Motor
+                </div>
+                <div style="color: var(--text-muted); line-height: 1.5;">
+                  70–80mm Downpipes leiten Stauhitze schneller ab.
+                </div>
+              </div>
+
+              <div style="background: var(--tier1-bg); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--panel-border);">
+                <div style="font-family: var(--font-racing); font-size: 0.875rem; font-weight: 800; text-transform: uppercase; color: #F472B6; margin-bottom: 0.25rem;">
+                  6. Endrohr-Design
+                </div>
+                <div style="color: var(--text-muted); line-height: 1.5;">
+                  Silber, Schwarz, Carbon oder Capristo-Keramik.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rechts: Telemetrie Tabelle -->
+        <div class="ds-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="border-bottom: 1px solid var(--panel-border); padding-bottom: 0.75rem; margin-bottom: 1rem;">
+              <span style="font-family: var(--font-racing); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--brand-blue);">
+                Rollenprüfstand Messwerte
+              </span>
+              <h3 style="font-family: var(--font-racing); font-size: 1.5rem; font-weight: 800; text-transform: uppercase;">
+                Dyno-Messprotokoll
+              </h3>
+            </div>
+
+            <div class="ds-table-wrapper">
+              <table class="ds-table">
+                <thead>
+                  <tr>
+                    <th>Fahrzeug</th>
+                    <th style="text-align: center;">Leistung</th>
+                    <th style="text-align: center;">Drehmoment</th>
+                    <th style="text-align: right;">Gewicht</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Audi R8</strong><br><span style="font-size: 0.6875rem; color: var(--text-muted);">V10 FSI</span></td>
+                    <td style="text-align: center;"><span class="ds-stat-badge ds-stat-plus">+13,9 PS (+2,6%)</span></td>
+                    <td style="text-align: center;"><span class="ds-stat-badge ds-stat-nm">+15,4 Nm</span></td>
+                    <td style="text-align: right;"><span class="ds-stat-badge ds-stat-minus">-16,3 kg</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Porsche 911</strong><br><span style="font-size: 0.6875rem; color: var(--text-muted);">GT3 (997)</span></td>
+                    <td style="text-align: center;"><span class="ds-stat-badge ds-stat-plus">+12,0 PS (+2,9%)</span></td>
+                    <td style="text-align: center;"><span class="ds-stat-badge ds-stat-nm">+14,2 Nm</span></td>
+                    <td style="text-align: right;"><span class="ds-stat-badge ds-stat-minus">-17,0 kg</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>VW Golf 7</strong><br><span style="font-size: 0.6875rem; color: var(--text-muted);">2.0 TSI GTI</span></td>
+                    <td style="text-align: center;"><span class="ds-stat-badge ds-stat-plus">+11,7 PS (+5,3%)</span></td>
+                    <td style="text-align: center;"><span class="ds-stat-badge ds-stat-nm">+16,0 Nm</span></td>
+                    <td style="text-align: right;"><span class="ds-stat-badge ds-stat-minus">-5,3 kg</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>VW Golf 8</strong><br><span style="font-size: 0.6875rem; color: var(--text-muted);">2.0 TSI GTI</span></td>
+                    <td style="text-align: center;"><span class="ds-stat-badge ds-stat-plus">+11,2 PS (+4,6%)</span></td>
+                    <td style="text-align: center;"><span class="ds-stat-badge ds-stat-nm">+15,8 Nm</span></td>
+                    <td style="text-align: right;"><span class="ds-stat-badge ds-stat-minus">-10,3 kg</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div style="border-top: 1px solid var(--panel-border); padding-top: 1rem; margin-top: 1rem; display: flex; justify-content: space-between; font-size: 0.75rem;">
+            <span style="color: var(--text-muted);">*Variiert nach Software &amp; Downpipe</span>
+            <span class="text-orange" style="font-weight: 800; font-family: var(--font-racing);">100% Dyno Geprüft</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 4. SEKTION: SUPPORT-BANNER (Dark Surface Performance Highlight)           -->
+  <!-- ========================================================================= -->
+  <section id="support" class="ds-section ds-section-page">
+    <div class="ds-container">
+
+      <div class="ds-dark-surface" style="background: linear-gradient(135deg, #0b1a2e 0%, #15325b 50%, #0a1728 100%); border: 1px solid rgba(55, 141, 204, 0.35); border-radius: var(--radius-xl); padding: 3rem 2rem; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+        
+        <div class="ds-pill ds-pill-blue" style="margin-bottom: 1rem;">
+          <i class="fa-solid fa-headset"></i>
+          <span>Persönliche Fachberatung</span>
+        </div>
+
+        <h2 style="font-family: var(--font-racing); font-size: clamp(2rem, 4vw, 3.25rem); font-weight: 900; text-transform: uppercase; font-style: italic; color: #FFF; line-height: 1.1;">
+          WIR HELFEN DIR, DEN <span class="text-orange">PASSENDEN SPORTAUSPUFF</span> ZU FINDEN!
+        </h2>
+
+        <p style="color: #CBD5E1; max-width: 44rem; margin: 0.75rem auto 2rem; font-size: 0.9375rem; line-height: 1.6;">
+          Unser geschultes Support-Team berät Dich mit über 10 Jahren Erfahrung – persönlich, herstellerunabhängig und unkompliziert per Telefon, WhatsApp oder E-Mail.
+        </p>
+
+        <!-- 3 Klick-Karten -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; max-width: 50rem; margin: 0 auto;">
+          <a href="tel:+4937130687696" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-lg); padding: 1.25rem; text-align: center; color: #FFF; transition: all 0.2s;">
+            <div style="color: var(--brand-orange); font-size: 1.25rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-phone"></i></div>
+            <div style="font-family: var(--font-racing); font-size: 1.125rem; font-weight: 800;">+49 371 30 68 76 96</div>
+            <div style="font-size: 0.6875rem; color: #94A3B8; margin-top: 0.25rem;">Mo–Fr 9:00 – 18:00 Uhr</div>
+          </a>
+
+          <a href="https://wa.me/4937130687696" target="_blank" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-lg); padding: 1.25rem; text-align: center; color: #FFF; transition: all 0.2s;">
+            <div style="color: #4ADE80; font-size: 1.25rem; margin-bottom: 0.5rem;"><i class="fa-brands fa-whatsapp"></i></div>
+            <div style="font-family: var(--font-racing); font-size: 1.125rem; font-weight: 800;">WhatsApp Chat</div>
+            <div style="font-size: 0.6875rem; color: #94A3B8; margin-top: 0.25rem;">Foto vom Schein senden</div>
+          </a>
+
+          <a href="mailto:info@dein-sportauspuff.de" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-lg); padding: 1.25rem; text-align: center; color: #FFF; transition: all 0.2s;">
+            <div style="color: var(--brand-blue-bright); font-size: 1.25rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-envelope"></i></div>
+            <div style="font-family: var(--font-racing); font-size: 1.125rem; font-weight: 800;">E-Mail Anfrage</div>
+            <div style="font-size: 0.6875rem; color: #94A3B8; margin-top: 0.25rem;">Antwort innerhalb 24h</div>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 5. FOOTER (Kompakt)                                                       -->
+  <!-- ========================================================================= -->
+  <footer style="background: #090B10; border-top: 1px solid rgba(255,255,255,0.08); padding: 3rem 0; font-size: 0.8125rem; color: #64748B;">
+    <div class="ds-container" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+      <div>
+        <div style="color: #FFF; font-weight: 800; font-family: var(--font-racing); text-transform: uppercase; font-size: 1rem;">
+          Dein-Sportauspuff.de · Defero GmbH
+        </div>
+        <div style="font-size: 0.75rem; margin-top: 0.25rem;">Ausgezeichnet als Top Shop 2026 (5x in Folge von AUTO BILD &amp; Statista)</div>
+      </div>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="index.html" style="color: var(--brand-orange); font-weight: bold;">← Zurück zum Haupt-Prototyp</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING THEME TOGGLE (Runder Umschalter unten links) -->
+  <button id="floatingThemeToggle" class="ds-theme-toggle" onclick="toggleTheme()" title="Design umschalten">
+    <i id="themeIcon" class="fa-solid fa-sun"></i>
+  </button>
+
+  <script>
+    function toggleTheme() {
+      const isLight = document.body.classList.toggle('theme-light');
+      const icon = document.getElementById('themeIcon');
+      if (isLight) {
+        icon.className = 'fa-solid fa-moon';
+      } else {
+        icon.className = 'fa-solid fa-sun';
+      }
+    }
+  </script>
+
+</body>
+</html>
