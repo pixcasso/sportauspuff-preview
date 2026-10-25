@@ -179,7 +179,7 @@ body.theme-light {
 /* Auf diesen Flächen bleibt die Typografie und Glassmorphism 100% wie im Dark Mode */
 
 /* 1. Primärtexte auf HELLEN Flächen */
-body.theme-light .text-white:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer):not(footer *):not([style*="#0e1726"] *):not([style*="#090f1d"] *):not(.bg-brand-orange):not(.bg-brand-orange *):not(.bg-brand-orangeHover):not(.bg-brand-orangeHover *):not(.bg-brand-blue):not(.bg-brand-blue *):not(.bg-brand-blueHover):not(.bg-brand-blueHover *):not([href*="warenkorb.html"]):not([href*="warenkorb.html"] *):not(.bg-emerald-600):not(.bg-emerald-500):not(.bg-red-600):not(.bg-gray-900):not(.bg-gray-950):not(.floating-theme-switch *) {
+body.theme-light .text-white:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer):not(footer *):not([style*="#0e1726"] *):not([style*="#090f1d"] *):not(.bg-brand-orange):not(.bg-brand-orange *):not(.bg-brand-orangeHover):not(.bg-brand-orangeHover *):not(.bg-brand-blue):not(.bg-brand-blue *):not(.bg-brand-blueHover):not(.bg-brand-blueHover *):not([href*="warenkorb.html"]):not([href*="warenkorb.html"] *):not(.bg-emerald-600):not(.bg-emerald-500):not(.bg-red-600):not(.bg-blue-600):not(.bg-blue-600 *):not(.bg-gray-900):not(.bg-gray-950):not(.floating-theme-switch *) {
   color: #0F172A !important;
 }
 body.theme-light .text-slate-100:not(.hero-polygon *):not(.dark-surface *):not([data-theme-surface="dark"] *):not(.baugruppen-card *):not(footer):not(footer *):not([style*="#0e1726"] *):not([style*="#090f1d"] *),
@@ -741,7 +741,7 @@ body.theme-light .community-card:hover {
   justify-content: center;
   font-size: 0.75rem;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   border: 2px solid var(--panel-card);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
   flex-shrink: 0;
@@ -751,6 +751,15 @@ body.theme-light .community-card:hover {
 .community-avatar-item:hover {
   transform: translateY(-2px) scale(1.1);
   z-index: 10;
+}
+
+/* 7.4.2 Facebook Community Icon Kontrast (in Dark & Light Mode immer strahlend weiß) */
+.community-card .fa-facebook-f,
+body.theme-light .community-card .fa-facebook-f,
+.community-card .bg-blue-600,
+body.theme-light .community-card .bg-blue-600,
+body.theme-light .community-card .bg-blue-600 * {
+  color: #FFFFFF !important;
 }
 
 /* 7.5 Header Actions & Warenkorb Kontrast-Sicherheit */
