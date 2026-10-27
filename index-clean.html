@@ -1,0 +1,2975 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dein-Sportauspuff.de | Mehr Sound & Power | Bester Preis für Sportauspuffanlagen</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Barlow Condensed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Design Tokens & Theme Styles -->
+  <link rel="stylesheet" href="assets/theme.css">
+  <!-- Shared Tailwind Config & Theme Manager -->
+  <script src="assets/theme.js"></script>
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body id="appBody" style="background-color: var(--page-bg); color: var(--text-main);" class="font-sans antialiased selection:bg-brand-orange selection:text-white transition-colors duration-300">
+
+  <!-- ========================================================================= -->
+  <!-- 1. ZEILE 1: TOP UTILITY BAR (Luftig, 40px Höhe, Theming-Fähig)            -->
+  <!-- ========================================================================= -->
+  <header style="background-color: var(--tier1-bg); color: var(--tier1-text);" class="w-full text-xs transition-colors duration-300">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 h-10 flex items-center justify-between">
+
+      <!-- Links: Bewertung, Top Shop 2026 Auszeichnung & Telefon-Hotline -->
+      <div class="flex items-center space-x-4 sm:space-x-6 lg:space-x-8">
+        <div class="flex items-center space-x-2">
+          <div class="flex text-amber-400 text-xs">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <span class="font-bold text-xs" style="color: var(--logo-text);">4.9 / 5.0</span>
+          <span class="hidden sm:inline">(über 12.000 Bewertungen)</span>
+        </div>
+
+        <div class="hidden lg:flex items-center space-x-2">
+          <i class="fa-solid fa-phone text-brand-orange"></i>
+          <span>Kfz-Fachberatung: <strong class="hover:text-brand-orange transition cursor-pointer text-xs" style="color: var(--logo-text);">+49 (0) 371 64 63 87 55</strong></span>
+          <span class="text-[11px] opacity-75">(Mo–Fr 8–18 Uhr)</span>
+        </div>
+      </div>
+
+      <!-- Rechts: USPs & FAQ -->
+      <div class="flex items-center space-x-6">
+        <span class="hidden sm:flex items-center space-x-2">
+          <i class="fa-solid fa-truck-fast text-slate-400"></i>
+          <span>Kostenloser Versand ab 100 €</span>
+        </span>
+        <span class="opacity-40 hidden sm:inline">•</span>
+        <span class="hidden lg:flex items-center space-x-2">
+          <i class="fa-solid fa-certificate text-slate-400"></i>
+          <span>100% ECE / ABE eintragungsfrei</span>
+        </span>
+        <span class="opacity-40 hidden lg:inline">•</span>
+        <a href="#hilfe" class="hover:text-brand-orange transition flex items-center space-x-1.5 opacity-80 hover:opacity-100">
+          <i class="fa-regular fa-circle-question"></i>
+          <span>Hilfe & FAQ</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 2. ZEILE 2: MAIN HEADER (Heller oder Dunkler Header mit Kontrast-Suche)   -->
+  <!-- ========================================================================= -->
+  <div style="background-color: var(--tier2-bg);" class="sticky top-0 z-50 shadow-md transition-colors duration-300">
+    <div class="max-w-[1600px] mx-auto px-3 sm:px-8 lg:px-12">
+      <div class="h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4 lg:gap-8">
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobileMenuBtn" onclick="toggleMobileDrawer()" style="color: var(--logo-text);" class="lg:hidden p-1.5 rounded-lg hover:bg-black/5 flex-shrink-0" aria-label="Menü öffnen">
+          <i id="mobileMenuIcon" class="fa-solid fa-bars text-lg sm:text-xl"></i>
+        </button>
+
+        <!-- Brand Logo Dein-Sportauspuff.de (Offizielles SVG) -->
+        <a href="#" class="flex items-center group flex-shrink-0 py-1" title="Dein-Sportauspuff.de - Mehr Sound & Power">
+          <img src="assets/dein-sportauspuff.svg" alt="Dein-Sportauspuff.de" class="h-6 sm:h-7 lg:h-8 max-w-[190px] sm:max-w-[280px] lg:max-w-none w-auto object-contain transition-transform group-hover:scale-105">
+        </a>
+
+        <!-- Die Kontrast-Suche (Clean, Borderless Pill-Design) mit Live-Vorschau Dropdown -->
+        <div class="flex-1 max-w-2xl hidden md:block relative">
+          <form id="searchForm" action="#" onsubmit="return false;" class="relative">
+            <input
+              type="text"
+              id="search_keys"
+              name="search_keys"
+              autocomplete="off"
+              style="background-color: var(--search-bg); color: var(--search-text);"
+              placeholder="Fahrzeug, Modell, Artikel oder Motorcode suchen (z.B. Golf 7 GTI Fox, Audi RS6)..."
+              class="w-full text-sm font-medium rounded-full pl-12 pr-28 py-3.5 border-0 focus:ring-2 focus:ring-brand-orange/40 focus:outline-none transition shadow-sm placeholder:text-gray-400"
+            >
+            <div class="absolute inset-y-0 left-0 w-12 flex items-center justify-center pointer-events-none text-brand-orange text-base">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <button type="submit" name="send" class="absolute inset-y-1.5 right-1.5 px-5 bg-brand-orange hover:bg-brand-orangeHover text-white text-xs font-racing font-bold uppercase tracking-wider rounded-full transition shadow-sm flex items-center space-x-1.5">
+              <span>Suchen</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </form>
+
+          <!-- Live-Such-Vorschau Dropdown (#searchPreviewDropdown) -->
+          <div
+            id="searchPreviewDropdown"
+            class="hidden absolute top-full left-0 right-0 mt-2 rounded-2xl overflow-hidden z-50 text-left border shadow-2xl"
+          >
+            <!-- Trends & Häufig gesucht -->
+            <div class="p-4 border-b border-white/10" style="border-color: var(--panel-border);">
+              <div class="search-preview-section-title text-[10px] font-racing uppercase tracking-wider font-extrabold text-gray-400 mb-2.5 flex items-center space-x-1.5">
+                <i class="fa-solid fa-arrow-trend-up text-brand-orange text-xs"></i>
+                <span>Trends &amp; Häufig gesucht:</span>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <button type="button" class="search-trend-pill" data-search-term="Audi RS6 Ragazzon">
+                  <i class="fa-solid fa-magnifying-glass text-[10px] text-brand-orange"></i>
+                  <span>Audi RS6 Ragazzon</span>
+                </button>
+                <button type="button" class="search-trend-pill" data-search-term="Golf 8 GTI Fox">
+                  <i class="fa-solid fa-magnifying-glass text-[10px] text-brand-orange"></i>
+                  <span>Golf 8 GTI Fox</span>
+                </button>
+                <button type="button" class="search-trend-pill" data-search-term="BMW M340i Remus">
+                  <i class="fa-solid fa-magnifying-glass text-[10px] text-brand-orange"></i>
+                  <span>BMW M340i Remus</span>
+                </button>
+                <button type="button" class="search-trend-pill" data-search-term="Klappenauspuff ECE">
+                  <i class="fa-solid fa-certificate text-[10px] text-amber-400"></i>
+                  <span>Klappenauspuff ECE</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Sofort-Ergebnisse (3 Bestseller) -->
+            <div class="p-2 space-y-1">
+              <div class="search-preview-section-title px-3 pt-2 pb-1 text-[10px] font-racing uppercase tracking-wider font-extrabold text-gray-400">
+                Sofort verfügbare Bestseller
+              </div>
+
+              <!-- Bestseller 1: Audi RS6 Avant C8 Ragazzon -->
+              <a href="#" class="search-preview-item flex items-center justify-between p-3 rounded-xl hover:bg-white/5 transition group border border-transparent">
+                <div class="flex items-center space-x-3 min-w-0">
+                  <div class="w-12 h-12 rounded-lg bg-black/20 flex-shrink-0 overflow-hidden flex items-center justify-center border border-white/10">
+                    <img src="assets/audi-rs6-ragazzon.jpg" alt="Audi RS6 Ragazzon" class="w-full h-full object-cover">
+                  </div>
+                  <div class="min-w-0">
+                    <div class="flex items-center space-x-2">
+                      <span class="text-xs font-bold truncate group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+                        Audi RS6 Avant C8 Ragazzon Klappenanlage
+                      </span>
+                      <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex-shrink-0">
+                        100% ECE
+                      </span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 flex items-center space-x-2 mt-0.5">
+                      <span>Art.-Nr. 50.0892.00</span>
+                      <span>•</span>
+                      <span class="text-emerald-500 font-semibold"><i class="fa-solid fa-check text-[9px] mr-1"></i>Auf Lager</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-right flex-shrink-0 pl-3">
+                  <div class="font-racing text-base font-extrabold text-brand-orange">2.499,00 €</div>
+                  <div class="text-[10px] text-gray-400">inkl. MwSt.</div>
+                </div>
+              </a>
+
+              <!-- Bestseller 2: VW Golf 8 GTI FOX -->
+              <a href="#" class="search-preview-item flex items-center justify-between p-3 rounded-xl hover:bg-white/5 transition group border border-transparent">
+                <div class="flex items-center space-x-3 min-w-0">
+                  <div class="w-12 h-12 rounded-lg bg-black/20 flex-shrink-0 overflow-hidden flex items-center justify-center border border-white/10 text-brand-orange font-racing font-bold text-lg">
+                    FOX
+                  </div>
+                  <div class="min-w-0">
+                    <div class="flex items-center space-x-2">
+                      <span class="text-xs font-bold truncate group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+                        VW Golf 8 GTI FOX Duplex Sportauspuff
+                      </span>
+                      <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex-shrink-0">
+                        100% ECE
+                      </span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 flex items-center space-x-2 mt-0.5">
+                      <span>Art.-Nr. VW053034-776</span>
+                      <span>•</span>
+                      <span class="text-emerald-500 font-semibold"><i class="fa-solid fa-check text-[9px] mr-1"></i>Auf Lager</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-right flex-shrink-0 pl-3">
+                  <div class="font-racing text-base font-extrabold text-brand-orange">949,00 €</div>
+                  <div class="text-[10px] text-gray-400">inkl. MwSt.</div>
+                </div>
+              </a>
+
+              <!-- Bestseller 3: BMW M340i xDrive REMUS -->
+              <a href="#" class="search-preview-item flex items-center justify-between p-3 rounded-xl hover:bg-white/5 transition group border border-transparent">
+                <div class="flex items-center space-x-3 min-w-0">
+                  <div class="w-12 h-12 rounded-lg bg-black/20 flex-shrink-0 overflow-hidden flex items-center justify-center border border-white/10 text-brand-orange font-racing font-bold text-xs">
+                    REMUS
+                  </div>
+                  <div class="min-w-0">
+                    <div class="flex items-center space-x-2">
+                      <span class="text-xs font-bold truncate group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+                        BMW M340i xDrive REMUS Klappenauspuff
+                      </span>
+                      <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex-shrink-0">
+                        100% ECE
+                      </span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 flex items-center space-x-2 mt-0.5">
+                      <span>Art.-Nr. 086020-1500</span>
+                      <span>•</span>
+                      <span class="text-emerald-500 font-semibold"><i class="fa-solid fa-check text-[9px] mr-1"></i>Auf Lager</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-right flex-shrink-0 pl-3">
+                  <div class="font-racing text-base font-extrabold text-brand-orange">2.190,00 €</div>
+                  <div class="text-[10px] text-gray-400">inkl. MwSt.</div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Dropdown Footer -->
+            <div class="search-preview-footer p-3 bg-black/20 border-t flex items-center justify-between text-xs" style="border-color: var(--panel-border);">
+              <span class="text-gray-400 text-[11px] hidden sm:inline">Drücke <kbd class="px-1.5 py-0.5 bg-black/30 rounded border border-white/10 font-mono text-[10px]">ESC</kbd> zum Schließen</span>
+              <a href="#" class="text-brand-orange font-racing uppercase tracking-wider font-extrabold hover:underline flex items-center space-x-1.5 ml-auto">
+                <span>Alle Ergebnisse für Suche anzeigen</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rechte Aktionen -->
+        <div class="flex items-center space-x-1.5 sm:space-x-5 flex-shrink-0">
+
+          <!-- Kfz-Meister-Standard Virtuelle Kfz-Garage Pill (Clean, borderless, h-11) -->
+          <div id="activeCarPill" style="background-color: var(--car-pill-bg);" class="hidden sm:flex items-center h-11 rounded-xl px-3.5 cursor-pointer transition group shadow-sm hover:opacity-95 flex-shrink-0 space-x-3" onclick="onGaragePillClick()">
+            <div class="relative flex items-center justify-center text-brand-orange flex-shrink-0">
+              <i class="fa-solid fa-warehouse text-base"></i>
+              <span class="absolute -top-1 -right-1 w-2 h-2 rounded-full" style="background-color: var(--brand-green);"></span>
+            </div>
+            <div class="text-left text-xs leading-tight">
+              <div class="text-[10px] uppercase font-bold tracking-wider flex items-center space-x-1" style="color: var(--brand-green);">
+                <span>Garage (1 aktiv)</span>
+                <i class="fa-solid fa-circle-check text-[9px]" style="color: var(--brand-green);"></i>
+              </div>
+              <div id="activeCarLabel" style="color: var(--car-pill-text);" class="font-bold group-hover:text-brand-orange transition truncate max-w-[130px] lg:max-w-[150px]">
+                Audi RS6 Avant C8
+              </div>
+            </div>
+          </div>
+
+          <!-- Benutzerkonto (Einheitliche h-11 Pill, gleicher Look & Feel) -->
+          <a href="#" style="background-color: var(--car-pill-bg); color: var(--car-pill-text);" class="h-11 px-3.5 rounded-xl transition hidden sm:flex items-center space-x-2 shadow-sm hover:opacity-90 group flex-shrink-0" title="Mein Kundenkonto">
+            <i class="fa-regular fa-user text-sm text-gray-400 group-hover:text-brand-orange transition"></i>
+            <span class="text-xs font-bold">Konto</span>
+          </a>
+
+          <!-- Warenkorb Button (h-11, nur Icon + Kontrast-Zähler + weißer Preis) -->
+          <a href="#" class="h-11 flex items-center bg-brand-orange hover:bg-brand-orangeHover text-white rounded-xl px-3.5 sm:px-4 transition shadow-md group flex-shrink-0 space-x-2.5" title="Warenkorb">
+            <div class="relative flex items-center justify-center">
+              <i class="fa-solid fa-basket-shopping text-base" style="color: #ffffff !important;"></i>
+              <span id="cartCountBadge" class="cart-badge-count absolute -top-2 -right-2.5 bg-amber-400 text-slate-900 text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center shadow">
+                1
+              </span>
+            </div>
+            <div id="cartSumHeader" class="font-racing text-sm font-extrabold tracking-wide leading-none pt-0.5 cart-pill-price" style="color: #ffffff !important;">
+              2.499,00 €
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Menu Drawer (Faltmenü direkt unter dem fixierten Header) -->
+    <div id="mobileDrawer" style="background-color: var(--tier2-bg);" class="hidden lg:hidden px-4 py-4 space-y-3 text-sm shadow-2xl transition-all border-t border-white/10 max-h-[calc(100vh-4.5rem)] overflow-y-auto">
+      <!-- Mobile Suchleiste direkt im Drawer -->
+      <div class="relative md:hidden mb-2">
+        <form id="searchForm_mob" action="#" onsubmit="return false;" class="relative">
+          <input
+            type="text"
+            id="search_keys_mob"
+            name="search_keys"
+            style="background-color: var(--search-bg); color: var(--search-text);"
+            placeholder="Sportauspuff, Marke, Modell suchen..."
+            class="w-full text-xs font-medium rounded-xl pl-9 pr-20 py-2.5 border-0 focus:ring-2 focus:ring-brand-orange/40 focus:outline-none transition shadow-sm placeholder:text-gray-400"
+          >
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-brand-orange text-xs">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <button type="submit" name="send" class="absolute inset-y-1 right-1 px-3 bg-brand-orange hover:bg-brand-orangeHover text-white text-[11px] font-racing font-bold uppercase rounded-lg transition">
+            Suchen
+          </button>
+        </form>
+      </div>
+
+      <!-- Benutzerkonto Link im Drawer -->
+      <a href="#" onclick="toggleMobileDrawer()" class="flex items-center space-x-2.5 p-2.5 rounded-xl bg-black/20 hover:bg-black/30 transition text-xs font-semibold" style="color: var(--logo-text);">
+        <i class="fa-regular fa-user text-brand-orange text-sm"></i>
+        <span>Mein Kundenkonto / Anmelden</span>
+      </a>
+
+      <div class="font-bold text-xs uppercase tracking-wider text-brand-orange pt-1">Produkt-Kategorien</div>
+      <div class="space-y-1">
+        <a href="#" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl font-bold text-brand-orange bg-brand-orange/10">Sportauspuff Komplett</a>
+        <a href="#" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Endschalldämpfer</a>
+        <a href="#" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Komplettanlagen & Duplex</a>
+        <a href="#" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Klappenauspuffanlagen</a>
+        <a href="#" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Downpipes & Kats</a>
+        <a href="#" onclick="toggleMobileDrawer()" class="block px-3 py-2 rounded-xl hover:bg-black/5 transition" style="color: var(--logo-text);">Endrohre & Blenden</a>
+      </div>
+
+      <!-- Service & Hotline im Drawer -->
+      <div class="pt-2 border-t border-white/10 text-xs space-y-1.5 text-gray-400">
+        <div class="flex items-center space-x-2 text-white">
+          <i class="fa-solid fa-phone text-brand-orange"></i>
+          <span>Hotline: <strong class="text-brand-orange">+49 (0) 371 64 63 87 55</strong></span>
+        </div>
+        <div class="flex items-center space-x-2 text-slate-300">
+          <i class="fa-solid fa-truck-fast text-slate-400"></i>
+          <span>Kostenloser Versand ab 100 €</span>
+        </div>
+      </div>
+
+      <!-- Subtiler Theme-Umschalter ganz unten im Drawer -->
+      <div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs" style="border-color: var(--panel-border);">
+        <span class="text-gray-400 text-[11px] font-medium">Design / Modus:</span>
+        <div class="inline-flex p-0.5 rounded-lg bg-black/20 border border-white/10" style="border-color: var(--panel-border);">
+          <button id="mobBtnDark" onclick="setTheme('dark')" class="px-2.5 py-1 rounded-md text-[11px] font-racing font-bold flex items-center space-x-1 bg-brand-orange text-white shadow transition">
+            <i class="fa-solid fa-moon text-[10px]"></i>
+            <span>Dark</span>
+          </button>
+          <button id="mobBtnLight" onclick="setTheme('light')" class="px-2.5 py-1 rounded-md text-[11px] font-racing font-bold flex items-center space-x-1 text-gray-400 hover:text-white transition">
+            <i class="fa-solid fa-sun text-[10px]"></i>
+            <span>Hell</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. ZEILE 3: KATEGORIE-LEISTE (4 Kernkategorien + Dropdowns)               -->
+    <!-- ========================================================================= -->
+    <!-- ========================================================================= -->
+    <!-- 3. ZEILE 3: KATEGORIE-LEISTE (Clean, Borderless, Pill-Akzente)            -->
+    <!-- ========================================================================= -->
+    <nav style="background-color: var(--tier3-bg);" class="hidden lg:block transition-colors duration-300">
+      <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
+        <div style="color: var(--tier3-text);" class="h-12 flex items-center justify-between text-xs font-bold uppercase tracking-wider">
+
+          <!-- Die 4 Kernkategorien (Clean ohne Border-Linien) -->
+          <div class="flex h-full items-center space-x-2">
+
+            <a href="#" class="px-4 py-1.5 rounded-lg flex items-center space-x-2 text-white bg-brand-orange shadow-sm">
+              <i class="fa-solid fa-fire text-white text-xs"></i>
+              <span class="font-racing text-sm tracking-wider">Sportauspuff</span>
+            </a>
+
+            <a href="#" class="px-3.5 py-1.5 rounded-lg flex items-center hover:text-brand-orange hover:bg-black/5 transition">
+              <span class="font-racing text-sm tracking-wider">Endschalldämpfer</span>
+            </a>
+
+            <a href="#" class="px-3.5 py-1.5 rounded-lg flex items-center space-x-1.5 hover:text-brand-orange hover:bg-black/5 transition">
+              <span class="font-racing text-sm tracking-wider">Komplettanlagen</span>
+              <span class="bg-brand-orange/20 text-brand-orange text-[9px] px-1.5 py-0.5 rounded font-extrabold ml-1">Top</span>
+            </a>
+
+            <a href="#" class="px-3.5 py-1.5 rounded-lg flex items-center hover:text-brand-orange hover:bg-black/5 transition">
+              <span class="font-racing text-sm tracking-wider">Endrohre & Blenden</span>
+            </a>
+
+            <!-- Dropdown: Weitere Kategorien (Mega-Menu) -->
+            <div class="dropdown-group relative h-full flex items-center">
+              <button type="button" class="dropdown-trigger px-3.5 py-1.5 rounded-lg flex items-center space-x-1.5 hover:text-brand-orange hover:bg-black/5 transition font-racing text-sm tracking-wider cursor-pointer">
+                <span>Weitere Kategorien</span>
+                <i class="dropdown-chevron fa-solid fa-chevron-down text-[10px] transition-transform opacity-70"></i>
+              </button>
+
+              <div class="dropdown-panel absolute top-full left-0 z-50">
+                <div style="background-color: var(--tier2-bg); border-color: var(--panel-border);" class="w-[520px] rounded-2xl shadow-2xl p-5 border text-left">
+                  <!-- Top Grid: 2 Spalten -->
+                  <div class="grid grid-cols-2 gap-6 pb-4 border-b border-white/10" style="border-color: var(--panel-border);">
+                    <!-- Spalte 1: Sound & Klappen -->
+                    <div>
+                      <span class="text-[10px] font-racing uppercase tracking-wider font-extrabold text-brand-orange block mb-2">
+                        Sound- & Klappensysteme
+                      </span>
+                      <div class="space-y-1">
+                        <a href="#" class="flex items-center space-x-2.5 p-2 rounded-xl hover:bg-brand-orange/10 transition group">
+                          <i class="fa-solid fa-volume-high text-brand-orange w-5 text-center"></i>
+                          <div>
+                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Klappenauspuffanlagen</strong>
+                            <span class="text-[10px] text-gray-400">Drive Select & Funk-Steuerung</span>
+                          </div>
+                        </a>
+                        <a href="#" class="flex items-center space-x-2.5 p-2 rounded-xl hover:bg-brand-orange/10 transition group">
+                          <i class="fa-solid fa-gauge-high text-brand-orange w-5 text-center"></i>
+                          <div>
+                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Downpipes & Katalysatoren</strong>
+                            <span class="text-[10px] text-gray-400">200 Zellen Sportkats & OPF-Rohre</span>
+                          </div>
+                        </a>
+                        <a href="#" class="flex items-center space-x-2.5 p-2 rounded-xl hover:bg-brand-orange/10 transition group">
+                          <i class="fa-solid fa-bullhorn text-brand-orange w-5 text-center"></i>
+                          <div>
+                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Active Sound Systeme</strong>
+                            <span class="text-[10px] text-gray-400">V8 Sound für Diesel & Hybrid</span>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- Spalte 2: Zubehör & Montage -->
+                    <div>
+                      <span class="text-[10px] font-racing uppercase tracking-wider font-extrabold text-brand-orange block mb-2">
+                        Montage & Zubehör
+                      </span>
+                      <div class="space-y-1">
+                        <a href="#" class="flex items-center space-x-2.5 p-2 rounded-xl hover:bg-brand-orange/10 transition group">
+                          <i class="fa-solid fa-screwdriver-wrench text-brand-orange w-5 text-center"></i>
+                          <div>
+                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Montagematerial & Schellen</strong>
+                            <span class="text-[10px] text-gray-400">V2A Breitbandschellen & Adapter</span>
+                          </div>
+                        </a>
+                        <a href="#" class="flex items-center space-x-2.5 p-2 rounded-xl hover:bg-brand-orange/10 transition group">
+                          <i class="fa-solid fa-ring text-brand-orange w-5 text-center"></i>
+                          <div>
+                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Verstärkte Auspuffgummis</strong>
+                            <span class="text-[10px] text-gray-400">Powerflex PU-Gummis gegen Schwingen</span>
+                          </div>
+                        </a>
+                        <a href="#" class="flex items-center space-x-2.5 p-2 rounded-xl hover:bg-brand-orange/10 transition group">
+                          <i class="fa-solid fa-spray-can-sparkles text-brand-orange w-5 text-center"></i>
+                          <div>
+                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Edelstahl-Pflege & Polish</strong>
+                            <span class="text-[10px] text-gray-400">Hitzebeständiger Glanzschutz</span>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Footer Bar im Mega-Menu -->
+                  <div class="pt-3.5 flex items-center justify-between text-xs">
+                    <div class="flex items-center space-x-2 text-brand-orange font-bold">
+                      <i class="fa-solid fa-phone text-xs"></i>
+                      <span>Hotline-Beratung: 0371 64 63 87 55</span>
+                    </div>
+                    <a href="#montage" class="text-gray-400 hover:text-brand-orange font-medium transition">Partnerwerkstatt finden →</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dropdown: Marken (Mega-Menu) -->
+            <div class="dropdown-group relative h-full flex items-center">
+              <button type="button" class="dropdown-trigger px-3.5 py-1.5 rounded-lg flex items-center space-x-1.5 hover:text-brand-orange hover:bg-black/5 transition font-racing text-sm tracking-wider cursor-pointer">
+                <span>Hersteller-Marken</span>
+                <i class="dropdown-chevron fa-solid fa-chevron-down text-[10px] transition-transform opacity-70"></i>
+              </button>
+
+              <div class="dropdown-panel absolute top-full left-0 z-50">
+                <div style="background-color: var(--tier2-bg); border-color: var(--panel-border);" class="w-[580px] rounded-2xl shadow-2xl p-5 border text-left">
+                  <!-- Top Grid: 2 Spalten -->
+                  <div class="grid grid-cols-2 gap-6 pb-4 border-b border-white/10" style="border-color: var(--panel-border);">
+                    <!-- Spalte 1: Beliebte Premium-Marken -->
+                    <div>
+                      <span class="text-[10px] font-racing uppercase tracking-wider font-extrabold text-brand-orange block mb-2">
+                        Top Hersteller-Marken
+                      </span>
+                      <div class="space-y-1">
+                        <a href="#" class="flex items-center justify-between p-2 rounded-xl hover:bg-brand-orange/10 transition group">
+                          <div>
+                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Ragazzon Inox</strong>
+                            <span class="text-[10px] text-gray-400">Italienische Klappensysteme (V2A)</span>
+                          </div>
+                          <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">ECE</span>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-2 rounded-xl hover:bg-brand-orange/10 transition group">
+                          <div>
+                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">FOX Exhaust Systems</strong>
+                            <span class="text-[10px] text-gray-400">100% Handgefertigt in Deutschland</span>
+                          </div>
+                          <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">ECE</span>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-2 rounded-xl hover:bg-brand-orange/10 transition group">
+                          <div>
+                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Bastuck Sportauspuff</strong>
+                            <span class="text-[10px] text-gray-400">Klangkultur & Rennsport-Edelstahl</span>
+                          </div>
+                          <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">ECE</span>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-2 rounded-xl hover:bg-brand-orange/10 transition group">
+                          <div>
+                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">REMUS Performance</strong>
+                            <span class="text-[10px] text-gray-400">Österreichische High-End Klappen</span>
+                          </div>
+                          <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">ECE</span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- Spalte 2: Weitere Spezialisten & Motorsport -->
+                    <div>
+                      <span class="text-[10px] font-racing uppercase tracking-wider font-extrabold text-brand-orange block mb-2">
+                        Motorsport & Sound-Spezialisten
+                      </span>
+                      <div class="space-y-1">
+                        <a href="#" class="flex items-center justify-between p-2 rounded-xl hover:bg-brand-orange/10 transition group">
+                          <div>
+                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Milltek Sport</strong>
+                            <span class="text-[10px] text-gray-400">OPF-Back & Rennstrecken-Systeme</span>
+                          </div>
+                          <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">UK</span>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-2 rounded-xl hover:bg-brand-orange/10 transition group">
+                          <div>
+                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Eisenmann Exhaust</strong>
+                            <span class="text-[10px] text-gray-400">Tiefes V8/R6 Grollen & Manufaktur</span>
+                          </div>
+                          <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">DE</span>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-2 rounded-xl hover:bg-brand-orange/10 transition group">
+                          <div>
+                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Friedrich Motorsport</strong>
+                            <span class="text-[10px] text-gray-400">Gruppe A & Duplex-Anlagen</span>
+                          </div>
+                          <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">DE</span>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-2 rounded-xl hover:bg-brand-orange/10 transition group">
+                          <div>
+                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Akrapovič Evolution</strong>
+                            <span class="text-[10px] text-gray-400">Titan-Abgassysteme der Spitzenklasse</span>
+                          </div>
+                          <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-brand-orange/20 text-brand-orange">Titan</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Footer Bar im Mega-Menu -->
+                  <div class="pt-3.5 flex items-center justify-between text-xs">
+                    <a href="#" class="text-brand-orange font-racing uppercase tracking-wider font-extrabold hover:underline flex items-center space-x-1.5">
+                      <span>Alle 28 Marken & Auspuffhersteller ansehen</span>
+                      <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                    <span class="text-[11px] text-gray-400 hidden sm:inline">100% Original-Herstellerware mit Gutachten</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Rechts: Montage-Buchung -->
+          <a href="#montage" class="px-4 py-1.5 flex items-center space-x-2 text-brand-orange hover:bg-brand-orange/10 font-bold normal-case transition rounded-lg">
+            <i class="fa-solid fa-screwdriver-wrench text-xs"></i>
+            <span>Fachgerechte Montage anfragen</span>
+          </a>
+
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 4. HERO SECTION MIT DYNAMISCHEM THEME (DARK / LIGHT WECHSEL)              -->
+  <!-- ========================================================================= -->
+  <div style="background-color: var(--panel-bg);" class="w-full transition-colors duration-300">
+    <section style="background-color: var(--hero-bg);" class="relative py-12 lg:py-16 overflow-hidden transition-colors duration-300">
+
+    <!-- Das reale Kundenbild (Audi RS6 Ragazzon) -->
+    <div
+      id="heroCarBg"
+      class="absolute inset-0 z-0 bg-cover bg-center lg:bg-[center_right_15%] transform scale-100 transition-all duration-700"
+      style="background-image: url('assets/audi-rs6-ragazzon.jpg'); opacity: var(--hero-img-opacity);"
+    ></div>
+
+    <!-- Dynamischer Farbverlauf über das Bild -->
+    <div
+      class="absolute inset-0 z-0 pointer-events-none transition-all duration-300"
+      style="background: linear-gradient(to right, var(--hero-overlay-from) 0%, var(--hero-overlay-via) 45%, transparent 100%);"
+    ></div>
+    <div
+      class="absolute inset-0 z-0 pointer-events-none transition-all duration-300"
+      style="background: linear-gradient(to top, var(--hero-overlay-from) 0%, transparent 60%);"
+    ></div>
+
+    <!-- Dezentes Umgebungslicht -->
+    
+
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+
+        <!-- ===================================================================== -->
+        <!-- LINKE SPALTE: STRAHLENDER TITEL MIT THEME-SWITCH                      -->
+        <!-- ===================================================================== -->
+        <div class="lg:col-span-6 space-y-7">
+
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="inline-flex items-center space-x-2 bg-white/10 dark:bg-black/70 backdrop-blur-md border border-brand-orange text-brand-orange px-4 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase shadow-xl">
+              <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
+              <span>Über 25.000 Sportauspuffanlagen ab Lager lieferbar</span>
+            </div>
+            <div class="inline-flex items-center space-x-1.5 bg-amber-500/15 border border-amber-500/40 text-amber-400 px-3.5 py-1.5 rounded-full text-xs font-bold shadow-lg" title="Ausgezeichnet als Top Shop 2026 für exzellenten Service und Kundenzufriedenheit">
+              <i class="fa-solid fa-trophy text-xs"></i>
+              <span>Top Shop 2026 (5x in Folge)</span>
+            </div>
+          </div>
+
+          <!-- Titel: Strahlend & Dynamisch im neuen Dein-Sportauspuff Blau -->
+          <h1 class="font-racing text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold uppercase italic tracking-tight leading-[0.92] transition-colors duration-300">
+            <span style="color: var(--title-main);" class="block">
+              DEIN SOUND.
+            </span>
+            <span class="text-brand-orange block">
+              DEINE PERFORMANCE.
+            </span>
+            <span style="color: var(--title-main);" class="block">
+              DEIN SPORTAUSPUFF.
+            </span>
+          </h1>
+
+          <!-- ================================================================= -->
+          <!-- DESKTOP NUR: ERKLÄRTEXT & TRUST-BULLETS                           -->
+          <!-- ================================================================= -->
+          <div class="hidden lg:block space-y-7">
+            <p style="color: var(--hero-bullets);" class="text-base sm:text-lg leading-relaxed max-w-xl font-medium transition-colors duration-300">
+              Finde in Sekunden die exakt passende Sportabgasanlage für dein Auto.
+              Mit <strong>100% Passform-Garantie</strong> durch Kfz-Meister-Vorabprüfung, sofortiger ECE-Gutachtenprüfung und bundesweitem Montageservice.
+            </p>
+
+            <!-- Kfz-Meister-Standard Trust-Bullets -->
+            <div class="pt-2 space-y-3 text-sm font-medium" style="color: var(--hero-bullets);">
+              <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 rounded-full bg-amber-500/20 border border-amber-500 flex items-center justify-center text-amber-400 text-xs flex-shrink-0">
+                  <i class="fa-solid fa-trophy"></i>
+                </div>
+                <span><strong>Ausgezeichnet als Top Shop 2026 (5x in Folge):</strong> Höchste Kundenzufriedenheit, Blitzversand & zertifizierte Fachberatung</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500 flex items-center justify-center text-emerald-400 text-xs flex-shrink-0">
+                  <i class="fa-solid fa-shield-check"></i>
+                </div>
+                <span><strong>100% Passgenau-Garantie:</strong> Vorab-Prüfung jeder Bestellung durch Kfz-Meister nach HSN/TSN</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 rounded-full bg-brand-orange/20 border border-brand-orange flex items-center justify-center text-brand-orange text-xs flex-shrink-0">
+                  <i class="fa-solid fa-certificate"></i>
+                </div>
+                <span><strong>TÜV / ECE eintragungsfrei:</strong> 100% legal mit EG-Betriebserlaubnis auf öffentlichen Straßen</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 rounded-full bg-brand-orange/20 border border-brand-orange flex items-center justify-center text-brand-orange text-xs flex-shrink-0">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <span><strong>Top-Marken ab Lager:</strong> Ragazzon, FOX, Bastuck, REMUS, Milltek, Eisenmann & Akrapovič</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ===================================================================== -->
+        <!-- RECHTE SPALTE: DIE WEISSE PREMIUM-CARD (FAHRZEUGFINDER)               -->
+        <!-- ========================================================================= -->
+        <div class="lg:col-span-6">
+          <div style="background-color: var(--card-bg); box-shadow: var(--card-shadow);" class="rounded-3xl overflow-hidden text-gray-900 transition-all duration-300">
+
+            <!-- TAB BAR: Segmented Control (Clean & Borderless) -->
+            <div class="p-3 bg-gray-100/80">
+              <div class="flex bg-gray-200/70 p-1 rounded-2xl gap-1">
+
+                <!-- Tab 1: Kaskadierte Kfz-Suche -->
+                <button
+                  id="tabBtnKfz"
+                  onclick="switchFinderTab('kfz')"
+                  class="flex-1 py-3 px-3 text-center font-racing text-base sm:text-lg uppercase tracking-wider font-extrabold transition flex items-center justify-center space-x-2 text-brand-orange bg-white rounded-xl shadow-sm"
+                >
+                  
+                  <i class="fa-solid fa-car text-brand-orange"></i>
+                  <span>1. KFZ-Suche (Modell)</span>
+                </button>
+
+                <!-- Tab 2: Direkte HSN / TSN Suche -->
+                <button
+                  id="tabBtnHsn"
+                  onclick="switchFinderTab('hsn')"
+                  class="flex-1 py-3 px-3 text-center font-racing text-base sm:text-lg uppercase tracking-wider font-bold transition flex items-center justify-center space-x-2 text-gray-500 hover:text-gray-900 rounded-xl"
+                >
+                  <i class="fa-solid fa-file-lines text-gray-400"></i>
+                  <span>2. HSN / TSN (Fahrzeugschein)</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- TAB-INHALT 1: KFZ-SUCHE                                         -->
+            <!-- =============================================================== -->
+            <div id="tabContentKfz" class="p-6 sm:p-9 flex flex-col gap-6">
+
+              <!-- Top-Modell Pills (1-Klick Schnellzugriff) - Mobil ausgeblendet -->
+              <div class="hidden sm:block">
+                <div class="flex items-center justify-between mb-2">
+                  <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider flex items-center space-x-1.5">
+                    <i class="fa-solid fa-fire text-brand-orange text-xs"></i>
+                    <span>Top-Modelle:</span>
+                  </label>
+                  <span class="text-[10px] text-brand-orange font-bold uppercase tracking-wider hidden sm:inline">Beliebteste Fahrzeuge</span>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    onclick="selectTopModel('Audi', 'RS6')"
+                    class="py-2 px-3 rounded-xl bg-gray-100 hover:bg-brand-orange hover:text-white text-gray-800 text-sm font-semibold transition shadow-sm border border-gray-200 hover:border-brand-orange flex items-center space-x-1.5 group cursor-pointer"
+                    title="Audi RS6 C8 Sportauspuffanlagen"
+                  >
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 group-hover:bg-white transition-colors"></span>
+                    <span>Audi RS6 C8</span>
+                  </button>
+                  <button
+                    type="button"
+                    onclick="selectTopModel('Volkswagen', 'Golf VIII (8)', 'GTI 2.0 TSI (245 PS)')"
+                    class="py-2 px-3 rounded-xl bg-gray-100 hover:bg-brand-orange hover:text-white text-gray-800 text-sm font-semibold transition shadow-sm border border-gray-200 hover:border-brand-orange flex items-center space-x-1.5 group cursor-pointer"
+                    title="VW Golf 8 GTI Sportauspuffanlagen"
+                  >
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 group-hover:bg-white transition-colors"></span>
+                    <span>Golf 8 GTI</span>
+                  </button>
+                  <button
+                    type="button"
+                    onclick="selectTopModel('BMW', '3er (G20 / G21)', 'M340i xDrive (374 PS)')"
+                    class="py-2 px-3 rounded-xl bg-gray-100 hover:bg-brand-orange hover:text-white text-gray-800 text-sm font-semibold transition shadow-sm border border-gray-200 hover:border-brand-orange flex items-center space-x-1.5 group cursor-pointer"
+                    title="BMW M340i Sportauspuffanlagen"
+                  >
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 group-hover:bg-white transition-colors"></span>
+                    <span>BMW M340i</span>
+                  </button>
+                  <button
+                    type="button"
+                    onclick="selectTopModel('Cupra', 'Formentor', '2.0 TSI VZ (245-310 PS)')"
+                    class="py-2 px-3 rounded-xl bg-gray-100 hover:bg-brand-orange hover:text-white text-gray-800 text-sm font-semibold transition shadow-sm border border-gray-200 hover:border-brand-orange flex items-center space-x-1.5 group cursor-pointer"
+                    title="Cupra Formentor Sportauspuffanlagen"
+                  >
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 group-hover:bg-white transition-colors"></span>
+                    <span>Cupra Formentor</span>
+                  </button>
+                  <button
+                    type="button"
+                    onclick="selectTopModel('Mercedes-Benz', 'A-Klasse', 'AMG A45')"
+                    class="py-2 px-3 rounded-xl bg-gray-100 hover:bg-brand-orange hover:text-white text-gray-800 text-sm font-semibold transition shadow-sm border border-gray-200 hover:border-brand-orange flex items-center space-x-1.5 group cursor-pointer"
+                    title="Mercedes-AMG A45 Sportauspuffanlagen"
+                  >
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 group-hover:bg-white transition-colors"></span>
+                    <span>Mercedes-AMG A45</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Quick Brand Selection - Mobil ausgeblendet -->
+              <div class="hidden sm:block">
+                <label class="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-2.5">
+                  Beliebte Marken:
+                </label>
+                <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                  <button onclick="selectQuickBrand('Audi')" class="py-2.5 px-2 rounded-xl bg-gray-100 hover:bg-brand-orangeLight text-center transition group">
+                    <span class="block text-xs font-bold text-gray-800 group-hover:text-brand-orange">Audi</span>
+                  </button>
+                  <button onclick="selectQuickBrand('BMW')" class="py-2.5 px-2 rounded-xl bg-gray-100 hover:bg-brand-orangeLight text-center transition group">
+                    <span class="block text-xs font-bold text-gray-800 group-hover:text-brand-orange">BMW</span>
+                  </button>
+                  <button onclick="selectQuickBrand('Volkswagen')" class="py-2.5 px-2 rounded-xl bg-gray-100 hover:bg-brand-orangeLight text-center transition group">
+                    <span class="block text-xs font-bold text-gray-800 group-hover:text-brand-orange">VW</span>
+                  </button>
+                  <button onclick="selectQuickBrand('Cupra')" class="py-2.5 px-2 rounded-xl bg-gray-100 hover:bg-brand-orangeLight text-center transition group">
+                    <span class="block text-xs font-bold text-gray-800 group-hover:text-brand-orange">Cupra</span>
+                  </button>
+                  <button onclick="selectQuickBrand('Mercedes-Benz')" class="py-2.5 px-2 rounded-xl bg-gray-100 hover:bg-brand-orangeLight text-center transition group">
+                    <span class="block text-xs font-bold text-gray-800 group-hover:text-brand-orange">Mercedes</span>
+                  </button>
+                  <button onclick="selectQuickBrand('Ford')" class="py-2.5 px-2 rounded-xl bg-gray-100 hover:bg-brand-orangeLight text-center transition group">
+                    <span class="block text-xs font-bold text-gray-800 group-hover:text-brand-orange">Ford</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Dropdown Kaskade -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                <!-- 1. Hersteller (nav_make) -->
+                <div>
+                  <label id="lbl_make" for="nav_make" class="block text-sm font-semibold text-gray-700 mb-1.5">1. Fahrzeughersteller</label>
+                  <div class="relative">
+                    <select id="nav_make" name="nav_make" onchange="onBrandChange()" class="js_select w-full bg-white text-gray-900 text-sm sm:text-base font-medium rounded-xl px-4 py-3 border border-gray-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 focus:outline-none appearance-none cursor-pointer shadow-sm" aria-labelledby="lbl_make">
+                      <option value="">-- Hersteller wählen --</option>
+                      <option value="Audi">Audi (3.370 Artikel)</option>
+                      <option value="BMW">BMW (4.210 Artikel)</option>
+                      <option value="Cupra">Cupra / Seat (1.890 Artikel)</option>
+                      <option value="Ford">Ford (1.350 Artikel)</option>
+                      <option value="Mercedes-Benz">Mercedes-Benz (2.410 Artikel)</option>
+                      <option value="Volkswagen">Volkswagen (3.340 Artikel)</option>
+                      <option value="Porsche">Porsche (890 Artikel)</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+                      <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 2. Modellreihe (nav_model) -->
+                <div>
+                  <label id="lbl_model" for="nav_model" class="block text-sm font-semibold text-gray-700 mb-1.5">2. Modellreihe</label>
+                  <div class="relative">
+                    <select id="nav_model" name="nav_model" onchange="onModelChange()" disabled class="js_select w-full bg-gray-100 text-gray-400 text-sm sm:text-base font-medium rounded-xl px-4 py-3 border border-gray-200 focus:border-brand-orange focus:outline-none appearance-none cursor-not-allowed" aria-labelledby="lbl_model">
+                      <option value="">-- Zuerst Hersteller wählen --</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
+                      <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 3. Motorisierung / Generation (nav_engine) -->
+                <div>
+                  <label id="lbl_engine" for="nav_engine" class="block text-sm font-semibold text-gray-700 mb-1.5">3. Generation / Baujahr</label>
+                  <div class="relative">
+                    <select id="nav_engine" name="nav_engine" onchange="onYearChange()" disabled class="js_select w-full bg-gray-100 text-gray-400 text-sm sm:text-base font-medium rounded-xl px-4 py-3 border border-gray-200 focus:border-brand-orange focus:outline-none appearance-none cursor-not-allowed" aria-labelledby="lbl_engine">
+                      <option value="">-- Zuerst Modell wählen --</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
+                      <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 4. Leistung / Motor (nav_power) -->
+                <div>
+                  <label id="lbl_power" for="nav_power" class="block text-sm font-semibold text-gray-700 mb-1.5">4. Motorisierung (kW / PS)</label>
+                  <div class="relative">
+                    <select id="nav_power" name="nav_power" onchange="onEngineChange()" disabled class="js_select w-full bg-gray-100 text-gray-400 text-sm sm:text-base font-medium rounded-xl px-4 py-3 border border-gray-200 focus:border-brand-orange focus:outline-none appearance-none cursor-not-allowed" aria-labelledby="lbl_power">
+                      <option value="">-- Zuerst Baujahr wählen --</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
+                      <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Bottom Bar mit Reset und Großem Orange Button -->
+              <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-gray-200">
+                <button onclick="resetKfzFilter()" class="text-xs text-gray-500 hover:text-brand-orange transition flex items-center space-x-1.5 font-bold">
+                  <i class="fa-solid fa-arrow-rotate-left"></i>
+                  <span>Filter zurücksetzen</span>
+                </button>
+
+                <button
+                  id="btnSubmitKfz"
+                  onclick="submitCarSelection()"
+                  class="w-full sm:w-auto px-8 py-4 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-lg sm:text-xl uppercase tracking-wider font-extrabold rounded-xl shadow-lg transition flex items-center justify-center space-x-2.5"
+                >
+                  
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <span id="btnSubmitKfzText">Sportauspuff finden</span>
+                  <i class="fa-solid fa-chevron-right text-xs"></i>
+                </button>
+              </div>
+
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- TAB-INHALT 2: HSN-TSN DIREKTSUCHE                               -->
+            <!-- =============================================================== -->
+            <div id="tabContentHsn" class="p-6 sm:p-9 space-y-6 hidden">
+
+              <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 flex items-start space-x-3 text-gray-700">
+                <div class="text-brand-orange text-lg mt-0.5">
+                  <i class="fa-solid fa-circle-info"></i>
+                </div>
+                <div class="text-sm leading-relaxed">
+                  <strong class="text-gray-900 block font-semibold mb-0.5">Wo findest du die Schlüsselnummern?</strong>
+                  In der <strong>Zulassungsbescheinigung Teil I</strong> (Fahrzeugschein):<br>
+                  • <strong>HSN</strong> (4-stellig) im <strong>Feld 2.1</strong> (z.B. <code class="text-brand-orange bg-orange-50 px-1.5 py-0.5 rounded font-bold">0588</code> für Audi)<br>
+                  • <strong>TSN</strong> (3-stellig) im <strong>Feld 2.2</strong> (z.B. <code class="text-brand-orange bg-orange-50 px-1.5 py-0.5 rounded font-bold">BNE</code>)
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700 mb-1.5">HSN (Herstellerschlüssel) <span class="text-brand-orange">*</span>
+                  </label>
+                  <input
+                    id="inputHsn"
+                    type="text"
+                    maxlength="4"
+                    placeholder="z.B. 0588"
+                    class="w-full bg-white text-gray-900 text-lg font-mono tracking-widest uppercase rounded-xl px-4 py-3 border border-gray-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 focus:outline-none shadow-sm font-bold"
+                  >
+                  <span class="text-[11px] text-gray-500 mt-1 block">4-stellig numerisch</span>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700 mb-1.5">TSN (Typenschlüssel) <span class="text-brand-orange">*</span>
+                  </label>
+                  <input
+                    id="inputTsn"
+                    type="text"
+                    maxlength="3"
+                    placeholder="z.B. BNE"
+                    class="w-full bg-white text-gray-900 text-lg font-mono tracking-widest uppercase rounded-xl px-4 py-3 border border-gray-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 focus:outline-none shadow-sm font-bold"
+                  >
+                  <span class="text-[11px] text-gray-500 mt-1 block">Erste 3 Zeichen aus Feld 2.2</span>
+                </div>
+              </div>
+
+              <!-- HSN-TSN Submit -->
+              <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-gray-200">
+                <button onclick="document.getElementById('inputHsn').value=''; document.getElementById('inputTsn').value='';" class="text-xs text-gray-500 hover:text-brand-orange transition flex items-center space-x-1 font-bold">
+                  <i class="fa-solid fa-arrow-rotate-left"></i>
+                  <span>Felder leeren</span>
+                </button>
+
+                <button
+                  onclick="submitHsnTsn()"
+                  class="w-full sm:w-auto px-8 py-4 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-xl uppercase tracking-wider font-extrabold rounded-xl shadow-xl transition flex items-center justify-center space-x-2"
+                >
+                  <i class="fa-solid fa-bolt"></i>
+                  <span>Über Schlüsselnummer prüfen</span>
+                  <i class="fa-solid fa-chevron-right text-xs"></i>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- ================================================================= -->
+          <!-- MOBILE NUR: ERKLÄRTEXT & TRUST-BULLETS UNTER DER SUCHBOX          -->
+          <!-- ================================================================= -->
+          <div class="block lg:hidden mt-8 space-y-6">
+            <p style="color: var(--hero-bullets);" class="text-base sm:text-lg leading-relaxed font-medium transition-colors duration-300">
+              Finde in Sekunden die exakt passende Sportabgasanlage für dein Auto.
+              Mit <strong>100% Passform-Garantie</strong> durch Kfz-Meister-Vorabprüfung, sofortiger ECE-Gutachtenprüfung und bundesweitem Montageservice.
+            </p>
+
+            <!-- Kfz-Meister-Standard Trust-Bullets -->
+            <div class="pt-2 space-y-3 text-sm font-medium" style="color: var(--hero-bullets);">
+              <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 rounded-full bg-amber-500/20 border border-amber-500 flex items-center justify-center text-amber-400 text-xs flex-shrink-0">
+                  <i class="fa-solid fa-trophy"></i>
+                </div>
+                <span><strong>Ausgezeichnet als Top Shop 2026 (5x in Folge):</strong> Höchste Kundenzufriedenheit, Blitzversand & zertifizierte Fachberatung</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500 flex items-center justify-center text-emerald-400 text-xs flex-shrink-0">
+                  <i class="fa-solid fa-shield-check"></i>
+                </div>
+                <span><strong>100% Passgenau-Garantie:</strong> Vorab-Prüfung jeder Bestellung durch Kfz-Meister nach HSN/TSN</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 rounded-full bg-brand-orange/20 border border-brand-orange flex items-center justify-center text-brand-orange text-xs flex-shrink-0">
+                  <i class="fa-solid fa-certificate"></i>
+                </div>
+                <span><strong>TÜV / ECE eintragungsfrei:</strong> 100% legal mit EG-Betriebserlaubnis auf öffentlichen Straßen</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 rounded-full bg-brand-orange/20 border border-brand-orange flex items-center justify-center text-brand-orange text-xs flex-shrink-0">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <span><strong>Top-Marken ab Lager:</strong> Ragazzon, FOX, Bastuck, REMUS, Milltek, Eisenmann & Akrapovič</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 5. SHOP-VORTEILE & SERVICE-VERSPRECHEN (TRUST-SHOWCASE)                  -->
+  <!-- ========================================================================= -->
+  <section style="background-color: var(--panel-bg); border-color: var(--panel-border);" class="py-10 sm:py-12 border-b transition-colors duration-300 relative z-20">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-8">
+
+      <!-- Header: Eyebrow + Social-Proof Headline -->
+      <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-brand-orange/10 text-brand-orange border border-brand-orange/20 mb-3">
+          <i class="fa-solid fa-users text-xs"></i>
+          <span>Vertrauen &amp; Kaufsicherheit</span>
+        </div>
+        <h2 class="font-racing text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase italic tracking-tight" style="color: var(--text-main);">
+          WARUM ÜBER 50.000 ENTHUSIASTEN <span class="text-brand-orange">BEI UNS KAUFEN</span>
+        </h2>
+        <p class="text-xs sm:text-sm mt-2 font-medium leading-relaxed" style="color: var(--text-muted);">
+          Best-Preise, garantierte Passform und risikoloser Kauf – deine 4 handfesten Vorteile bei jedem Auftrag.
+        </p>
+      </div>
+
+      <!-- 4 USPs Grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+
+        <!-- USP 1: Niedrige Preise -->
+        <div class="flex items-center space-x-3.5 group justify-center sm:justify-start p-3 sm:p-4 rounded-2xl hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+          <div class="w-11 h-11 rounded-xl bg-brand-orange/10 text-brand-orange flex items-center justify-center text-lg flex-shrink-0 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-euro-sign"></i>
+          </div>
+          <div>
+            <div class="font-racing font-extrabold text-sm sm:text-base uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Niedrige Preise
+            </div>
+            <div class="text-xs font-medium" style="color: var(--text-muted);">
+              Best-Preis-Garantie
+            </div>
+          </div>
+        </div>
+
+        <!-- USP 2: Versand FREI -->
+        <div class="flex items-center space-x-3.5 group justify-center sm:justify-start p-3 sm:p-4 rounded-2xl hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+          <div class="w-11 h-11 rounded-xl bg-brand-orange/10 text-brand-orange flex items-center justify-center text-lg flex-shrink-0 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-truck-fast"></i>
+          </div>
+          <div>
+            <div class="font-racing font-extrabold text-sm sm:text-base uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Versand FREI
+            </div>
+            <div class="text-xs font-medium" style="color: var(--text-muted);">
+              Ab 100,- € Bestellwert¹
+            </div>
+          </div>
+        </div>
+
+        <!-- USP 3: Top Qualität -->
+        <div class="flex items-center space-x-3.5 group justify-center sm:justify-start p-3 sm:p-4 rounded-2xl hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+          <div class="w-11 h-11 rounded-xl bg-brand-orange/10 text-brand-orange flex items-center justify-center text-lg flex-shrink-0 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <div>
+            <div class="font-racing font-extrabold text-sm sm:text-base uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Top Qualität
+            </div>
+            <div class="text-xs font-medium" style="color: var(--text-muted);">
+              Edelstahl &amp; passgenau
+            </div>
+          </div>
+        </div>
+
+        <!-- USP 4: Einfache Rückgabe -->
+        <div class="flex items-center space-x-3.5 group justify-center sm:justify-start p-3 sm:p-4 rounded-2xl hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+          <div class="w-11 h-11 rounded-xl bg-brand-orange/10 text-brand-orange flex items-center justify-center text-lg flex-shrink-0 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-rotate-left"></i>
+          </div>
+          <div>
+            <div class="font-racing font-extrabold text-sm sm:text-base uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Einfache Rückgabe
+            </div>
+            <div class="text-xs font-medium" style="color: var(--text-muted);">
+              30 Tage Rückgaberecht
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 6. BAUGRUPPEN & PRODUKTTYPEN (6 KLARE ORIGINAL-KACHELN)                    -->
+  <!-- ========================================================================= -->
+  <section id="baugruppen" style="background-color: var(--page-bg); border-color: var(--panel-border);" class="py-14 sm:py-16 border-b transition-colors duration-300">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+        <h2 class="font-racing text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase italic tracking-tight" style="color: var(--text-main);">
+          FINDE DEINE PERFEKTE <span class="text-brand-orange">AUSPUFF-KATEGORIE</span>
+        </h2>
+        <p class="text-sm sm:text-base mt-2 font-medium" style="color: var(--text-muted);">
+          Wähle Deine Baugruppe für Dein Fahrzeug – von eintragungsfreien Sport-Endschalldämpfern bis zu klappengesteuerten Rennsport-Abgasanlagen.
+        </p>
+      </div>
+
+      <!-- 6 Klare Original-Kacheln (Bild + Name + neutraler Link) -->
+      <div class="flex overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 gap-4 no-scrollbar sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 sm:overflow-visible sm:mx-0 sm:px-0 sm:pb-0 sm:gap-6">
+
+        <!-- 1. Sportauspuff -->
+        <a href="#" class="w-[52vw] sm:w-auto flex-shrink-0 snap-start group rounded-2xl border p-4 flex flex-col items-center justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style="background-color: var(--panel-card); border-color: var(--panel-border);" title="Sportauspuff">
+          <div class="w-full aspect-[4/3] rounded-xl flex items-center justify-center p-3 overflow-hidden bg-black/5 dark:bg-black/20">
+            <img src="assets/kategorien/sportauspuff.webp" alt="Sportauspuff" class="max-h-full max-w-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          </div>
+          <div class="mt-3 text-center">
+            <span class="font-racing text-base sm:text-lg font-bold uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Sportauspuff
+            </span>
+          </div>
+        </a>
+
+        <!-- 2. Komplettanlage -->
+        <a href="#" class="w-[52vw] sm:w-auto flex-shrink-0 snap-start group rounded-2xl border p-4 flex flex-col items-center justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style="background-color: var(--panel-card); border-color: var(--panel-border);" title="Komplettanlage">
+          <div class="w-full aspect-[4/3] rounded-xl flex items-center justify-center p-3 overflow-hidden bg-black/5 dark:bg-black/20">
+            <img src="assets/kategorien/sportauspuffanlage.webp" alt="Komplettanlage" class="max-h-full max-w-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          </div>
+          <div class="mt-3 text-center">
+            <span class="font-racing text-base sm:text-lg font-bold uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Komplettanlage
+            </span>
+          </div>
+        </a>
+
+        <!-- 3. Klappenauspuff -->
+        <a href="#" class="w-[52vw] sm:w-auto flex-shrink-0 snap-start group rounded-2xl border p-4 flex flex-col items-center justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style="background-color: var(--panel-card); border-color: var(--panel-border);" title="Klappenauspuff">
+          <div class="w-full aspect-[4/3] rounded-xl flex items-center justify-center p-3 overflow-hidden bg-black/5 dark:bg-black/20">
+            <img src="assets/kategorien/klappenauspuff.webp" alt="Klappenauspuff" class="max-h-full max-w-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          </div>
+          <div class="mt-3 text-center">
+            <span class="font-racing text-base sm:text-lg font-bold uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Klappenauspuff
+            </span>
+          </div>
+        </a>
+
+        <!-- 4. Downpipe -->
+        <a href="#" class="w-[52vw] sm:w-auto flex-shrink-0 snap-start group rounded-2xl border p-4 flex flex-col items-center justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style="background-color: var(--panel-card); border-color: var(--panel-border);" title="Downpipe">
+          <div class="w-full aspect-[4/3] rounded-xl flex items-center justify-center p-3 overflow-hidden bg-black/5 dark:bg-black/20">
+            <img src="assets/kategorien/downpipe.webp" alt="Downpipe" class="max-h-full max-w-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          </div>
+          <div class="mt-3 text-center">
+            <span class="font-racing text-base sm:text-lg font-bold uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Downpipe
+            </span>
+          </div>
+        </a>
+
+        <!-- 5. Endrohre -->
+        <a href="#" class="w-[52vw] sm:w-auto flex-shrink-0 snap-start group rounded-2xl border p-4 flex flex-col items-center justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style="background-color: var(--panel-card); border-color: var(--panel-border);" title="Endrohre">
+          <div class="w-full aspect-[4/3] rounded-xl flex items-center justify-center p-3 overflow-hidden bg-black/5 dark:bg-black/20">
+            <img src="assets/kategorien/auspuffblende.webp" alt="Endrohre" class="max-h-full max-w-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          </div>
+          <div class="mt-3 text-center">
+            <span class="font-racing text-base sm:text-lg font-bold uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Endrohre
+            </span>
+          </div>
+        </a>
+
+        <!-- 6. Sportluftfilter -->
+        <a href="#" class="w-[52vw] sm:w-auto flex-shrink-0 snap-start group rounded-2xl border p-4 flex flex-col items-center justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style="background-color: var(--panel-card); border-color: var(--panel-border);" title="Sportluftfilter">
+          <div class="w-full aspect-[4/3] rounded-xl flex items-center justify-center p-3 overflow-hidden bg-black/5 dark:bg-black/20">
+            <img src="assets/kategorien/sportluftfilter.webp" alt="Sportluftfilter" class="max-h-full max-w-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          </div>
+          <div class="mt-3 text-center">
+            <span class="font-racing text-base sm:text-lg font-bold uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Sportluftfilter
+            </span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 8. DIE SOUND-SPEZIALISTEN — 18 PREMIUM-HERSTELLER (SG_PARTNER VEREDELT)   -->
+  <!-- ========================================================================= -->
+  <section style="background-color: var(--page-bg); border-color: var(--panel-border);" class="py-16 border-b transition-colors duration-300">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-brand-orange/10 text-brand-orange border border-brand-orange/20 mb-3">
+          <i class="fa-solid fa-award text-xs"></i>
+          <span>Starke Marken. Starke Performance.</span>
+        </div>
+        <h2 class="font-racing text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase italic tracking-tight" style="color: var(--text-main);">
+          DIE SOUND-SPEZIALISTEN — <span class="text-brand-orange">18 PREMIUM-HERSTELLER</span>
+        </h2>
+        <p class="text-sm sm:text-base mt-2 font-medium" style="color: var(--text-muted);">
+          Entdecke Sportauspuff-Systeme von handverlesenen Manufakturen und Rennsport-Entwicklern mit ECE-Betriebserlaubnis.
+        </p>
+      </div>
+
+      <!-- 18 Marken-Kacheln Raster -->
+      <div class="grid grid-rows-2 grid-flow-col auto-cols-[38vw] overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 gap-3 no-scrollbar sm:grid-rows-none sm:grid-flow-row sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 sm:auto-cols-auto sm:overflow-visible sm:mx-0 sm:px-0 sm:pb-0 sm:gap-4">
+
+        <!-- 1. Akrapovič -->
+        <a href="#" class="brand-card group snap-start rounded-2xl p-4 sm:p-5 border flex flex-col justify-between" title="Akrapovič Sportauspuff & Tuning">
+          <div class="flex items-center justify-start mb-1">
+            <span class="badge-hersteller badge-hersteller-brand">Titan</span>
+          </div>
+
+          <div class="h-16 w-full flex items-center justify-center my-auto py-1">
+            <img src="assets/hersteller/akrapovic.png" alt="Akrapovič" class="brand-logo-img max-h-12 max-w-[88%] object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+          </div>
+
+          <div class="brand-infotext text-[11px] font-medium text-center mt-2 leading-tight">
+            Titan Evolution
+          </div>
+        </a>
+
+        <!-- 2. Remus -->
+        <a href="#" class="brand-card group snap-start rounded-2xl p-4 sm:p-5 border flex flex-col justify-between" title="Remus Sportauspuff & Tuning">
+          <div class="flex items-center justify-start mb-1">
+            <span class="badge-hersteller badge-hersteller-neutral">Made in AT</span>
+          </div>
+
+          <div class="h-16 w-full flex items-center justify-center my-auto py-1">
+            <img src="assets/hersteller/remus.svg" alt="Remus" class="brand-logo-img max-h-12 max-w-[88%] object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+          </div>
+
+          <div class="brand-infotext text-[11px] font-medium text-center mt-2 leading-tight">
+            Sportexhaust & Klappen
+          </div>
+        </a>
+
+        <!-- 3. FOX Exhaust -->
+        <a href="#" class="brand-card group snap-start rounded-2xl p-4 sm:p-5 border flex flex-col justify-between" title="FOX Exhaust Sportauspuff & Tuning">
+          <div class="flex items-center justify-start mb-1">
+            <span class="badge-hersteller badge-hersteller-green">Made in DE</span>
+          </div>
+
+          <div class="h-16 w-full flex items-center justify-center my-auto py-1">
+            <img src="assets/hersteller/fox.svg" alt="FOX Exhaust" class="brand-logo-img max-h-12 max-w-[88%] object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+          </div>
+
+          <div class="brand-infotext text-[11px] font-medium text-center mt-2 leading-tight">
+            100% Edelstahl V2A
+          </div>
+        </a>
+
+        <!-- 4. Capristo -->
+        <a href="#" class="brand-card group snap-start rounded-2xl p-4 sm:p-5 border flex flex-col justify-between" title="Capristo Sportauspuff & Tuning">
+          <div class="flex items-center justify-start mb-1">
+            <span class="badge-hersteller badge-hersteller-brand">High-End</span>
+          </div>
+
+          <div class="h-16 w-full flex items-center justify-center my-auto py-1">
+            <img src="assets/hersteller/capristo.png" alt="Capristo" class="brand-logo-img max-h-12 max-w-[88%] object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+          </div>
+
+          <div class="brand-infotext text-[11px] font-medium text-center mt-2 leading-tight">
+            Klappenauspuff-Systeme
+          </div>
+        </a>
+
+        <!-- 5. Milltek Sport -->
+        <a href="#" class="brand-card group snap-start rounded-2xl p-4 sm:p-5 border flex flex-col justify-between" title="Milltek Sport Sportauspuff & Tuning">
+          <div class="flex items-center justify-start mb-1">
+            <span class="badge-hersteller badge-hersteller-neutral">UK Racing</span>
+          </div>
+
+          <div class="h-16 w-full flex items-center justify-center my-auto py-1">
+            <img src="assets/hersteller/milltek.png" alt="Milltek Sport" class="brand-logo-img max-h-12 max-w-[88%] object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+          </div>
+
+          <div class="brand-infotext text-[11px] font-medium text-center mt-2 leading-tight">
+            OPF-Back & Performance
+          </div>
+        </a>
+
+        <!-- 6. Eisenmann -->
+        <a href="#" class="brand-card group snap-start rounded-2xl p-4 sm:p-5 border flex flex-col justify-between" title="Eisenmann Sportauspuff & Tuning">
+          <div class="flex items-center justify-start mb-1">
+            <span class="badge-hersteller badge-hersteller-green">Made in DE</span>
+          </div>
+
+          <div class="h-16 w-full flex items-center justify-center my-auto py-1">
+            <img src="assets/hersteller/eisenmann.png" alt="Eisenmann" class="brand-logo-img max-h-12 max-w-[88%] object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+          </div>
+
+          <div class="brand-infotext text-[11px] font-medium text-center mt-2 leading-tight">
+            Klangkultur & Manufaktur
+          </div>
+        </a>
+
+        <!-- 7. Bastuck -->
+        <a href="#" class="brand-card group snap-start rounded-2xl p-4 sm:p-5 border flex flex-col justify-between" title="Bastuck Sportauspuff & Tuning">
+          <div class="flex items-center justify-start mb-1">
+            <span class="badge-hersteller badge-hersteller-green">ECE legal</span>
+          </div>
+
+          <div class="h-16 w-full flex items-center justify-center my-auto py-1">
+            <img src="assets/hersteller/bastuck.png" alt="Bastuck" class="brand-logo-img max-h-12 max-w-[88%] object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+          </div>
+
+          <div class="brand-infotext text-[11px] font-medium text-center mt-2 leading-tight">
+            Rennsport-Edelstahl
+          </div>
+        </a>
+
+        <!-- 8. Ragazzon -->
+        <a href="#" class="brand-card group snap-start rounded-2xl p-4 sm:p-5 border flex flex-col justify-between" title="Ragazzon Sportauspuff & Tuning">
+          <div class="flex items-center justify-start mb-1">
+            <span class="badge-hersteller badge-hersteller-neutral">Made in IT</span>
+          </div>
+
+          <div class="h-16 w-full flex items-center justify-center my-auto py-1">
+            <img src="assets/hersteller/ragazzon.png" alt="Ragazzon" class="brand-logo-img max-h-12 max-w-[88%] object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+          </div>
+
+          <div class="brand-infotext text-[11px] font-medium text-center mt-2 leading-tight">
+            Inox Sportauspuff
+          </div>
+        </a>
+
+        <!-- 9. HJS Motorsport -->
+        <a href="#" class="brand-card group snap-start rounded-2xl p-4 sm:p-5 border flex flex-col justify-between" title="HJS Motorsport Sportauspuff & Tuning">
+          <div class="flex items-center justify-start mb-1">
+            <span class="badge-hersteller badge-hersteller-brand">200 Zellen</span>
+          </div>
+
+          <div class="h-16 w-full flex items-center justify-center my-auto py-1">
+            <img src="assets/hersteller/hjs.png" alt="HJS Motorsport" class="brand-logo-img max-h-12 max-w-[88%] object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+          </div>
+
+          <div class="brand-infotext text-[11px] font-medium text-center mt-2 leading-tight">
+            Sportkatalysatoren & Downpipes
+          </div>
+        </a>
+
+        <!-- 10. Borla -->
+        <a href="#" class="brand-card group snap-start rounded-2xl p-4 sm:p-5 border flex flex-col justify-between" title="Borla Sportauspuff & Tuning">
+          <div class="flex items-center justify-start mb-1">
+            <span class="badge-hersteller badge-hersteller-neutral">USA Sound</span>
+          </div>
+
+          <div class="h-16 w-full flex items-center justify-center my-auto py-1">
+            <img src="assets/hersteller/borla.png" alt="Borla" class="brand-logo-img max-h-12 max-w-[88%] object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+          </div>
+
+          <div class="brand-infotext text-[11px] font-medium text-center mt-2 leading-tight">
+            US-Muscle & Rennsport
+          </div>
+        </a>
+
+        <!-- 11. BULL-X -->
+        <a href="#" class="brand-card group snap-start rounded-2xl p-4 sm:p-5 border flex flex-col justify-between" title="BULL-X Sportauspuff & Tuning">
+          <div class="flex items-center justify-start mb-1">
+            <span class="badge-hersteller badge-hersteller-brand">HG-Motorsport</span>
+          </div>
+
+          <div class="h-16 w-full flex items-center justify-center my-auto py-1">
+            <img src="assets/hersteller/bull-x.png" alt="BULL-X" class="brand-logo-img max-h-12 max-w-[88%] object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+          </div>
+
+          <div class="brand-infotext text-[11px] font-medium text-center mt-2 leading-tight">
+            Tuning-Abgasanlagen
+          </div>
+        </a>
+
+        <!-- 12. FSW -->
+        <a href="#" class="brand-card group snap-start rounded-2xl p-4 sm:p-5 border flex flex-col justify-between" title="FSW Sportauspuff & Tuning">
+          <div class="flex items-center justify-start mb-1">
+            <span class="badge-hersteller badge-hersteller-neutral">Deep Sound</span>
+          </div>
+
+          <div class="h-16 w-full flex items-center justify-center my-auto py-1">
+            <img src="assets/hersteller/fsw.png" alt="FSW" class="brand-logo-img max-h-12 max-w-[88%] object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+          </div>
+
+          <div class="brand-infotext text-[11px] font-medium text-center mt-2 leading-tight">
+            Sportauspuff-Systeme
+          </div>
+        </a>
+
+        <!-- 13. Supersprint -->
+        <a href="#" class="brand-card group snap-start rounded-2xl p-4 sm:p-5 border flex flex-col justify-between" title="Supersprint Sportauspuff & Tuning">
+          <div class="flex items-center justify-start mb-1">
+            <span class="badge-hersteller badge-hersteller-neutral">High-Flow</span>
+          </div>
+
+          <div class="h-16 w-full flex items-center justify-center my-auto py-1">
+            <img src="assets/hersteller/supersprint.png" alt="Supersprint" class="brand-logo-img max-h-12 max-w-[88%] object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+          </div>
+
+          <div class="brand-infotext text-[11px] font-medium text-center mt-2 leading-tight">
+            Rennsport-Krümmer & Anlagen
+          </div>
+        </a>
+
+        <!-- 14. Ulter Sport -->
+        <a href="#" class="brand-card group snap-start rounded-2xl p-4 sm:p-5 border flex flex-col justify-between" title="Ulter Sport Sportauspuff & Tuning">
+          <div class="flex items-center justify-start mb-1">
+            <span class="badge-hersteller badge-hersteller-green">Sportoptik</span>
+          </div>
+
+          <div class="h-16 w-full flex items-center justify-center my-auto py-1">
+            <img src="assets/hersteller/ulter.png" alt="Ulter Sport" class="brand-logo-img max-h-12 max-w-[88%] object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+          </div>
+
+          <div class="brand-infotext text-[11px] font-medium text-center mt-2 leading-tight">
+            Duplex & Endrohrblenden
+          </div>
+        </a>
+
+        <!-- 15. Hurricane -->
+        <a href="#" class="brand-card group snap-start rounded-2xl p-4 sm:p-5 border flex flex-col justify-between" title="Hurricane Sportauspuff & Tuning">
+          <div class="flex items-center justify-start mb-1">
+            <span class="badge-hersteller badge-hersteller-brand">Extrem-Sound</span>
+          </div>
+
+          <div class="h-16 w-full flex items-center justify-center my-auto py-1">
+            <img src="assets/hersteller/hurricane.png" alt="Hurricane" class="brand-logo-img max-h-12 max-w-[88%] object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+          </div>
+
+          <div class="brand-infotext text-[11px] font-medium text-center mt-2 leading-tight">
+            Klappen-Sportauspuff
+          </div>
+        </a>
+
+        <!-- 16. ASR Component -->
+        <a href="#" class="brand-card group snap-start rounded-2xl p-4 sm:p-5 border flex flex-col justify-between" title="ASR Component Sportauspuff & Tuning">
+          <div class="flex items-center justify-start mb-1">
+            <span class="badge-hersteller badge-hersteller-brand">Funk-Control</span>
+          </div>
+
+          <div class="h-16 w-full flex items-center justify-center my-auto py-1">
+            <img src="assets/hersteller/asr.png" alt="ASR Component" class="brand-logo-img max-h-12 max-w-[88%] object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+          </div>
+
+          <div class="brand-infotext text-[11px] font-medium text-center mt-2 leading-tight">
+            CAN-Bus Klappenmodule
+          </div>
+        </a>
+
+        <!-- 17. Kufatec -->
+        <a href="#" class="brand-card group snap-start rounded-2xl p-4 sm:p-5 border flex flex-col justify-between" title="Kufatec Sportauspuff & Tuning">
+          <div class="flex items-center justify-start mb-1">
+            <span class="badge-hersteller badge-hersteller-neutral">Active Sound</span>
+          </div>
+
+          <div class="h-16 w-full flex items-center justify-center my-auto py-1">
+            <img src="assets/hersteller/kufatec.png" alt="Kufatec" class="brand-logo-img max-h-12 max-w-[88%] object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+          </div>
+
+          <div class="brand-infotext text-[11px] font-medium text-center mt-2 leading-tight">
+            Sound Booster Pro
+          </div>
+        </a>
+
+        <!-- 18. Friedrich -->
+        <a href="#" class="brand-card group snap-start rounded-2xl p-4 sm:p-5 border flex flex-col justify-between" title="Friedrich Sportauspuff & Tuning">
+          <div class="flex items-center justify-start mb-1">
+            <span class="badge-hersteller badge-hersteller-green">Gruppe A</span>
+          </div>
+
+          <div class="h-16 w-full flex items-center justify-center my-auto py-1">
+            <img src="assets/hersteller/friedrich.svg" alt="Friedrich" class="brand-logo-img max-h-12 max-w-[88%] object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+          </div>
+
+          <div class="brand-infotext text-[11px] font-medium text-center mt-2 leading-tight">
+            Edelstahl Sportauspuff
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 9. BESTSELLER-SHOWCASE: „DEIN AUTO. DEIN SOUND.“                          -->
+  <!-- ========================================================================= -->
+  <section style="background-color: var(--panel-bg); border-color: var(--panel-border);" class="py-16 border-b transition-colors duration-300">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
+
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
+        <div>
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-brand-orange/10 text-brand-orange border border-brand-orange/20 mb-2">
+            <i class="fa-solid fa-fire text-xs"></i>
+            <span>Top-Seller der Saison</span>
+          </div>
+          <h2 class="font-racing text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase italic tracking-tight" style="color: var(--text-main);">
+            BESTSELLER: <span class="text-brand-orange">DEIN AUTO. DEIN SOUND.</span>
+          </h2>
+          <p class="text-xs sm:text-sm mt-1" style="color: var(--text-muted);">
+            Handverlesene Premium-Sportauspuffanlagen mit 100% ECE-Garantie und meistergeprüfter Passform.
+          </p>
+        </div>
+        <a href="#" class="text-sm font-racing uppercase tracking-wider font-extrabold text-brand-orange hover:underline mt-4 sm:mt-0 flex items-center group">
+          <span>Gesamten Katalog ansehen</span>
+        </a>
+      </div>
+
+      <!-- 4 Bestseller Produkt-Karten (Exakt Kategorieseiten-Architektur) -->
+      <div class="flex overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 gap-4 no-scrollbar sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible sm:mx-0 sm:px-0 sm:pb-0 sm:gap-6">
+
+        <!-- Produkt 1: FOX Golf 7 GTI -->
+        <div class="product-card w-[74vw] sm:w-auto flex-shrink-0 snap-start group rounded-3xl p-5 border shadow-xl flex flex-col justify-between transition-all hover:border-brand-orange/50 hover:shadow-2xl" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+          <!-- Zone 1: Media -->
+          <div class="product-card-media mb-3">
+            <div class="flex flex-wrap gap-1.5 mb-2.5">
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-white/5 border border-white/10 text-slate-300 flex items-center space-x-1">
+                <i class="fa-solid fa-industry text-[9px] text-slate-400"></i>
+                <span>Made in DE</span>
+              </span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center space-x-1">
+                <i class="fa-solid fa-check text-[9px]"></i>
+                <span>100% ECE</span>
+              </span>
+            </div>
+
+            <div class="relative rounded-2xl overflow-hidden group-hover:scale-[1.01] transition-transform shadow-inner aspect-[4/3] bg-black/10">
+              <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=500&q=80" alt="FOX Duplex Golf 7 GTI Sportauspuff" class="w-full h-full object-cover rounded-2xl filter contrast-105 transition-transform duration-500 group-hover:scale-105" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Zone 2: Body -->
+          <div class="product-card-body flex-1">
+            <div class="mb-1 flex items-center justify-between">
+              <span class="font-bold text-xs uppercase tracking-wider text-brand-orange">FOX Exhaust</span>
+              <span class="text-[11px] font-mono text-gray-400">Art.-Nr.: FOX-VW052024-100</span>
+            </div>
+            <h3 class="font-racing text-lg uppercase tracking-wider font-extrabold leading-tight hover:text-brand-orange transition cursor-pointer" style="color: var(--text-main);">
+              FOX Duplex Sportauspuffanlage ab Kat Ø 70mm
+            </h3>
+            <p class="text-sm text-gray-400 mt-1 font-medium">
+              Passend für VW Golf VII GTI (2.0 TSI / 220-245 PS) • 2x100mm Endrohre
+            </p>
+
+            <div class="flex items-center space-x-1.5 my-2">
+              <div class="flex text-amber-400 text-[11px] space-x-0.5">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="font-bold text-xs" style="color: var(--text-main);">5.0</span>
+              <span class="text-gray-400 text-[11px]">(18 Bewertungen)</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-1.5 my-3 text-[11px] font-medium" style="color: var(--text-muted);">
+              <div class="flex items-center space-x-1.5">
+                <i class="fa-solid fa-shield-halved text-slate-400 text-[10px]"></i>
+                <span>ECE eintragungsfrei</span>
+              </div>
+              <div class="flex items-center space-x-1.5">
+                <i class="fa-solid fa-wrench text-slate-400 text-[10px]"></i>
+                <span>Rohr: Ø 70mm V2A</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Zone 3: Action -->
+          <div class="product-card-action pt-3 border-t mt-2" style="border-color: var(--panel-border);">
+            <div class="space-y-1.5 mb-3">
+              <div class="flex items-center justify-between text-xs">
+                <span class="inline-flex items-center space-x-1.5 text-emerald-400 font-semibold text-xs">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <span>Auf Lager</span>
+                </span>
+                <span class="text-[10px] text-gray-400">Versandfertig in 24h</span>
+              </div>
+
+              <div>
+                <div class="flex items-center space-x-2 text-xs text-gray-400">
+                  <span class="line-through">UVP 949,00 €</span>
+                  <span class="text-brand-orange font-bold text-xs">-100,00 €</span>
+                </div>
+                <div class="font-racing text-2xl font-extrabold tracking-wide" style="color: var(--text-main);">
+                  849,00 €
+                </div>
+                <div class="text-[10px] text-gray-400">inkl. MwSt., versandkostenfrei</div>
+              </div>
+            </div>
+
+            <a href="#" class="btn-detail w-full py-3 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-base uppercase tracking-wider font-extrabold rounded-xl shadow-lg transition flex items-center justify-center space-x-2 group">
+              <i class="fa-solid fa-fire text-xs text-white/90"></i>
+              <span>Details</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Produkt 2: Ragazzon Audi RS6 Avant C8 -->
+        <div class="product-card w-[74vw] sm:w-auto flex-shrink-0 snap-start group rounded-3xl p-5 border shadow-xl flex flex-col justify-between transition-all hover:border-brand-orange/50 hover:shadow-2xl" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+          <!-- Zone 1: Media -->
+          <div class="product-card-media mb-3">
+            <div class="flex flex-wrap gap-1.5 mb-2.5">
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-white/5 border border-white/10 text-slate-300 flex items-center space-x-1">
+                <i class="fa-solid fa-sliders text-[9px] text-slate-400"></i>
+                <span>Klappenanlage</span>
+              </span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center space-x-1">
+                <i class="fa-solid fa-check text-[9px]"></i>
+                <span>100% ECE</span>
+              </span>
+            </div>
+
+            <div class="relative rounded-2xl overflow-hidden group-hover:scale-[1.01] transition-transform shadow-inner aspect-[4/3] bg-black/10">
+              <img src="assets/audi-rs6-ragazzon.jpg" alt="Ragazzon Audi RS6 C8 Duplex Klappenauspuff" class="w-full h-full object-cover rounded-2xl filter contrast-105 transition-transform duration-500 group-hover:scale-105" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Zone 2: Body -->
+          <div class="product-card-body flex-1">
+            <div class="mb-1 flex items-center justify-between">
+              <span class="font-bold text-xs uppercase tracking-wider text-brand-orange">Ragazzon</span>
+              <span class="text-[11px] font-mono text-gray-400">Art.-Nr.: 50.0912.80</span>
+            </div>
+            <h3 class="font-racing text-lg uppercase tracking-wider font-extrabold leading-tight hover:text-brand-orange transition cursor-pointer" style="color: var(--text-main);">
+              Ragazzon Duplex Klappenauspuffanlage ab OPF
+            </h3>
+            <p class="text-sm text-gray-400 mt-1 font-medium">
+              Passend für Audi RS6 Avant (C8) 4.0 TFSI (600 PS) • Drive Select Klappen
+            </p>
+
+            <div class="flex items-center space-x-1.5 my-2">
+              <div class="flex text-amber-400 text-[11px] space-x-0.5">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="font-bold text-xs" style="color: var(--text-main);">5.0</span>
+              <span class="text-gray-400 text-[11px]">(14 Bewertungen)</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-1.5 my-3 text-[11px] font-medium" style="color: var(--text-muted);">
+              <div class="flex items-center space-x-1.5">
+                <i class="fa-solid fa-shield-halved text-slate-400 text-[10px]"></i>
+                <span>ECE eintragungsfrei</span>
+              </div>
+              <div class="flex items-center space-x-1.5">
+                <i class="fa-solid fa-wrench text-slate-400 text-[10px]"></i>
+                <span>Rohr: 2x 76mm V2A</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Zone 3: Action -->
+          <div class="product-card-action pt-3 border-t mt-2" style="border-color: var(--panel-border);">
+            <div class="space-y-1.5 mb-3">
+              <div class="flex items-center justify-between text-xs">
+                <span class="inline-flex items-center space-x-1.5 text-emerald-400 font-semibold text-xs">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <span>Auf Lager</span>
+                </span>
+                <span class="text-[10px] text-gray-400">Versandfertig in 24h</span>
+              </div>
+
+              <div>
+                <div class="flex items-center space-x-2 text-xs text-gray-400">
+                  <span class="line-through">UVP 2.780,00 €</span>
+                  <span class="text-brand-orange font-bold text-xs">-281,00 €</span>
+                </div>
+                <div class="font-racing text-2xl font-extrabold tracking-wide" style="color: var(--text-main);">
+                  2.499,00 €
+                </div>
+                <div class="text-[10px] text-gray-400">inkl. MwSt., versandkostenfrei</div>
+              </div>
+            </div>
+
+            <a href="#" class="btn-detail w-full py-3 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-base uppercase tracking-wider font-extrabold rounded-xl shadow-lg transition flex items-center justify-center space-x-2 group">
+              <i class="fa-solid fa-fire text-xs text-white/90"></i>
+              <span>Details</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Produkt 3: REMUS BMW M340i -->
+        <div class="product-card w-[74vw] sm:w-auto flex-shrink-0 snap-start group rounded-3xl p-5 border shadow-xl flex flex-col justify-between transition-all hover:border-brand-orange/50 hover:shadow-2xl" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+          <!-- Zone 1: Media -->
+          <div class="product-card-media mb-3">
+            <div class="flex flex-wrap gap-1.5 mb-2.5">
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-white/5 border border-white/10 text-slate-300 flex items-center space-x-1">
+                <i class="fa-solid fa-sliders text-[9px] text-slate-400"></i>
+                <span>Klappensteuerung</span>
+              </span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center space-x-1">
+                <i class="fa-solid fa-check text-[9px]"></i>
+                <span>100% ECE</span>
+              </span>
+            </div>
+
+            <div class="relative rounded-2xl overflow-hidden group-hover:scale-[1.01] transition-transform shadow-inner aspect-[4/3] bg-black/10">
+              <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=500&q=80" alt="REMUS BMW M340i Sportauspuff" class="w-full h-full object-cover rounded-2xl filter contrast-105 transition-transform duration-500 group-hover:scale-105" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Zone 2: Body -->
+          <div class="product-card-body flex-1">
+            <div class="mb-1 flex items-center justify-between">
+              <span class="font-bold text-xs uppercase tracking-wider text-brand-orange">REMUS</span>
+              <span class="text-[11px] font-mono text-gray-400">Art.-Nr.: REM-088019-1500</span>
+            </div>
+            <h3 class="font-racing text-lg uppercase tracking-wider font-extrabold leading-tight hover:text-brand-orange transition cursor-pointer" style="color: var(--text-main);">
+              REMUS Sportabgasanlage Edelstahl mit Klappen
+            </h3>
+            <p class="text-sm text-gray-400 mt-1 font-medium">
+              Passend für BMW M340i (G20/G21) 3.0 B58 • Mit integrierten Klappen
+            </p>
+
+            <div class="flex items-center space-x-1.5 my-2">
+              <div class="flex text-amber-400 text-[11px] space-x-0.5">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="font-bold text-xs" style="color: var(--text-main);">5.0</span>
+              <span class="text-gray-400 text-[11px]">(22 Bewertungen)</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-1.5 my-3 text-[11px] font-medium" style="color: var(--text-muted);">
+              <div class="flex items-center space-x-1.5">
+                <i class="fa-solid fa-shield-halved text-slate-400 text-[10px]"></i>
+                <span>ECE eintragungsfrei</span>
+              </div>
+              <div class="flex items-center space-x-1.5">
+                <i class="fa-solid fa-wrench text-slate-400 text-[10px]"></i>
+                <span>Rohr: Ø 84mm V2A</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Zone 3: Action -->
+          <div class="product-card-action pt-3 border-t mt-2" style="border-color: var(--panel-border);">
+            <div class="space-y-1.5 mb-3">
+              <div class="flex items-center justify-between text-xs">
+                <span class="inline-flex items-center space-x-1.5 text-emerald-400 font-semibold text-xs">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <span>Auf Lager</span>
+                </span>
+                <span class="text-[10px] text-gray-400">Versandfertig in 24h</span>
+              </div>
+
+              <div>
+                <div class="flex items-center space-x-2 text-xs text-gray-400">
+                  <span class="line-through">UVP 2.140,00 €</span>
+                  <span class="text-brand-orange font-bold text-xs">-200,00 €</span>
+                </div>
+                <div class="font-racing text-2xl font-extrabold tracking-wide" style="color: var(--text-main);">
+                  1.940,00 €
+                </div>
+                <div class="text-[10px] text-gray-400">inkl. MwSt., versandkostenfrei</div>
+              </div>
+            </div>
+
+            <a href="#" class="btn-detail w-full py-3 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-base uppercase tracking-wider font-extrabold rounded-xl shadow-lg transition flex items-center justify-center space-x-2 group">
+              <i class="fa-solid fa-fire text-xs text-white/90"></i>
+              <span>Details</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Produkt 4: Bastuck Cupra Formentor VZ -->
+        <div class="product-card w-[74vw] sm:w-auto flex-shrink-0 snap-start group rounded-3xl p-5 border shadow-xl flex flex-col justify-between transition-all hover:border-brand-orange/50 hover:shadow-2xl" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+          <!-- Zone 1: Media -->
+          <div class="product-card-media mb-3">
+            <div class="flex flex-wrap gap-1.5 mb-2.5">
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-white/5 border border-white/10 text-slate-300 flex items-center space-x-1">
+                <i class="fa-solid fa-sliders text-[9px] text-slate-400"></i>
+                <span>Funk-Klappe</span>
+              </span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center space-x-1">
+                <i class="fa-solid fa-check text-[9px]"></i>
+                <span>100% ECE</span>
+              </span>
+            </div>
+
+            <div class="relative rounded-2xl overflow-hidden group-hover:scale-[1.01] transition-transform shadow-inner aspect-[4/3] bg-black/10">
+              <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=500&q=80" alt="Bastuck Cupra Formentor VZ Klappenauspuff" class="w-full h-full object-cover rounded-2xl filter contrast-105 transition-transform duration-500 group-hover:scale-105" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Zone 2: Body -->
+          <div class="product-card-body flex-1">
+            <div class="mb-1 flex items-center justify-between">
+              <span class="font-bold text-xs uppercase tracking-wider text-brand-orange">Bastuck</span>
+              <span class="text-[11px] font-mono text-gray-400">Art.-Nr.: BAS-SEAT-FOR-76</span>
+            </div>
+            <h3 class="font-racing text-lg uppercase tracking-wider font-extrabold leading-tight hover:text-brand-orange transition cursor-pointer" style="color: var(--text-main);">
+              Bastuck Klappen-Sportauspuffanlage Ø 76mm
+            </h3>
+            <p class="text-sm text-gray-400 mt-1 font-medium">
+              Passend für Cupra Formentor VZ 2.0 TSI (310 PS) • Inkl. Funk-Klappensteuerung
+            </p>
+
+            <div class="flex items-center space-x-1.5 my-2">
+              <div class="flex text-amber-400 text-[11px] space-x-0.5">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="font-bold text-xs" style="color: var(--text-main);">5.0</span>
+              <span class="text-gray-400 text-[11px]">(16 Bewertungen)</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-1.5 my-3 text-[11px] font-medium" style="color: var(--text-muted);">
+              <div class="flex items-center space-x-1.5">
+                <i class="fa-solid fa-shield-halved text-slate-400 text-[10px]"></i>
+                <span>ECE eintragungsfrei</span>
+              </div>
+              <div class="flex items-center space-x-1.5">
+                <i class="fa-solid fa-wrench text-slate-400 text-[10px]"></i>
+                <span>Rohr: Ø 76mm V2A</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Zone 3: Action -->
+          <div class="product-card-action pt-3 border-t mt-2" style="border-color: var(--panel-border);">
+            <div class="space-y-1.5 mb-3">
+              <div class="flex items-center justify-between text-xs">
+                <span class="inline-flex items-center space-x-1.5 text-emerald-400 font-semibold text-xs">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <span>Auf Lager</span>
+                </span>
+                <span class="text-[10px] text-gray-400">Versandfertig in 24h</span>
+              </div>
+
+              <div>
+                <div class="flex items-center space-x-2 text-xs text-gray-400">
+                  <span class="line-through">UVP 1.890,00 €</span>
+                  <span class="text-brand-orange font-bold text-xs">-191,00 €</span>
+                </div>
+                <div class="font-racing text-2xl font-extrabold tracking-wide" style="color: var(--text-main);">
+                  1.699,00 €
+                </div>
+                <div class="text-[10px] text-gray-400">inkl. MwSt., versandkostenfrei</div>
+              </div>
+            </div>
+
+            <a href="#" class="btn-detail w-full py-3 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-base uppercase tracking-wider font-extrabold rounded-xl shadow-lg transition flex items-center justify-center space-x-2 group">
+              <i class="fa-solid fa-fire text-xs text-white/90"></i>
+              <span>Details</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 10. 100% PASSFORM-GARANTIE & MONTAGENETZWERK (KFZ-MEISTER-STANDARD)   -->
+  <!-- ========================================================================= -->
+  <section style="background-color: var(--page-bg); border-color: var(--panel-border);" class="py-16 border-b transition-colors duration-300">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
+
+      <div class="dark-surface rounded-3xl p-8 sm:p-12 border shadow-2xl relative overflow-hidden" style="background: linear-gradient(135deg, #0e1726 0%, #172439 50%, #0d1522 100%); border-color: rgba(55, 141, 204, 0.3);">
+        <!-- Background Lighting -->
+        <div class="absolute top-0 right-1/4 w-80 h-80 bg-brand-orange/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+          <!-- Links: Meister-Siegel & Botschaft -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full text-sm font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+              <i class="fa-solid fa-shield-check text-xs"></i>
+              <span>Dein-Sportauspuff Meisterprüfung: 100% Passform garantiert</span>
+            </div>
+
+            <h2 class="font-racing text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase italic tracking-tight text-white leading-tight">
+              100% PASSFORM GARANTIERT MIT <span class="text-brand-orange">KFZ-MEISTER VORABPRÜFUNG</span>
+            </h2>
+
+            <p class="text-sm sm:text-base text-gray-300 leading-relaxed font-medium">
+              Kein Risiko, keine bösen Überraschungen beim Einbau: Vor jedem Versand gleicht unser sächsisches Kfz-Meisterteam deine HSN/TSN und Fahrgestellnummer (FIN) direkt in den Herstellerdatenbanken ab.
+            </p>
+
+            <!-- 4 Trust-Säulen -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div class="flex items-start space-x-3 bg-white/5 border border-white/10 rounded-2xl p-4 backdrop-blur-sm">
+                <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5">
+                  <i class="fa-solid fa-rotate-left"></i>
+                </div>
+                <div>
+                  <div class="font-racing text-sm font-bold uppercase tracking-wider text-white">30 Tage Rückgaberecht</div>
+                  <div class="text-xs text-gray-300 mt-0.5">Kostenloser Rückversand bei Passform-Unstimmigkeiten</div>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3 bg-white/5 border border-white/10 rounded-2xl p-4 backdrop-blur-sm">
+                <div class="w-8 h-8 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5">
+                  <i class="fa-solid fa-warehouse"></i>
+                </div>
+                <div>
+                  <div class="font-racing text-sm font-bold uppercase tracking-wider text-white">450+ Partnerwerkstätten</div>
+                  <div class="text-xs text-gray-300 mt-0.5">Montage zum garantierten Festpreis ab 189 € in DACH</div>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3 bg-white/5 border border-white/10 rounded-2xl p-4 backdrop-blur-sm">
+                <div class="w-8 h-8 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5">
+                  <i class="fa-solid fa-truck-fast"></i>
+                </div>
+                <div>
+                  <div class="font-racing text-sm font-bold uppercase tracking-wider text-white">Kostenloser Versand</div>
+                  <div class="text-xs text-gray-300 mt-0.5">Bereits ab 100 € innerhalb Deutschlands</div>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3 bg-white/5 border border-white/10 rounded-2xl p-4 backdrop-blur-sm">
+                <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5">
+                  <i class="fa-solid fa-award"></i>
+                </div>
+                <div>
+                  <div class="font-racing text-sm font-bold uppercase tracking-wider text-white">Über 20 Jahre Erfahrung</div>
+                  <div class="text-xs text-gray-300 mt-0.5">Spezialisierter Fachhändler seit 2003</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Rechts: Meister-Badge Box & Montagenetzwerk CTA -->
+          <div class="lg:col-span-5">
+            <div class="bg-black/60 border border-white/15 rounded-3xl p-6 sm:p-8 backdrop-blur-md shadow-2xl text-center space-y-5">
+              <div class="w-20 h-20 rounded-3xl bg-brand-orange text-white flex items-center justify-center font-racing font-extrabold text-3xl mx-auto shadow-xl">
+                <i class="fa-solid fa-certificate"></i>
+              </div>
+
+              <div>
+                <span class="text-sm font-semibold text-brand-orange block">
+                  Dein-Sportauspuff Meister-Garantie
+                </span>
+                <h3 class="font-racing text-2xl font-extrabold uppercase italic text-white mt-1">
+                  100% SICHER BESTELLEN
+                </h3>
+                <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                  Gib im Bestellprozess einfach deine Schlüsselnummern ein. Wir übernehmen die technische Freigabe für dein Fahrzeugmodell.
+                </p>
+              </div>
+
+              <div class="pt-2 space-y-3">
+                <button
+                  type="button"
+                  onclick="switchFinderTab('hsn'); window.scrollTo({ top: 350, behavior: 'smooth' });"
+                  class="w-full py-4 bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-lg uppercase tracking-wider font-extrabold rounded-2xl shadow-xl transition flex items-center justify-center space-x-2 cursor-pointer"
+                >
+                  <i class="fa-solid fa-file-lines text-base"></i>
+                  <span>Fahrzeugschein jetzt prüfen</span>
+                </button>
+
+                <a
+                  href="tel:+4937164638755"
+                  class="w-full py-3 bg-white/10 hover:bg-white/20 text-gray-200 hover:text-white font-semibold text-sm rounded-xl transition flex items-center justify-center space-x-2 cursor-pointer"
+                >
+                  <i class="fa-solid fa-screwdriver-wrench text-xs text-brand-orange"></i>
+                  <span>Montage-Partner telefonisch anfragen</span>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 11. AUTOMARKEN-SHOWCASE (DIE TOP 8 SPORTAUSPUFF-AUTOMARKEN)               -->
+  <!-- ========================================================================= -->
+  <section id="automarken" style="background-color: var(--panel-bg); border-color: var(--panel-border);" class="py-16 border-b transition-colors duration-300">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
+
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+        <div>
+          <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-orange/10 text-brand-orange border border-brand-orange/20 mb-2">
+            <i class="fa-solid fa-gauge-high text-xs"></i>
+            <span>Markenübersicht</span>
+          </div>
+          <h2 class="font-racing text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase italic tracking-tight" style="color: var(--text-main);">
+            ÜBER 60 AUTOMARKEN FÜR <span class="text-brand-orange">DEINEN SOUND</span>
+          </h2>
+          <p class="text-sm sm:text-base mt-1" style="color: var(--text-muted);">
+            Wähle Deine Automarke und finde direkt alle passenden Sportauspuffe, Downpipes und Endrohre.
+          </p>
+        </div>
+        <a href="#" class="text-sm font-semibold uppercase tracking-wider text-brand-orange hover:underline mt-4 md:mt-0 flex items-center group">
+          <span>Alle Marken anzeigen</span>
+          <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+
+      <!-- 8 Automarken Kacheln Grid -->
+      <div class="flex overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 gap-4 no-scrollbar sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible sm:mx-0 sm:px-0 sm:pb-0 sm:gap-6">
+
+        <!-- Audi -->
+        <a href="#" class="w-[52vw] sm:w-auto flex-shrink-0 snap-start group rounded-2xl sm:rounded-3xl overflow-hidden border shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between" style="background-color: var(--panel-card); border-color: var(--panel-border);" title="Audi Sportauspuff & Abgasanlagen">
+          <div class="relative overflow-hidden aspect-[4/3] bg-black/10">
+            <img src="assets/automarken/audi.jpg" alt="Audi Sportauspuff" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute top-2 left-2 sm:top-3 sm:left-3">
+              <span class="badge-car-count font-racing">
+                Über 4.000 Produkte
+              </span>
+            </div>
+          </div>
+          <div class="p-4 sm:p-5 text-center">
+            <h3 class="font-racing text-lg sm:text-2xl font-extrabold uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Audi
+            </h3>
+          </div>
+        </a>
+
+        <!-- BMW -->
+        <a href="#" class="w-[52vw] sm:w-auto flex-shrink-0 snap-start group rounded-2xl sm:rounded-3xl overflow-hidden border shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between" style="background-color: var(--panel-card); border-color: var(--panel-border);" title="BMW Sportauspuff & Abgasanlagen">
+          <div class="relative overflow-hidden aspect-[4/3] bg-black/10">
+            <img src="assets/automarken/bmw.jpg" alt="BMW Sportauspuff" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute top-2 left-2 sm:top-3 sm:left-3">
+              <span class="badge-car-count font-racing">
+                Über 4.900 Produkte
+              </span>
+            </div>
+          </div>
+          <div class="p-4 sm:p-5 text-center">
+            <h3 class="font-racing text-lg sm:text-2xl font-extrabold uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              BMW
+            </h3>
+          </div>
+        </a>
+
+        <!-- Ford -->
+        <a href="#" class="w-[52vw] sm:w-auto flex-shrink-0 snap-start group rounded-2xl sm:rounded-3xl overflow-hidden border shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between" style="background-color: var(--panel-card); border-color: var(--panel-border);" title="Ford Sportauspuff & Abgasanlagen">
+          <div class="relative overflow-hidden aspect-[4/3] bg-black/10">
+            <img src="assets/automarken/ford.jpg" alt="Ford Sportauspuff" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute top-2 left-2 sm:top-3 sm:left-3">
+              <span class="badge-car-count font-racing">
+                Über 1.800 Produkte
+              </span>
+            </div>
+          </div>
+          <div class="p-4 sm:p-5 text-center">
+            <h3 class="font-racing text-lg sm:text-2xl font-extrabold uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Ford
+            </h3>
+          </div>
+        </a>
+
+        <!-- Mercedes-Benz -->
+        <a href="#" class="w-[52vw] sm:w-auto flex-shrink-0 snap-start group rounded-2xl sm:rounded-3xl overflow-hidden border shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between" style="background-color: var(--panel-card); border-color: var(--panel-border);" title="Mercedes-Benz Sportauspuff & Abgasanlagen">
+          <div class="relative overflow-hidden aspect-[4/3] bg-black/10">
+            <img src="assets/automarken/mercedes.jpg" alt="Mercedes-Benz Sportauspuff" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute top-2 left-2 sm:top-3 sm:left-3">
+              <span class="badge-car-count font-racing">
+                Über 1.400 Produkte
+              </span>
+            </div>
+          </div>
+          <div class="p-4 sm:p-5 text-center">
+            <h3 class="font-racing text-lg sm:text-2xl font-extrabold uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Mercedes-Benz
+            </h3>
+          </div>
+        </a>
+
+        <!-- Mini -->
+        <a href="#" class="w-[52vw] sm:w-auto flex-shrink-0 snap-start group rounded-2xl sm:rounded-3xl overflow-hidden border shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between" style="background-color: var(--panel-card); border-color: var(--panel-border);" title="Mini Sportauspuff & Abgasanlagen">
+          <div class="relative overflow-hidden aspect-[4/3] bg-black/10">
+            <img src="assets/automarken/mini.jpg" alt="Mini Sportauspuff" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute top-2 left-2 sm:top-3 sm:left-3">
+              <span class="badge-car-count font-racing">
+                Über 950 Produkte
+              </span>
+            </div>
+          </div>
+          <div class="p-4 sm:p-5 text-center">
+            <h3 class="font-racing text-lg sm:text-2xl font-extrabold uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Mini
+            </h3>
+          </div>
+        </a>
+
+        <!-- Skoda -->
+        <a href="#" class="w-[52vw] sm:w-auto flex-shrink-0 snap-start group rounded-2xl sm:rounded-3xl overflow-hidden border shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between" style="background-color: var(--panel-card); border-color: var(--panel-border);" title="Skoda Sportauspuff & Abgasanlagen">
+          <div class="relative overflow-hidden aspect-[4/3] bg-black/10">
+            <img src="assets/automarken/skoda.jpg" alt="Skoda Sportauspuff" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute top-2 left-2 sm:top-3 sm:left-3">
+              <span class="badge-car-count font-racing">
+                Über 700 Produkte
+              </span>
+            </div>
+          </div>
+          <div class="p-4 sm:p-5 text-center">
+            <h3 class="font-racing text-lg sm:text-2xl font-extrabold uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Skoda
+            </h3>
+          </div>
+        </a>
+
+        <!-- Toyota -->
+        <a href="#" class="w-[52vw] sm:w-auto flex-shrink-0 snap-start group rounded-2xl sm:rounded-3xl overflow-hidden border shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between" style="background-color: var(--panel-card); border-color: var(--panel-border);" title="Toyota Sportauspuff & Abgasanlagen">
+          <div class="relative overflow-hidden aspect-[4/3] bg-black/10">
+            <img src="assets/automarken/toyota.jpg" alt="Toyota Sportauspuff" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute top-2 left-2 sm:top-3 sm:left-3">
+              <span class="badge-car-count font-racing">
+                Über 600 Produkte
+              </span>
+            </div>
+          </div>
+          <div class="p-4 sm:p-5 text-center">
+            <h3 class="font-racing text-lg sm:text-2xl font-extrabold uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Toyota
+            </h3>
+          </div>
+        </a>
+
+        <!-- Volkswagen -->
+        <a href="#" class="w-[52vw] sm:w-auto flex-shrink-0 snap-start group rounded-2xl sm:rounded-3xl overflow-hidden border shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between" style="background-color: var(--panel-card); border-color: var(--panel-border);" title="Volkswagen Sportauspuff & Abgasanlagen">
+          <div class="relative overflow-hidden aspect-[4/3] bg-black/10">
+            <img src="assets/automarken/vw.jpg" alt="Volkswagen Sportauspuff" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute top-2 left-2 sm:top-3 sm:left-3">
+              <span class="badge-car-count font-racing">
+                Über 3.800 Produkte
+              </span>
+            </div>
+          </div>
+          <div class="p-4 sm:p-5 text-center">
+            <h3 class="font-racing text-lg sm:text-2xl font-extrabold uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              Volkswagen
+            </h3>
+          </div>
+        </a>
+      </div>
+
+      <!-- Footer CTA Banner: 60+ Automarken -->
+      <div class="mt-12 text-center">
+        <a href="#" class="inline-flex items-center space-x-3 px-8 py-4 rounded-2xl bg-brand-orange hover:bg-brand-orangeHover text-white font-racing text-sm uppercase tracking-wider font-extrabold shadow-lg hover:shadow-xl transition-all duration-300 group">
+          <i class="fa-solid fa-list-check text-base"></i>
+          <span>Alle 60+ Automarken im Katalog ansehen</span>
+          <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 12c. KUNDENBEWERTUNGEN & SOCIAL PROOF (4.98 VON 5 STERNEN)               -->
+  <!-- ========================================================================= -->
+  <section id="bewertungen" style="background-color: var(--panel-bg); border-color: var(--panel-border);" class="py-16 sm:py-20 border-b transition-colors duration-300">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
+
+      <!-- Sektions-Header (Zentriert) -->
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-brand-orange/10 text-brand-orange border border-brand-orange/20 mb-3">
+          <i class="fa-solid fa-star text-xs text-amber-400"></i>
+          <span>12.836 BEWERTUNGEN · DURCHSCHNITT 4.98 / 5.0</span>
+        </div>
+        <h2 class="font-racing text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase italic tracking-tight" style="color: var(--text-main);">
+          KUNDEN SAGEN <span class="text-brand-orange">ÜBER UNS</span>
+        </h2>
+        <p class="text-sm sm:text-base mt-2 font-medium" style="color: var(--text-muted);">
+          Zufriedene Kunden sind unser Antrieb – und unser bestes Argument. Mit <strong>12.836 Bewertungen</strong> und durchschnittlich <strong>4.98 von 5 Sternen</strong> vertrauen bereits tausende Fahrer auf unseren Service und unsere Produkte.
+        </p>
+      </div>
+
+      <!-- Asymmetrisches Split-Layout: Links Scoreboard, Rechts 4 Kundenstimmen -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+
+        <!-- Linke Spalte (Scoreboard & Sterne-Balken) -->
+        <div class="lg:col-span-4 flex flex-col">
+          <div class="p-6 sm:p-8 rounded-3xl border shadow-xl flex flex-col justify-between h-full" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+            <div>
+              <div class="flex items-center justify-between pb-4 mb-5 border-b" style="border-color: var(--panel-border);">
+                <span class="text-sm font-semibold text-brand-orange">Gesamtwertung</span>
+                <span class="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/10 border border-emerald-500/20" style="color: var(--brand-green);">
+                  <i class="fa-solid fa-badge-check text-[10px]"></i>
+                  <span>Ausgezeichnet</span>
+                </span>
+              </div>
+
+              <!-- Grosse Zahl & Sterne -->
+              <div class="flex items-baseline space-x-4 mb-3">
+                <div class="font-racing font-extrabold text-6xl tracking-tight text-brand-blue">
+                  4.98
+                </div>
+                <div>
+                  <div class="flex items-center space-x-1 text-amber-400 text-lg mb-1">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                  <div class="text-xs font-semibold" style="color: var(--text-muted);">
+                    aus 12.836 Bewertungen
+                  </div>
+                </div>
+              </div>
+
+              <p class="text-xs leading-relaxed mb-6" style="color: var(--text-muted);">
+                Echte Erfahrungen verifizierter Käufer von Sportauspuffanlagen, Downpipes und Montageservice.
+              </p>
+
+              <!-- Sterne-Balkendiagramm -->
+              <div class="space-y-2.5 text-xs">
+                <!-- 5 Sterne -->
+                <div class="flex items-center space-x-2.5">
+                  <div class="flex items-center space-x-1 w-12 text-amber-400 font-bold flex-shrink-0">
+                    <span>5</span>
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                  </div>
+                  <div class="flex-1 h-2 rounded-full overflow-hidden" style="background-color: var(--tier1-bg);">
+                    <div class="h-full rounded-full bg-brand-blue" style="width: 98%;"></div>
+                  </div>
+                  <span class="text-[11px] font-bold w-9 text-right" style="color: var(--text-main);">98%</span>
+                </div>
+
+                <!-- 4 Sterne -->
+                <div class="flex items-center space-x-2.5">
+                  <div class="flex items-center space-x-1 w-12 text-amber-400 font-bold flex-shrink-0">
+                    <span>4</span>
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                  </div>
+                  <div class="flex-1 h-2 rounded-full overflow-hidden" style="background-color: var(--tier1-bg);">
+                    <div class="h-full rounded-full bg-brand-blue/70" style="width: 2%;"></div>
+                  </div>
+                  <span class="text-[11px] font-bold w-9 text-right" style="color: var(--text-muted);">2%</span>
+                </div>
+
+                <!-- 3 Sterne -->
+                <div class="flex items-center space-x-2.5">
+                  <div class="flex items-center space-x-1 w-12 text-amber-400 font-bold flex-shrink-0">
+                    <span>3</span>
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                  </div>
+                  <div class="flex-1 h-2 rounded-full overflow-hidden" style="background-color: var(--tier1-bg);">
+                    <div class="h-full rounded-full bg-brand-blue/30" style="width: 0%;"></div>
+                  </div>
+                  <span class="text-[11px] font-bold w-9 text-right" style="color: var(--text-muted);">0%</span>
+                </div>
+
+                <!-- 2 Sterne -->
+                <div class="flex items-center space-x-2.5">
+                  <div class="flex items-center space-x-1 w-12 text-amber-400 font-bold flex-shrink-0">
+                    <span>2</span>
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                  </div>
+                  <div class="flex-1 h-2 rounded-full overflow-hidden" style="background-color: var(--tier1-bg);">
+                    <div class="h-full rounded-full bg-brand-blue/30" style="width: 0%;"></div>
+                  </div>
+                  <span class="text-[11px] font-bold w-9 text-right" style="color: var(--text-muted);">0%</span>
+                </div>
+
+                <!-- 1 Stern -->
+                <div class="flex items-center space-x-2.5">
+                  <div class="flex items-center space-x-1 w-12 text-amber-400 font-bold flex-shrink-0">
+                    <span>1</span>
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                  </div>
+                  <div class="flex-1 h-2 rounded-full overflow-hidden" style="background-color: var(--tier1-bg);">
+                    <div class="h-full rounded-full bg-brand-blue/30" style="width: 0%;"></div>
+                  </div>
+                  <span class="text-[11px] font-bold w-9 text-right" style="color: var(--text-muted);">0%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trust Footer Box -->
+            <div class="pt-5 mt-6 border-t flex items-center justify-between" style="border-color: var(--panel-border);">
+              <div class="flex items-center space-x-2 text-xs">
+                <i class="fa-solid fa-shield-halved text-brand-orange"></i>
+                <span class="font-bold" style="color: var(--text-main);">100% Echte Bewertungen</span>
+              </div>
+              <span class="text-[11px] font-bold" style="color: var(--brand-green);">
+                <i class="fa-solid fa-check mr-1"></i>Verifiziert
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rechte Spalte: 4 Testimonials im 2x2 Grid -->
+        <div class="lg:col-span-8 flex overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 gap-4 no-scrollbar sm:grid sm:grid-cols-2 sm:overflow-visible sm:mx-0 sm:px-0 sm:pb-0 sm:gap-4">
+
+          <!-- Review 1 -->
+          <div class="w-[74vw] sm:w-auto flex-shrink-0 snap-start p-5 sm:p-6 rounded-2xl border flex flex-col justify-between transition-all duration-200 hover:border-brand-blue/40" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center space-x-2.5">
+                  <div class="w-9 h-9 rounded-full bg-brand-blue/20 text-brand-blue flex items-center justify-center font-bold text-xs flex-shrink-0">
+                    MK
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold" style="color: var(--text-main);">Michael K.</div>
+                    <div class="text-[10px]" style="color: var(--text-muted);">08.01.2026</div>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-0.5 text-amber-400 text-xs">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <p class="text-xs sm:text-sm italic leading-relaxed" style="color: var(--text-main);">
+                „Sehr schnelle, professionelle Abwicklung, TOP!“
+              </p>
+            </div>
+            <div class="pt-4 mt-4 border-t flex items-center justify-between text-[11px]" style="border-color: var(--panel-border);">
+              <span class="font-semibold text-brand-orange">FOX Duplex Komplettanlage</span>
+              <span class="inline-flex items-center text-[10px]" style="color: var(--brand-green);">
+                <i class="fa-solid fa-circle-check mr-1 text-[10px]"></i>Verifizierter Kauf
+              </span>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="w-[74vw] sm:w-auto flex-shrink-0 snap-start p-5 sm:p-6 rounded-2xl border flex flex-col justify-between transition-all duration-200 hover:border-brand-blue/40" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center space-x-2.5">
+                  <div class="w-9 h-9 rounded-full bg-brand-orange/20 text-brand-orange flex items-center justify-center font-bold text-xs flex-shrink-0">
+                    AW
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold" style="color: var(--text-main);">Alexander W.</div>
+                    <div class="text-[10px]" style="color: var(--text-muted);">19.10.2024</div>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-0.5 text-amber-400 text-xs">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <p class="text-xs sm:text-sm italic leading-relaxed" style="color: var(--text-main);">
+                „Abwicklung war seriös und diskret. Auch extra Wünsche und Sonderfragen wurden höflich beantwortet.“
+              </p>
+            </div>
+            <div class="pt-4 mt-4 border-t flex items-center justify-between text-[11px]" style="border-color: var(--panel-border);">
+              <span class="font-semibold text-brand-orange">Remus Sportabgasanlage</span>
+              <span class="inline-flex items-center text-[10px]" style="color: var(--brand-green);">
+                <i class="fa-solid fa-circle-check mr-1 text-[10px]"></i>Verifizierter Kauf
+              </span>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="w-[74vw] sm:w-auto flex-shrink-0 snap-start p-5 sm:p-6 rounded-2xl border flex flex-col justify-between transition-all duration-200 hover:border-brand-blue/40" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center space-x-2.5">
+                  <div class="w-9 h-9 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs flex-shrink-0">
+                    SM
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold" style="color: var(--text-main);">Stefan M.</div>
+                    <div class="text-[10px]" style="color: var(--text-muted);">05.06.2023</div>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-0.5 text-amber-400 text-xs">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <p class="text-xs sm:text-sm italic leading-relaxed" style="color: var(--text-main);">
+                „Schneller Versand, guter Service und gute Preise, aber vor allem die Qualität stimmt.“
+              </p>
+            </div>
+            <div class="pt-4 mt-4 border-t flex items-center justify-between text-[11px]" style="border-color: var(--panel-border);">
+              <span class="font-semibold text-brand-orange">Bastuck Duplex Sportauspuff</span>
+              <span class="inline-flex items-center text-[10px]" style="color: var(--brand-green);">
+                <i class="fa-solid fa-circle-check mr-1 text-[10px]"></i>Verifizierter Kauf
+              </span>
+            </div>
+          </div>
+
+          <!-- Review 4 -->
+          <div class="w-[74vw] sm:w-auto flex-shrink-0 snap-start p-5 sm:p-6 rounded-2xl border flex flex-col justify-between transition-all duration-200 hover:border-brand-blue/40" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center space-x-2.5">
+                  <div class="w-9 h-9 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-xs flex-shrink-0">
+                    MB
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold" style="color: var(--text-main);">Markus B.</div>
+                    <div class="text-[10px]" style="color: var(--text-muted);">20.02.2022</div>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-0.5 text-amber-400 text-xs">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <p class="text-xs sm:text-sm italic leading-relaxed" style="color: var(--text-main);">
+                „Die Bestellung war sehr unkompliziert. Habe sogar per Vorkasse gezahlt um nochmal etwas zu sparen. Lieferung kam dann sehr schnell. Habe die Anlage zwar noch nicht verbaut, aber wird schon alles passen. Ist nicht meine erste Anlage von Fox.“
+              </p>
+            </div>
+            <div class="pt-4 mt-4 border-t flex items-center justify-between text-[11px]" style="border-color: var(--panel-border);">
+              <span class="font-semibold text-brand-orange">FOX Sportauspuffanlage</span>
+              <span class="inline-flex items-center text-[10px]" style="color: var(--brand-green);">
+                <i class="fa-solid fa-circle-check mr-1 text-[10px]"></i>Verifizierter Kauf
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 13. KAUF-ABSICHERUNGS-FAQ (AKKORDEON)                                      -->
+  <!-- ========================================================================= -->
+  <section style="background-color: var(--panel-bg); border-color: var(--panel-border);" class="py-16 border-b transition-colors duration-300">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-8">
+
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-brand-orange/10 text-brand-orange border border-brand-orange/20 mb-3">
+          <i class="fa-solid fa-circle-question text-xs"></i>
+          <span>Kaufberatung & Rechtssicherheit</span>
+        </div>
+        <h2 class="font-racing text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase italic tracking-tight" style="color: var(--text-main);">
+          HÄUFIG GESTELLTE FRAGEN ZUM <span class="text-brand-orange">SPORTAUSPUFF</span>
+        </h2>
+        <p class="text-sm sm:text-base mt-2 font-medium" style="color: var(--text-muted);">
+          Alle Antworten rund um TÜV-Eintragung, OPF-Sensoren, Passform-Garantie und unseren Werkstatteinbau.
+        </p>
+      </div>
+
+      <!-- FAQ Akkordeon -->
+      <div class="space-y-4">
+
+        <!-- Frage 1 -->
+        <div class="rounded-2xl border transition-all duration-200 overflow-hidden shadow-sm" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+          <button
+            type="button"
+            onclick="toggleFaq(1)"
+            class="w-full p-5 sm:p-6 text-left flex items-center justify-between space-x-4 cursor-pointer group"
+          >
+            <span id="faq-header-1" class="font-racing text-lg sm:text-xl font-bold uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              1. Muss ich mit einem ECE-Sportauspuff zum TÜV?
+            </span>
+            <div class="w-8 h-8 rounded-full bg-black/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-orange/20 transition-colors">
+              <i id="faq-icon-1" class="fa-solid fa-chevron-down text-xs text-brand-orange transition-transform duration-300"></i>
+            </div>
+          </button>
+          <div id="faq-content-1" class="px-5 sm:px-6 pb-6 text-sm leading-relaxed border-t pt-4" style="color: var(--text-muted); border-color: var(--panel-border);">
+            <strong>Nein!</strong> Alle mit ECE- oder EG-Genehmigung gekennzeichneten Abgasanlagen sind <strong>100% eintragungsfrei</strong>. Die offizielle E-Prüfnummer ist direkt auf dem Schalldämpferkörper dauerhaft eingeprägt. Die mitgelieferte EG-Betriebserlaubnis legst du einfach zu deinen Fahrzeugpapieren ins Handschuhfach. Es ist keine gesonderte Vorführung bei TÜV, DEKRA oder der Zulassungsstelle erforderlich.
+          </div>
+        </div>
+
+        <!-- Frage 2 -->
+        <div class="rounded-2xl border transition-all duration-200 overflow-hidden shadow-sm" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+          <button
+            type="button"
+            onclick="toggleFaq(2)"
+            class="w-full p-5 sm:p-6 text-left flex items-center justify-between space-x-4 cursor-pointer group"
+          >
+            <span id="faq-header-2" class="font-racing text-lg sm:text-xl font-bold uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              2. Was bedeutet OPF-Back und gibt es Probleme mit der Motorsteuerung?
+            </span>
+            <div class="w-8 h-8 rounded-full bg-black/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-orange/20 transition-colors">
+              <i id="faq-icon-2" class="fa-solid fa-chevron-down text-xs text-brand-orange transition-transform duration-300"></i>
+            </div>
+          </button>
+          <div id="faq-content-2" class="px-5 sm:px-6 pb-6 text-sm leading-relaxed border-t pt-4 hidden" style="color: var(--text-muted); border-color: var(--panel-border);">
+            <strong>OPF-Back</strong> bedeutet, dass die Sportabgasanlage erst nach dem Otto-Partikelfilter (OPF) ansetzt. Die serienmäßige Abgasreinigung, Lambdasonden und Druckdifferenzsensoren bleiben vollständig unberührt – <strong>0 Fehlermeldungen</strong> im Bordcomputer, volle Motorleistung und kein Erlöschen der Werksgarantie. Durch optimierte Rohrgeometrien und High-Flow-Dämpfer erreichst du trotzdem ein deutlich kernigeres und satteres Klangbild.
+          </div>
+        </div>
+
+        <!-- Frage 3 -->
+        <div class="rounded-2xl border transition-all duration-200 overflow-hidden shadow-sm" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+          <button
+            type="button"
+            onclick="toggleFaq(3)"
+            class="w-full p-5 sm:p-6 text-left flex items-center justify-between space-x-4 cursor-pointer group"
+          >
+            <span id="faq-header-3" class="font-racing text-lg sm:text-xl font-bold uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              3. Wie funktioniert die 100% Passform-Garantie?
+            </span>
+            <div class="w-8 h-8 rounded-full bg-black/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-orange/20 transition-colors">
+              <i id="faq-icon-3" class="fa-solid fa-chevron-down text-xs text-brand-orange transition-transform duration-300"></i>
+            </div>
+          </button>
+          <div id="faq-content-3" class="px-5 sm:px-6 pb-6 text-sm leading-relaxed border-t pt-4 hidden" style="color: var(--text-muted); border-color: var(--panel-border);">
+            Gib bei der Bestellung deine Schlüsselnummern (<strong>HSN/TSN</strong> aus Feld 2.1 und 2.2 deines Fahrzeugscheins) oder deine Fahrgestellnummer (FIN) an. Unser erfahrenes Kfz-Meisterteam gleicht die Rohrdurchmesser, Haltepunkte und Modelljahr-Spezifikationen in den Original-Herstellerdatenbanken ab, bevor das Paket unser Lager verlässt. Passt es wider Erwarten nicht, greift unsere kostenlose Rücknahme- und Austausch-Garantie.
+          </div>
+        </div>
+
+        <!-- Frage 4 -->
+        <div class="rounded-2xl border transition-all duration-200 overflow-hidden shadow-sm" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+          <button
+            type="button"
+            onclick="toggleFaq(4)"
+            class="w-full p-5 sm:p-6 text-left flex items-center justify-between space-x-4 cursor-pointer group"
+          >
+            <span id="faq-header-4" class="font-racing text-lg sm:text-xl font-bold uppercase tracking-wide group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+              4. Wie buche ich den Montageservice?
+            </span>
+            <div class="w-8 h-8 rounded-full bg-black/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-orange/20 transition-colors">
+              <i id="faq-icon-4" class="fa-solid fa-chevron-down text-xs text-brand-orange transition-transform duration-300"></i>
+            </div>
+          </button>
+          <div id="faq-content-4" class="px-5 sm:px-6 pb-6 text-sm leading-relaxed border-t pt-4 hidden" style="color: var(--text-muted); border-color: var(--panel-border);">
+            Wähle im Bestellprozess oder im Warenkorb einfach die Option <strong>„Montageservice anfragen“</strong>. Wir vermitteln dir eine von über <strong>450 zertifizierten Partnerwerkstätten</strong> in deiner Region zum verbindlichen Festpreis (ab 189 €). Die Anlage wird auf Wunsch direkt an deinen Montagepartner geliefert – du musst nur noch zum vereinbarten Einbautermin vorfahren!
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 14b. SUPPORT & BERATUNGS-BANNER (WIR HELFEN DIR)                           -->
+  <!-- ========================================================================= -->
+  <section id="support-cta" class="py-14 sm:py-16 border-b transition-colors duration-300 relative overflow-hidden" style="background-color: var(--panel-bg); border-color: var(--panel-border);">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
+
+      <div class="dark-surface rounded-3xl p-8 sm:p-12 border shadow-2xl relative overflow-hidden" style="background: linear-gradient(135deg, #0b1a2e 0%, #15325b 50%, #0a1728 100%); border-color: rgba(55, 141, 204, 0.35);">
+        <!-- Subtiler Ambient-Glow -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-blue/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-orange/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto text-center space-y-4">
+          <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full text-sm font-semibold bg-brand-blue/20 text-brand-blue-bright border border-brand-blue/30">
+            <i class="fa-solid fa-headset text-xs"></i>
+            <span>PERSÖNLICHE FACHBERATUNG DURCH KFZ-TECHNIKER</span>
+          </div>
+
+          <h2 class="font-racing text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase italic tracking-tight text-white leading-tight">
+            WIR HELFEN DIR, DEN <span class="text-brand-orange">PASSENDEN SPORTAUSPUFF</span> ZU FINDEN!
+          </h2>
+
+          <p class="text-sm sm:text-base text-gray-300 leading-relaxed max-w-2xl mx-auto font-medium">
+            Unser geschultes Support-Team berät Dich mit über 10 Jahren Erfahrung – persönlich, herstellerunabhängig und unkompliziert per Telefon, WhatsApp oder E-Mail.
+          </p>
+
+          <!-- 3 Haptische Aktions-Karten (h-11 Klickziel-Symmetrie) -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 max-w-3xl mx-auto">
+
+            <!-- Telefon Hotline -->
+            <a href="tel:+4937130687696" class="p-4 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 hover:border-brand-orange transition-all duration-300 flex flex-col items-center justify-center space-y-1 group shadow-lg">
+              <div class="w-10 h-10 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center text-lg group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div class="font-racing text-base font-extrabold uppercase tracking-wider text-white mt-1">+49 (0) 371 30 68 76 96</div>
+              <div class="text-[11px] text-gray-300">Mo–Fr 9:00 – 18:00 Uhr</div>
+            </a>
+
+            <!-- WhatsApp Beratung -->
+            <a href="https://wa.me/4937130687696" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 hover:border-emerald-400 transition-all duration-300 flex flex-col items-center justify-center space-y-1 group shadow-lg">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg group-hover:scale-110 transition-transform">
+                <i class="fa-brands fa-whatsapp"></i>
+              </div>
+              <div class="font-racing text-base font-extrabold uppercase tracking-wider text-white mt-1">+49 (0) 371 30 68 76 96</div>
+              <div class="text-[11px] text-gray-300">Foto vom Schein senden</div>
+            </a>
+
+            <!-- E-Mail Anfrage -->
+            <a href="mailto:info@dein-sportauspuff.de" class="p-4 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 hover:border-brand-blue transition-all duration-300 flex flex-col items-center justify-center space-y-1 group shadow-lg">
+              <div class="w-10 h-10 rounded-xl bg-brand-blue/20 text-brand-blue-bright flex items-center justify-center text-lg group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="font-racing text-base font-extrabold uppercase tracking-wider text-white mt-1">info@dein-sportauspuff.de</div>
+              <div class="text-[11px] text-gray-300">Antwort innerhalb 24h</div>
+            </a>
+
+          </div>
+
+          <!-- Schneller Rückruf-Trigger Button -->
+          <div class="pt-4">
+            <a href="tel:+4937164638755" class="inline-flex items-center space-x-2 px-6 py-3 rounded-full text-sm font-semibold bg-brand-orange hover:bg-brand-orangeHover text-white shadow-lg transition transform hover:scale-105 cursor-pointer">
+              <i class="fa-solid fa-phone text-xs"></i>
+              <span>Jetzt kostenlosen Rückruf anfordern</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 9. FOOTER                                                                 -->
+  <!-- ========================================================================= -->
+  <footer class="dark-surface bg-gray-900 text-gray-400 text-xs border-t border-gray-800 pt-14 pb-10">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
+      <!-- Trust-Banner im Footer: Top Shop 2026 Auszeichnung & USPs -->
+      <div class="pb-8 mb-10 border-b border-gray-800 flex flex-wrap items-center justify-between gap-4 text-slate-300">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 text-lg flex-shrink-0">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <div>
+            <div class="text-white font-bold text-xs sm:text-sm">Ausgezeichnet als Top Shop 2026 (5x in Folge)</div>
+            <div class="text-[11px] text-gray-400">Auszeichnung für herausragende Servicequalität, zertifizierte Kfz-Fachberatung und Kundenzufriedenheit</div>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-6 text-xs text-gray-400">
+          <span class="flex items-center space-x-2"><i class="fa-solid fa-truck-fast text-brand-orange"></i><span>Kostenloser Versand ab 100 €</span></span>
+          <span class="flex items-center space-x-2"><i class="fa-solid fa-shield-halved text-emerald-400"></i><span>100% Passform-Garantie</span></span>
+          <span class="flex items-center space-x-2"><i class="fa-solid fa-certificate text-sky-400"></i><span>100% ECE / ABE eintragungsfrei</span></span>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-10 pb-12 border-b border-gray-800">
+        <div>
+          <h5 class="text-white font-bold mb-4 uppercase tracking-wider text-xs">Produktbereiche</h5>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="hover:text-brand-orange transition">Sportauspuff Komplett</a></li>
+            <li><a href="#" class="hover:text-brand-orange transition">Endschalldämpfer</a></li>
+            <li><a href="#" class="hover:text-brand-orange transition">Duplex Sportauspuff</a></li>
+            <li><a href="#" class="hover:text-brand-orange transition">Klappenauspuffanlagen</a></li>
+            <li><a href="#" class="hover:text-brand-orange transition">Downpipes & Katalysatoren</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold mb-4 uppercase tracking-wider text-xs">Top-Hersteller</h5>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="hover:text-brand-orange transition">Ragazzon</a></li>
+            <li><a href="#" class="hover:text-brand-orange transition">FOX Exhaust</a></li>
+            <li><a href="#" class="hover:text-brand-orange transition">Bastuck</a></li>
+            <li><a href="#" class="hover:text-brand-orange transition">REMUS Sportexhaust</a></li>
+            <li><a href="#" class="hover:text-brand-orange transition">Eisenmann</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold mb-4 uppercase tracking-wider text-xs">Kundenservice</h5>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="hover:text-brand-orange transition">Versand & Lieferzeiten</a></li>
+            <li><a href="#" class="hover:text-brand-orange transition">Zahlungsarten</a></li>
+            <li><a href="#" class="hover:text-brand-orange transition">Vor-Ort-Montageservice</a></li>
+            <li><a href="#" class="hover:text-brand-orange transition">Gutachten & ABE-Info</a></li>
+            <li><a href="#" class="hover:text-brand-orange transition">Widerrufsbelehrung</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold mb-4 uppercase tracking-wider text-xs">Über uns</h5>
+          <p class="text-gray-400 leading-relaxed mb-4">
+            Dein Fachhändler für hochwertige Markenauspuffanlagen aus Edelstahl. Schneller Versand, beste Beratung und garantierte Passform.
+          </p>
+          <div class="text-white font-bold">
+            Hotline: +49 (0) 371 64 63 87 55
+          </div>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-gray-500 text-xs">
+        <div>© 2026 Dein-Sportauspuff.de — Alle Rechte vorbehalten.</div>
+        <div class="flex space-x-6 mt-3 sm:mt-0">
+          <a href="#" class="hover:text-gray-300">Impressum</a>
+          <a href="#" class="hover:text-gray-300">Datenschutz</a>
+          <a href="#" class="hover:text-gray-300">AGB</a>
+          <a href="#" class="hover:text-gray-300">Cookie-Einstellungen</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- 10. INTERAKTIVE LOGIK & THEME SWITCHER                                    -->
+  <!-- ========================================================================= -->
+  <script>
+    const vehicleDatabase = {
+      "Audi": {
+        models: {
+          "A4 / S4 / RS4": {
+            years: {
+              "B9 (ab 2015)": ["2.0 TFSI (150-252 PS)", "3.0 TDI (218-272 PS)", "S4 3.0 TFSI (354 PS)", "RS4 2.9 TFSI (450 PS)"],
+              "B8 (2007-2015)": ["1.8 TFSI (120-170 PS)", "2.0 TFSI (180-225 PS)", "S4 3.0 TFSI (333 PS)", "RS4 4.2 FSI (450 PS)"]
+            }
+          },
+          "A3 / S3 / RS3": {
+            years: {
+              "8Y (ab 2020)": ["1.5 TFSI (150 PS)", "2.0 TDI (150-200 PS)", "S3 2.0 TFSI (310 PS)", "RS3 2.5 TFSI (400 PS)"],
+              "8V (2012-2020)": ["1.4 / 1.8 TFSI", "2.0 TFSI (190-220 PS)", "S3 2.0 TFSI (300-310 PS)", "RS3 2.5 TFSI (367-400 PS)"]
+            }
+          },
+          "TT / TTS / TT RS": {
+            years: {
+              "8S (2014-2023)": ["2.0 TFSI (230-245 PS)", "TTS 2.0 TFSI (306-310 PS)", "TT RS 2.5 TFSI (400 PS)"]
+            }
+          }
+        }
+      },
+      "BMW": {
+        models: {
+          "3er (G20 / G21)": {
+            years: {
+              "ab 2019": ["320i (184 PS)", "330i (258 PS)", "M340i xDrive (374 PS)", "M3 Competition (510 PS)"]
+            }
+          },
+          "1er (F20 / F21 / F40)": {
+            years: {
+              "F40 (ab 2019)": ["118i (140 PS)", "128ti (265 PS)", "M135i xDrive (306 PS)"],
+              "F20 / F21 (2011-2019)": ["116i/118i/120i", "125i (218-224 PS)", "M135i / M140i (320-340 PS)"]
+            }
+          }
+        }
+      },
+      "Volkswagen": {
+        models: {
+          "Golf VII (7)": {
+            years: {
+              "2012-2020": ["1.4 TSI (122-150 PS)", "GTI 2.0 TSI (220-245 PS)", "GTI TCR / Clubsport (265-290 PS)", "Golf 7 R (300-310 PS)"]
+            }
+          },
+          "Golf VIII (8)": {
+            years: {
+              "ab 2020": ["1.5 eTSI (150 PS)", "GTI 2.0 TSI (245 PS)", "GTI Clubsport (300 PS)", "Golf 8 R (320 PS)"]
+            }
+          }
+        }
+      },
+      "Cupra": {
+        models: {
+          "Formentor": {
+            years: {
+              "ab 2020": ["1.5 TSI (150 PS)", "2.0 TSI VZ (245-310 PS)", "VZ5 2.5 TFSI (390 PS)"]
+            }
+          },
+          "Leon": {
+            years: {
+              "KL (ab 2020)": ["1.5 eTSI (150 PS)", "VZ 2.0 TSI (245-300 PS)", "Sportstourer 4Drive (310 PS)"]
+            }
+          }
+        }
+      },
+      "Mercedes-Benz": {
+        models: {
+          "A-Klasse": {
+            years: {
+              "W177 (ab 2018)": ["A 250 (224 PS)", "AMG A 35 (306 PS)", "AMG A 45 S (421 PS)"]
+            }
+          },
+          "C-Klasse": {
+            years: {
+              "W205 (2014-2021)": ["C 300 (245-258 PS)", "AMG C 43 (367-390 PS)", "AMG C 63 (476-510 PS)"]
+            }
+          }
+        }
+      },
+      "Ford": {
+        models: {
+          "Focus": {
+            years: {
+              "MK4 (ab 2018)": ["1.5 EcoBoost (150-182 PS)", "ST 2.3 EcoBoost (280 PS)"]
+            }
+          },
+          "Mustang": {
+            years: {
+              "LAE (ab 2015)": ["2.3 EcoBoost (290-317 PS)", "5.0 V8 GT (421-450 PS)", "Mach 1 (460 PS)"]
+            }
+          }
+        }
+      }
+    };
+
+    function selectTopModel(brand, model, engine) {
+      if (brand) selectQuickBrand(brand);
+    }`;
+    }
+
+    function switchFinderTab(tab) {
+      const tabKfz = document.getElementById('tabContentKfz');
+      const tabHsn = document.getElementById('tabContentHsn');
+      const btnKfz = document.getElementById('tabBtnKfz');
+      const btnHsn = document.getElementById('tabBtnHsn');
+
+      if (tab === 'kfz') {
+        tabKfz.classList.remove('hidden');
+        tabHsn.classList.add('hidden');
+        btnKfz.className = "flex-1 py-3 px-3 text-center font-racing text-base sm:text-lg uppercase tracking-wider font-extrabold transition flex items-center justify-center space-x-2 text-brand-orange bg-white rounded-xl shadow-sm";
+        btnHsn.className = "flex-1 py-3 px-3 text-center font-racing text-base sm:text-lg uppercase tracking-wider font-bold transition flex items-center justify-center space-x-2 text-gray-500 hover:text-gray-900 rounded-xl";
+      } else {
+        tabKfz.classList.add('hidden');
+        tabHsn.classList.remove('hidden');
+        btnHsn.className = "flex-1 py-3 px-3 text-center font-racing text-base sm:text-lg uppercase tracking-wider font-extrabold transition flex items-center justify-center space-x-2 text-brand-orange bg-white rounded-xl shadow-sm";
+        btnKfz.className = "flex-1 py-3 px-3 text-center font-racing text-base sm:text-lg uppercase tracking-wider font-bold transition flex items-center justify-center space-x-2 text-gray-500 hover:text-gray-900 rounded-xl";
+      }
+    }
+
+    function selectQuickBrand(brandName) {
+      switchFinderTab('kfz');
+      const brandSelect = document.getElementById('nav_make');
+      brandSelect.value = brandName;
+      onBrandChange();
+      document.getElementById('tabContentKfz').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function onBrandChange() {
+      const brand = document.getElementById('nav_make').value;
+      const modelSelect = document.getElementById('nav_model');
+      const yearSelect = document.getElementById('nav_engine');
+      const engineSelect = document.getElementById('nav_power');
+
+      modelSelect.innerHTML = '<option value="">-- Modell wählen --</option>';
+      yearSelect.innerHTML = '<option value="">-- Zuerst Modell wählen --</option>';
+      engineSelect.innerHTML = '<option value="">-- Zuerst Generation wählen --</option>';
+      yearSelect.disabled = true;
+      engineSelect.disabled = true;
+
+      // Pulse-Animation dezent dimmen/entfernen sobald Fahrzeugmarke gewählt ist
+      const btnSubmit = document.getElementById('btnSubmitKfz');
+      const pill = document.getElementById('activeCarPill');
+      if (brand) {
+        if (btnSubmit) btnSubmit.classList.remove('btn-pulse');
+        if (pill) pill.classList.remove('garage-pulse');
+      } else {
+        if (btnSubmit) btnSubmit.classList.add('btn-pulse');
+      }
+
+      if (brand && vehicleDatabase[brand]) {
+        modelSelect.disabled = false;
+        modelSelect.className = "js_select w-full bg-white text-gray-900 text-sm font-semibold rounded-xl px-4 py-3 border border-gray-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 focus:outline-none appearance-none cursor-pointer shadow-sm";
+        for (const model in vehicleDatabase[brand].models) {
+          modelSelect.innerHTML += `<option value="${model}">${model}</option>`;
+        }
+      } else {
+        modelSelect.disabled = true;
+        modelSelect.className = "js_select w-full bg-gray-100 text-gray-400 text-sm font-semibold rounded-xl px-4 py-3 border border-gray-200 focus:border-brand-orange focus:outline-none appearance-none cursor-not-allowed";
+      }
+    }
+
+    function onModelChange() {
+      const brand = document.getElementById('nav_make').value;
+      const model = document.getElementById('nav_model').value;
+      const yearSelect = document.getElementById('nav_engine');
+      const engineSelect = document.getElementById('nav_power');
+
+      yearSelect.innerHTML = '<option value="">-- Baujahr / Generation wählen --</option>';
+      engineSelect.innerHTML = '<option value="">-- Zuerst Generation wählen --</option>';
+      engineSelect.disabled = true;
+
+      if (brand && model && vehicleDatabase[brand].models[model]) {
+        yearSelect.disabled = false;
+        yearSelect.className = "js_select w-full bg-white text-gray-900 text-sm font-semibold rounded-xl px-4 py-3 border border-gray-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 focus:outline-none appearance-none cursor-pointer shadow-sm";
+        for (const year in vehicleDatabase[brand].models[model].years) {
+          yearSelect.innerHTML += `<option value="${year}">${year}</option>`;
+        }
+      } else {
+        yearSelect.disabled = true;
+        yearSelect.className = "js_select w-full bg-gray-100 text-gray-400 text-sm font-semibold rounded-xl px-4 py-3 border border-gray-200 focus:border-brand-orange focus:outline-none appearance-none cursor-not-allowed";
+      }
+    }
+
+    function onYearChange() {
+      const brand = document.getElementById('nav_make').value;
+      const model = document.getElementById('nav_model').value;
+      const year = document.getElementById('nav_engine').value;
+      const engineSelect = document.getElementById('nav_power');
+
+      engineSelect.innerHTML = '<option value="">-- Motorisierung wählen --</option>';
+
+      if (brand && model && year && vehicleDatabase[brand].models[model].years[year]) {
+        engineSelect.disabled = false;
+        engineSelect.className = "js_select w-full bg-white text-gray-900 text-sm font-semibold rounded-xl px-4 py-3 border border-gray-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 focus:outline-none appearance-none cursor-pointer shadow-sm";
+        const engines = vehicleDatabase[brand].models[model].years[year];
+        engines.forEach(eng => {
+          engineSelect.innerHTML += `<option value="${eng}">${eng}</option>`;
+        });
+      } else {
+        engineSelect.disabled = true;
+        engineSelect.className = "js_select w-full bg-gray-100 text-gray-400 text-sm font-semibold rounded-xl px-4 py-3 border border-gray-200 focus:border-brand-orange focus:outline-none appearance-none cursor-not-allowed";
+      }
+    }
+
+    function onEngineChange() {
+      const engine = document.getElementById('nav_power').value;
+      const submitText = document.getElementById('btnSubmitKfzText');
+      if (engine) {
+        submitText.innerText = "14 passende Anlagen für dein Auto anzeigen";
+      }
+    }
+
+    function onGaragePillClick() {
+      const finder = document.getElementById('tabContentKfz');
+      if (finder) {
+        finder.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function resetKfzFilter() {
+      document.getElementById('nav_make').value = '';
+      onBrandChange();
+      document.getElementById('btnSubmitKfzText').innerText = "Sportauspuff finden";
+      const btnSubmit = document.getElementById('btnSubmitKfz');
+      if (btnSubmit) btnSubmit.classList.add('btn-pulse');
+      const pill = document.getElementById('activeCarPill');
+      if (pill) pill.classList.add('garage-pulse');
+    }
+
+    function submitCarSelection() {
+      const brand = document.getElementById('nav_make').value;
+      const model = document.getElementById('nav_model').value;
+      if (brand && model) {
+        const pill = document.getElementById('activeCarPill');
+        const label = document.getElementById('activeCarLabel');
+        if (label) label.innerText = brand + ' ' + model;
+        if (pill) pill.classList.remove('hidden');
+      }
+    }
+
+    function submitHsnTsn() {
+      const hsn = document.getElementById('inputHsn').value.trim();
+      const tsn = document.getElementById('inputTsn').value.trim();
+      if (hsn && tsn) {
+        const pill = document.getElementById('activeCarPill');
+        const label = document.getElementById('activeCarLabel');
+        if (label) label.innerText = 'HSN: ' + hsn + ' / TSN: ' + tsn;
+        if (pill) pill.classList.remove('hidden');
+      }
+    }
+
+    // Mobile Drawer Toggle mit Icon-Animation (Bars / Xmark)
+    function toggleMobileDrawer() {
+      const drawer = document.getElementById('mobileDrawer');
+      const icon = document.getElementById('mobileMenuIcon');
+      if (!drawer) return;
+      const isHidden = drawer.classList.contains('hidden');
+      if (isHidden) {
+        drawer.classList.remove('hidden');
+        if (icon) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-xmark');
+        }
+      } else {
+        drawer.classList.add('hidden');
+        if (icon) {
+          icon.classList.remove('fa-xmark');
+          icon.classList.add('fa-bars');
+        }
+      }
+    }
+  </script>
+
+  <!-- ========================================================================= -->
+  <!-- FLOATING THEME TOGGLE (Runder Umschalter unten links)                      -->
+  <!-- ========================================================================= -->
+  <div class="fixed bottom-6 left-6 z-50">
+    <button
+      id="floatingThemeToggle"
+      onclick="toggleThemeQuick()"
+      class="floating-theme-btn w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 group cursor-pointer"
+      title="Design wechseln (Dark / Light Mode)"
+      aria-label="Design wechseln (Dark / Light Mode)"
+    >
+      <i id="themeQuickIcon" class="fa-solid fa-sun text-base transition-transform duration-500 group-hover:rotate-45"></i>
+    </button>
+  </div>
+
+</body>
+</html>
