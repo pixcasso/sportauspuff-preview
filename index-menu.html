@@ -452,6 +452,171 @@
     }
   </style>
 
+  <!-- ========================================================================= -->
+  <!-- WOODMART-STYLE DESKTOP MEGA-MENU (Katalog-Trigger, Stufe 1 & Flyout)      -->
+  <!-- ========================================================================= -->
+  <style id="woodmartMegaMenuStyles">
+    .catalog-menu-group {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Katalog-Trigger Button */
+    .catalog-trigger-btn {
+      background-color: var(--brand-blue) !important;
+      color: #FFFFFF !important;
+      border: none !important;
+      border-radius: 6px 6px 0 0 !important;
+      box-shadow: 0 4px 14px rgba(45, 120, 175, 0.3);
+      transition: background-color 0.2s ease, filter 0.2s ease;
+    }
+    .catalog-trigger-btn,
+    .catalog-trigger-btn *,
+    .catalog-trigger-btn i,
+    .catalog-trigger-btn span,
+    body.theme-light .catalog-trigger-btn,
+    body.theme-light .catalog-trigger-btn *,
+    body.theme-light .catalog-trigger-btn i,
+    body.theme-light .catalog-trigger-btn span {
+      color: #FFFFFF !important;
+    }
+    .catalog-trigger-btn:hover {
+      filter: brightness(1.08);
+    }
+
+    /* Stufe 1: Senkrechtes Menü Dropdown */
+    .catalog-dropdown-panel {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 20rem; /* 320px = w-80 */
+      z-index: 50;
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(2px);
+      transition: opacity 0.15s ease-out, transform 0.15s ease-out;
+      pointer-events: none;
+      background-color: var(--tier2-bg);
+      border: 1px solid var(--panel-border);
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 25px rgba(55, 141, 204, 0.15);
+    }
+
+    body.theme-light .catalog-dropdown-panel {
+      box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.15), 0 0 15px rgba(55, 141, 204, 0.08);
+    }
+
+    /* Unsichtbare Hitbox-Brücke oben zum Button */
+    .catalog-dropdown-panel::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 0;
+      right: 0;
+      height: 10px;
+      background: transparent;
+    }
+
+    /* Öffnen bei Hover auf Gruppe oder Fokus */
+    .catalog-menu-group:hover > .catalog-dropdown-panel,
+    .catalog-menu-group:focus-within > .catalog-dropdown-panel,
+    .catalog-dropdown-panel:hover,
+    .catalog-dropdown-panel.is-open {
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateY(0) !important;
+      pointer-events: auto !important;
+    }
+
+    .catalog-menu-group:hover .catalog-chevron,
+    .catalog-dropdown-panel.is-open ~ .catalog-trigger-btn .catalog-chevron {
+      transform: rotate(180deg);
+    }
+
+    /* Menüzeilen in Stufe 1 */
+    .catalog-menu-row {
+      position: static;
+    }
+
+    .catalog-row-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 18px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      color: var(--text-main);
+    }
+
+    .catalog-menu-row:hover > .catalog-row-link,
+    .has-flyout:hover > .catalog-row-link {
+      background-color: rgba(55, 141, 204, 0.1) !important;
+    }
+
+    body.theme-light .catalog-menu-row:hover > .catalog-row-link,
+    body.theme-light .has-flyout:hover > .catalog-row-link {
+      background-color: #EBF4FB !important;
+    }
+
+    .catalog-menu-row:hover .catalog-row-chevron,
+    .has-flyout:hover .catalog-row-chevron {
+      opacity: 1 !important;
+      transform: translateX(2px) !important;
+      color: var(--brand-blue) !important;
+    }
+
+    /* Stufe 2: Mehrspaltiges Mega-Flyout Panel (Positioniert relativ zu .catalog-dropdown-panel) */
+    .catalog-flyout-panel {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      width: 860px;
+      min-height: 100%;
+      margin-left: 2px;
+      z-index: 60;
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      background-color: var(--tier2-bg);
+      border: 1px solid var(--panel-border);
+      border-radius: 0 10px 10px 10px;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6), 0 0 30px rgba(55, 141, 204, 0.18);
+      transition: opacity 0.15s ease-out;
+    }
+
+    body.theme-light .catalog-flyout-panel {
+      box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.18), 0 0 20px rgba(55, 141, 204, 0.1);
+    }
+
+    /* Unsichtbare Hover-Brücke von Stufe 1 zu Stufe 2 gegen Maus-Abreißen */
+    .catalog-flyout-panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -20px;
+      width: 24px;
+      background: transparent;
+      z-index: 40;
+    }
+
+    /* Öffnen von Stufe 2 bei Hover über eine Menüzeile mit Flyout */
+    .has-flyout:hover > .catalog-flyout-panel,
+    .catalog-flyout-panel:hover {
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+    }
+  </style>
 </head>
 <body id="appBody" style="background-color: var(--page-bg); color: var(--text-main);" class="font-sans antialiased selection:bg-brand-orange selection:text-white transition-colors duration-300">
 <!-- ========================================================================= -->
@@ -1062,221 +1227,392 @@
 
 
 <!-- ========================================================================= -->
-    <!-- 3. ZEILE 3: KATEGORIE-LEISTE (Clean, Borderless, Pill-Akzente)            -->
+    <!-- 3. ZEILE 3: WOODMART-STYLE DESKTOP NAVIGATION MIT KATALOG-MEGA-MENÜ      -->
     <!-- ========================================================================= -->
-    <nav style="background-color: var(--tier3-bg);" class="hidden lg:block transition-colors duration-300">
+    <nav style="background-color: var(--tier3-bg); border-color: var(--panel-border);" class="hidden lg:block transition-colors duration-300 relative z-30 border-b">
       <div class="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
         <div style="color: var(--tier3-text);" class="h-12 flex items-center justify-between text-xs font-bold uppercase tracking-wider">
 
-          <!-- Die 4 Kernkategorien (Clean ohne Border-Linien) -->
-          <div class="flex h-full items-center space-x-2">
+          <!-- LINKS: KATALOG-TRIGGER (w-72 / 288px) & HORIZONTALE SCHNELL-PILLS -->
+          <div class="flex h-full items-center">
 
-            <a href="kategorie.html" class="px-4 py-1.5 rounded-lg flex items-center space-x-2 text-white bg-brand-orange shadow-sm">
-              <i class="fa-solid fa-fire text-white text-xs"></i>
-              <span class="font-sans text-sm font-semibold">Sportauspuff</span>
-            </a>
-
-            <a href="kategorie.html" class="px-3.5 py-1.5 rounded-lg flex items-center hover:text-brand-orange hover:bg-black/5 transition">
-              <span class="font-sans text-sm font-semibold">Endschalldämpfer</span>
-            </a>
-
-            <a href="kategorie.html" class="px-3.5 py-1.5 rounded-lg flex items-center space-x-1.5 hover:text-brand-orange hover:bg-black/5 transition">
-              <span class="font-sans text-sm font-semibold">Komplettanlagen</span>
-              <span class="bg-brand-orange/20 text-brand-orange text-xs px-1.5 py-0.5 rounded font-extrabold ml-1">Top</span>
-            </a>
-
-            <a href="kategorie.html" class="px-3.5 py-1.5 rounded-lg flex items-center hover:text-brand-orange hover:bg-black/5 transition">
-              <span class="font-sans text-sm font-semibold">Endrohre & Blenden</span>
-            </a>
-
-            <!-- Dropdown: Weitere Kategorien (Mega-Menu) -->
-            <div class="dropdown-group relative h-full flex items-center">
-              <button type="button" class="dropdown-trigger px-3.5 py-1.5 rounded-lg flex items-center space-x-1.5 hover:text-brand-orange hover:bg-black/5 transition font-sans text-xs font-bold uppercase tracking-wider cursor-pointer">
-                <span>Weitere Kategorien</span>
-                <i class="dropdown-chevron fa-solid fa-chevron-down text-xs transition-transform opacity-70"></i>
+            <!-- WOODMART KATALOG-TRIGGER BUTTON & DROPDOWN-CONTAINER -->
+            <div class="catalog-menu-group relative h-full flex items-center">
+              <button type="button"
+                      id="catalogMenuTrigger"
+                      class="catalog-trigger-btn bg-brand-blue w-80 h-12 px-4.5 flex items-center text-white font-bold text-xs uppercase tracking-wider cursor-pointer select-none"
+                      style="background-color: var(--brand-blue); color: #FFFFFF !important;">
+                <i class="fa-solid fa-bars mr-3 text-sm text-white" style="color: #FFFFFF !important;"></i>
+                <span class="tracking-wide text-white" style="color: #FFFFFF !important;">KATALOG / PRODUKTWELTEN</span>
+                <i class="catalog-chevron fa-solid fa-chevron-down ml-auto text-xs transition-transform duration-200 text-white" style="color: #FFFFFF !important;"></i>
               </button>
 
-              <div class="dropdown-panel absolute top-full left-0 z-50">
-                <div style="background-color: var(--tier2-bg); border-color: var(--panel-border);" class="w-[520px] rounded-2xl shadow-2xl p-5 border text-left">
-                  <!-- Top Grid: 2 Spalten -->
-                  <div class="grid grid-cols-2 gap-6 pb-4 border-b border-white/10" style="border-color: var(--panel-border);">
-                    <!-- Spalte 1: Sound & Klappen -->
-                    <div>
-                      <span class="text-xs font-sans font-semibold tracking-wide text-brand-orange block mb-2">
-                        Sound- & Klappensysteme
-                      </span>
-                      <div class="space-y-1">
-                        <a href="kategorie.html#klappen" class="flex items-center space-x-2.5 p-2 rounded-xl hover:bg-brand-orange/10 transition group">
-                          <i class="fa-solid fa-volume-high text-brand-orange w-5 text-center"></i>
-                          <div>
-                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Klappenauspuffanlagen</strong>
-                            <span class="text-xs text-gray-400">Drive Select & Funk-Steuerung</span>
+              <!-- STUFE 1: SENKRECHTES MENÜ (8 strukturierte Zeilen, w-80) -->
+              <div class="catalog-dropdown-panel absolute top-full left-0 w-80 z-50">
+                <ul class="py-1.5 divide-y divide-white/5" style="border-color: var(--panel-border);">
+
+                  <!-- 1. Sportauspuff Komplettanlagen (Träger des 4-Spalten Mega-Flyouts) -->
+                  <li class="catalog-menu-row has-flyout border-b border-white/5" style="border-color: var(--panel-border);">
+                    <a href="kategorie.html#komplettanlagen" class="catalog-row-link">
+                      <div class="flex items-center space-x-3 min-w-0">
+                        <i class="fa-solid fa-gauge-high w-5 text-center text-brand-blue flex-shrink-0"></i>
+                        <span class="truncate" style="color: var(--logo-text);">Sportauspuff Komplettanlagen</span>
+                      </div>
+                      <div class="flex items-center space-x-2 flex-shrink-0 ml-2">
+                        <span class="bg-brand-blue text-white font-bold px-2 py-0.5 rounded text-[11px]" style="color: #FFFFFF !important;">TOP</span>
+                        <i class="catalog-row-chevron fa-solid fa-chevron-right text-xs opacity-40 transition-all"></i>
+                      </div>
+                    </a>
+
+                    <!-- MEHRSPALTIGES MEGA-MENÜ-FLYOUT (STUFE 2 RECHTS DANEBEN) -->
+                    <div class="catalog-flyout-panel p-6">
+                      <!-- 4 Spalten im Raster -->
+                      <div class="grid grid-cols-4 gap-6">
+
+                        <!-- Spalte 1: Klappenauspuffanlagen -->
+                        <div>
+                          <div class="overflow-hidden rounded-md mb-3 border border-white/10" style="border-color: var(--panel-border);">
+                            <img src="assets/kategorien/klappenauspuff-kaufen.webp" alt="Klappenauspuffanlagen" class="w-full h-24 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                           </div>
-                        </a>
-                        <a href="kategorie.html#downpipes" class="flex items-center space-x-2.5 p-2 rounded-xl hover:bg-brand-orange/10 transition group">
-                          <i class="fa-solid fa-gauge-high text-brand-orange w-5 text-center"></i>
-                          <div>
-                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Downpipes & Katalysatoren</strong>
-                            <span class="text-xs text-gray-400">200 Zellen Sportkats & OPF-Rohre</span>
+                          <h4 class="font-bold text-xs uppercase tracking-wider text-brand-blue mb-2.5">Klappenauspuffanlagen</h4>
+                          <ul class="space-y-1">
+                            <li><a href="kategorie.html#klappen" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">ECE-Klappenanlagen (100% legal)</a></li>
+                            <li><a href="kategorie.html#drive-select" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Drive Select Steuerung</a></li>
+                            <li><a href="kategorie.html#funk" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Funk-Fernbedienung Klappen</a></li>
+                            <li><a href="kategorie.html#titan" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Inox V2A &amp; Titan Abgassysteme</a></li>
+                            <li><a href="kategorie.html#nachruestung" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Klappen-Nachrüstsätze</a></li>
+                          </ul>
+                        </div>
+
+                        <!-- Spalte 2: Downpipes & Sportkats -->
+                        <div>
+                          <div class="overflow-hidden rounded-md mb-3 border border-white/10" style="border-color: var(--panel-border);">
+                            <img src="assets/kategorien/downpipe-kaufen.webp" alt="Downpipes &amp; Sportkats" class="w-full h-24 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                           </div>
-                        </a>
-                        <a href="kategorie.html#soundgeneratoren" class="flex items-center space-x-2.5 p-2 rounded-xl hover:bg-brand-orange/10 transition group">
-                          <i class="fa-solid fa-bullhorn text-brand-orange w-5 text-center"></i>
-                          <div>
-                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Active Sound Systeme</strong>
-                            <span class="text-xs text-gray-400">V8 Sound für Diesel & Hybrid</span>
+                          <h4 class="font-bold text-xs uppercase tracking-wider text-brand-blue mb-2.5">Downpipes &amp; Sportkats</h4>
+                          <ul class="space-y-1">
+                            <li><a href="kategorie.html#downpipes" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">200-Zellen HJS Sportkats</a></li>
+                            <li><a href="kategorie.html#opf-ersatz" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">OPF-Back &amp; De-Cat Rohre</a></li>
+                            <li><a href="kategorie.html#thermo" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Thermo-Integral-Isolierung</a></li>
+                            <li><a href="kategorie.html#turbo" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Turbo-Downpipes mit ECE</a></li>
+                            <li><a href="kategorie.html#leistung" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Abgasgegendruck-Reduzierung</a></li>
+                          </ul>
+                        </div>
+
+                        <!-- Spalte 3: Komplettanlagen & Duplex -->
+                        <div>
+                          <div class="overflow-hidden rounded-md mb-3 border border-white/10" style="border-color: var(--panel-border);">
+                            <img src="assets/kategorien/sportauspuff-kaufen.webp" alt="Sportauspuff &amp; Komplettanlagen" class="w-full h-24 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                           </div>
-                        </a>
+                          <h4 class="font-bold text-xs uppercase tracking-wider text-brand-blue mb-2.5">Komplettanlagen &amp; Duplex</h4>
+                          <ul class="space-y-1">
+                            <li><a href="kategorie.html#komplettanlagen" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Cat-Back Komplettsysteme</a></li>
+                            <li><a href="kategorie.html#duplex" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Duplex Rechts / Links Systeme</a></li>
+                            <li><a href="kategorie.html#gruppe-a" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Gruppe A 63.5mm Rennsport</a></li>
+                            <li><a href="kategorie.html#endschalldaempfer" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Sport-Endschalldämpfer ECE</a></li>
+                            <li><a href="kategorie.html#opf-back" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">OPF-Back Abgasanlagen</a></li>
+                          </ul>
+                        </div>
+
+                        <!-- Spalte 4: Mini-Bestseller-Produktkarte -->
+                        <div class="p-3.5 rounded-lg border flex flex-col justify-between" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+                          <div>
+                            <div class="relative overflow-hidden rounded-md mb-2.5">
+                              <img src="assets/audi-rs6-ragazzon.jpg" alt="Audi RS6 Avant C8 Ragazzon Klappenanlage" class="w-full h-24 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                              <!-- 100% ECE-Badge (strikt 2-Grün-Regel via var(--brand-green)) -->
+                              <span class="absolute top-1.5 left-1.5 px-2 py-0.5 rounded text-xs font-sans font-semibold flex items-center gap-1 shadow-sm"
+                                    style="color: var(--brand-green); background-color: var(--brand-green-bg); border: 1px solid var(--brand-green-border);">
+                                <i class="fa-solid fa-certificate text-xs"></i>
+                                <span>100% ECE-Geprüft</span>
+                              </span>
+                            </div>
+                            <a href="detail.html" class="font-sans font-semibold text-xs leading-snug line-clamp-2 hover:text-brand-blue transition block mb-1.5" style="color: var(--logo-text);">
+                              Audi RS6 Avant C8 Ragazzon Klappenanlage
+                            </a>
+                            <!-- Lagerstatus -->
+                            <div class="flex items-center gap-1.5 text-xs font-medium mb-2" style="color: var(--brand-green);">
+                              <span class="w-1.5 h-1.5 rounded-full inline-block" style="background-color: var(--brand-green);"></span>
+                              <span>Auf Lager (1–3 Werktage)</span>
+                            </div>
+                          </div>
+
+                          <!-- Preis & CTA -->
+                          <div class="pt-2 border-t mt-auto" style="border-color: var(--panel-border);">
+                            <div class="flex items-baseline justify-between mb-2">
+                              <span class="font-racing font-extrabold text-base tracking-tight" style="color: var(--logo-text);">2.499,00 €</span>
+                              <span class="text-xs text-gray-400 font-sans font-normal">inkl. MwSt.</span>
+                            </div>
+                            <a href="detail.html" class="w-full text-center py-1.5 px-2.5 rounded text-xs font-sans font-bold uppercase tracking-wider text-white transition block" style="background-color: var(--brand-blue); color: #FFFFFF !important;">
+                              Produktdetails →
+                            </a>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <!-- Unterer Marken-Footer im Flyout -->
+                      <div class="mt-5 pt-4 border-t flex items-center justify-between" style="border-color: var(--panel-border);">
+                        <div class="flex items-center space-x-2 text-xs opacity-75">
+                          <i class="fa-solid fa-award text-brand-blue text-xs"></i>
+                          <span class="font-sans font-semibold uppercase tracking-wider text-xs">Offizieller Partner führender Manufakturen:</span>
+                        </div>
+                        <div class="flex items-center space-x-5">
+                          <img src="assets/hersteller/remus.svg" alt="REMUS" class="h-4 sm:h-5 max-w-[70px] object-contain opacity-70 hover:opacity-100 transition filter grayscale hover:grayscale-0">
+                          <img src="assets/hersteller/fox.svg" alt="FOX" class="h-4 sm:h-5 max-w-[70px] object-contain opacity-70 hover:opacity-100 transition filter grayscale hover:grayscale-0">
+                          <img src="assets/hersteller/bastuck.png" alt="Bastuck" class="h-4 sm:h-5 max-w-[70px] object-contain opacity-70 hover:opacity-100 transition filter grayscale hover:grayscale-0">
+                          <img src="assets/hersteller/ragazzon.png" alt="Ragazzon" class="h-4 sm:h-5 max-w-[70px] object-contain opacity-70 hover:opacity-100 transition filter grayscale hover:grayscale-0">
+                          <img src="assets/hersteller/milltek.png" alt="Milltek" class="h-4 sm:h-5 max-w-[70px] object-contain opacity-70 hover:opacity-100 transition filter grayscale hover:grayscale-0">
+                        </div>
                       </div>
                     </div>
+                  </li>
 
-                    <!-- Spalte 2: Zubehör & Montage -->
-                    <div>
-                      <span class="text-xs font-sans font-semibold tracking-wide text-brand-orange block mb-2">
-                        Montage & Zubehör
-                      </span>
-                      <div class="space-y-1">
-                        <a href="kategorie.html#zubehoer" class="flex items-center space-x-2.5 p-2 rounded-xl hover:bg-brand-orange/10 transition group">
-                          <i class="fa-solid fa-screwdriver-wrench text-brand-orange w-5 text-center"></i>
-                          <div>
-                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Montagematerial & Schellen</strong>
-                            <span class="text-xs text-gray-400">V2A Breitbandschellen & Adapter</span>
+                  <!-- 2. Endschalldämpfer & Duplex -->
+                  <li class="catalog-menu-row border-b border-white/5" style="border-color: var(--panel-border);">
+                    <a href="kategorie.html#endschalldaempfer" class="catalog-row-link">
+                      <div class="flex items-center space-x-3 min-w-0">
+                        <i class="fa-solid fa-circle-notch w-5 text-center text-brand-blue flex-shrink-0"></i>
+                        <span class="truncate" style="color: var(--logo-text);">Endschalldämpfer &amp; Duplex</span>
+                      </div>
+                    </a>
+                  </li>
+
+                  <!-- 3. Klappenauspuffanlagen (Mit Flyout) -->
+                  <li class="catalog-menu-row has-flyout border-b border-white/5" style="border-color: var(--panel-border);">
+                    <a href="kategorie.html#klappen" class="catalog-row-link">
+                      <div class="flex items-center space-x-3 min-w-0">
+                        <i class="fa-solid fa-sliders w-5 text-center text-brand-blue flex-shrink-0"></i>
+                        <span class="truncate" style="color: var(--logo-text);">Klappenauspuffanlagen</span>
+                      </div>
+                      <div class="flex items-center space-x-2 flex-shrink-0 ml-2">
+                        <span class="bg-amber-500 text-white font-bold px-2 py-0.5 rounded text-[11px]" style="color: #FFFFFF !important;">SOUND</span>
+                        <i class="catalog-row-chevron fa-solid fa-chevron-right text-xs opacity-40 transition-all"></i>
+                      </div>
+                    </a>
+
+                    <!-- FLYOUT FÜR KLAPPENANLAGEN (Stufe 2) -->
+                    <div class="catalog-flyout-panel p-6">
+                      <div class="grid grid-cols-4 gap-6">
+                        <div>
+                          <div class="overflow-hidden rounded-md mb-3 border border-white/10" style="border-color: var(--panel-border);">
+                            <img src="assets/kategorien/klappenauspuff-kaufen.webp" alt="Klappenauspuffanlagen" class="w-full h-24 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                           </div>
-                        </a>
-                        <a href="kategorie.html#gummis" class="flex items-center space-x-2.5 p-2 rounded-xl hover:bg-brand-orange/10 transition group">
-                          <i class="fa-solid fa-ring text-brand-orange w-5 text-center"></i>
-                          <div>
-                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Verstärkte Auspuffgummis</strong>
-                            <span class="text-xs text-gray-400">Powerflex PU-Gummis gegen Schwingen</span>
+                          <h4 class="font-bold text-xs uppercase tracking-wider text-brand-blue mb-2.5">Klappentechnologie</h4>
+                          <ul class="space-y-1">
+                            <li><a href="kategorie.html#ece-klappen" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">100% ECE-Homologiert</a></li>
+                            <li><a href="kategorie.html#pneumatisch" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Pneumatische Klappen</a></li>
+                            <li><a href="kategorie.html#elektrisch" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Elektrische Stellmotoren</a></li>
+                            <li><a href="kategorie.html#unterdruck" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Unterdruck-Steuerungskits</a></li>
+                            <li><a href="kategorie.html#canbus" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">CAN-Bus Anbindung</a></li>
+                          </ul>
+                        </div>
+                        <div>
+                          <div class="overflow-hidden rounded-md mb-3 border border-white/10" style="border-color: var(--panel-border);">
+                            <img src="assets/kategorien/downpipe-kaufen.webp" alt="Sound &amp; Steuerung" class="w-full h-24 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                           </div>
-                        </a>
-                        <a href="kategorie.html#pflege" class="flex items-center space-x-2.5 p-2 rounded-xl hover:bg-brand-orange/10 transition group">
-                          <i class="fa-solid fa-spray-can-sparkles text-brand-orange w-5 text-center"></i>
-                          <div>
-                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Edelstahl-Pflege & Polish</strong>
-                            <span class="text-xs text-gray-400">Hitzebeständiger Glanzschutz</span>
+                          <h4 class="font-bold text-xs uppercase tracking-wider text-brand-blue mb-2.5">Steuerung &amp; Modi</h4>
+                          <ul class="space-y-1">
+                            <li><a href="kategorie.html#drive-select" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Audi Drive Select Integration</a></li>
+                            <li><a href="kategorie.html#bmw-modes" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">BMW Fahrerlebnisschalter</a></li>
+                            <li><a href="kategorie.html#mercedes-dynamic" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Mercedes DYNAMIC SELECT</a></li>
+                            <li><a href="kategorie.html#funk-fernbedienung" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Funk-Fernbedienungen</a></li>
+                            <li><a href="kategorie.html#app-control" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Smartphone-App Steuerung</a></li>
+                          </ul>
+                        </div>
+                        <div>
+                          <div class="overflow-hidden rounded-md mb-3 border border-white/10" style="border-color: var(--panel-border);">
+                            <img src="assets/kategorien/sportauspuff-kaufen.webp" alt="Hersteller-Klappensysteme" class="w-full h-24 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                           </div>
-                        </a>
+                          <h4 class="font-bold text-xs uppercase tracking-wider text-brand-blue mb-2.5">Premium Manufakturen</h4>
+                          <ul class="space-y-1">
+                            <li><a href="kategorie.html?brand=Ragazzon" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Ragazzon Inox Klappen (IT)</a></li>
+                            <li><a href="kategorie.html?brand=REMUS" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">REMUS Sound-Control (AT)</a></li>
+                            <li><a href="kategorie.html?brand=Milltek" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Milltek Sport Active Valve</a></li>
+                            <li><a href="kategorie.html?brand=Capristo" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Capristo CES3 Klappen</a></li>
+                            <li><a href="kategorie.html?brand=Akrapovic" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Akrapovič Sound Kit Titan</a></li>
+                          </ul>
+                        </div>
+                        <div class="p-3.5 rounded-lg border flex flex-col justify-between" style="background-color: var(--panel-card); border-color: var(--panel-border);">
+                          <div>
+                            <div class="relative overflow-hidden rounded-md mb-2.5">
+                              <img src="assets/audi-rs6-ragazzon.jpg" alt="Audi RS6 Avant C8 Ragazzon Klappenanlage" class="w-full h-24 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                              <span class="absolute top-1.5 left-1.5 px-2 py-0.5 rounded text-xs font-sans font-semibold flex items-center gap-1 shadow-sm"
+                                    style="color: var(--brand-green); background-color: var(--brand-green-bg); border: 1px solid var(--brand-green-border);">
+                                <i class="fa-solid fa-certificate text-xs"></i>
+                                <span>100% ECE-Geprüft</span>
+                              </span>
+                            </div>
+                            <a href="detail.html" class="font-sans font-semibold text-xs leading-snug line-clamp-2 hover:text-brand-blue transition block mb-1.5" style="color: var(--logo-text);">
+                              Audi RS6 Avant C8 Ragazzon Klappenanlage
+                            </a>
+                            <div class="flex items-center gap-1.5 text-xs font-medium mb-2" style="color: var(--brand-green);">
+                              <span class="w-1.5 h-1.5 rounded-full inline-block" style="background-color: var(--brand-green);"></span>
+                              <span>Auf Lager (1–3 Werktage)</span>
+                            </div>
+                          </div>
+                          <div class="pt-2 border-t mt-auto" style="border-color: var(--panel-border);">
+                            <div class="flex items-baseline justify-between mb-2">
+                              <span class="font-racing font-extrabold text-base tracking-tight" style="color: var(--logo-text);">2.499,00 €</span>
+                              <span class="text-xs text-gray-400 font-sans font-normal">inkl. MwSt.</span>
+                            </div>
+                            <a href="detail.html" class="w-full text-center py-1.5 px-2.5 rounded text-xs font-sans font-bold uppercase tracking-wider text-white transition block" style="background-color: var(--brand-blue); color: #FFFFFF !important;">
+                              Produktdetails →
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mt-5 pt-4 border-t flex items-center justify-between" style="border-color: var(--panel-border);">
+                        <div class="flex items-center space-x-2 text-xs opacity-75">
+                          <i class="fa-solid fa-award text-brand-blue text-xs"></i>
+                          <span class="font-sans font-semibold uppercase tracking-wider text-xs">Offizieller Partner führender Manufakturen:</span>
+                        </div>
+                        <div class="flex items-center space-x-5">
+                          <img src="assets/hersteller/remus.svg" alt="REMUS" class="h-4 sm:h-5 max-w-[70px] object-contain opacity-70 hover:opacity-100 transition filter grayscale hover:grayscale-0">
+                          <img src="assets/hersteller/fox.svg" alt="FOX" class="h-4 sm:h-5 max-w-[70px] object-contain opacity-70 hover:opacity-100 transition filter grayscale hover:grayscale-0">
+                          <img src="assets/hersteller/bastuck.png" alt="Bastuck" class="h-4 sm:h-5 max-w-[70px] object-contain opacity-70 hover:opacity-100 transition filter grayscale hover:grayscale-0">
+                          <img src="assets/hersteller/ragazzon.png" alt="Ragazzon" class="h-4 sm:h-5 max-w-[70px] object-contain opacity-70 hover:opacity-100 transition filter grayscale hover:grayscale-0">
+                          <img src="assets/hersteller/milltek.png" alt="Milltek" class="h-4 sm:h-5 max-w-[70px] object-contain opacity-70 hover:opacity-100 transition filter grayscale hover:grayscale-0">
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </li>
 
-                  <!-- Footer Bar im Mega-Menu -->
-                  <div class="pt-3.5 flex items-center justify-between text-xs">
-                    <div class="flex items-center space-x-2 text-brand-orange font-bold">
-                      <i class="fa-solid fa-phone text-xs"></i>
-                      <span>Hotline-Beratung: 0371 64 63 87 55</span>
+                  <!-- 4. Downpipes & Sportkats -->
+                  <li class="catalog-menu-row border-b border-white/5" style="border-color: var(--panel-border);">
+                    <a href="kategorie.html#downpipes" class="catalog-row-link">
+                      <div class="flex items-center space-x-3 min-w-0">
+                        <i class="fa-solid fa-fire-flame-curved w-5 text-center text-brand-blue flex-shrink-0"></i>
+                        <span class="truncate" style="color: var(--logo-text);">Downpipes &amp; Sportkats</span>
+                      </div>
+                      <div class="flex items-center space-x-2 flex-shrink-0 ml-2">
+                        <span class="bg-rose-600 text-white font-bold px-2 py-0.5 rounded text-[11px]" style="color: #FFFFFF !important;">POWER</span>
+                      </div>
+                    </a>
+                  </li>
+
+                  <!-- 5. Endrohre & Blenden -->
+                  <li class="catalog-menu-row border-b border-white/5" style="border-color: var(--panel-border);">
+                    <a href="kategorie.html#endrohre" class="catalog-row-link">
+                      <div class="flex items-center space-x-3 min-w-0">
+                        <i class="fa-solid fa-bullseye w-5 text-center text-brand-blue flex-shrink-0"></i>
+                        <span class="truncate" style="color: var(--logo-text);">Endrohre &amp; Blenden</span>
+                      </div>
+                    </a>
+                  </li>
+
+                  <!-- 6. Active Sound Systeme -->
+                  <li class="catalog-menu-row border-b border-white/5" style="border-color: var(--panel-border);">
+                    <a href="kategorie.html#soundgeneratoren" class="catalog-row-link">
+                      <div class="flex items-center space-x-3 min-w-0">
+                        <i class="fa-solid fa-wave-square w-5 text-center text-brand-blue flex-shrink-0"></i>
+                        <span class="truncate" style="color: var(--logo-text);">Active Sound Systeme</span>
+                      </div>
+                    </a>
+                  </li>
+
+                  <!-- 7. Hersteller-Marken (Mit Flyout) -->
+                  <li class="catalog-menu-row has-flyout border-b border-white/5" style="border-color: var(--panel-border);">
+                    <a href="kategorie.html#marken" class="catalog-row-link">
+                      <div class="flex items-center space-x-3 min-w-0">
+                        <i class="fa-solid fa-tags w-5 text-center text-brand-blue flex-shrink-0"></i>
+                        <span class="truncate" style="color: var(--logo-text);">Hersteller-Marken</span>
+                      </div>
+                      <div class="flex items-center space-x-2 flex-shrink-0 ml-2">
+                        <span class="bg-brand-blue text-white font-bold px-2 py-0.5 rounded text-[11px]" style="color: #FFFFFF !important;">28 MARKEN</span>
+                        <i class="catalog-row-chevron fa-solid fa-chevron-right text-xs opacity-40 transition-all"></i>
+                      </div>
+                    </a>
+
+                    <!-- MARKEN-FLYOUT (Stufe 2) -->
+                    <div class="catalog-flyout-panel p-6">
+                      <div class="grid grid-cols-4 gap-6">
+                        <div>
+                          <h4 class="font-bold text-xs uppercase tracking-wider text-brand-blue mb-2.5">Deutsche Manufakturen</h4>
+                          <ul class="space-y-1.5">
+                            <li><a href="kategorie.html?brand=FOX" class="block text-xs hover:text-brand-blue py-0.5" style="color: var(--text-main);"><strong class="block" style="color: var(--logo-text);">FOX Exhaust</strong> Handgefertigt in DE</a></li>
+                            <li><a href="kategorie.html?brand=Bastuck" class="block text-xs hover:text-brand-blue py-0.5" style="color: var(--text-main);"><strong class="block" style="color: var(--logo-text);">Bastuck Sportauspuff</strong> V2A Edelstahl</a></li>
+                            <li><a href="kategorie.html?brand=Eisenmann" class="block text-xs hover:text-brand-blue py-0.5" style="color: var(--text-main);"><strong class="block" style="color: var(--logo-text);">Eisenmann Exhaust</strong> Tiefes V8 Grollen</a></li>
+                            <li><a href="kategorie.html?brand=Friedrich" class="block text-xs hover:text-brand-blue py-0.5" style="color: var(--text-main);"><strong class="block" style="color: var(--logo-text);">Friedrich Motorsport</strong> Gruppe A Anlagen</a></li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 class="font-bold text-xs uppercase tracking-wider text-brand-blue mb-2.5">Italienische Passion</h4>
+                          <ul class="space-y-1.5">
+                            <li><a href="kategorie.html?brand=Ragazzon" class="block text-xs hover:text-brand-blue py-0.5" style="color: var(--text-main);"><strong class="block" style="color: var(--logo-text);">Ragazzon Inox</strong> Motorsport-Klang</a></li>
+                            <li><a href="kategorie.html?brand=Supersprint" class="block text-xs hover:text-brand-blue py-0.5" style="color: var(--text-main);"><strong class="block" style="color: var(--logo-text);">Supersprint</strong> Dyno-Optimiert</a></li>
+                            <li><a href="kategorie.html?brand=Capristo" class="block text-xs hover:text-brand-blue py-0.5" style="color: var(--text-main);"><strong class="block" style="color: var(--logo-text);">Capristo Exhaust</strong> Supercar-Sound</a></li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 class="font-bold text-xs uppercase tracking-wider text-brand-blue mb-2.5">International &amp; Titan</h4>
+                          <ul class="space-y-1.5">
+                            <li><a href="kategorie.html?brand=REMUS" class="block text-xs hover:text-brand-blue py-0.5" style="color: var(--text-main);"><strong class="block" style="color: var(--logo-text);">REMUS Performance</strong> Österreich</a></li>
+                            <li><a href="kategorie.html?brand=Milltek" class="block text-xs hover:text-brand-blue py-0.5" style="color: var(--text-main);"><strong class="block" style="color: var(--logo-text);">Milltek Sport</strong> UK Rennstrecke</a></li>
+                            <li><a href="kategorie.html?brand=Akrapovic" class="block text-xs hover:text-brand-blue py-0.5" style="color: var(--text-main);"><strong class="block" style="color: var(--logo-text);">Akrapovič Evolution</strong> Titan pur</a></li>
+                            <li><a href="kategorie.html?brand=Borla" class="block text-xs hover:text-brand-blue py-0.5" style="color: var(--text-main);"><strong class="block" style="color: var(--logo-text);">Borla Exhaust</strong> US Muscle V8</a></li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 class="font-bold text-xs uppercase tracking-wider text-brand-blue mb-2.5">Elektronik &amp; Katalysatoren</h4>
+                          <ul class="space-y-1.5">
+                            <li><a href="kategorie.html?brand=HJS" class="block text-xs hover:text-brand-blue py-0.5" style="color: var(--text-main);"><strong class="block" style="color: var(--logo-text);">HJS Motorsport</strong> Tuning-Kats</a></li>
+                            <li><a href="kategorie.html?brand=Kufatec" class="block text-xs hover:text-brand-blue py-0.5" style="color: var(--text-main);"><strong class="block" style="color: var(--logo-text);">Kufatec Sound Booster</strong> V8 Diesel</a></li>
+                            <li><a href="kategorie.html?brand=ASR" class="block text-xs hover:text-brand-blue py-0.5" style="color: var(--text-main);"><strong class="block" style="color: var(--logo-text);">ASR Klappensteuerung</strong> RX1 Modul</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="mt-5 pt-4 border-t flex items-center justify-between" style="border-color: var(--panel-border);">
+                        <a href="kategorie.html" class="text-brand-blue font-sans font-bold uppercase tracking-wider text-xs hover:underline flex items-center space-x-1.5">
+                          <span>Alle 28 Marken &amp; Auspuffhersteller im Überblick ansehen</span>
+                          <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                        <span class="text-xs text-gray-400">100% Original-Herstellerware mit Gutachten</span>
+                      </div>
                     </div>
-                    <a href="#montage" class="text-gray-400 hover:text-brand-orange font-medium transition">Partnerwerkstatt finden →</a>
-                  </div>
-                </div>
+                  </li>
+
+                  <!-- 8. Montagematerial & Zubehör -->
+                  <li class="catalog-menu-row">
+                    <a href="kategorie.html#zubehoer" class="catalog-row-link">
+                      <div class="flex items-center space-x-3 min-w-0">
+                        <i class="fa-solid fa-gears w-5 text-center text-brand-blue flex-shrink-0"></i>
+                        <span class="truncate" style="color: var(--logo-text);">Montagematerial &amp; Zubehör</span>
+                      </div>
+                    </a>
+                  </li>
+
+                </ul>
               </div>
             </div>
 
-            <!-- Dropdown: Marken (Mega-Menu) -->
-            <div class="dropdown-group relative h-full flex items-center">
-              <button type="button" class="dropdown-trigger px-3.5 py-1.5 rounded-lg flex items-center space-x-1.5 hover:text-brand-orange hover:bg-black/5 transition font-sans text-xs font-bold uppercase tracking-wider cursor-pointer">
-                <span>Hersteller-Marken</span>
-                <i class="dropdown-chevron fa-solid fa-chevron-down text-xs transition-transform opacity-70"></i>
-              </button>
-
-              <div class="dropdown-panel absolute top-full left-0 z-50">
-                <div style="background-color: var(--tier2-bg); border-color: var(--panel-border);" class="w-[580px] rounded-2xl shadow-2xl p-5 border text-left">
-                  <!-- Top Grid: 2 Spalten -->
-                  <div class="grid grid-cols-2 gap-6 pb-4 border-b border-white/10" style="border-color: var(--panel-border);">
-                    <!-- Spalte 1: Beliebte Premium-Marken -->
-                    <div>
-                      <span class="text-xs font-sans font-semibold tracking-wide text-brand-orange block mb-2">
-                        Top Hersteller-Marken
-                      </span>
-                      <div class="space-y-1">
-                        <a href="kategorie.html?brand=Ragazzon" class="flex items-center justify-between p-2 rounded-xl hover:bg-brand-orange/10 transition group">
-                          <div>
-                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Ragazzon Inox</strong>
-                            <span class="text-xs text-gray-400">Italienische Klappensysteme (V2A)</span>
-                          </div>
-                          <span class="text-xs font-bold px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">ECE</span>
-                        </a>
-                        <a href="kategorie.html?brand=FOX" class="flex items-center justify-between p-2 rounded-xl hover:bg-brand-orange/10 transition group">
-                          <div>
-                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">FOX Exhaust Systems</strong>
-                            <span class="text-xs text-gray-400">100% Handgefertigt in Deutschland</span>
-                          </div>
-                          <span class="text-xs font-bold px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">ECE</span>
-                        </a>
-                        <a href="kategorie.html?brand=Bastuck" class="flex items-center justify-between p-2 rounded-xl hover:bg-brand-orange/10 transition group">
-                          <div>
-                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Bastuck Sportauspuff</strong>
-                            <span class="text-xs text-gray-400">Klangkultur & Rennsport-Edelstahl</span>
-                          </div>
-                          <span class="text-xs font-bold px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">ECE</span>
-                        </a>
-                        <a href="kategorie.html?brand=REMUS" class="flex items-center justify-between p-2 rounded-xl hover:bg-brand-orange/10 transition group">
-                          <div>
-                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">REMUS Performance</strong>
-                            <span class="text-xs text-gray-400">Österreichische High-End Klappen</span>
-                          </div>
-                          <span class="text-xs font-bold px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">ECE</span>
-                        </a>
-                      </div>
-                    </div>
-
-                    <!-- Spalte 2: Weitere Spezialisten & Motorsport -->
-                    <div>
-                      <span class="text-xs font-sans font-semibold tracking-wide text-brand-orange block mb-2">
-                        Motorsport & Sound-Spezialisten
-                      </span>
-                      <div class="space-y-1">
-                        <a href="kategorie.html?brand=Milltek" class="flex items-center justify-between p-2 rounded-xl hover:bg-brand-orange/10 transition group">
-                          <div>
-                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Milltek Sport</strong>
-                            <span class="text-xs text-gray-400">OPF-Back & Rennstrecken-Systeme</span>
-                          </div>
-                          <span class="text-xs font-bold px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">UK</span>
-                        </a>
-                        <a href="kategorie.html?brand=Eisenmann" class="flex items-center justify-between p-2 rounded-xl hover:bg-brand-orange/10 transition group">
-                          <div>
-                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Eisenmann Exhaust</strong>
-                            <span class="text-xs text-gray-400">Tiefes V8/R6 Grollen & Manufaktur</span>
-                          </div>
-                          <span class="text-xs font-bold px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">DE</span>
-                        </a>
-                        <a href="kategorie.html?brand=Friedrich" class="flex items-center justify-between p-2 rounded-xl hover:bg-brand-orange/10 transition group">
-                          <div>
-                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Friedrich Motorsport</strong>
-                            <span class="text-xs text-gray-400">Gruppe A & Duplex-Anlagen</span>
-                          </div>
-                          <span class="text-xs font-bold px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">DE</span>
-                        </a>
-                        <a href="kategorie.html?brand=Akrapovic" class="flex items-center justify-between p-2 rounded-xl hover:bg-brand-orange/10 transition group">
-                          <div>
-                            <strong class="text-xs font-bold block" style="color: var(--logo-text);">Akrapovič Evolution</strong>
-                            <span class="text-xs text-gray-400">Titan-Abgassysteme der Spitzenklasse</span>
-                          </div>
-                          <span class="text-xs font-bold px-1.5 py-0.5 rounded bg-brand-orange/20 text-brand-orange">Titan</span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Footer Bar im Mega-Menu -->
-                  <div class="pt-3.5 flex items-center justify-between text-xs">
-                    <a href="kategorie.html" class="text-brand-orange font-sans font-bold uppercase tracking-wider text-xs hover:underline flex items-center space-x-1.5">
-                      <span>Alle 28 Marken & Auspuffhersteller ansehen</span>
-                      <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </a>
-                    <span class="text-xs text-gray-400 hidden sm:inline">100% Original-Herstellerware mit Gutachten</span>
-                  </div>
-                </div>
-              </div>
+            <!-- HORIZONTALE SCHNELL-PILLS NEBEN DEM KATALOG-TRIGGER -->
+            <div class="flex items-center space-x-1.5 ml-4 h-full">
+              <a href="kategorie.html" class="px-3.5 py-1.5 rounded-md flex items-center space-x-1.5 hover:text-brand-blue hover:bg-black/5 dark:hover:bg-white/5 transition">
+                <i class="fa-solid fa-fire text-brand-blue text-xs"></i>
+                <span class="font-sans text-xs font-semibold">Sportauspuff</span>
+              </a>
+              <a href="kategorie.html#endschalldaempfer" class="px-3.5 py-1.5 rounded-md flex items-center hover:text-brand-blue hover:bg-black/5 dark:hover:bg-white/5 transition">
+                <span class="font-sans text-xs font-semibold">Endschalldämpfer</span>
+              </a>
+              <a href="kategorie.html#komplettanlagen" class="px-3.5 py-1.5 rounded-md flex items-center space-x-1.5 hover:text-brand-blue hover:bg-black/5 dark:hover:bg-white/5 transition">
+                <span class="font-sans text-xs font-semibold">Komplettanlagen</span>
+                <span class="bg-brand-blue text-white text-xs px-1.5 py-0.5 rounded font-bold ml-1 uppercase" style="color: #FFFFFF !important;">Top</span>
+              </a>
+              <a href="#soundcheck" class="px-3.5 py-1.5 rounded-md flex items-center space-x-1.5 hover:text-brand-blue hover:bg-black/5 dark:hover:bg-white/5 transition">
+                <i class="fa-solid fa-volume-high text-brand-blue text-xs"></i>
+                <span class="font-sans text-xs font-semibold">Soundcheck</span>
+              </a>
+              <a href="#montage" class="px-3.5 py-1.5 rounded-md flex items-center space-x-1.5 hover:text-brand-blue hover:bg-black/5 dark:hover:bg-white/5 transition">
+                <span class="font-sans text-xs font-semibold">Montage</span>
+              </a>
             </div>
 
           </div>
 
-          <!-- Rechts: Montage-Buchung -->
-          <a href="#montage" class="px-4 py-1.5 flex items-center space-x-2 text-brand-orange hover:bg-brand-orange/10 font-bold normal-case transition rounded-lg">
-            <i class="fa-solid fa-screwdriver-wrench text-xs"></i>
-            <span>Fachgerechte Montage anfragen</span>
+          <!-- RECHTSBÜNDIG: FACHGERECHTE MONTAGE ANFRAGEN -->
+          <a href="#montage" class="px-3.5 py-1.5 flex items-center space-x-2 text-brand-blue hover:bg-brand-blue/10 font-bold normal-case transition rounded-md border border-brand-blue/20">
+            <i class="fa-solid fa-screwdriver-wrench text-xs text-brand-blue"></i>
+            <span class="font-sans text-xs font-bold uppercase tracking-wider">Fachgerechte Montage anfragen</span>
           </a>
 
         </div>
@@ -2991,6 +3327,31 @@
           }
         }
       };
+    })();
+    // Desktop Katalog-Menü Toggle (Click & Escape Handler für Tastatur & Touch)
+    (function initCatalogMenu() {
+      const trigger = document.getElementById('catalogMenuTrigger');
+      const group = trigger ? trigger.closest('.catalog-menu-group') : null;
+      const panel = group ? group.querySelector('.catalog-dropdown-panel') : null;
+      if (!trigger || !panel) return;
+
+      trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        panel.classList.toggle('is-open');
+      });
+
+      document.addEventListener('click', function(e) {
+        if (group && !group.contains(e.target)) {
+          panel.classList.remove('is-open');
+        }
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && panel.classList.contains('is-open')) {
+          panel.classList.remove('is-open');
+          trigger.focus();
+        }
+      });
     })();
   </script>
 
