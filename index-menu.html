@@ -619,6 +619,42 @@
       visibility: visible !important;
       pointer-events: auto !important;
     }
+
+    /* Brand Showcase Hero-Banner (Mega-Menu Zeile 3): Invertiertes Verlauf- & Typografie-Konzept ohne Drop-Shadow */
+    .brand-showcase-card {
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      box-shadow: none !important;
+    }
+
+    .brand-showcase-overlay {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0.85) 62%, #FFFFFF 100%) !important;
+    }
+
+    .brand-showcase-title {
+      color: #0F172A !important;
+    }
+
+    .brand-showcase-text {
+      color: #1E293B !important;
+    }
+
+    /* Light Mode: Invertiert (schwarzer Verlauf unten, weiße Schrift, kein Schatten) */
+    body.theme-light .brand-showcase-card {
+      border: 1px solid rgba(226, 232, 240, 0.8) !important;
+      box-shadow: none !important;
+    }
+
+    body.theme-light .brand-showcase-overlay {
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 35%, rgba(9, 11, 16, 0.78) 62%, rgba(9, 11, 16, 0.98) 100%) !important;
+    }
+
+    body.theme-light .brand-showcase-title {
+      color: #FFFFFF !important;
+    }
+
+    body.theme-light .brand-showcase-text {
+      color: #F1F5F9 !important;
+    }
   </style>
 </head>
 <body id="appBody" style="background-color: var(--page-bg); color: var(--text-main);" class="font-sans antialiased selection:bg-brand-orange selection:text-white transition-colors duration-300">
@@ -1415,15 +1451,15 @@
 
                         <!-- Rechts: Großes emotionales Werbebanner / Showcase (ca. 42 % Breite) -->
                         <div class="col-span-5 flex">
-                          <div class="relative w-full rounded-lg overflow-hidden flex flex-col justify-end p-5 min-h-[260px] border border-white/20 group shadow-xl shadow-black/40">
+                          <div class="brand-showcase-card relative w-full rounded-lg overflow-hidden flex flex-col justify-end p-5 min-h-[260px] group shadow-none">
                             <img src="assets/kategorien/sportauspuffanlage-kaufen.webp" alt="Erlebe den ultimativen Klang" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
-                            <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.65) 0%, rgba(248, 250, 252, 0.90) 40%, #FFFFFF 100%);"></div>
+                            <div class="brand-showcase-overlay absolute inset-0"></div>
                             <div class="relative z-10">
                               <div class="mb-3">
                                 <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-sans font-bold uppercase tracking-wider bg-brand-blue text-white shadow-sm" style="color: #FFFFFF !important;">★ BRAND SHOWCASE</span>
                               </div>
-                              <h3 class="font-racing font-extrabold uppercase italic text-2xl mb-2 leading-tight" style="color: #0F172A !important;">ERLEBE DEN ULTIMATIVEN KLANG</h3>
-                              <p class="text-xs font-sans font-semibold mb-4 leading-relaxed" style="color: #334155 !important;">28 zertifizierte Manufakturen mit 100% ECE-Zulassung. Finde deinen Sound.</p>
+                              <h3 class="brand-showcase-title font-racing font-extrabold uppercase italic text-2xl mb-2 leading-tight">ERLEBE DEN ULTIMATIVEN KLANG</h3>
+                              <p class="brand-showcase-text text-xs font-sans font-semibold mb-4 leading-relaxed">28 zertifizierte Manufakturen mit 100% ECE-Zulassung. Finde deinen Sound.</p>
                               <a href="kategorie.html#marken" class="inline-flex items-center gap-1.5 bg-brand-blue hover:bg-brand-blueHover text-white font-sans font-bold text-xs uppercase px-4 py-2 rounded transition shadow-md" style="color: #FFFFFF !important;">
                                 <span>MARKENWELT ENTDECKEN</span>
                                 <span>&rarr;</span>
