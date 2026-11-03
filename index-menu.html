@@ -491,7 +491,7 @@
       position: absolute;
       top: 100%;
       left: 0;
-      width: 20rem; /* 320px = w-80 */
+      width: 340px;
       z-index: 50;
       display: none;
       opacity: 0;
@@ -1240,15 +1240,15 @@
             <div class="catalog-menu-group relative h-full flex items-center">
               <button type="button"
                       id="catalogMenuTrigger"
-                      class="catalog-trigger-btn bg-brand-blue w-80 h-12 px-4.5 flex items-center text-white font-bold text-xs uppercase tracking-wider cursor-pointer select-none"
+                      class="catalog-trigger-btn bg-brand-blue w-[340px] h-12 px-6 flex items-center text-white font-bold text-xs uppercase tracking-wider cursor-pointer select-none"
                       style="background-color: var(--brand-blue); color: #FFFFFF !important;">
                 <i class="fa-solid fa-bars mr-3 text-sm text-white" style="color: #FFFFFF !important;"></i>
-                <span class="tracking-wide text-white" style="color: #FFFFFF !important;">KATALOG / PRODUKTWELTEN</span>
+                <span class="tracking-wide text-white" style="color: #FFFFFF !important;">SPORTAUSPUFF KATALOG</span>
                 <i class="catalog-chevron fa-solid fa-chevron-down ml-auto text-xs transition-transform duration-200 text-white" style="color: #FFFFFF !important;"></i>
               </button>
 
-              <!-- STUFE 1: SENKRECHTES MENÜ (8 strukturierte Zeilen, w-80) -->
-              <div class="catalog-dropdown-panel absolute top-full left-0 w-80 z-50">
+              <!-- STUFE 1: SENKRECHTES MENÜ (8 strukturierte Zeilen, w-[340px]) -->
+              <div class="catalog-dropdown-panel absolute top-full left-0 w-[340px] z-50">
                 <ul class="py-1.5 divide-y divide-white/5" style="border-color: var(--panel-border);">
 
                   <!-- 1. Sportauspuff Komplettanlagen (Träger des 4-Spalten Mega-Flyouts) -->
@@ -1319,12 +1319,7 @@
                           <div>
                             <div class="relative overflow-hidden rounded-md mb-2.5">
                               <img src="assets/audi-rs6-ragazzon.jpg" alt="Audi RS6 Avant C8 Ragazzon Klappenanlage" class="w-full h-24 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-                              <!-- 100% ECE-Badge (strikt 2-Grün-Regel via var(--brand-green)) -->
-                              <span class="absolute top-1.5 left-1.5 px-2 py-0.5 rounded text-xs font-sans font-semibold flex items-center gap-1 shadow-sm"
-                                    style="color: var(--brand-green); background-color: var(--brand-green-bg); border: 1px solid var(--brand-green-border);">
-                                <i class="fa-solid fa-certificate text-xs"></i>
-                                <span>100% ECE-Geprüft</span>
-                              </span>
+                              <span class="absolute top-2 left-2 px-2 py-0.5 rounded text-[11px] font-sans font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm" style="background-color: var(--brand-green); color: #FFFFFF !important;"><i class="fa-solid fa-check text-xs"></i> ECE</span>
                             </div>
                             <a href="detail.html" class="font-sans font-semibold text-xs leading-snug line-clamp-2 hover:text-brand-blue transition block mb-1.5" style="color: var(--logo-text);">
                               Audi RS6 Avant C8 Ragazzon Klappenanlage
@@ -1339,11 +1334,11 @@
                           <!-- Preis & CTA -->
                           <div class="pt-2 border-t mt-auto" style="border-color: var(--panel-border);">
                             <div class="flex items-baseline justify-between mb-2">
-                              <span class="font-racing font-extrabold text-base tracking-tight" style="color: var(--logo-text);">2.499,00 €</span>
-                              <span class="text-xs text-gray-400 font-sans font-normal">inkl. MwSt.</span>
+                              <span class="font-racing font-extrabold text-xl tracking-normal" style="color: var(--logo-text);">2.499,00 €</span>
+                              <span class="text-[11px] text-gray-400 font-sans font-normal normal-case opacity-75">inkl. MwSt.</span>
                             </div>
                             <a href="detail.html" class="w-full text-center py-1.5 px-2.5 rounded text-xs font-sans font-bold uppercase tracking-wider text-white transition block" style="background-color: var(--brand-blue); color: #FFFFFF !important;">
-                              Produktdetails →
+                              DETAILS
                             </a>
                           </div>
                         </div>
@@ -1356,12 +1351,22 @@
                           <i class="fa-solid fa-award text-brand-blue text-xs"></i>
                           <span class="font-sans font-semibold uppercase tracking-wider text-xs">Offizieller Partner führender Manufakturen:</span>
                         </div>
-                        <div class="flex items-center space-x-5">
-                          <img src="assets/hersteller/remus.svg" alt="REMUS" class="h-4 sm:h-5 max-w-[70px] object-contain opacity-70 hover:opacity-100 transition filter grayscale hover:grayscale-0">
-                          <img src="assets/hersteller/fox.svg" alt="FOX" class="h-4 sm:h-5 max-w-[70px] object-contain opacity-70 hover:opacity-100 transition filter grayscale hover:grayscale-0">
-                          <img src="assets/hersteller/bastuck.png" alt="Bastuck" class="h-4 sm:h-5 max-w-[70px] object-contain opacity-70 hover:opacity-100 transition filter grayscale hover:grayscale-0">
-                          <img src="assets/hersteller/ragazzon.png" alt="Ragazzon" class="h-4 sm:h-5 max-w-[70px] object-contain opacity-70 hover:opacity-100 transition filter grayscale hover:grayscale-0">
-                          <img src="assets/hersteller/milltek.png" alt="Milltek" class="h-4 sm:h-5 max-w-[70px] object-contain opacity-70 hover:opacity-100 transition filter grayscale hover:grayscale-0">
+                        <div class="flex items-center space-x-3">
+                          <div class="h-8 px-3 py-1 bg-white rounded-md flex items-center justify-center shadow-xs hover:scale-105 transition-transform">
+                            <img src="assets/hersteller/remus.svg" alt="REMUS" class="h-4 max-w-[65px] object-contain">
+                          </div>
+                          <div class="h-8 px-3 py-1 bg-white rounded-md flex items-center justify-center shadow-xs hover:scale-105 transition-transform">
+                            <img src="assets/hersteller/fox.svg" alt="FOX" class="h-4 max-w-[65px] object-contain">
+                          </div>
+                          <div class="h-8 px-3 py-1 bg-white rounded-md flex items-center justify-center shadow-xs hover:scale-105 transition-transform">
+                            <img src="assets/hersteller/bastuck.png" alt="Bastuck" class="h-4 max-w-[65px] object-contain">
+                          </div>
+                          <div class="h-8 px-3 py-1 bg-white rounded-md flex items-center justify-center shadow-xs hover:scale-105 transition-transform">
+                            <img src="assets/hersteller/ragazzon.png" alt="Ragazzon" class="h-4 max-w-[65px] object-contain">
+                          </div>
+                          <div class="h-8 px-3 py-1 bg-white rounded-md flex items-center justify-center shadow-xs hover:scale-105 transition-transform">
+                            <img src="assets/hersteller/milltek.png" alt="Milltek" class="h-4 max-w-[65px] object-contain">
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1436,11 +1441,7 @@
                           <div>
                             <div class="relative overflow-hidden rounded-md mb-2.5">
                               <img src="assets/audi-rs6-ragazzon.jpg" alt="Audi RS6 Avant C8 Ragazzon Klappenanlage" class="w-full h-24 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-                              <span class="absolute top-1.5 left-1.5 px-2 py-0.5 rounded text-xs font-sans font-semibold flex items-center gap-1 shadow-sm"
-                                    style="color: var(--brand-green); background-color: var(--brand-green-bg); border: 1px solid var(--brand-green-border);">
-                                <i class="fa-solid fa-certificate text-xs"></i>
-                                <span>100% ECE-Geprüft</span>
-                              </span>
+                              <span class="absolute top-2 left-2 px-2 py-0.5 rounded text-[11px] font-sans font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm" style="background-color: var(--brand-green); color: #FFFFFF !important;"><i class="fa-solid fa-check text-xs"></i> ECE</span>
                             </div>
                             <a href="detail.html" class="font-sans font-semibold text-xs leading-snug line-clamp-2 hover:text-brand-blue transition block mb-1.5" style="color: var(--logo-text);">
                               Audi RS6 Avant C8 Ragazzon Klappenanlage
@@ -1452,11 +1453,11 @@
                           </div>
                           <div class="pt-2 border-t mt-auto" style="border-color: var(--panel-border);">
                             <div class="flex items-baseline justify-between mb-2">
-                              <span class="font-racing font-extrabold text-base tracking-tight" style="color: var(--logo-text);">2.499,00 €</span>
-                              <span class="text-xs text-gray-400 font-sans font-normal">inkl. MwSt.</span>
+                              <span class="font-racing font-extrabold text-xl tracking-normal" style="color: var(--logo-text);">2.499,00 €</span>
+                              <span class="text-[11px] text-gray-400 font-sans font-normal normal-case opacity-75">inkl. MwSt.</span>
                             </div>
                             <a href="detail.html" class="w-full text-center py-1.5 px-2.5 rounded text-xs font-sans font-bold uppercase tracking-wider text-white transition block" style="background-color: var(--brand-blue); color: #FFFFFF !important;">
-                              Produktdetails →
+                              DETAILS
                             </a>
                           </div>
                         </div>
@@ -1466,12 +1467,22 @@
                           <i class="fa-solid fa-award text-brand-blue text-xs"></i>
                           <span class="font-sans font-semibold uppercase tracking-wider text-xs">Offizieller Partner führender Manufakturen:</span>
                         </div>
-                        <div class="flex items-center space-x-5">
-                          <img src="assets/hersteller/remus.svg" alt="REMUS" class="h-4 sm:h-5 max-w-[70px] object-contain opacity-70 hover:opacity-100 transition filter grayscale hover:grayscale-0">
-                          <img src="assets/hersteller/fox.svg" alt="FOX" class="h-4 sm:h-5 max-w-[70px] object-contain opacity-70 hover:opacity-100 transition filter grayscale hover:grayscale-0">
-                          <img src="assets/hersteller/bastuck.png" alt="Bastuck" class="h-4 sm:h-5 max-w-[70px] object-contain opacity-70 hover:opacity-100 transition filter grayscale hover:grayscale-0">
-                          <img src="assets/hersteller/ragazzon.png" alt="Ragazzon" class="h-4 sm:h-5 max-w-[70px] object-contain opacity-70 hover:opacity-100 transition filter grayscale hover:grayscale-0">
-                          <img src="assets/hersteller/milltek.png" alt="Milltek" class="h-4 sm:h-5 max-w-[70px] object-contain opacity-70 hover:opacity-100 transition filter grayscale hover:grayscale-0">
+                        <div class="flex items-center space-x-3">
+                          <div class="h-8 px-3 py-1 bg-white rounded-md flex items-center justify-center shadow-xs hover:scale-105 transition-transform">
+                            <img src="assets/hersteller/remus.svg" alt="REMUS" class="h-4 max-w-[65px] object-contain">
+                          </div>
+                          <div class="h-8 px-3 py-1 bg-white rounded-md flex items-center justify-center shadow-xs hover:scale-105 transition-transform">
+                            <img src="assets/hersteller/fox.svg" alt="FOX" class="h-4 max-w-[65px] object-contain">
+                          </div>
+                          <div class="h-8 px-3 py-1 bg-white rounded-md flex items-center justify-center shadow-xs hover:scale-105 transition-transform">
+                            <img src="assets/hersteller/bastuck.png" alt="Bastuck" class="h-4 max-w-[65px] object-contain">
+                          </div>
+                          <div class="h-8 px-3 py-1 bg-white rounded-md flex items-center justify-center shadow-xs hover:scale-105 transition-transform">
+                            <img src="assets/hersteller/ragazzon.png" alt="Ragazzon" class="h-4 max-w-[65px] object-contain">
+                          </div>
+                          <div class="h-8 px-3 py-1 bg-white rounded-md flex items-center justify-center shadow-xs hover:scale-105 transition-transform">
+                            <img src="assets/hersteller/milltek.png" alt="Milltek" class="h-4 max-w-[65px] object-contain">
+                          </div>
                         </div>
                       </div>
                     </div>
