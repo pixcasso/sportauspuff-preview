@@ -1066,33 +1066,11 @@
             <span class="bg-brand-blue text-white font-bold px-2 py-0.5 rounded text-[11px] uppercase" style="color: #FFFFFF !important;">TOP</span>
           </a>
 
-          <!-- Endschalldämpfer (mit aufklappbarem Sub-Akkordeon) -->
-          <div class="border-b" style="border-color: var(--panel-border);">
-            <div class="flex items-center justify-between px-4 py-3 hover:bg-black/5 dark:hover:bg-white/5 transition">
-              <a href="kategorie.html#endschalldaempfer" onclick="toggleMobileDrawer()" class="flex items-center flex-1" style="color: var(--logo-text);">
-                <i class="fa-solid fa-circle-notch text-brand-blue w-5 text-center text-sm mr-3"></i>
-                <span class="font-sans font-semibold text-xs sm:text-sm">Endschalldämpfer</span>
-              </a>
-              <button
-                id="toggleESDBtn"
-                onclick="toggleSubmenu('submenuESD')"
-                class="w-7 h-7 flex items-center justify-center text-brand-blue hover:bg-black/10 dark:hover:bg-white/10 transition cursor-pointer"
-                aria-label="Endschalldämpfer Untermenü aufklappen"
-              >
-                <i id="submenuESDChevron" class="fa-solid fa-chevron-right text-xs transition-transform duration-200"></i>
-              </button>
-            </div>
-            <div id="submenuESD" class="hidden bg-black/5 dark:bg-white/[0.02]">
-              <a href="kategorie.html#duplex" onclick="toggleMobileDrawer()" class="flex items-center gap-2.5 pl-9 pr-4 py-3 min-h-[44px] border-b hover:bg-black/5 dark:hover:bg-white/5 transition text-xs font-medium" style="border-color: var(--panel-border); color: var(--logo-text);">
-                <i class="fa-solid fa-arrow-right text-xs text-brand-blue w-4"></i>
-                <span>Duplex-Sportauspuff (links &amp; rechts)</span>
-              </a>
-              <a href="kategorie.html#einzelrohr" onclick="toggleMobileDrawer()" class="flex items-center gap-2.5 pl-9 pr-4 py-3 min-h-[44px] hover:bg-black/5 dark:hover:bg-white/5 transition text-xs font-medium" style="color: var(--logo-text);">
-                <i class="fa-solid fa-arrow-right text-xs text-brand-blue w-4"></i>
-                <span>1-Rohr &amp; 2-Rohr Anlagen</span>
-              </a>
-            </div>
-          </div>
+          <!-- Endschalldämpfer -->
+          <a href="kategorie.html#endschalldaempfer" onclick="toggleMobileDrawer()" class="flex items-center px-4 py-3 border-b hover:bg-black/5 dark:hover:bg-white/5 transition text-xs font-semibold" style="border-color: var(--panel-border); color: var(--logo-text);">
+            <i class="fa-solid fa-circle-notch text-brand-blue w-5 text-center text-sm mr-3"></i>
+            <span class="font-sans font-semibold text-xs sm:text-sm">Endschalldämpfer</span>
+          </a>
 
           <!-- Klappenauspuffanlagen (mit Sound-Badge) -->
           <a href="kategorie.html#klappen" onclick="toggleMobileDrawer()" class="flex items-center justify-between px-4 py-3 border-b hover:bg-black/5 dark:hover:bg-white/5 transition text-xs font-semibold" style="border-color: var(--panel-border); color: var(--logo-text);">
@@ -1255,7 +1233,7 @@
                     </a>
 
                     <!-- MEHRSPALTIGES MEGA-MENÜ-FLYOUT (STUFE 2 RECHTS DANEBEN) -->
-                    <div class="catalog-flyout-panel p-6">
+                    <div class="catalog-flyout-panel p-6" style="border-top-left-radius: 0 !important; border-top-right-radius: 0 !important;">
                       <!-- 4 Spalten im Raster -->
                       <div class="grid grid-cols-4 gap-6">
 
@@ -1372,7 +1350,7 @@
                     </a>
                   </li>
 
-                  <!-- 3. Klappenauspuffanlagen (Mit Flyout) -->
+                  <!-- 3. Klappenauspuffanlagen (Mit Mega-Menü Variante 2) -->
                   <li class="catalog-menu-row has-flyout border-b border-white/5" style="border-color: var(--panel-border);">
                     <a href="kategorie.html#klappen" class="catalog-row-link">
                       <div class="flex items-center space-x-3 min-w-0">
@@ -1385,147 +1363,8 @@
                       </div>
                     </a>
 
-                    <!-- FLYOUT FÜR KLAPPENANLAGEN (Stufe 2) -->
-                    <div class="catalog-flyout-panel p-6">
-                      <div class="grid grid-cols-4 gap-6">
-                        <div>
-                          <div class="overflow-hidden rounded-md mb-3 border border-white/10" style="border-color: var(--panel-border);">
-                            <img src="assets/kategorien/klappenauspuff-kaufen.webp" alt="Klappenauspuffanlagen" class="w-full h-24 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-                          </div>
-                          <h4 class="font-bold text-xs uppercase tracking-wider text-brand-blue mb-2.5">Klappentechnologie</h4>
-                          <ul class="space-y-1">
-                            <li><a href="kategorie.html#ece-klappen" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">100% ECE-Homologiert</a></li>
-                            <li><a href="kategorie.html#pneumatisch" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Pneumatische Klappen</a></li>
-                            <li><a href="kategorie.html#elektrisch" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Elektrische Stellmotoren</a></li>
-                            <li><a href="kategorie.html#unterdruck" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Unterdruck-Steuerungskits</a></li>
-                            <li><a href="kategorie.html#canbus" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">CAN-Bus Anbindung</a></li>
-                          </ul>
-                        </div>
-                        <div>
-                          <div class="overflow-hidden rounded-md mb-3 border border-white/10" style="border-color: var(--panel-border);">
-                            <img src="assets/kategorien/downpipe-kaufen.webp" alt="Sound &amp; Steuerung" class="w-full h-24 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-                          </div>
-                          <h4 class="font-bold text-xs uppercase tracking-wider text-brand-blue mb-2.5">Steuerung &amp; Modi</h4>
-                          <ul class="space-y-1">
-                            <li><a href="kategorie.html#drive-select" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Audi Drive Select Integration</a></li>
-                            <li><a href="kategorie.html#bmw-modes" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">BMW Fahrerlebnisschalter</a></li>
-                            <li><a href="kategorie.html#mercedes-dynamic" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Mercedes DYNAMIC SELECT</a></li>
-                            <li><a href="kategorie.html#funk-fernbedienung" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Funk-Fernbedienungen</a></li>
-                            <li><a href="kategorie.html#app-control" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Smartphone-App Steuerung</a></li>
-                          </ul>
-                        </div>
-                        <div>
-                          <div class="overflow-hidden rounded-md mb-3 border border-white/10" style="border-color: var(--panel-border);">
-                            <img src="assets/kategorien/sportauspuff-kaufen.webp" alt="Hersteller-Klappensysteme" class="w-full h-24 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-                          </div>
-                          <h4 class="font-bold text-xs uppercase tracking-wider text-brand-blue mb-2.5">Premium Manufakturen</h4>
-                          <ul class="space-y-1">
-                            <li><a href="kategorie.html?brand=Ragazzon" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Ragazzon Inox Klappen (IT)</a></li>
-                            <li><a href="kategorie.html?brand=REMUS" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">REMUS Sound-Control (AT)</a></li>
-                            <li><a href="kategorie.html?brand=Milltek" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Milltek Sport Active Valve</a></li>
-                            <li><a href="kategorie.html?brand=Capristo" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Capristo CES3 Klappen</a></li>
-                            <li><a href="kategorie.html?brand=Akrapovic" class="block py-1 text-xs hover:text-brand-blue hover:translate-x-0.5 transition-transform" style="color: var(--text-main);">Akrapovič Sound Kit Titan</a></li>
-                          </ul>
-                        </div>
-                        <div class="p-3.5 rounded-lg border flex flex-col justify-between" style="background-color: var(--panel-card); border-color: var(--panel-border);">
-                          <div>
-                            <div class="relative overflow-hidden rounded-md mb-2.5">
-                              <img src="assets/audi-rs6-ragazzon.jpg" alt="Audi RS6 Avant C8 Ragazzon Klappenanlage" class="w-full h-24 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-                              <span class="absolute top-2 left-2 px-2 py-0.5 rounded text-[11px] font-sans font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm" style="background-color: var(--brand-green); color: #FFFFFF !important;"><i class="fa-solid fa-check text-xs"></i> ECE</span>
-                            </div>
-                            <a href="detail.html" class="font-sans font-semibold text-xs leading-snug line-clamp-2 hover:text-brand-blue transition block mb-1.5" style="color: var(--logo-text);">
-                              Audi RS6 Avant C8 Ragazzon Klappenanlage
-                            </a>
-                            <div class="flex items-center gap-1.5 text-xs font-medium mb-2" style="color: var(--brand-green);">
-                              <span class="w-1.5 h-1.5 rounded-full inline-block" style="background-color: var(--brand-green);"></span>
-                              <span>Auf Lager (1–3 Werktage)</span>
-                            </div>
-                          </div>
-                          <div class="pt-2 border-t mt-auto" style="border-color: var(--panel-border);">
-                            <div class="flex items-baseline justify-between mb-2">
-                              <span class="font-racing font-extrabold text-xl tracking-normal" style="color: var(--logo-text);">2.499,00 €</span>
-                              <span class="text-[11px] text-gray-400 font-sans font-normal normal-case opacity-75">inkl. MwSt.</span>
-                            </div>
-                            <a href="detail.html" class="w-full text-center py-1.5 px-2.5 rounded text-xs font-sans font-bold uppercase tracking-wider text-white transition block" style="background-color: var(--brand-blue); color: #FFFFFF !important;">
-                              DETAILS
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mt-5 pt-4 border-t flex items-center justify-between" style="border-color: var(--panel-border);">
-                        <div class="flex items-center space-x-2 text-xs opacity-75">
-                          <i class="fa-solid fa-award text-brand-blue text-xs"></i>
-                          <span class="font-sans font-semibold uppercase tracking-wider text-xs">Offizieller Partner führender Manufakturen:</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                          <div class="h-8 px-3 py-1 bg-white rounded-md flex items-center justify-center shadow-xs hover:scale-105 transition-transform">
-                            <img src="assets/hersteller/remus.svg" alt="REMUS" class="h-4 max-w-[65px] object-contain">
-                          </div>
-                          <div class="h-8 px-3 py-1 bg-white rounded-md flex items-center justify-center shadow-xs hover:scale-105 transition-transform">
-                            <img src="assets/hersteller/fox.svg" alt="FOX" class="h-4 max-w-[65px] object-contain">
-                          </div>
-                          <div class="h-8 px-3 py-1 bg-white rounded-md flex items-center justify-center shadow-xs hover:scale-105 transition-transform">
-                            <img src="assets/hersteller/bastuck.png" alt="Bastuck" class="h-4 max-w-[65px] object-contain">
-                          </div>
-                          <div class="h-8 px-3 py-1 bg-white rounded-md flex items-center justify-center shadow-xs hover:scale-105 transition-transform">
-                            <img src="assets/hersteller/ragazzon.png" alt="Ragazzon" class="h-4 max-w-[65px] object-contain">
-                          </div>
-                          <div class="h-8 px-3 py-1 bg-white rounded-md flex items-center justify-center shadow-xs hover:scale-105 transition-transform">
-                            <img src="assets/hersteller/milltek.png" alt="Milltek" class="h-4 max-w-[65px] object-contain">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-
-                  <!-- 4. Downpipes & Sportkats -->
-                  <li class="catalog-menu-row border-b border-white/5" style="border-color: var(--panel-border);">
-                    <a href="kategorie.html#downpipes" class="catalog-row-link">
-                      <div class="flex items-center space-x-3 min-w-0">
-                        <i class="fa-solid fa-fire-flame-curved w-5 text-center text-brand-blue flex-shrink-0"></i>
-                        <span class="truncate" style="color: var(--logo-text);">Downpipes &amp; Sportkats</span>
-                      </div>
-                      <div class="flex items-center space-x-2 flex-shrink-0 ml-2">
-                        <span class="bg-rose-600 text-white font-bold px-2 py-0.5 rounded text-[11px]" style="color: #FFFFFF !important;">POWER</span>
-                      </div>
-                    </a>
-                  </li>
-
-                  <!-- 5. Endrohre & Blenden -->
-                  <li class="catalog-menu-row border-b border-white/5" style="border-color: var(--panel-border);">
-                    <a href="kategorie.html#endrohre" class="catalog-row-link">
-                      <div class="flex items-center space-x-3 min-w-0">
-                        <i class="fa-solid fa-bullseye w-5 text-center text-brand-blue flex-shrink-0"></i>
-                        <span class="truncate" style="color: var(--logo-text);">Endrohre &amp; Blenden</span>
-                      </div>
-                    </a>
-                  </li>
-
-                  <!-- 6. Active Sound Systeme -->
-                  <li class="catalog-menu-row border-b border-white/5" style="border-color: var(--panel-border);">
-                    <a href="kategorie.html#soundgeneratoren" class="catalog-row-link">
-                      <div class="flex items-center space-x-3 min-w-0">
-                        <i class="fa-solid fa-wave-square w-5 text-center text-brand-blue flex-shrink-0"></i>
-                        <span class="truncate" style="color: var(--logo-text);">Active Sound Systeme</span>
-                      </div>
-                    </a>
-                  </li>
-
-                  <!-- 7. Hersteller-Marken (Mit Flyout) -->
-                  <li class="catalog-menu-row has-flyout border-b border-white/5" style="border-color: var(--panel-border);">
-                    <a href="kategorie.html#marken" class="catalog-row-link">
-                      <div class="flex items-center space-x-3 min-w-0">
-                        <i class="fa-solid fa-tags w-5 text-center text-brand-blue flex-shrink-0"></i>
-                        <span class="truncate" style="color: var(--logo-text);">Hersteller-Marken</span>
-                      </div>
-                      <div class="flex items-center space-x-2 flex-shrink-0 ml-2">
-                        <span class="bg-brand-blue text-white font-bold px-2 py-0.5 rounded text-[11px]" style="color: #FFFFFF !important;">28 MARKEN</span>
-                        <i class="catalog-row-chevron fa-solid fa-chevron-right text-xs opacity-40 transition-all"></i>
-                      </div>
-                    </a>
-
-                    <!-- MARKEN-FLYOUT (Stufe 2) -->
-                    <div class="catalog-flyout-panel p-6">
+                    <!-- MEGA-MENÜ VARIANTE 2 (Themenmenüs 2x2 + Werbebanner + Footer) -->
+                    <div class="catalog-flyout-panel p-6" style="border-top-left-radius: 0 !important; border-top-right-radius: 0 !important;">
                       <!-- 2-geteiltes Mega-Menü-Layout: Links 4 Themenmenüs (col-span-7), Rechts emotionales Showcase (col-span-5) -->
                       <div class="grid grid-cols-12 gap-6">
 
@@ -1576,15 +1415,15 @@
 
                         <!-- Rechts: Großes emotionales Werbebanner / Showcase (ca. 42 % Breite) -->
                         <div class="col-span-5 flex">
-                          <div class="relative w-full rounded-lg overflow-hidden flex flex-col justify-end p-5 min-h-[260px] border border-white/10 group shadow-md" style="border-color: var(--panel-border);">
+                          <div class="relative w-full rounded-lg overflow-hidden flex flex-col justify-end p-5 min-h-[260px] border border-white/10 group shadow-md dark-surface" data-theme-surface="dark" style="border-color: var(--panel-border);">
                             <img src="assets/kategorien/sportauspuffanlage-kaufen.webp" alt="Erlebe den ultimativen Klang" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                            <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(9, 11, 16, 0.45) 0%, rgba(9, 11, 16, 0.85) 55%, rgba(9, 11, 16, 0.98) 100%);"></div>
                             <div class="relative z-10">
                               <div class="mb-3">
                                 <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-sans font-bold uppercase tracking-wider bg-brand-blue text-white shadow-sm" style="color: #FFFFFF !important;">★ BRAND SHOWCASE</span>
                               </div>
-                              <h3 class="font-racing font-extrabold uppercase italic text-2xl text-white mb-2 leading-tight">ERLEBE DEN ULTIMATIVEN KLANG</h3>
-                              <p class="text-xs text-gray-200 mb-4 leading-relaxed font-sans">28 zertifizierte Manufakturen mit 100% ECE-Zulassung. Finde deinen Sound.</p>
+                              <h3 class="font-racing font-extrabold uppercase italic text-2xl text-white mb-2 leading-tight" style="color: #FFFFFF !important;">ERLEBE DEN ULTIMATIVEN KLANG</h3>
+                              <p class="text-xs font-sans mb-4 leading-relaxed" style="color: #E2E8F0 !important;">28 zertifizierte Manufakturen mit 100% ECE-Zulassung. Finde deinen Sound.</p>
                               <a href="kategorie.html#marken" class="inline-flex items-center gap-1.5 bg-brand-blue hover:bg-brand-blueHover text-white font-sans font-bold text-xs uppercase px-4 py-2 rounded transition shadow" style="color: #FFFFFF !important;">
                                 <span>MARKENWELT ENTDECKEN</span>
                                 <span>&rarr;</span>
@@ -1602,6 +1441,52 @@
                         <span class="text-xs text-gray-400">100% Original-Herstellerware mit Gutachten</span>
                       </div>
                     </div>
+                  </li>
+
+                  <!-- 4. Downpipes & Sportkats -->
+                  <li class="catalog-menu-row border-b border-white/5" style="border-color: var(--panel-border);">
+                    <a href="kategorie.html#downpipes" class="catalog-row-link">
+                      <div class="flex items-center space-x-3 min-w-0">
+                        <i class="fa-solid fa-fire-flame-curved w-5 text-center text-brand-blue flex-shrink-0"></i>
+                        <span class="truncate" style="color: var(--logo-text);">Downpipes &amp; Sportkats</span>
+                      </div>
+                      <div class="flex items-center space-x-2 flex-shrink-0 ml-2">
+                        <span class="bg-rose-600 text-white font-bold px-2 py-0.5 rounded text-[11px]" style="color: #FFFFFF !important;">POWER</span>
+                      </div>
+                    </a>
+                  </li>
+
+                  <!-- 5. Endrohre & Blenden -->
+                  <li class="catalog-menu-row border-b border-white/5" style="border-color: var(--panel-border);">
+                    <a href="kategorie.html#endrohre" class="catalog-row-link">
+                      <div class="flex items-center space-x-3 min-w-0">
+                        <i class="fa-solid fa-bullseye w-5 text-center text-brand-blue flex-shrink-0"></i>
+                        <span class="truncate" style="color: var(--logo-text);">Endrohre &amp; Blenden</span>
+                      </div>
+                    </a>
+                  </li>
+
+                  <!-- 6. Active Sound Systeme -->
+                  <li class="catalog-menu-row border-b border-white/5" style="border-color: var(--panel-border);">
+                    <a href="kategorie.html#soundgeneratoren" class="catalog-row-link">
+                      <div class="flex items-center space-x-3 min-w-0">
+                        <i class="fa-solid fa-wave-square w-5 text-center text-brand-blue flex-shrink-0"></i>
+                        <span class="truncate" style="color: var(--logo-text);">Active Sound Systeme</span>
+                      </div>
+                    </a>
+                  </li>
+
+                  <!-- 7. Hersteller-Marken -->
+                  <li class="catalog-menu-row border-b border-white/5" style="border-color: var(--panel-border);">
+                    <a href="kategorie.html#marken" class="catalog-row-link">
+                      <div class="flex items-center space-x-3 min-w-0">
+                        <i class="fa-solid fa-tags w-5 text-center text-brand-blue flex-shrink-0"></i>
+                        <span class="truncate" style="color: var(--logo-text);">Hersteller-Marken</span>
+                      </div>
+                      <div class="flex items-center space-x-2 flex-shrink-0 ml-2">
+                        <span class="bg-brand-blue text-white font-bold px-2 py-0.5 rounded text-[11px]" style="color: #FFFFFF !important;">28 MARKEN</span>
+                      </div>
+                    </a>
                   </li>
 
                   <!-- 8. Montagematerial & Zubehör -->
@@ -3080,7 +2965,7 @@
       }
     }
 
-    // Sub-Akkordeon Toggle (Service & Hilfe, Endschalldämpfer, Hersteller-Marken)
+    // Sub-Akkordeon Toggle (Service & Hilfe, Hersteller-Marken)
     function toggleSubmenu(submenuId) {
       const submenu = document.getElementById(submenuId);
       const chevron = document.getElementById(submenuId + 'Chevron');
