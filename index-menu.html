@@ -788,6 +788,10 @@
                   <i class="fa-solid fa-certificate text-xs text-amber-400"></i>
                   <span>Klappenauspuff ECE</span>
                 </button>
+                <button type="button" class="search-trend-pill" data-search-term="Downpipes 200 Zellen">
+                  <i class="fa-solid fa-fire text-xs text-brand-orange"></i>
+                  <span>Downpipes 200 Zellen</span>
+                </button>
               </div>
             </div>
 
@@ -1541,13 +1545,6 @@
 
             <!-- HORIZONTALE SCHNELL-PILLS NEBEN DEM KATALOG-TRIGGER -->
             <div class="flex items-center space-x-1.5 ml-4 h-full">
-              <a href="kategorie.html" class="px-3.5 py-1.5 rounded-md flex items-center space-x-1.5 hover:text-brand-blue hover:bg-black/5 dark:hover:bg-white/5 transition">
-                <i class="fa-solid fa-fire text-brand-blue text-xs"></i>
-                <span class="font-sans text-xs font-semibold">Sportauspuff</span>
-              </a>
-              <a href="kategorie.html#endschalldaempfer" class="px-3.5 py-1.5 rounded-md flex items-center hover:text-brand-blue hover:bg-black/5 dark:hover:bg-white/5 transition">
-                <span class="font-sans text-xs font-semibold">Endschalldämpfer</span>
-              </a>
               <a href="kategorie.html#komplettanlagen" class="px-3.5 py-1.5 rounded-md flex items-center space-x-1.5 hover:text-brand-blue hover:bg-black/5 dark:hover:bg-white/5 transition">
                 <span class="font-sans text-xs font-semibold">Komplettanlagen</span>
                 <span class="bg-brand-blue text-white text-xs px-1.5 py-0.5 rounded font-bold ml-1 uppercase" style="color: #FFFFFF !important;">Top</span>
@@ -3254,6 +3251,351 @@
       document.addEventListener('DOMContentLoaded', initMobileSearch);
     } else {
       initMobileSearch();
+    }
+
+    // =========================================================================
+    // DESKTOP LIVE-SUCHE & 3-ZEICHEN-LOGIK (#searchPreviewDropdown)
+    // =========================================================================
+    const simulatedProductsDesk = [
+      {
+        id: "rs6-ragazzon",
+        title: "Audi RS6 Avant C8 Ragazzon Klappenanlage",
+        sub: "V8 Biturbo Klappenauspuff · 100% ECE legal",
+        artNr: "50.0892.00",
+        badge: "100% ECE",
+        stock: "Auf Lager",
+        price: "2.499,00 €",
+        url: "detail.html?product=ragazzon-rs6",
+        image: "assets/audi-rs6-ragazzon.jpg",
+        isBestseller: true
+      },
+      {
+        id: "golf8-fox",
+        title: "VW Golf 8 GTI FOX Duplex Sportauspuff",
+        sub: "Edelstahl 76mm Endrohre poliert · EG-Genehmigung",
+        artNr: "VW053034-776",
+        badge: "100% ECE",
+        stock: "Auf Lager",
+        price: "949,00 €",
+        url: "detail.html?product=fox-golf8gti",
+        brandText: "FOX",
+        brandClass: "text-brand-orange font-racing font-bold text-lg",
+        isBestseller: true
+      },
+      {
+        id: "m340i-remus",
+        title: "BMW M340i xDrive REMUS Klappenauspuff",
+        sub: "Edelstahl Duplex mit Klappensteuerung · ECE",
+        artNr: "086020-1500",
+        badge: "100% ECE",
+        stock: "Auf Lager",
+        price: "2.190,00 €",
+        url: "detail.html?product=remus-m340i",
+        brandText: "REMUS",
+        brandClass: "text-brand-orange font-racing tracking-wider font-bold text-xs",
+        isBestseller: true
+      },
+      {
+        id: "bastuck-downpipe",
+        title: "Bastuck Downpipe & 200 Zellen Sportkatalysator",
+        sub: "High-Flow Metallkat Downpipes 200 Zellen für maximalen Durchsatz",
+        artNr: "BAST-DP-200",
+        badge: "100% ECE",
+        stock: "Auf Lager",
+        price: "645,00 €",
+        url: "detail.html?product=bastuck-kat",
+        brandText: "BASTUCK",
+        brandClass: "text-brand-orange font-racing tracking-wider font-bold text-xs"
+      },
+      {
+        id: "akrapovic-titan",
+        title: "Akrapovič Evolution Line Titan Klappenauspuff",
+        sub: "Carbon / Titan Auspuffblenden · 4x 100mm ECE legal",
+        artNr: "S-AU/TI/15H",
+        badge: "100% ECE",
+        stock: "Auf Lager",
+        price: "4.890,00 €",
+        url: "detail.html?product=akrapovic-tips",
+        brandText: "AKRAPOVIČ",
+        brandClass: "text-brand-orange font-racing tracking-wider font-bold text-xs"
+      },
+      {
+        id: "bullx-klappe",
+        title: "Bull-X 3'' Klappenabgasanlage ECE",
+        sub: "Edelstahl Klappenauspuff ab Kat · EG-Betriebserlaubnis",
+        artNr: "HG-BX-01",
+        badge: "100% ECE",
+        stock: "Auf Lager",
+        price: "1.799,00 €",
+        url: "detail.html?product=bullx-klappe",
+        brandText: "BULL-X",
+        brandClass: "text-brand-orange font-racing tracking-wider font-bold text-xs"
+      },
+      {
+        id: "hjs-downpipe",
+        title: "HJS 200 Zellen Tuning Downpipe ECE",
+        sub: "Edelstahl Downpipes 200 Zellen mit Sportkat · 100% ECE",
+        artNr: "HJS-90822015",
+        badge: "100% ECE",
+        stock: "Auf Lager",
+        price: "1.349,00 €",
+        url: "detail.html?product=hjs-downpipe",
+        brandText: "HJS",
+        brandClass: "text-brand-orange font-racing tracking-wider font-bold text-xs"
+      }
+    ];
+
+    const popularSearchesDesk = [
+      "Audi RS6 Ragazzon",
+      "Golf 8 GTI Fox",
+      "BMW M340i Remus",
+      "Klappenauspuff ECE",
+      "Downpipes 200 Zellen"
+    ];
+
+    function escapeHtmlDesk(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function renderDesktopProductItem(item) {
+      let thumbHtml = '';
+      if (item.image) {
+        thumbHtml = `<img src="${item.image}" alt="${escapeHtmlDesk(item.title)}" class="w-full h-full object-cover">`;
+      } else if (item.brandText) {
+        thumbHtml = `<span class="${item.brandClass || 'text-brand-orange font-racing font-bold text-xs'}">${escapeHtmlDesk(item.brandText)}</span>`;
+      } else if (item.icon) {
+        thumbHtml = `<i class="fa-solid ${item.icon} text-base ${item.color || 'text-brand-orange'}"></i>`;
+      }
+
+      const badgeHtml = item.badge
+        ? `<span class="text-xs font-bold px-1.5 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex-shrink-0">${escapeHtmlDesk(item.badge)}</span>`
+        : '';
+
+      const artNrHtml = item.artNr
+        ? `<span>Art.-Nr. ${escapeHtmlDesk(item.artNr)}</span><span>•</span>`
+        : '';
+
+      return `
+        <a href="${item.url}" class="search-preview-item flex items-center justify-between p-3 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition group border border-transparent">
+          <div class="flex items-center space-x-3 min-w-0 pr-2">
+            <div class="w-12 h-12 rounded-lg bg-black/20 flex-shrink-0 overflow-hidden flex items-center justify-center border border-white/10">
+              ${thumbHtml}
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-bold truncate group-hover:text-brand-orange transition-colors" style="color: var(--text-main);">
+                  ${escapeHtmlDesk(item.title)}
+                </span>
+                ${badgeHtml}
+              </div>
+              <div class="text-xs text-gray-400 flex items-center space-x-2 mt-0.5">
+                ${artNrHtml}
+                <span class="text-emerald-500 font-semibold flex items-center"><i class="fa-solid fa-check text-xs mr-1"></i>${escapeHtmlDesk(item.stock || 'Auf Lager')}</span>
+                ${item.sub ? `<span class="hidden lg:inline text-gray-500">·</span><span class="hidden lg:inline truncate text-gray-400 max-w-[280px]">${escapeHtmlDesk(item.sub)}</span>` : ''}
+              </div>
+            </div>
+          </div>
+          <div class="text-right flex-shrink-0 pl-3">
+            <div class="font-racing text-base font-extrabold text-brand-orange whitespace-nowrap">${escapeHtmlDesk(item.price)}</div>
+            <div class="text-xs text-gray-400">inkl. MwSt.</div>
+          </div>
+        </a>
+      `;
+    }
+
+    function renderDesktopPreviewHtml() {
+      const pillsHtml = popularSearchesDesk.map(function(term) {
+        let icon = 'fa-magnifying-glass text-brand-orange';
+        if (term.includes('ECE')) icon = 'fa-certificate text-amber-400';
+        else if (term.includes('Downpipe')) icon = 'fa-fire text-brand-orange';
+        return `
+          <button type="button" class="search-trend-pill" data-search-term="${escapeHtmlDesk(term)}">
+            <i class="fa-solid ${icon} text-xs"></i>
+            <span>${escapeHtmlDesk(term)}</span>
+          </button>
+        `;
+      }).join('');
+
+      const bestsellers = simulatedProductsDesk.filter(function(p) { return p.isBestseller; }).slice(0, 3);
+      const bestsellersHtml = bestsellers.map(function(item) { return renderDesktopProductItem(item); }).join('');
+
+      return `
+        <!-- Trends & Häufig gesucht -->
+        <div class="p-4 border-b border-white/10" style="border-color: var(--panel-border);">
+          <div class="search-preview-section-title text-xs font-sans font-semibold tracking-wide text-gray-400 mb-2.5 flex items-center space-x-1.5">
+            <i class="fa-solid fa-arrow-trend-up text-brand-orange text-xs"></i>
+            <span>Trends &amp; Häufig gesucht:</span>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            ${pillsHtml}
+          </div>
+        </div>
+
+        <!-- Sofort verfügbare Bestseller -->
+        <div class="p-2 space-y-1">
+          <div class="search-preview-section-title px-3 pt-2 pb-1 text-xs font-sans font-semibold tracking-wide text-gray-400">
+            Sofort verfügbare Bestseller
+          </div>
+          ${bestsellersHtml}
+        </div>
+
+        <!-- Dropdown Footer -->
+        <div class="search-preview-footer p-3 bg-black/20 border-t flex items-center justify-between text-xs" style="border-color: var(--panel-border);">
+          <span class="text-gray-400 text-xs hidden sm:inline">Drücke <kbd class="px-1.5 py-0.5 bg-black/30 rounded border border-white/10 font-mono text-xs">ESC</kbd> zum Schließen</span>
+          <a href="kategorie.html" class="text-brand-orange font-sans font-bold uppercase tracking-wider text-xs hover:underline flex items-center space-x-1.5 ml-auto">
+            <span>ALLE ERGEBNISSE FÜR SUCHE ANZEIGEN</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+      `;
+    }
+
+    function renderDesktopResultHtml(val) {
+      const lower = val.toLowerCase().trim();
+      const words = lower.split(/\s+/).filter(Boolean);
+      const matched = simulatedProductsDesk.filter(function(p) {
+        const corpus = (p.title + ' ' + (p.sub || '') + ' ' + (p.artNr || '')).toLowerCase();
+        if (corpus.includes(lower)) return true;
+        if (words.length > 1 && words.every(function(w) { return corpus.includes(w); })) return true;
+        return false;
+      });
+
+      const hits = matched.slice(0, 5);
+      const countBadge = `${matched.length} Treffer`;
+
+      let itemsHtml = '';
+      if (hits.length > 0) {
+        itemsHtml = hits.map(function(item) { return renderDesktopProductItem(item); }).join('');
+      } else {
+        itemsHtml = `
+          <div class="p-6 text-center text-xs text-gray-400">
+            <div class="w-10 h-10 rounded-full bg-black/10 dark:bg-white/5 flex items-center justify-center mx-auto mb-2 text-gray-400">
+              <i class="fa-solid fa-magnifying-glass text-sm"></i>
+            </div>
+            <div class="font-semibold text-xs" style="color: var(--text-main);">Keine direkten Treffer für &ldquo;${escapeHtmlDesk(val)}&rdquo;</div>
+            <div class="text-xs text-gray-400 mt-1">Drücke <kbd class="px-1.5 py-0.5 bg-black/30 dark:bg-white/10 rounded border border-white/10 font-mono text-xs">Enter</kbd> für die Gesamtsuche im Katalog.</div>
+          </div>
+        `;
+      }
+
+      return `
+        <!-- Header: Treffer für "val" mit Trefferanzahl-Badge -->
+        <div class="px-4 py-2.5 text-xs font-sans font-semibold text-gray-400 flex items-center justify-between border-b" style="border-color: var(--panel-border); background-color: var(--tier2-bg);">
+          <span style="color: var(--text-main);">Treffer für &ldquo;<span class="text-brand-orange">${escapeHtmlDesk(val)}</span>&rdquo;</span>
+          <span class="text-brand-orange font-bold font-mono px-2 py-0.5 rounded bg-brand-orange/10 border border-brand-orange/20 text-xs">${countBadge}</span>
+        </div>
+
+        <!-- Gefilterte Produktliste (Vorschläge vollständig ausgeblendet) -->
+        <div class="p-2 space-y-1">
+          ${itemsHtml}
+        </div>
+
+        <!-- Dropdown Footer -->
+        <div class="search-preview-footer p-3 bg-black/20 border-t flex items-center justify-between text-xs" style="border-color: var(--panel-border);">
+          <span class="text-gray-400 text-xs hidden sm:inline">Drücke <kbd class="px-1.5 py-0.5 bg-black/30 rounded border border-white/10 font-mono text-xs">ESC</kbd> zum Schließen</span>
+          <a href="kategorie.html?q=${encodeURIComponent(val)}" class="text-brand-orange font-sans font-bold uppercase tracking-wider text-xs hover:underline flex items-center space-x-1.5 ml-auto">
+            <span>Alle Ergebnisse für &ldquo;${escapeHtmlDesk(val)}&rdquo; ansehen</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+      `;
+    }
+
+    function renderDesktopSearch() {
+      const input = document.getElementById('search_keys');
+      const dropdown = document.getElementById('searchPreviewDropdown');
+      if (!input || !dropdown) return;
+
+      const val = input.value.trim();
+      if (val.length < 3) {
+        dropdown.innerHTML = renderDesktopPreviewHtml();
+      } else {
+        dropdown.innerHTML = renderDesktopResultHtml(val);
+      }
+      dropdown.classList.remove('hidden');
+    }
+
+    function selectDesktopSuggestion(term) {
+      const input = document.getElementById('search_keys');
+      if (!input) return;
+      input.value = term;
+      renderDesktopSearch();
+      input.focus();
+    }
+
+    function closeDesktopSearch() {
+      const dropdown = document.getElementById('searchPreviewDropdown');
+      if (dropdown) {
+        dropdown.classList.add('hidden');
+      }
+    }
+
+    function initDesktopSearch() {
+      const input = document.getElementById('search_keys');
+      const form = document.getElementById('searchForm');
+      const dropdown = document.getElementById('searchPreviewDropdown');
+      if (!input || !dropdown) return;
+
+      input.addEventListener('focus', function() {
+        renderDesktopSearch();
+      });
+
+      input.addEventListener('click', function() {
+        renderDesktopSearch();
+      });
+
+      input.addEventListener('input', function() {
+        renderDesktopSearch();
+      });
+
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const val = input.value.trim();
+          if (val) {
+            window.location.href = `kategorie.html?q=${encodeURIComponent(val)}`;
+          }
+        });
+      }
+
+      dropdown.addEventListener('click', function(e) {
+        const pill = e.target.closest('.search-trend-pill');
+        if (pill) {
+          const term = pill.getAttribute('data-search-term') || pill.textContent.trim();
+          if (term) {
+            selectDesktopSuggestion(term);
+          }
+        }
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!dropdown.classList.contains('hidden')) {
+          if ((!form || !form.contains(e.target)) && !dropdown.contains(e.target)) {
+            closeDesktopSearch();
+          }
+        }
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          if (!dropdown.classList.contains('hidden')) {
+            closeDesktopSearch();
+            if (input) input.blur();
+          }
+        }
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initDesktopSearch);
+    } else {
+      initDesktopSearch();
     }
 
     // Theme Manager Adapter für kanonische Inter-Typografie (OHNE Rundungen im mobilen Drawer)
